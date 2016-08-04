@@ -19,7 +19,7 @@ namespace Orchard.Xmu
                   Priority = 100,
 
             Route = new Route(
-             "home",
+             "",
              new RouteValueDictionary {
                                         {"area", "Orchard.Xmu"},
                                         {"controller", "Home"},
