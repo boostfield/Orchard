@@ -1,0 +1,10 @@
+﻿Name: Orchard.Xmu
+AntiForgery: enabled
+Author: The Orchard Team
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.10
+Description: Description for the module Orchard.Xmu.
+Features:
+    Orchard.Xmu:
+        Description: Description for feature Orchard.Xmu.
