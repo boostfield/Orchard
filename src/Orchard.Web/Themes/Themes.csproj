@@ -93,7 +93,17 @@
     <Content Include="OrchardBS\OrchardBS.csproj" />
     <Content Include="OrchardBS\Scripts\bootstrap.min.js" />
     <Content Include="OrchardBS\Styles\bootstrap.min.css" />
-    <Content Include="OrchardBS\Styles\Site.css" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="OrchardBS\Styles\Site.less" />
+    <Content Include="OrchardBS\Styles\Site.css">
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
+    <Content Include="OrchardBS\Styles\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="OrchardBS\Theme.png" />
     <Content Include="OrchardBS\Theme.txt" />
     <Content Include="TheAdmin\Scripts\admin.js" />

@@ -1,8 +1,6 @@
-﻿body {
+﻿.navbar.navbar-default {
+  background-color: darkblue;
 }
-.navbar.navbar-default {
-    background-color: darkblue;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white;
+.navbar-default .navbar-nav > li > a {
+  color: white;
 }
