@@ -46,7 +46,7 @@ namespace Orchard.Setup.Controllers {
 
         public ActionResult Index() {
             var initialSettings = _setupService.Prime();
-            var recipes = _setupService.Recipes().ToList();
+            var recipes = _setupService.Recipes().Where(i => i.Name.ToLowerInvariant().Contains("xmu")).ToList();
             string recipeDescription = null;
 
             if (recipes.Any()) {
