@@ -1,0 +1,165 @@
+﻿@functions {
+    // To support the layout classifaction below. Implementing as a razor function because we can, could otherwise be a Func<string[], string, string> in the code block following.
+    string CalcuClassify(string[] zoneNames, string classNamePrefix) {
+        var zoneCounter = 0;
+        var zoneNumsFilled = string.Join("", zoneNames.Select(zoneName => { ++zoneCounter; return Model[zoneName] != null ? zoneCounter.ToString() : "";}).ToArray());
+        return HasText(zoneNumsFilled) ? classNamePrefix + zoneNumsFilled : "";
+    }
+}
+@{
+    /* Global includes for the theme
+    ***************************************************************/
+    
+    SetMeta("charset", "utf-8");
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    SetMeta("viewport", "width=device-width, initial-scale=1.0");
+    SetMeta("author", "Abhishek Luv");
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Layout classification based on filled zones
+    ***************************************************************/
+
+    //Add classes to the wrapper div to toggle aside widget zones on and off
+    var asideClass = CalcuClassify(new [] {"AsideFirst", "AsideSecond"}, "aside-"); // for aside-1, aside-2 or aside-12 if any of the aside zones are filled
+    if (HasText(asideClass)) {
+        Model.Classes.Add(asideClass);
+    }
+
+    //Add classes to the wrapper div to toggle tripel widget zones on and off
+    var tripelClass = CalcuClassify(new [] {"TripelFirst", "TripelSecond", "TripelThird"}, "tripel-"); // for tripel-1, triple-2, etc. if any of the tripel zones are filled
+    if (HasText(tripelClass)) {
+        Model.Classes.Add(tripelClass);
+    }
+
+    //Add classes to the wrapper div to toggle quad widget zones on and off
+    var footerQuadClass = CalcuClassify(new [] {"FooterQuadFirst", "FooterQuadSecond", "FooterQuadThird", "FooterQuadFourth"}, "split-"); // for quad-1, quad-2, etc. if any of the quad zones are filled
+    if (HasText(footerQuadClass)) {
+        Model.Classes.Add(footerQuadClass);
+    }
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+    WorkContext.Layout.Header.Add(New.Branding(), "5"); // Site name and link to the home page
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5"); // Powered by Orchard
+    WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
+
+    /* Last bit of code to prep the layout wrapper
+    ***************************************************************/
+    
+    Model.Id = "layout-wrapper";
+    var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
+}
+@tag.StartElement
+
+
+
+<section id="content">
+    <div class="container">
+        @if (Model.BeforeMain != null)
+        { 
+            <div class="row">
+                <div class="col-lg-12">
+                    @Zone(Model.BeforeMain)
+                </div>
+            </div>
+        }
+
+        @if (Model.Featured != null)
+        { 
+            <div class="row">
+                <div class="col-lg-12">
+                    @Zone(Model.Featured)
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            @if (Model.AsideFirst != null)
+            { 
+                <aside class="col-lg-3">
+                    <div class="well well-sm">
+                        @Zone(Model.AsideFirst)
+                    </div>
+                </aside>    
+            }
+            <div class="container">
+               @if (Model.Messages != null)
+               {             
+                     @Zone(Model.Messages)
+        
+                }
+
+                @if (Model.BeforeContent != null) { 
+                    @Zone(Model.BeforeContent)
+                }
+                @if (Model.Content != null) {
+                    @Zone(Model.Content)
+                }
+                @if (Model.AfterContent != null) {
+                    @Zone(Model.AfterContent)
+                }
+            </div>
+            @if (Model.AsideSecond != null)
+            {
+                <aside class="col-lg-3">
+                    <div class="well well-sm">
+                        @Zone(Model.AsideSecond)
+                    </div>
+                </aside> 
+            }
+        </div>
+        @if (Model.AfterMain != null) {
+                <div class="row">
+                    <div class="col-lg-12">
+                        @Zone(Model.AfterMain)
+                    </div>
+            </div>
+        }
+
+        @if (Model.TripelFirst != null || Model.TripelSecond != null || Model.TripelThird != null) {
+                <div class="row">
+                    @if (Model.TripelFirst != null) {
+                        <!-- start: Tripel -->
+                        <div class="col-lg-4">
+                            @Zone(Model.TripelFirst)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                    @if (Model.TripelSecond != null) {
+                        <!-- start: Tripel -->
+                        <div class="col-lg-4">
+                            @Zone(Model.TripelSecond)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                    @if (Model.TripelThird != null) {
+                        <!-- start: Tripel -->
+                        <div class="col-lg-4">
+                            @Zone(Model.TripelThird)
+                        </div>
+                        <!-- end: Tripel -->
+                    }
+                </div>
+            }
+    </div>
+</section>
+
+<div class="container">
+<footer id="footer">
+    <div class="container">
+        <hr />
+        @if (Model.Footer != null) {
+            <div class="row">
+                @Zone(Model.Footer)
+            </div>
+        }
+    </div>
+</footer>
+</div>
+
+@tag.EndElement

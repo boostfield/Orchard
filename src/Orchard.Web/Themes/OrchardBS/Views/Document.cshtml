@@ -1,0 +1,24 @@
+﻿@using Orchard.Mvc.Html;
+
+@{
+    var siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+
+    var title = Model.Title + WorkContext.CurrentSite.PageTitleSeparator + siteName;
+
+    Style.Include("bootstrap.min.css");
+    Style.Include("Site.css");
+    Script.Require("jQuery").AtHead();
+    Script.Include("bootstrap.min.js").AtFoot();
+
+}
+<!DOCTYPE html>
+<html lang="@WorkContext.CurrentCulture">
+    <head>
+         <title>@title</title>
+        @Display(Model.Head)
+    </head>
+    <body class="text-justify">
+        @Display(Model.Body) 
+        @Display(Model.Tail)     
+    </body>
+</html>

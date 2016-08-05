@@ -1,0 +1,14 @@
+﻿<style type="text/css">
+    ul {
+        list-style:none;
+    }
+</style>
+@{
+    IEnumerable<object> blogPosts = Model.ContentItems;
+    Model.ContentItems.Classes.Add("content-items");
+    Model.ContentItems.Classes.Add("blog-posts");
+}
+@Display(Model.ContentItems)
+@if (blogPosts == null || blogPosts.Count() < 1) {
+<p class="alert alert-info">@T("There are no posts for this blog.")</p>
+}

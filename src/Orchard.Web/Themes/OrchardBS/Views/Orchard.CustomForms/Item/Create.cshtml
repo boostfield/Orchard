@@ -1,0 +1,34 @@
+﻿@using Orchard.ContentManagement
+@using Orchard.Utility.Extensions
+@{
+    ContentItem customForm = Model.ContentItem;
+    string returnUrl = Model.ReturnUrl;
+
+    Html.AddPageClassNames("edit-" + customForm.ContentType.HtmlClassify());
+
+    // remove default Save/Publish buttons
+    Model.Zones["Sidebar"].Items.Clear();
+}
+
+@Display(New.Parts_Title().Title(Html.ItemDisplayText(customForm)))
+
+@using (Html.BeginFormAntiForgeryPost(returnUrl)) {
+    @Html.ValidationSummary()
+    // Model is a Shape, calling Display() so that it is rendered using the most specific template for its Shape type
+    @Display(Model)
+    <br />
+    <fieldset class="submit-button">
+        <button type="submit" name="submit.Save" value="submit.Save">@T("Submit")</button>
+    </fieldset>
+}
+
+@using (Script.Foot()) { 
+    <script type="text/javascript">
+        $(function(){
+        $("input[type=text]").addClass("form-control text");
+        $("input[type=email]").addClass("form-control email");
+        $("textarea").addClass("form-control area");
+        $(":submit").addClass("btn btn-primary");
+        });
+    </script>
+}

@@ -31,7 +31,26 @@ namespace Orchard.Xmu
                                        },
              new MvcRouteHandler())
                 }
+                ,
+                new RouteDescriptor
+                {
+                  Priority = 100,
+
+            Route = new Route(
+             "column1/co",
+             new RouteValueDictionary {
+                                        {"area", "Orchard.Xmu"},
+                                        {"controller", "Column1"},
+                                        {"action", "Index"}
+                                       },
+             new RouteValueDictionary(),
+             new RouteValueDictionary {
+                                          {"area", "Orchard.Xmu"}
+                                       },
+             new MvcRouteHandler())
+                }
             };
+
         }
 
         public void GetRoutes(ICollection<RouteDescriptor> routes)
