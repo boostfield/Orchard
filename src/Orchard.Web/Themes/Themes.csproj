@@ -156,6 +156,8 @@
     <Content Include="TheAdmin\Views\Menu.cshtml" />
     <Content Include="TheThemeMachine\Views\Branding.cshtml" />
     <Content Include="TheThemeMachine\Views\BadgeOfHonor.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\MenuWidget-Footer.cshtml" />
+    <Content Include="OrchardBS\Views\FooterEntry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Styles\images\icons.png" />
