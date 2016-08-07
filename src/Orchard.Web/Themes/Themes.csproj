@@ -89,6 +89,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="OrchardBS\Content\images\bottom-text.png" />
+    <Content Include="OrchardBS\Content\images\footer-bg.png" />
+    <Content Include="OrchardBS\Content\images\logo.png" />
+    <Content Include="OrchardBS\Content\images\school-of-law.png" />
+    <Content Include="OrchardBS\Content\images\top-bg.png" />
+    <Content Include="OrchardBS\Content\images\top-logo.png" />
+    <Content Include="OrchardBS\Content\images\top-text.png" />
+    <Content Include="OrchardBS\Content\images\top_bg.png" />
+    <Content Include="OrchardBS\OrchardBS.csproj" />
+    <Content Include="OrchardBS\Scripts\bootstrap.min.js" />
+    <Content Include="OrchardBS\Styles\bootstrap.min.css" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="OrchardBS\Styles\Site.less" />
+    <Content Include="OrchardBS\Styles\Site.css">
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
+    <Content Include="OrchardBS\Styles\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="OrchardBS\Theme.png" />
+    <Content Include="OrchardBS\Theme.txt" />
     <Content Include="TheAdmin\Scripts\admin.js" />
     <Content Include="TheAdmin\Styles\ie.css" />
     <Content Include="TheAdmin\Styles\ie7.css" />
@@ -206,6 +231,71 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="OrchardBS\Content\Web.config" />
+    <Content Include="OrchardBS\Placement.info" />
+    <Content Include="OrchardBS\Scripts\Web.config" />
+    <Content Include="OrchardBS\Styles\Web.config" />
+    <Content Include="OrchardBS\Views\AccessDenied.cshtml" />
+    <Content Include="OrchardBS\Views\BadgeOfHonor.cshtml" />
+    <Content Include="OrchardBS\Views\Branding.cshtml" />
+    <Content Include="OrchardBS\Views\Breadcrumb.cshtml" />
+    <Content Include="OrchardBS\Views\ChallengeEmailFail.cshtml" />
+    <Content Include="OrchardBS\Views\ChallengeEmailSent.cshtml" />
+    <Content Include="OrchardBS\Views\ChallengeEmailSuccess.cshtml" />
+    <Content Include="OrchardBS\Views\ChangePassword.cshtml" />
+    <Content Include="OrchardBS\Views\ChangePasswordSuccess.cshtml" />
+    <Content Include="OrchardBS\Views\CommentAuthor.cshtml" />
+    <Content Include="OrchardBS\Views\CommentMetadata.cshtml" />
+    <Content Include="OrchardBS\Views\CommentReplyButton.cshtml" />
+    <Content Include="OrchardBS\Views\Document.cshtml" />
+    <Content Include="OrchardBS\Views\EditorTemplates\Parts.Comment.cshtml" />
+    <Content Include="OrchardBS\Views\Layout.cshtml" />
+    <Content Include="OrchardBS\Views\LogOn.cshtml" />
+    <Content Include="OrchardBS\Views\LostPassword.cshtml" />
+    <Content Include="OrchardBS\Views\Menu.cshtml" />
+    <Content Include="OrchardBS\Views\MenuItem.cshtml" />
+    <Content Include="OrchardBS\Views\MenuItemLink.cshtml" />
+    <Content Include="OrchardBS\Views\MenuItemLinkdd.cshtml" />
+    <Content Include="OrchardBS\Views\Message.cshtml" />
+    <Content Include="OrchardBS\Views\Metas.cshtml" />
+    <Content Include="OrchardBS\Views\NotFound.cshtml" />
+    <Content Include="OrchardBS\Views\Orchard.CustomForms\Item\Create.cshtml" />
+    <Content Include="OrchardBS\Views\Orchard.Search\Search\Index.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Blogs.BlogArchives.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Blogs.BlogPost.List.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Blogs.RecentBlogPosts.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Comment.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\CommentForm.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Common.Body.Summary-BlogPost.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Common.Metadata-Blog.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Common.Metadata.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Common.Metadata.Summary-BlogPost.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Container.Contained.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Search.SearchForm.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Title-BlogPost.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Title.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\Title.Summary-BlogPost.cshtml" />
+    <Content Include="OrchardBS\Views\Register.cshtml" />
+    <Content Include="OrchardBS\Views\RegistrationPending.cshtml" />
+    <Content Include="OrchardBS\Views\RequestLostPassword.cshtml" />
+    <Content Include="OrchardBS\Views\User.cshtml" />
+    <Content Include="OrchardBS\Views\Web.config" />
+    <Content Include="OrchardBS\Views\Widget-TripelFirst.cshtml" />
+    <Content Include="OrchardBS\Views\Widget-TripelSecond.cshtml" />
+    <Content Include="OrchardBS\Views\Widget-TripelThird.cshtml" />
+    <Content Include="OrchardBS\Views\Widget.Wrapper.cshtml" />
+    <Content Include="OrchardBS\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OrchardBS\Zones\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OrchardBS\Views\Layout-url-column1.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

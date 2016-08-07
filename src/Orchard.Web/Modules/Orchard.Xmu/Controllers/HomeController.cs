@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Orchard.Xmu.Controllers
 {
-
+    [Themed]
     public class HomeController : Controller
     {
         private readonly IOrchardServices _service;

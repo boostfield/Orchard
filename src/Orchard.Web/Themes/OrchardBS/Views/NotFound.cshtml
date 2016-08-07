@@ -1,0 +1,16 @@
+﻿@using Orchard.Mvc.Html;
+
+@*
+    @Model.RequestedUrl
+    @Model.ReferrerUrl
+*@
+@{
+    Layout.Title = Html.TitleForPage(T("Not Found").ToString());
+}
+
+<div class="lead">
+    <h1>@Html.TitleForPage(T("Not found").ToString())</h1>
+    <div class="alert alert-danger">@T("The page you are looking for does not exist.")</div>
+</div>
+
+
