@@ -90,6 +90,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="OrchardBS\Content\images\bottom-text.png" />
+    <Content Include="OrchardBS\Content\images\footer-bg.png" />
+    <Content Include="OrchardBS\Content\images\logo.png" />
+    <Content Include="OrchardBS\Content\images\school-of-law.png" />
+    <Content Include="OrchardBS\Content\images\top-bg.png" />
+    <Content Include="OrchardBS\Content\images\top-logo.png" />
+    <Content Include="OrchardBS\Content\images\top-text.png" />
+    <Content Include="OrchardBS\Content\images\top_bg.png" />
     <Content Include="OrchardBS\OrchardBS.csproj" />
     <Content Include="OrchardBS\Scripts\bootstrap.min.js" />
     <Content Include="OrchardBS\Styles\bootstrap.min.css" />
