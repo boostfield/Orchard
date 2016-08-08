@@ -5,4 +5,7 @@
   <Match DisplayType="SummaryAdmin">
     <Place Parts_UserView_SummaryAdmin="Content:5"/>
   </Match>
+  <Match DisplayType="Detail">
+    <Place Parts_UserView_SummaryAdmin="Content:1"/>
+  </Match>
 </Placement>
