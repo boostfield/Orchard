@@ -105,6 +105,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="OrchardBS\Styles\Site.less" />
     <Content Include="OrchardBS\Styles\Site.css">
       <DependentUpon>Site.less</DependentUpon>
