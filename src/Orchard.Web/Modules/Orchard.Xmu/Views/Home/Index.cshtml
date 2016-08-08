@@ -6,6 +6,15 @@
 <h2>Index!!!</h2>
 
 <h3>@ViewBag.hello</h3>
+<h3>@ViewBag.taxonomyName</h3>
+<h4>Count:@ViewBag.items.Count</h4>
+
+<h1>学院新闻：</h1>
+@foreach(var titlePart in ViewBag.items)
+{
+    <h2>@titlePart.Title</h2>
+}
+
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
