@@ -136,14 +136,16 @@
       <Name>Orchard.Core</Name>
       <Private>false</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Autoroute\Orchard.Autoroute.csproj">
+      <Project>{66FCCD76-2761-47E3-8D11-B45D0001DDAA}</Project>
+      <Name>Orchard.Autoroute</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Taxonomies\Orchard.Taxonomies.csproj">
       <Project>{e649ea64-d213-461b-87f7-d67035801443}</Project>
       <Name>Orchard.Taxonomies</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Placement.info">
       <SubType>Designer</SubType>
@@ -164,8 +166,13 @@
   <ItemGroup>
     <Compile Include="Controllers\Column1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Drivers\InformationPartDriver.cs" />
+    <Compile Include="Handlers\InfomationPartHandler.cs" />
+    <Compile Include="Migration.cs" />
+    <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
+    <Compile Include="XmContentType.cs" />
     <Compile Include="XmuRoutes.cs" />
   </ItemGroup>
   <PropertyGroup>

@@ -2,6 +2,7 @@
 using Orchard.Core.Title.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Themes;
+using Orchard.Xmu.Models;
 using Orchard.Xmu.Service;
 using System;
 using System.Collections.Generic;
@@ -31,10 +32,11 @@ namespace Orchard.Xmu.Controllers
         {
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
             ViewBag.items = _infoService.GetContentItemsOfTaxonomy("学院新闻")
-                .Select(i => i.ContentItem.As<TitlePart>())
+                .Select(p=>p.As<InformationPart>())
                 .ToList();
-            
 
+
+            var i = _service.ContentManager.New(XmContentType.InfomationType);
             return View();
         }
     }
