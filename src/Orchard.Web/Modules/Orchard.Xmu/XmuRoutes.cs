@@ -48,7 +48,22 @@ namespace Orchard.Xmu
                                           {"area", "Orchard.Xmu"}
                                        },
              new MvcRouteHandler())
-                }
+                },
+                 new RouteDescriptor
+                            {
+                                    Route = new Route(
+                                        "Admin/DataImporter/{action}",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "DataImporter"},
+                                                                    {"action", "Index"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                            }
             };
 
         }
