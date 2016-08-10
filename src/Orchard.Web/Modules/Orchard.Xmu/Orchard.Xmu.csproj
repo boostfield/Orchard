@@ -195,6 +195,7 @@
     <Compile Include="Service\PagingService.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="XmContentType.cs" />
+    <Compile Include="XmTaxonomyNames.cs" />
     <Compile Include="XmuRoutes.cs" />
   </ItemGroup>
   <PropertyGroup>

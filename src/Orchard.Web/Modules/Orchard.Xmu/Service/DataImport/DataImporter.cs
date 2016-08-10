@@ -44,7 +44,7 @@ namespace Orchard.Xmu.Service.DataImport
         public void BuildCategory()
         {
             var artistTaxo = _contentManager.New<TaxonomyPart>("Taxonomy");
-            artistTaxo.Name = "InfoType";
+            artistTaxo.Name = XmTaxonomyNames.CNInformation;
             _contentManager.Create(artistTaxo, VersionOptions.Published);
             //string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
             var categories = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt")
@@ -100,13 +100,13 @@ namespace Orchard.Xmu.Service.DataImport
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}",catemap[oldPartyNews.Part],info.Id ));
 
-            var taxo = _taxonomyService.GetTaxonomyByName("InfoType");
+            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
             var terms = _taxonomyService.GetTerms(taxo.Id);
             var term = terms.Where(i => i.Name.Equals(catemap[oldPartyNews.Part])).FirstOrDefault();
             {
                 var tmp = new List<TermPart>();
                 tmp.Add(term);
-                _taxonomyService.UpdateTerms(info, tmp, "InfoType");
+                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
 
             }
 
@@ -139,7 +139,7 @@ namespace Orchard.Xmu.Service.DataImport
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
 
-            var taxo = _taxonomyService.GetTaxonomyByName("InfoType");
+            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
             var terms = _taxonomyService.GetTerms(taxo.Id);
 
             var term = terms.Where(i => i.Name.Equals("学院新闻")).FirstOrDefault();
@@ -147,7 +147,7 @@ namespace Orchard.Xmu.Service.DataImport
             {
                 var tmp = new List<TermPart>();
                 tmp.Add(term);
-                _taxonomyService.UpdateTerms(info, tmp, "InfoType");
+                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
 
             }
 

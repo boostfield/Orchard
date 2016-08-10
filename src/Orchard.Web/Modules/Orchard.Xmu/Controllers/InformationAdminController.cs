@@ -41,7 +41,7 @@ namespace Orchard.Xmu.Controllers
             
             var listViewModel = _pagingService.ConstructListViewModel(pagerParameters,
                 XmContentType.InfomationType,
-                "InfoType",
+                XmTaxonomyNames.CNInformation,
                 searchText,
                 selectedTermId);
             return View(listViewModel);
