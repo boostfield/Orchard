@@ -12,7 +12,11 @@ namespace Orchard.Xmu.Service
 
         ItemListViewModel ConstructListViewModel(
             PagerParameters pagerParameters,
-            string typeName 
+            string typeName,
+            string taxonomyName,
+            string searchText,
+            int selectedTermId
+
             );
     }
 }

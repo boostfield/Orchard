@@ -192,6 +192,7 @@
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="Service\IPagingService.cs" />
+    <Compile Include="Service\PagingService.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="XmContentType.cs" />
     <Compile Include="XmuRoutes.cs" />
