@@ -183,7 +183,9 @@
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />
+    <Compile Include="Service\DataImport\Model\OldCategory.cs" />
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
+    <Compile Include="Service\DataImport\Model\OldContent.cs" />
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="XmContentType.cs" />

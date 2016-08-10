@@ -9,5 +9,6 @@ namespace Orchard.Xmu.Service.DataImport
     {
         void BuildCategory();
         void ImportNews();
+        void ImportPartyNews();
     }
 }

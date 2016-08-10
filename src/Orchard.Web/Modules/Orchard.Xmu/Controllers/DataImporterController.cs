@@ -33,5 +33,16 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        /// <summary>
+        /// 导入党务通知
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportPartyNews()
+        {
+            _dataImporter.ImportPartyNews();
+            return View("Index");
+
+        }
     }
 }

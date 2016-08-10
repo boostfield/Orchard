@@ -46,7 +46,10 @@ namespace Orchard.Xmu.Service.DataImport
             var artistTaxo = _contentManager.New<TaxonomyPart>("Taxonomy");
             artistTaxo.Name = "InfoType";
             _contentManager.Create(artistTaxo, VersionOptions.Published);
-            string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
+            //string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
+            var categories = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt")
+                .Select(i => i.TopicName).ToList();
+                        
             foreach (var c in categories)
             {
                 CreateTerm(artistTaxo, c);
@@ -64,6 +67,53 @@ namespace Orchard.Xmu.Service.DataImport
             _contentManager.Create(term, VersionOptions.Published);
 
             return term;
+        }
+
+
+        public void ImportPartyNews()
+        {
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
+            i => ImportSinglePartyNews(i),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
+            );
+        }
+
+
+
+        private int ImportSinglePartyNews(OldContent oldPartyNews)
+        {
+            var cates = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt");
+            IDictionary<int, string> catemap = new Dictionary<int, string>();
+            foreach(var c in cates)
+            {
+                catemap.Add(c.ID, c.TopicName);
+            }
+
+
+            var info = _contentManager.New(XmContentType.InfomationType);
+            var infopart = info.As<InformationPart>();
+            infopart.Title = oldPartyNews.Title;
+            infopart.Text = oldPartyNews.Content;
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}",catemap[oldPartyNews.Part],info.Id ));
+
+            var taxo = _taxonomyService.GetTaxonomyByName("InfoType");
+            var terms = _taxonomyService.GetTerms(taxo.Id);
+            var term = terms.Where(i => i.Name.Equals(catemap[oldPartyNews.Part])).FirstOrDefault();
+            {
+                var tmp = new List<TermPart>();
+                tmp.Add(term);
+                _taxonomyService.UpdateTerms(info, tmp, "InfoType");
+
+            }
+
+
+
+            return info.Id;
+
         }
 
         public void ImportNews()
