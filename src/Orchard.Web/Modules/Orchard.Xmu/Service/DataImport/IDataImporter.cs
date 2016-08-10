@@ -8,5 +8,6 @@ namespace Orchard.Xmu.Service.DataImport
     public interface IDataImporter: IDependency
     {
         void BuildCategory();
+        void ImportNews();
     }
 }

@@ -24,5 +24,14 @@ namespace Orchard.Xmu.Controllers
             _dataImporter.BuildCategory();
             return View("Index");
         }
+
+
+        public ActionResult ImportNews()
+        {
+
+            _dataImporter.ImportNews();
+            return View("Index");
+
+        }
     }
 }

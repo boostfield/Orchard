@@ -53,6 +53,10 @@
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations">
@@ -144,10 +148,12 @@
       <Project>{e649ea64-d213-461b-87f7-d67035801443}</Project>
       <Name>Orchard.Taxonomies</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79AED36E-ABD0-4747-93D3-8722B042454B}</Project>
+      <Name>Orchard.Users</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\DataImport\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Placement.info">
       <SubType>Designer</SubType>
@@ -176,6 +182,8 @@
     <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
+    <Compile Include="Service\DataImport\Model\NewOldID.cs" />
+    <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="XmContentType.cs" />
