@@ -18,6 +18,12 @@ namespace Orchard.Xmu
              
             builder.AddImageSet("")
                       .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" }));
+
+
+            builder.AddImageSet("")
+                     .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" }));
+
         }
     }
 }
+

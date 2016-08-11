@@ -9,10 +9,11 @@ namespace Orchard.Xmu.Service.DataImport
     {
        // void BuildCategory();
        // void ImportNews();
-       // void ImportPartyNews();
 
 
         //!!
-        void ImportCollegeNews();
+        void ImportCollegeNews();//学院新闻
+        void ImportCollegeAffairsNoti();///院务通知
+
     }
 }

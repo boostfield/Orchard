@@ -28,5 +28,12 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+
+        public ActionResult ImportCollegeAffairsNotify()
+        {
+            _dataImporter.ImportCollegeAffairsNoti();
+            return View("Index");
+        }
     }
 }

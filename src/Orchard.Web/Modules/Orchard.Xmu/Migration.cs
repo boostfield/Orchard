@@ -69,5 +69,22 @@ namespace Orchard.Xmu
             return 2;
         }
 
+        public int UpdateFrom2()
+        {
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeAffairsNotify.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(CollegeNewsPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 3;
+        }
+
     }
 }
