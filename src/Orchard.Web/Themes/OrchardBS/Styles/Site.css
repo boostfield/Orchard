@@ -7,6 +7,47 @@
   margin-left: 0;
   margin-right: 0;
 }
+.home-search .btn-default.active.focus,
+.home-search .btn-default.active:focus,
+.home-search .btn-default.active:hover,
+.home-search .btn-default:active.focus,
+.home-search .btn-default:active:focus,
+.home-search .btn-default:active:hover,
+.home-search .open > .dropdown-toggle.btn-default.focus,
+.home-search .open > .dropdown-toggle.btn-default:focus,
+.home-search .open > .dropdown-toggle.btn-default:hover {
+  background-color: transparent;
+  color: white;
+}
+.home-search {
+  height: 46px;
+  background-color: black;
+}
+.home-search .btn-group .btn {
+  line-height: 46px;
+  padding: 0 1em 0 1em;
+  border-radius: 0;
+  background-color: transparent;
+  color: white;
+  margin-right: 1em;
+  border: none;
+}
+.home-search .input-group input,
+.home-search .input-group button {
+  padding: 0 1.5em 0 1.5em;
+  height: 46px;
+  border-radius: 0;
+  background-color: #303030;
+  color: white;
+  border: none;
+}
+.home-search .input-group button {
+  background-repeat: no-repeat;
+  background-image: url("../Content/images/ic_nav_search.png");
+  background-position: center;
+  background-size: 20px 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
 .navbar.navbar-default {
   background-color: #252F4A;
 }
@@ -116,13 +157,14 @@
   font-size: 1.2em;
   padding-top: 18px;
   padding-bottom: 18px;
+  text-shadow: none;
 }
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
 }
 #carousel-home .carousel-indicators {
-  left: 70%;
+  left: 90%;
   right: 10%;
   width: auto;
   bottom: 10px;
@@ -150,12 +192,19 @@
 .cn-home-columns {
   padding: 2em;
 }
+.cn-home-columns ul.nav.nav-pills {
+  border-bottom: 2px solid #DCDCDC;
+}
+.cn-home-columns ul.nav.nav-pills li {
+  text-align: center;
+  width: 33.333%;
+  margin: 0;
+}
 .cn-home-columns .nav-pills a {
   font-size: 0.9em;
   color: black;
   border-radius: 0;
-  padding-left: 2em;
-  padding-right: 2em;
+  margin: 0;
 }
 .cn-home-columns .nav-pills > li.active > a,
 .cn-home-columns .nav-pills > li.active > a:focus,
@@ -165,16 +214,49 @@
   border-bottom: 2px solid #2D44AA;
   font-weight: bold;
 }
-.cn-home-columns .list-group-item {
+.cn-home-columns .column .list-group-item {
   border-left: none;
   border-right: none;
   font-size: 0.7em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-image: url(../Content/images/ic_new_list_content.png);
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 .cn-home-columns .title-name {
   text-align: left;
 }
 .cn-home-columns .title-time {
   text-align: right;
+  color: #999999;
+}
+.cn-home-columns .side-column {
+  padding-top: 0.5em;
+  padding-left: 1.5em;
+}
+.cn-home-columns .column-header .column-title {
+  font-size: 0.9em;
+  text-align: left;
+  background-image: url(../Content/images/img_title_dot.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.cn-home-columns .column-header .column-more {
+  font-size: 0.7em;
+  text-align: right;
+}
+.cn-home-columns .side-column .list-group-item {
+  border-left: none;
+  border-right: none;
+  font-size: 0.7em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-device-width: 768px) {
+  .cn-home-columns .nav-pills a {
+    font-size: 0.9em;
+    color: black;
+    border-radius: 0;
+  }
 }
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) {
   .top-bg {
@@ -211,7 +293,5 @@
     font-size: 0.9em;
     color: black;
     border-radius: 0;
-    padding-left: 1em;
-    padding-right: 1em;
   }
 }

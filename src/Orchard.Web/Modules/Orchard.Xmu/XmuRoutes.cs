@@ -37,10 +37,10 @@ namespace Orchard.Xmu
                   Priority = 100,
 
             Route = new Route(
-             "column1/co",
+             "en",
              new RouteValueDictionary {
                                         {"area", "Orchard.Xmu"},
-                                        {"controller", "Column1"},
+                                        {"controller", "ENHome"},
                                         {"action", "Index"}
                                        },
              new RouteValueDictionary(),

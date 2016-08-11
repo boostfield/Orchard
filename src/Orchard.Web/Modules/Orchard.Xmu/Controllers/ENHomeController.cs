@@ -8,16 +8,16 @@ using System.Web.Mvc;
 namespace Orchard.Xmu.Controllers
 {
     [Themed]
-    public class Column1Controller : Controller
+    public class ENHomeController : Controller
     {
         private readonly IOrchardServices _service;
 
-        public Column1Controller(IOrchardServices service)
+        public ENHomeController(IOrchardServices service)
         {
             _service = service;
         }
 
-        // GET: Column1
+        // GET: ENHome
         public ActionResult Index()
         {
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;

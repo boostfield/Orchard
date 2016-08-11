@@ -57,7 +57,32 @@
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
 @tag.StartElement
-<div class="top-bg">
+<div class="container-fluid home-search ">
+    <div class="row">
+        <div class="col-md-1" style="float: right;">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    中文<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="~/en">English</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3 hidden-xs"  style="float: right;">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="站内搜索">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"></button>
+                </span>
+            </div>
+        </div>
+        
+       
+    </div>
+    
+</div>
+<div class="top-bg hidden-xs">
     <div class="container">
         <div class="row text-center">
            

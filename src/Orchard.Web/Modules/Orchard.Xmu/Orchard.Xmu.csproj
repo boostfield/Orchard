@@ -163,7 +163,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Column1\Index.cshtml" />
+    <Content Include="Views\ENHome\Index.cshtml" />
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
@@ -175,7 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
-    <Compile Include="Controllers\Column1Controller.cs" />
+    <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationAdminController.cs" />

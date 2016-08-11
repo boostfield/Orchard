@@ -92,6 +92,12 @@
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="OrchardBS\Content\images\bottom-text.png" />
     <Content Include="OrchardBS\Content\images\footer-bg.png" />
+    <Content Include="OrchardBS\Content\images\ic_new_list_content.png" />
+    <Content Include="OrchardBS\Content\images\img_public_affairs.jpg" />
+    <Content Include="OrchardBS\Content\images\img_recruiting_information.jpg" />
+    <Content Include="OrchardBS\Content\images\img_research_institute.jpg" />
+    <Content Include="OrchardBS\Content\images\img_social_services.jpg" />
+    <Content Include="OrchardBS\Content\images\img_title_dot.png" />
     <Content Include="OrchardBS\Content\images\logo.png" />
     <Content Include="OrchardBS\Content\images\school-of-law.png" />
     <Content Include="OrchardBS\Content\images\top-bg.png" />
@@ -298,7 +304,7 @@
     <Folder Include="OrchardBS\Zones\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OrchardBS\Views\Layout-url-column1.cshtml" />
+    <Content Include="OrchardBS\Views\Layout-url-en.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
