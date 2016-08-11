@@ -26,7 +26,7 @@
 </div>
 <script>
     $('#pagination').bootpag({
-        total: @total / @page ,
+        total: parseInt((@total - 1) / 10) ,
         page:  @page,
         maxVisible: 10
         }).on('page', function (event, num) {
