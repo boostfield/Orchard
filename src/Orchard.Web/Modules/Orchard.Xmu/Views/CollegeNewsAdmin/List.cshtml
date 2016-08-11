@@ -1,5 +1,9 @@
 ﻿@model Orchard.Xmu.ViewModels.ItemListViewModel
+@using Orchard.Xmu;
 
+<div class="manage">
+    @Html.ActionLink(string.Format("新建{0}", T(XmContentType.CollegeNews.ContentTypeDisplayName)), "Create", new { Area = "Contents", Controller = "Admin",Id = XmContentType.CollegeNews.ContentTypeName  }, new { @class = "button primaryAction" })
+</div>
 @using (Html.BeginFormAntiForgeryPost(Url.Action("List", new { controller = "CollegeNewsAdmin", area = "Orchard.Xmu" }), FormMethod.Get))
 {
     <label for="search-text">@T("Search")</label>
