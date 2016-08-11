@@ -1,4 +1,5 @@
-﻿using Orchard.Autoroute.Models;
+﻿using NGM.ContentViewCounter.Models;
+using Orchard.Autoroute.Models;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Core.Contents.Extensions;
@@ -44,5 +45,29 @@ namespace Orchard.Xmu
 
             return 1;
         }
+
+
+
+        public int UpdateFrom1()
+        {
+ 
+    
+            //学院新闻
+           ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
+                cfg => cfg
+          .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
+          .WithPart(typeof(TitlePart).Name)
+          .WithPart(typeof(CommonPart).Name)
+          .WithPart(typeof(BodyPart).Name)
+          .WithPart(typeof(CollegeNewsPart).Name)
+          .WithPart(typeof(UserViewPart).Name)
+          .Creatable()
+          .Draftable()
+          .Securable()
+          );
+
+            return 2;
+        }
+
     }
 }

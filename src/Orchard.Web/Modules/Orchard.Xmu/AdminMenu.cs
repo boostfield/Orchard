@@ -15,8 +15,9 @@ namespace Orchard.Xmu
 
         public void GetNavigation(NavigationBuilder builder)
         {
+             
             builder.AddImageSet("")
-                       .Add(T("中文门户资讯"), "2", menu => menu.Action("List", "InformationAdmin", new { area = "Orchard.Xmu" }));
+                      .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" }));
         }
     }
 }

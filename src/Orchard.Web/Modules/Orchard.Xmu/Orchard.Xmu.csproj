@@ -140,6 +140,10 @@
       <Name>Orchard.Core</Name>
       <Private>false</Private>
     </ProjectReference>
+    <ProjectReference Include="..\NGM.ContentViewCounter\NGM.ContentViewCounter.csproj">
+      <Project>{29E9743A-B6E4-40FB-ABBA-569034ABFE88}</Project>
+      <Name>NGM.ContentViewCounter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Autoroute\Orchard.Autoroute.csproj">
       <Project>{66FCCD76-2761-47E3-8D11-B45D0001DDAA}</Project>
       <Name>Orchard.Autoroute</Name>
@@ -166,6 +170,7 @@
     <Content Include="Views\Column1\Index.cshtml" />
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
+    <Content Include="Views\CollegeNewsAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,14 +180,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="Controllers\CollegeNewsAdminController.cs" />
     <Compile Include="Controllers\Column1Controller.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationAdminController.cs" />
+    <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Handlers\InfomationPartHandler.cs" />
     <Compile Include="Migration.cs" />
+    <Compile Include="Models\CollegeNewsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
+    <Compile Include="Permissions.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />

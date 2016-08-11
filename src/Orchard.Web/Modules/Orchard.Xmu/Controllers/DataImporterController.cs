@@ -18,6 +18,19 @@ namespace Orchard.Xmu.Controllers
             _dataImporter = dataImporter;
         }
 
+        /// <summary>
+        /// 学院新闻
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportCollegeNews()
+        {
+            _dataImporter.ImportCollegeNews();
+            return View("Index");
+
+        }
+
+
+
         // GET: DataImporter
         public ActionResult BuildCategory()
         {
