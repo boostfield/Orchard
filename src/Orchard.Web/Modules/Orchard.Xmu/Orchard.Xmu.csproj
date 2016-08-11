@@ -171,7 +171,7 @@
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <Content Include="Views\CollegeNewsAdmin\List.cshtml" />
-    <Content Include="Views\CollegeNewsAdmin\Paging.cshtml" />
+    <Content Include="Views\Home\Paging.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,7 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
-
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
