@@ -3,47 +3,117 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index!!!</h2>
 
-<h3>@ViewBag.hello</h3>
-<h3>@ViewBag.taxonomyName</h3>
-<h4>Count:@ViewBag.items.Count</h4>
+<div style="display: none;">
+    <h3>@ViewBag.hello</h3>
+    <h3>@ViewBag.taxonomyName</h3>
+    <h4>Count:@ViewBag.items.Count</h4>
+    @foreach (var titlePart in ViewBag.items)
+    {
+        <h2>@titlePart.Title</h2>
+        <h4>@titlePart.Text</h4>
+    }
+</div>
 
-<h1>学院新闻：</h1>
-@foreach(var titlePart in ViewBag.items)
-{
-    <h2>@titlePart.Title</h2>
-    <h4>@titlePart.Text</h4>
-}
-
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-home" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <ol class="carousel-indicators carousel-indicators-numbers">
+        <li data-target="#carousel-home" data-slide-to="0" class="active">1</li>
+        <li data-target="#carousel-home" data-slide-to="1">2</li>
+        <li data-target="#carousel-home" data-slide-to="2">3</li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="..." alt="...">
+        <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/top-bg.png")));">
+            
             <div class="carousel-caption">
-                ...
+                <div class="row">
+                    
+                    <div class="col-md-5 col-md-offset-1">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="..." alt="...">
+        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/top-bg.png")));">
+           
             <div class="carousel-caption">
-                ...
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="..." alt="...">
+        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/top-bg.png")));">
+            
             <div class="carousel-caption">
-                ...
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="container cn-home-columns">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">学院新闻</a></li>
+                <li role="presentation"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">院务通知</a></li>
+                <li role="presentation"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">科研成果</a></li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active fade " id="news">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8 title-name">aadadadadadadadadadadadadad</div>
+                                <div class="col-md-4 title-time" >2016-08-16</div>
+                            </div>
+                            
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8 title-name" >aadadadadadadadadadadadadad</div>
+                                <div class="col-md-4 title-time">2016-08-16</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8 title-name">aadadadadadadadadadadadadad</div>
+                                <div class="col-md-4 title-time">2016-08-16</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8 title-name">aadadadadadadadadadadadadad</div>
+                                <div class="col-md-4 title-time">2016-08-16</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8">aadadadadadadadadadadadadad</div>
+                                <div class="col-md-4 title-time">2016-08-16</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane fade " id="notifications">
+
+                </div>
+                <div role="tabpanel" class="tab-pane fade " id="results">
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    
 </div>

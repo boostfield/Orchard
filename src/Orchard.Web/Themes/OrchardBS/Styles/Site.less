@@ -1,10 +1,11 @@
 ﻿@primary-color: #2D44AA;
 @primary-nav-color: #252F4A;
 @top-bar-color: black;
-
+@carousel-caption-color: rgba(45, 68, 170, 0.8);
 body {
     font-family: Helvetica, 'Microsoft YaHei', sans-serif;
     font-size: 20px;
+    color: black;
 }
 
 .navbar.navbar-default {
@@ -97,4 +98,95 @@ body {
 
 #footer h3 {
     font-size: 0.9em;
+}
+
+#carousel-home {
+    width: 100%;
+    margin-top: -20px; //so weird
+}
+.carousel-inner .item {
+    width: 100%;
+    height: 500px;
+    vertical-align: middle;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    cursor: pointer;
+    background-position: center center;
+}
+#carousel-home img {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+
+}
+#carousel-home .carousel-caption {
+    background-color: @carousel-caption-color;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 1.2em;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#carousel-home .carousel-indicators {
+    left: 75%;
+    bottom: 10px;
+}
+.carousel-indicators-numbers {
+    li {
+      text-indent: 0;
+      margin: 0 2px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid white;
+      border-radius: 0;
+      line-height: 30px;
+      color: #fff;
+      background-color: transparent;
+      transition: all 0.25s ease;
+      &.active, &:hover {
+        color: @primary-color;
+        margin: 0 2px;
+        width: 30px;
+        height: 30px;
+        background-color: white;        
+      }
+    }
+}
+.cn-home-columns {
+    padding: 2em;
+}
+.cn-home-columns .nav-pills a {
+    font-size: 0.9em;
+    color: black;
+    border-radius: 0;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+.cn-home-columns .nav-pills>li.active>a, .cn-home-columns .nav-pills>li.active>a:focus, .cn-home-columns .nav-pills>li.active>a:hover {
+    color: @primary-color;
+    background-color: transparent;
+    border-bottom: 2px solid @primary-color;
+    font-weight: bold;
+}
+.cn-home-columns .list-group {
+    
+}
+.cn-home-columns .list-group-item {
+    border-left: none;
+    border-right: none;
+    font-size: 0.7em;
+}
+.cn-home-columns .title-name {
+    text-align: left;
+}
+.cn-home-columns .title-time {
+    text-align: right;
 }
