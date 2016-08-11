@@ -33,6 +33,7 @@ namespace Orchard.Xmu.Models
         public DateTime? PublishedUtc
         {
             get { return this.As<ICommonPart>().PublishedUtc; }
+            set { this.As<ICommonPart>().PublishedUtc = value; }
         }
 
 

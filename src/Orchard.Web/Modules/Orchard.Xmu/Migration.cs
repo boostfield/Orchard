@@ -19,7 +19,7 @@ namespace Orchard.Xmu
             
             ContentDefinitionManager.AlterPartDefinition(XmContentType.InfomationType+"Part",
                     cfg =>
-                    cfg.WithField("InfoType", b => b.OfType("TaxonomyField").WithDisplayName("信息类型"))
+                    cfg.WithField(XmTaxonomyNames.CNInformation, b => b.OfType("TaxonomyField").WithDisplayName("信息类型"))
             );
              
             ContentDefinitionManager.AlterPartDefinition(typeof(InformationPart).Name, builder => builder

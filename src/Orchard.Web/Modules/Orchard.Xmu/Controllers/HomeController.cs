@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.Core.Common.Models;
 using Orchard.Core.Title.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Themes;
@@ -32,7 +33,8 @@ namespace Orchard.Xmu.Controllers
         {
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
             ViewBag.items = _infoService.GetContentItemsOfTaxonomy("学院新闻")
-                .Select(p=>p.As<InformationPart>())
+                .Select(p=>p.As<InformationPart>()).OrderByDescending(j=> j.PublishedUtc)
+                .Take(5)
                 .ToList();
 
 

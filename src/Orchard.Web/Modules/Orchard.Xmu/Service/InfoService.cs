@@ -19,7 +19,7 @@ namespace Orchard.Xmu.Service
         public IList<IContent> GetContentItemsOfTaxonomy(string termName,int skip=0,int count=5)
         {
             var result = new List<IContent>();
-            var type = _taxonomyService.GetTaxonomyByName("InfoType");
+            var type = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
             if (type != null)
             {
                 var term = _taxonomyService.GetTermByName(type.Id, termName);

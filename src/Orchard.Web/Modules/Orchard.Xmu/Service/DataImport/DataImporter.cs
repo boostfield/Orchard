@@ -1,8 +1,16 @@
-﻿using Orchard.ContentManagement;
+﻿using Newtonsoft.Json;
+using Orchard.ContentManagement;
+using Orchard.Data;
+using Orchard.Security;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
+using Orchard.Users.Models;
+using Orchard.Xmu;
+using Orchard.Xmu.Models;
+using Orchard.Xmu.Service.DataImport.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -12,25 +20,36 @@ namespace Orchard.Xmu.Service.DataImport
     {
         private readonly ITaxonomyService _taxonomyService;
         private readonly IContentManager _contentManager;
+        private readonly ITransactionManager _transactionManager;
+        private readonly IMembershipService _memberShipService;
+
+        private readonly int MAX = 300;
 
         public DataImporter(
             
             ITaxonomyService taxonomyService,
-            IContentManager contentManager
+            IContentManager contentManager,
+            ITransactionManager transactionManager,
+            IMembershipService memberShipService
 
             )
         {
             _taxonomyService = taxonomyService;
             _contentManager = contentManager;
+            _transactionManager = transactionManager;
+            _memberShipService = memberShipService;
         }
 
 
         public void BuildCategory()
         {
             var artistTaxo = _contentManager.New<TaxonomyPart>("Taxonomy");
-            artistTaxo.Name = "InfoType";
+            artistTaxo.Name = XmTaxonomyNames.CNInformation;
             _contentManager.Create(artistTaxo, VersionOptions.Published);
-            string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
+            //string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
+            var categories = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt")
+                .Select(i => i.TopicName).ToList();
+                        
             foreach (var c in categories)
             {
                 CreateTerm(artistTaxo, c);
@@ -49,5 +68,152 @@ namespace Orchard.Xmu.Service.DataImport
 
             return term;
         }
+
+
+        public void ImportPartyNews()
+        {
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
+            i => ImportSinglePartyNews(i),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
+            );
+        }
+
+
+
+        private int ImportSinglePartyNews(OldContent oldPartyNews)
+        {
+            var cates = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt");
+            IDictionary<int, string> catemap = new Dictionary<int, string>();
+            foreach(var c in cates)
+            {
+                catemap.Add(c.ID, c.TopicName);
+            }
+
+
+            var info = _contentManager.New(XmContentType.InfomationType);
+            var infopart = info.As<InformationPart>();
+            infopart.Title = oldPartyNews.Title;
+            infopart.Text = oldPartyNews.Content;
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}",catemap[oldPartyNews.Part],info.Id ));
+
+            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
+            var terms = _taxonomyService.GetTerms(taxo.Id);
+            var term = terms.Where(i => i.Name.Equals(catemap[oldPartyNews.Part])).FirstOrDefault();
+            {
+                var tmp = new List<TermPart>();
+                tmp.Add(term);
+                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
+
+            }
+
+
+
+            return info.Id;
+
+        }
+
+        public void ImportNews()
+        {
+            ImportDataTemplate<OldNews>(
+            () => ReadDataFromJsonFile<OldNews>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻.txt"),
+            i => ImportSingleNews(i),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻ID对照.txt"
+            );
+        }
+
+        private int ImportSingleNews(OldNews oldnews)
+        {
+            var info = _contentManager.New(XmContentType.InfomationType);
+            var infopart = info.As<InformationPart>();
+
+
+            infopart.Title = oldnews.Title;
+            infopart.Text = oldnews.Content;
+            infopart.PublishedUtc = oldnews.PubTime;
+            //TODO: 其它的一些数据
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
+
+            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
+            var terms = _taxonomyService.GetTerms(taxo.Id);
+
+            var term = terms.Where(i => i.Name.Equals("学院新闻")).FirstOrDefault();
+            if (term != null)
+            {
+                var tmp = new List<TermPart>();
+                tmp.Add(term);
+                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
+
+            }
+
+            return info.Id;
+        }
+
+
+
+
+        private void ImportDataTemplate<T>(Func<List<T>> dataReader,
+            Func<T, int> SingerItemImporter,
+            Func<T, int> GetOldIDFromItem,
+
+            string filepath)
+        {
+            IList<NewOldID> ids = new List<NewOldID>();
+            List<T> items = dataReader();
+
+            int i = 0;
+
+            foreach (var item in items)
+            {
+                ids.Add(new NewOldID
+                {
+                    OldId = GetOldIDFromItem(item),
+                    NewId = SingerItemImporter(item)
+                });
+                if (++i >= MAX)
+                {
+                    _transactionManager.RequireNew();
+                    _contentManager.Clear();
+                    i = 0;
+                }
+
+            }
+            //写入数据据，获取新连接，再关闭.
+            _transactionManager.RequireNew();
+            _transactionManager.Cancel();
+            WriteDataAsJsonFile(filepath, ids);
+        }
+
+
+        private UserPart _user = null;
+        private UserPart getUserWithName(string name = "admin")
+        {
+            if (_user != null)
+            {
+                return _user;
+            }
+
+            _user = _memberShipService.GetUser(name).As<UserPart>();
+            return _user;
+        }
+
+
+        private static List<T> ReadDataFromJsonFile<T>(string dataPath)
+        {
+            string jsonStr = File.ReadAllText(dataPath);
+            return JsonConvert.DeserializeObject<List<T>>
+                (jsonStr);
+        }
+
+        private void WriteDataAsJsonFile(string filepath, IList<NewOldID> ids)
+        {
+            File.WriteAllText(filepath, JsonConvert.SerializeObject(ids));
+        }
+
     }
 }
