@@ -22,10 +22,10 @@ namespace Orchard.Xmu.Controllers
     public class InformationAdminController : Controller
     {
 
-        private readonly IPagingService _pagingService;
+        private readonly IAdminPagingService _pagingService;
 
         public InformationAdminController(
-           IPagingService pagingService
+           IAdminPagingService pagingService
 
 
 
@@ -38,13 +38,8 @@ namespace Orchard.Xmu.Controllers
         // GET: InformationAdmin
         public ActionResult List(PagerParameters pagerParameters, string searchText = "", int selectedTermId=-1)
         {
-            
-            var listViewModel = _pagingService.ConstructListViewModel(pagerParameters,
-                XmContentType.InfomationType,
-                XmTaxonomyNames.CNInformation,
-                searchText,
-                selectedTermId);
-            return View(listViewModel);
+
+            return View();
         }
     }
 }

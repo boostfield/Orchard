@@ -200,8 +200,8 @@
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
-    <Compile Include="Service\IPagingService.cs" />
-    <Compile Include="Service\PagingService.cs" />
+    <Compile Include="Service\IAdminPagingService.cs" />
+    <Compile Include="Service\AdminPagingService.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="XmContentType.cs" />
     <Compile Include="XmTaxonomyNames.cs" />

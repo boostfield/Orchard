@@ -20,62 +20,22 @@ namespace Orchard.Xmu.Controllers
     [Admin]
     public class CollegeNewsAdminController : Controller
     {
-        private readonly ISiteService _siteService;
-        private readonly IContentManager _contentManager;
-        private readonly ITaxonomyService _taxonomyService;
-        private readonly IInfoService _infoService;
-        public IOrchardServices Services { get; set; }
-        dynamic Shape { get; set; }
+        private readonly IAdminPagingService _pagingService;
 
 
         public CollegeNewsAdminController(
-             ISiteService siteService,
-            IContentManager contentManager,
-            IShapeFactory shapeFactory,
-            IOrchardServices services,
-            ITaxonomyService taxonomySerivce,
-            IInfoService infoService
+           IAdminPagingService pagingService
             )
         {
-            _siteService = siteService;
-            _contentManager = contentManager;
-            Services = services;
-            Shape = shapeFactory;
-            _taxonomyService = taxonomySerivce;
-            _infoService = infoService;
+            _pagingService = pagingService;
         }
 
         // GET: CollegeNewsAdmin
         public ActionResult List(PagerParameters pagerParameters, string searchText = "")
         {
-            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-
-            var query = _contentManager.Query(VersionOptions.Latest, XmContentType.CollegeNews.ContentTypeName)
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
-            if (!string.IsNullOrEmpty(searchText))
-            {
-                query.Where<TitlePartRecord>(i => i.Title.Contains(searchText));
-            }
-
-
-            var list = Services.New.List();
-
-            var totalItemCount = query.Count();
-            var items = query.Slice(pager.GetStartIndex(), pager.PageSize);
-            foreach (var item in items)
-            {
-                list.Add(_contentManager.BuildDisplay(item, "SummaryAdmin"));
-            }
-
-            var viewModel = Services.New.ViewModel()
-             .ContentItems(list);
-            var dypager = Shape.Pager(pager).TotalItemCount(totalItemCount);
-            var vm= new ItemListViewModel
-            {
-                Pager = dypager,
-                ViewModel = viewModel,
-                SearchText = searchText,
-            };
+            var vm = _pagingService.ConstructListViewModel(pagerParameters,
+                XmContentType.CollegeNews.ContentTypeName,
+                searchText);
 
             return View(vm);
         }
