@@ -123,6 +123,7 @@ namespace Orchard.Xmu.Service.DataImport
             var infopart = info.As<CollegeAffairsNotifyPart>();
             infopart.Title = oldPartyNews.Title;
             infopart.Text = oldPartyNews.Content;
+            infopart.PublishedUtc = oldPartyNews.PubTime;
 
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CollegeAffairsNotify.ContentTypeDisplayName, info.Id ));
