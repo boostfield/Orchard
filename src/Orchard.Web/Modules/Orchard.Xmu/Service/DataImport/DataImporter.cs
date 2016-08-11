@@ -108,7 +108,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => ImportSinglePartyNews(i),
+            i => ImportSingleCollegeAffairsNotify(i),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
             );
@@ -116,11 +116,11 @@ namespace Orchard.Xmu.Service.DataImport
 
 
 
-        private int ImportSinglePartyNews(OldContent oldPartyNews)
+        private int ImportSingleCollegeAffairsNotify(OldContent oldPartyNews)
         {
              
             var info = _contentManager.New(XmContentType.CollegeAffairsNotify.ContentTypeName);
-            var infopart = info.As<CollegeNewsPart>();
+            var infopart = info.As<CollegeAffairsNotifyPart>();
             infopart.Title = oldPartyNews.Title;
             infopart.Text = oldPartyNews.Content;
 

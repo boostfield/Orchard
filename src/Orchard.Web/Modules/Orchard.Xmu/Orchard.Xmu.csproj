@@ -191,6 +191,8 @@
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Handlers\InfomationPartHandler.cs" />
     <Compile Include="Migration.cs" />
+    <Compile Include="Models\BaseContentPart.cs" />
+    <Compile Include="Models\CollegeAffairsNotifyPart.cs" />
     <Compile Include="Models\CollegeNewsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Permissions.cs" />

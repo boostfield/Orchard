@@ -77,7 +77,7 @@ namespace Orchard.Xmu
        .WithPart(typeof(TitlePart).Name)
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(CollegeNewsPart).Name)
+       .WithPart(typeof(CollegeAffairsNotifyPart).Name)
        .WithPart(typeof(UserViewPart).Name)
        .Creatable()
        .Draftable()
