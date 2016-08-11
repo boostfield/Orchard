@@ -101,8 +101,10 @@ namespace Orchard.Xmu.Service.DataImport
             return term;
         }
 
-        /*
-        public void ImportPartyNews()
+        /// <summary>
+        /// 院务通知
+        /// </summary>
+        public void ImportCollegeAffairsNoti()
         {
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
@@ -116,38 +118,19 @@ namespace Orchard.Xmu.Service.DataImport
 
         private int ImportSinglePartyNews(OldContent oldPartyNews)
         {
-            var cates = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt");
-            IDictionary<int, string> catemap = new Dictionary<int, string>();
-            foreach(var c in cates)
-            {
-                catemap.Add(c.ID, c.TopicName);
-            }
-
-
-            var info = _contentManager.New(XmContentType.InfomationType);
-            var infopart = info.As<InformationPart>();
+             
+            var info = _contentManager.New(XmContentType.CollegeAffairsNotify.ContentTypeName);
+            var infopart = info.As<CollegeNewsPart>();
             infopart.Title = oldPartyNews.Title;
             infopart.Text = oldPartyNews.Content;
 
             _contentManager.Create(info, VersionOptions.Published);
-            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}",catemap[oldPartyNews.Part],info.Id ));
-
-            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
-            var terms = _taxonomyService.GetTerms(taxo.Id);
-            var term = terms.Where(i => i.Name.Equals(catemap[oldPartyNews.Part])).FirstOrDefault();
-            {
-                var tmp = new List<TermPart>();
-                tmp.Add(term);
-                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
-
-            }
-
-
-
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CollegeAffairsNotify.ContentTypeDisplayName, info.Id ));
+ 
             return info.Id;
 
         }
-        */
+        
 
         public void ImportNews()
         {
