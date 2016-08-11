@@ -187,6 +187,7 @@
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Handlers\InfomationPartHandler.cs" />
