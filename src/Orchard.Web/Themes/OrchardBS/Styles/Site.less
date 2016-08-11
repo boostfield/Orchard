@@ -51,36 +51,113 @@ body {
     background-size: 20px 20px;
     border-left: 1px solid rgba(255,255,255,0.2);
 }
-.navbar.navbar-default {
-    background-color: @primary-nav-color;
-}
+.home  {
+    .navbar.navbar-default {
+        background-color: @primary-nav-color;
+    }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    color: white;
-    background-color: @primary-nav-color;
-}
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: white;
+        background-color: @primary-nav-color;
+    }
 
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-    color: white;
-    font-size: 1em;
-}
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        color: white;
+        font-size: 1em;
+    }
 
-.navbar-default .navbar-nav > li > a {
-    color: white;
-    font-size: 1em;
-}
+    .navbar-default .navbar-nav > li > a {
+        color: white;
+        font-size: 1em;
+    }
 
-.navbar.center .navbar-inner {
-    text-align: center;
-}
+    .navbar.center .navbar-inner {
+        text-align: center;
+    }
 
-.navbar.center .navbar-inner .nav {
-    display: inline-block;
-    float: none;
-}
+    .navbar.center .navbar-inner .nav {
+        display: inline-block;
+        float: none;
+    }
 
-.navbar-default .navbar-nav > li {
-    margin: auto 0.25em auto 0.25em;
+    .navbar-default .navbar-nav > li {
+        margin: auto 0.25em auto 0.25em;
+    }
+} 
+
+.en-home {
+    .navbar.navbar-default {
+        background-color: black;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        color: white;
+        font-size: 1em;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        color: white;
+        font-size: 1em;
+        height: 80px;
+        
+        line-height: 80px;
+        padding-top: 0;
+    }
+
+    .navbar-default .navbar-nav > li {
+        margin: 0 0.25em 0 0.25em;
+       
+    }
+
+    .btn-group .btn{
+        line-height: 80px;
+        padding: 0 1em 0 1em;
+        border-radius: 0;
+        background-color: transparent;
+        color: white;
+       
+        border: none;
+    }
+    .input-group input, .input-group button {
+        padding: 0 2em 0 2em;
+        height: 80px;
+        border-radius: 0;
+        background-color: #303030;
+        color: white;
+        border: none;
+        
+
+    }
+    .input-group input {
+        font-size: 1em;
+        
+    }
+    .navbar-form .input-group>.form-control {
+        
+    }
+    .input-group button {
+        background-repeat: no-repeat;
+        background-image: url("../Content/images/ic_nav_search.png");
+        background-position: center;
+        background-size: 20px 20px;
+        border-left: 1px solid rgba(255,255,255,0.2);
+    }
+    .navbar-form {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .container-fluid>.navbar-collapse {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .top-bg {

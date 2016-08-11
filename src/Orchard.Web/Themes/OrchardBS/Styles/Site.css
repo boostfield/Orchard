@@ -48,33 +48,95 @@
   background-size: 20px 20px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
-.navbar.navbar-default {
+.home .navbar.navbar-default {
   background-color: #252F4A;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:hover {
+.home .navbar-default .navbar-nav > .active > a,
+.home .navbar-default .navbar-nav > .active > a:focus,
+.home .navbar-default .navbar-nav > .active > a:hover {
   color: white;
   background-color: #252F4A;
 }
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:hover {
+.home .navbar-default .navbar-nav > li > a:focus,
+.home .navbar-default .navbar-nav > li > a:hover {
   color: white;
   font-size: 1em;
 }
-.navbar-default .navbar-nav > li > a {
+.home .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 1em;
 }
-.navbar.center .navbar-inner {
+.home .navbar.center .navbar-inner {
   text-align: center;
 }
-.navbar.center .navbar-inner .nav {
+.home .navbar.center .navbar-inner .nav {
   display: inline-block;
   float: none;
 }
-.navbar-default .navbar-nav > li {
+.home .navbar-default .navbar-nav > li {
   margin: auto 0.25em auto 0.25em;
+}
+.en-home .navbar.navbar-default {
+  background-color: black;
+}
+.en-home .navbar-default .navbar-nav > .active > a,
+.en-home .navbar-default .navbar-nav > .active > a:focus,
+.en-home .navbar-default .navbar-nav > .active > a:hover {
+  color: white;
+  background-color: black;
+}
+.en-home .navbar-default .navbar-nav > li > a:focus,
+.en-home .navbar-default .navbar-nav > li > a:hover {
+  color: white;
+  font-size: 1em;
+}
+.en-home .navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 1em;
+  height: 80px;
+  line-height: 80px;
+  padding-top: 0;
+}
+.en-home .navbar-default .navbar-nav > li {
+  margin: 0 0.25em 0 0.25em;
+}
+.en-home .btn-group .btn {
+  line-height: 80px;
+  padding: 0 1em 0 1em;
+  border-radius: 0;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+.en-home .input-group input,
+.en-home .input-group button {
+  padding: 0 2em 0 2em;
+  height: 80px;
+  border-radius: 0;
+  background-color: #303030;
+  color: white;
+  border: none;
+}
+.en-home .input-group input {
+  font-size: 1em;
+}
+.en-home .input-group button {
+  background-repeat: no-repeat;
+  background-image: url("../Content/images/ic_nav_search.png");
+  background-position: center;
+  background-size: 20px 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.en-home .navbar-form {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.en-home .container-fluid > .navbar-collapse {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .top-bg {
   width: 100%;

@@ -94,6 +94,7 @@
     <Content Include="OrchardBS\Content\images\footer-bg.png" />
     <Content Include="OrchardBS\Content\images\ic_nav_search.png" />
     <Content Include="OrchardBS\Content\images\ic_new_list_content.png" />
+    <Content Include="OrchardBS\Content\images\img_nav_logo.png" />
     <Content Include="OrchardBS\Content\images\img_public_affairs.jpg" />
     <Content Include="OrchardBS\Content\images\img_recruiting_information.jpg" />
     <Content Include="OrchardBS\Content\images\img_research_institute.jpg" />
