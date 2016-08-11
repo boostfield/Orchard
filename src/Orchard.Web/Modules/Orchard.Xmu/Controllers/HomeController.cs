@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Orchard.UI.Navigation;
+using Orchard.Settings;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -18,13 +20,21 @@ namespace Orchard.Xmu.Controllers
     {
         private readonly IOrchardServices _service;
         private readonly IFrontEndService _frontEndService;
-         public HomeController(IOrchardServices service,
-             IFrontEndService frontEndService
-              
+        private readonly IContentManager _contentManager;
+        private readonly ISiteService _siteService;
+
+        public HomeController(IOrchardServices service,
+             IFrontEndService frontEndService,
+             IContentManager contentManager,
+            ISiteService siteService
+
+
             )
         {
             _service = service;
             _frontEndService = frontEndService;
+            _contentManager = contentManager;
+            _siteService = siteService;
          }
 
         // GET: Home
@@ -38,6 +48,26 @@ namespace Orchard.Xmu.Controllers
            
             
             return View();
+        }
+
+        public ActionResult Paging(PagerParameters pagerParameters)
+        {
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+
+            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.CollegeNews.ContentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
+
+            var total = q.Count();
+            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => p.As<CollegeNewsPart>()).ToList();
+            ViewBag.total = total;
+            ViewBag.items = items;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            return View();
+
+
+
         }
     }
 }

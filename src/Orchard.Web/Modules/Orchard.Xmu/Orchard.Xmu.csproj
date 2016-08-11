@@ -171,6 +171,7 @@
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <Content Include="Views\CollegeNewsAdmin\List.cshtml" />
+    <Content Include="Views\CollegeNewsAdmin\Paging.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
