@@ -70,37 +70,51 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active fade " id="news">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">院领导走访杭州、上海院友，推进法学院90周年院庆工作</div>
-                                <div class="col-sm-3 title-time">2016-08-16</div>
-                            </div>
+                        @foreach (var item in ViewBag.items)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-9 title-name">@item.Title</div>
+                                    <div class="col-sm-3 title-time">@item.PublishedUtc</div>
+                                </div>
 
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">2016厦门国际法高等研究院暑期班圆满落幕</div>
-                                <div class="col-sm-3 title-time">2016-08-16</div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">社会实践-社区矫正调研第二站—厦门市思明区司法局滨海司法所</div>
-                                <div class="col-sm-3 title-time">2016-08-16</div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">厦门大学法学院2016年优秀大学生夏令营顺利闭幕</div>
-                                <div class="col-sm-3 title-time">2016-08-16</div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9">我院青年教职工协会荣获2014-2015年度厦门大学工会“先进集体”称号</div>
-                                <div class="col-sm-3 title-time">2016-08-16</div>
-                            </div>
-                        </li>
+                            </li>
+                        }
+                        <!--
+
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-9 title-name">院领导走访杭州、上海院友，推进法学院90周年院庆工作</div>
+                <div class="col-sm-3 title-time">2016-08-16</div>
+            </div>
+
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-9 title-name">2016厦门国际法高等研究院暑期班圆满落幕</div>
+                <div class="col-sm-3 title-time">2016-08-16</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-9 title-name">社会实践-社区矫正调研第二站—厦门市思明区司法局滨海司法所</div>
+                <div class="col-sm-3 title-time">2016-08-16</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-9 title-name">厦门大学法学院2016年优秀大学生夏令营顺利闭幕</div>
+                <div class="col-sm-3 title-time">2016-08-16</div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-9">我院青年教职工协会荣获2014-2015年度厦门大学工会“先进集体”称号</div>
+                <div class="col-sm-3 title-time">2016-08-16</div>
+            </div>
+        </li>
+        -->
+
                     </ul>
                 </div>
                 <div role="tabpanel" class="tab-pane fade " id="notifications">

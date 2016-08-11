@@ -7,16 +7,13 @@ using System.Web;
 
 namespace Orchard.Xmu.Service
 {
-    public interface IPagingService: IDependency
+    public interface IAdminPagingService: IDependency
     {
 
         ItemListViewModel ConstructListViewModel(
             PagerParameters pagerParameters,
             string typeName,
-            string taxonomyName,
-            string searchText,
-            int selectedTermId
-
+            string searchText
             );
     }
 }

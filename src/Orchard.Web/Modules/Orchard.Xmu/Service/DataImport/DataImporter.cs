@@ -41,6 +41,38 @@ namespace Orchard.Xmu.Service.DataImport
         }
 
 
+        /// <summary>
+        /// 学院新闻
+        /// </summary>
+        public void ImportCollegeNews()
+        {
+            ImportDataTemplate<OldNews>(
+           () => ReadDataFromJsonFile<OldNews>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻.txt"),
+           i => ImportSingleCollegeNews(i),
+           r => r.ID,
+           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻ID对照.txt"
+           );
+        }
+
+        private int ImportSingleCollegeNews(OldNews oldnews)
+        {
+            var info = _contentManager.New(XmContentType.CollegeNews.ContentTypeName);
+            var infopart = info.As<CollegeNewsPart>();
+
+
+            infopart.Title = oldnews.Title;
+            infopart.Text = oldnews.Content;
+            infopart.PublishedUtc = oldnews.PubTime;
+            //TODO: 其它的一些数据
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
+
+            return info.Id;
+        }
+
+
+
+
         public void BuildCategory()
         {
             var artistTaxo = _contentManager.New<TaxonomyPart>("Taxonomy");
@@ -69,7 +101,7 @@ namespace Orchard.Xmu.Service.DataImport
             return term;
         }
 
-
+        /*
         public void ImportPartyNews()
         {
             ImportDataTemplate<OldContent>(
@@ -115,44 +147,14 @@ namespace Orchard.Xmu.Service.DataImport
             return info.Id;
 
         }
+        */
 
         public void ImportNews()
         {
-            ImportDataTemplate<OldNews>(
-            () => ReadDataFromJsonFile<OldNews>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻.txt"),
-            i => ImportSingleNews(i),
-            r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻ID对照.txt"
-            );
+           
         }
 
-        private int ImportSingleNews(OldNews oldnews)
-        {
-            var info = _contentManager.New(XmContentType.InfomationType);
-            var infopart = info.As<InformationPart>();
-
-
-            infopart.Title = oldnews.Title;
-            infopart.Text = oldnews.Content;
-            infopart.PublishedUtc = oldnews.PubTime;
-            //TODO: 其它的一些数据
-            _contentManager.Create(info, VersionOptions.Published);
-            System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
-
-            var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNInformation);
-            var terms = _taxonomyService.GetTerms(taxo.Id);
-
-            var term = terms.Where(i => i.Name.Equals("学院新闻")).FirstOrDefault();
-            if (term != null)
-            {
-                var tmp = new List<TermPart>();
-                tmp.Add(term);
-                _taxonomyService.UpdateTerms(info, tmp, XmTaxonomyNames.CNInformation);
-
-            }
-
-            return info.Id;
-        }
+       
 
 
 
