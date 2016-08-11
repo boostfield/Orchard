@@ -197,6 +197,8 @@
     <Compile Include="Service\DataImport\Model\OldCategory.cs" />
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
+    <Compile Include="Service\FrontEndService.cs" />
+    <Compile Include="Service\IFrontEndService.cs" />
     <Compile Include="Service\IInfoService.cs" />
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="Service\IAdminPagingService.cs" />

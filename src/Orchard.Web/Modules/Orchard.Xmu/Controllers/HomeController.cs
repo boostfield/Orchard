@@ -17,30 +17,26 @@ namespace Orchard.Xmu.Controllers
     public class HomeController : Controller
     {
         private readonly IOrchardServices _service;
-        private readonly IInfoService _infoService;
-        public HomeController(IOrchardServices service,
-            ITaxonomyService taxonomyService,
-            IInfoService infoService
-            
+        private readonly IFrontEndService _frontEndService;
+         public HomeController(IOrchardServices service,
+             IFrontEndService frontEndService
+              
             )
         {
             _service = service;
-            _infoService = infoService;
-        }
+            _frontEndService = frontEndService;
+         }
 
         // GET: Home
         public ActionResult Index()
         {
-            /*
+            
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
-            ViewBag.items = _infoService.GetContentItemsOfTaxonomy("学院新闻")
-                .Select(p=>p.As<InformationPart>()).OrderByDescending(j=> j.PublishedUtc)
-                .Take(5)
-                .ToList();
+            ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeNews.ContentTypeName)
+                .Select(p => p.As<CollegeNewsPart>()).ToList();
 
-
-            var i = _service.ContentManager.New(XmContentType.InfomationType);
-            */
+           
+            
             return View();
         }
     }
