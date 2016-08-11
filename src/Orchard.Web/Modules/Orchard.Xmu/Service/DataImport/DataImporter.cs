@@ -101,7 +101,7 @@ namespace Orchard.Xmu.Service.DataImport
             return term;
         }
 
-
+        /*
         public void ImportPartyNews()
         {
             ImportDataTemplate<OldContent>(
@@ -147,6 +147,7 @@ namespace Orchard.Xmu.Service.DataImport
             return info.Id;
 
         }
+        */
 
         public void ImportNews()
         {

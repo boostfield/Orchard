@@ -17,7 +17,7 @@ namespace Orchard.Xmu
     {
         public int Create()
         {
-            
+            /*
             ContentDefinitionManager.AlterPartDefinition(XmContentType.InfomationType+"Part",
                     cfg =>
                     cfg.WithField(XmTaxonomyNames.CNInformation, b => b.OfType("TaxonomyField").WithDisplayName("信息类型"))
@@ -41,7 +41,7 @@ namespace Orchard.Xmu
           .Draftable()
           );
 
-
+            */
 
             return 1;
         }

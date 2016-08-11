@@ -31,6 +31,7 @@ namespace Orchard.Xmu.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            /*
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
             ViewBag.items = _infoService.GetContentItemsOfTaxonomy("学院新闻")
                 .Select(p=>p.As<InformationPart>()).OrderByDescending(j=> j.PublishedUtc)
@@ -39,6 +40,7 @@ namespace Orchard.Xmu.Controllers
 
 
             var i = _service.ContentManager.New(XmContentType.InfomationType);
+            */
             return View();
         }
     }

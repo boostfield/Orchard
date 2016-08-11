@@ -7,7 +7,6 @@ namespace Orchard.Xmu
 {
     public class XmContentType
     {
-        public static string InfomationType = "Infomation";
 
 
         public static XmContentDefinition CollegeNews = new XmContentDefinition {
