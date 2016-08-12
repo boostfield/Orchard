@@ -182,6 +182,7 @@
     <Content Include="Views\StudentInfoAdmin\List.cshtml" />
     <Content Include="Views\PublicPartyCollegeAffairsAdmin\List.cshtml" />
     <Content Include="Views\RecruitInfoAdmin\List.cshtml" />
+    <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -197,6 +198,7 @@
     <Compile Include="Controllers\DataImporterController.cs" />
     <Compile Include="Controllers\GraduateAffairsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LectureInfoAdminController.cs" />
     <Compile Include="Controllers\PublicPartyCollegeAffairsAdminController.cs" />
     <Compile Include="Controllers\RecruitInfoAdminController.cs" />
     <Compile Include="Controllers\StudentInfoAdminController.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
     <Compile Include="Drivers\GraduateAffairsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
+    <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Drivers\PublicPartyCollegeAffairsPartDriver.cs" />
     <Compile Include="Drivers\RecruitInfoPartDriver.cs" />
     <Compile Include="Drivers\StudentInfoPartDriver.cs" />
@@ -215,6 +218,7 @@
     <Compile Include="Models\CollegeNewsPart.cs" />
     <Compile Include="Models\GraduateAffairsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
+    <Compile Include="Models\LectureInfoPart.cs" />
     <Compile Include="Models\PublicPartyCollegeAffairsPart.cs" />
     <Compile Include="Models\RecruitInfoPart.cs" />
     <Compile Include="Models\StudentInfoPart.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />
     <Compile Include="Service\DataImport\Model\OldCategory.cs" />
+    <Compile Include="Service\DataImport\Model\OldLecture.cs" />
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
     <Compile Include="Service\FrontEndService.cs" />

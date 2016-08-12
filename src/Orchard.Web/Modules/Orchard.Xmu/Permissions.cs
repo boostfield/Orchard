@@ -58,7 +58,11 @@ namespace Orchard.Xmu
         };
 
 
-
+        public static readonly Permission ManageLectureInfo = new Permission
+        {
+            Description = XmContentType.LectureInfo.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.LectureInfo.ContentTypeName)
+        };
         public virtual Feature Feature { get; set; }
 
 
@@ -74,6 +78,7 @@ namespace Orchard.Xmu
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
                     ManageRecruitInfo,
+                    ManageLectureInfo,
 
 
 
@@ -87,6 +92,7 @@ namespace Orchard.Xmu
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
                     ManageRecruitInfo,
+                    ManageLectureInfo,
                     }
                 },
                 new PermissionStereotype {
@@ -97,6 +103,7 @@ namespace Orchard.Xmu
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
                     ManageRecruitInfo,
+                    ManageLectureInfo,
                     }
                 },
                 new PermissionStereotype {

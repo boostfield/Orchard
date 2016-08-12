@@ -108,5 +108,17 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        /// <summary>
+        /// 讲座信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportLectureInfo()
+        {
+
+            _dataImporter.ImportLectureInfo();
+            return View("Index");
+
+        }
     }
 }

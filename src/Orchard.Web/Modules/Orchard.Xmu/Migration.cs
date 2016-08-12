@@ -184,5 +184,30 @@ namespace Orchard.Xmu
             return 8;
 
         }
+
+
+        public int UpdateFrom8()
+        {
+            ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
+                 cfg =>
+                 cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
+                 .WithField("lectureAddress",b=>b.OfType("TextField").WithDisplayName("讲座地址"))
+                 .WithField("startTime",b=> b.OfType("DateTimeField").WithDisplayName("开始时间"))
+             );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.LectureInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(LectureInfoPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+            return 9;
+        }
     }
 }

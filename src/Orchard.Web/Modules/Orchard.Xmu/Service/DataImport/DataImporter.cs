@@ -129,18 +129,19 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
-           i => GenerateImportSingleOldContent<UndergraduateAffairsPart>(XmContentType.UndergraduateAffairs)(i),
+           i => GenerateImportSingleOldContent<UndergraduateAffairsPart, OldContent>(XmContentType.UndergraduateAffairs)(i,null),
            r => r.ID,
            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
            );
         }
 
 
+
         public void ImportGraduateAffairs()
         {
             ImportDataTemplate<OldContent>(
           () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
-          i => GenerateImportSingleOldContent<GraduateAffairsPart>(XmContentType.GraduateAffairs)(i),
+          i => GenerateImportSingleOldContent<GraduateAffairsPart, OldContent>(XmContentType.GraduateAffairs)(i,null),
           r => r.ID,
           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
           );
@@ -150,7 +151,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
-         i => GenerateImportSingleOldContent<StudentInfoPart>(XmContentType.StudentInfo)(i),
+         i => GenerateImportSingleOldContent<StudentInfoPart, OldContent>(XmContentType.StudentInfo)(i,null),
          r => r.ID,
          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
          );
@@ -160,7 +161,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
         () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开.txt"),
-        i => GenerateImportSingleOldContent<PublicPartyCollegeAffairsPart>(XmContentType.PublicPartyCollegeAffairs)(i),
+        i => GenerateImportSingleOldContent<PublicPartyCollegeAffairsPart, OldContent>(XmContentType.PublicPartyCollegeAffairs)(i,null),
         r => r.ID,
         @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开ID对照.txt"
         );
@@ -170,12 +171,27 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息.txt"),
-            i => GenerateImportSingleOldContent<RecruitInfoPart>(XmContentType.RecruitInfo)(i),
+            i => GenerateImportSingleOldContent<RecruitInfoPart, OldContent>(XmContentType.RecruitInfo)(i,null),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息ID对照.txt"
             );
         }
 
+
+        public void ImportLectureInfo ()
+        {
+            ImportDataTemplate<OldLecture>(
+           () => ReadDataFromJsonFile<OldLecture>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息.txt"),
+           i => GenerateImportSingleOldContent<LectureInfoPart, OldLecture>(XmContentType.LectureInfo)(i, (oldcontent, part)=> {
+               part.Lecturer = oldcontent.Lecturer;
+               part.LectureAddress = oldcontent.Address;
+               part.StartTime = oldcontent.StartTime;
+           }),
+           r => r.ID,
+           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息ID对照.txt"
+           );
+
+        }
 
         /// <summary>
         /// 院务通知
@@ -184,7 +200,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => GenerateImportSingleOldContent<CollegeAffairsNotifyPart>(XmContentType.CollegeAffairsNotify)(i),
+            i => GenerateImportSingleOldContent<CollegeAffairsNotifyPart,OldContent>(XmContentType.CollegeAffairsNotify)(i, null),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
             );
@@ -196,10 +212,10 @@ namespace Orchard.Xmu.Service.DataImport
         /// <typeparam name="T"></typeparam>
         /// <param name="contentDefinition"></param>
         /// <returns></returns>
-        private Func<OldContent,int> GenerateImportSingleOldContent<T>(XmContentDefinition contentDefinition) where T: BaseContentPart
+        private Func<U, Action<U,T>,int> GenerateImportSingleOldContent<T,U>(XmContentDefinition contentDefinition) where T: BaseContentPart where U:OldContent
 
         {
-            return (oldContent) =>
+            return (oldContent, assignAction) =>
             {
 
                 var info = _contentManager.New(contentDefinition.ContentTypeName);
@@ -211,9 +227,12 @@ namespace Orchard.Xmu.Service.DataImport
                 infopart.Editor = oldContent.Editor;
 
 
+
                 _contentManager.Create(info, VersionOptions.Published);
                 System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", contentDefinition.ContentTypeDisplayName, info.Id));
                 DoVote(infopart.ContentItem, oldContent.Clicks);
+                assignAction?.Invoke(oldContent, infopart);
+
                 return info.Id;
             };
         }

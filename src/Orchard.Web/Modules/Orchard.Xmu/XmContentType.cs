@@ -60,6 +60,14 @@ namespace Orchard.Xmu
             ContentTypeName = "RecruitInfo"
         };
 
+
+        public static XmContentDefinition LectureInfo = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "讲座会议",
+            PermissionDesc = "管理讲座会议",
+            ContentTypeName = "LectureInfo",
+            ContentTypePartName = "LectureInfoPart"
+        };
     }
 
 
@@ -68,6 +76,7 @@ namespace Orchard.Xmu
         public string ContentTypeName { get; set; }
         public string ContentTypeDisplayName { get; set; }
         public string PermissionDesc { get; set; }
+        public string ContentTypePartName { get; set; }
 
     }
 }

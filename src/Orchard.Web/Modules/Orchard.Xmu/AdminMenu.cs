@@ -48,7 +48,9 @@ namespace Orchard.Xmu
               .Add(T(XmContentType.RecruitInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "RecruitInfoAdmin", new { area = "Orchard.Xmu" })
               .Permission(Permissions.ManageRecruitInfo));
 
-
+            builder.AddImageSet("")
+            .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageLectureInfo));
 
         }
     }
