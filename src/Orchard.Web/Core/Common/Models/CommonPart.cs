@@ -18,6 +18,17 @@ namespace Orchard.Core.Common.Models {
             set { _owner.Value = value; }
         }
 
+        public string Author
+        {
+            get { return Retrieve(x => x.Author) ?? ""; }
+            set { Store(x => x.Author, value); }
+        }
+        public string Editor
+        {
+            get { return Retrieve(x => x.Editor) ?? ""; }
+            set { Store(x => x.Editor, value); }
+        }
+
         public IContent Container {
             get { return _container.Value; }
             set { _container.Value = value; }
