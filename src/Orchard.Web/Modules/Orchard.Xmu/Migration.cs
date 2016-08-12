@@ -163,5 +163,26 @@ namespace Orchard.Xmu
             return 7;
 
         }
+
+
+        public int UpdateFrom7()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.RecruitInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.RecruitInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(StudentInfoPart).Name)
+       .WithPart(typeof(RecruitInfoPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 8;
+
+        }
     }
 }

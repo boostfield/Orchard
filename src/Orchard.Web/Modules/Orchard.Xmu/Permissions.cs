@@ -51,6 +51,12 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageRecruitInfo = new Permission
+        {
+            Description = XmContentType.RecruitInfo.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.RecruitInfo.ContentTypeName)
+        };
+
 
 
         public virtual Feature Feature { get; set; }
@@ -67,6 +73,7 @@ namespace Orchard.Xmu
                     ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
 
 
 
@@ -79,6 +86,7 @@ namespace Orchard.Xmu
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
                     }
                 },
                 new PermissionStereotype {
@@ -88,6 +96,7 @@ namespace Orchard.Xmu
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
                     }
                 },
                 new PermissionStereotype {
@@ -103,9 +112,12 @@ namespace Orchard.Xmu
         {
             return new[]
             {
-                ManageCollegeNews,
-                ManageCollegeAffairsNotify,
-                ManageUndergraduateAffairs,
+               ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                                        ManageGraduateAffairs,
+                    ManageStudentInfo,
+                    ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
             };
         }
     }

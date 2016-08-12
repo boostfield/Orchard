@@ -52,6 +52,14 @@ namespace Orchard.Xmu
             ContentTypeName = "PublicPartyCollegeAffairs"
         };
 
+
+        public static XmContentDefinition RecruitInfo = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "招录信息",
+            PermissionDesc = "管理招录信息",
+            ContentTypeName = "RecruitInfo"
+        };
+
     }
 
 

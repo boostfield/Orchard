@@ -166,6 +166,17 @@ namespace Orchard.Xmu.Service.DataImport
         );
         }
 
+        public void ImportRecruitInfo()
+        {
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息.txt"),
+            i => GenerateImportSingleOldContent<RecruitInfoPart>(XmContentType.RecruitInfo)(i),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息ID对照.txt"
+            );
+        }
+
+
         /// <summary>
         /// 院务通知
         /// </summary>

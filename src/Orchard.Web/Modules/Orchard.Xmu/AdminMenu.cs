@@ -44,6 +44,12 @@ namespace Orchard.Xmu
                  .Permission(Permissions.ManagePublicPartyCollegeAffairs));
 
 
+            builder.AddImageSet("")
+              .Add(T(XmContentType.RecruitInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "RecruitInfoAdmin", new { area = "Orchard.Xmu" })
+              .Permission(Permissions.ManageRecruitInfo));
+
+
+
         }
     }
 }

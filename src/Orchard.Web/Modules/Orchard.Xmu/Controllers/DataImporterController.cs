@@ -81,5 +81,17 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        /// <summary>
+        /// 招录信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportRecruitInfo()
+        {
+
+            _dataImporter.ImportRecruitInfo();
+            return View("Index");
+
+        }
     }
 }
