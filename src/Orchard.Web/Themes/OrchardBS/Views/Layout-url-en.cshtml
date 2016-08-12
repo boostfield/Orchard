@@ -44,10 +44,12 @@
     /* Inserting some ad hoc shapes
     ***************************************************************/
 
-    
-   //orkContext.Layout.Footer.Add(New.BadgeOfHonor(), "0");
-    // Powered by Orchard
-    //WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
+
+    WorkContext.Layout.Footer.Add(New.ENFooterFirst(), "5");
+    WorkContext.Layout.Footer.Add(New.ENFooterSecond(), "10");
+    WorkContext.Layout.Footer.Add(New.ENBadgeOfHonor(), "15"); // Powered by Orchard
+                                                           // Powered by Orchard
+                                                            //WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
 
     /* Last bit of code to prep the layout wrapper
     ***************************************************************/
@@ -72,6 +74,14 @@
                     {
                         @Zone(Model.Header)
                     }
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            English<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/">中文</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="navbar-collapse collapse pull-right">
                     <form class="navbar-form " role="search">
@@ -188,7 +198,7 @@
 </section>
 
 
-<footer id="footer" class="footer">
+<footer id="en-footer" class="en-footer">
     <div class="container-fluid">
         @if (Model.Footer != null)
         {

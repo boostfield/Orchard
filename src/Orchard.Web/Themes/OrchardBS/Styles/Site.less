@@ -6,6 +6,7 @@
 @divider-color: rgba(0, 0, 0, 0.1);
 @text-color: #333333;
 @text-second-color: #999999;
+@text-third-color: rgba(255,255,255,0.7);
 body {
     font-family: Helvetica, 'Microsoft YaHei', sans-serif;
     font-size: 20px;
@@ -85,80 +86,7 @@ body {
     }
 } 
 
-.en-home {
-    .navbar.navbar-default {
-        background-color: black;
-    }
 
-    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-        color: white;
-        background-color: black;
-    }
-
-    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-        color: white;
-        font-size: 1em;
-    }
-
-    .navbar-default .navbar-nav > li > a {
-        color: white;
-        font-size: 1em;
-        height: 80px;
-        
-        line-height: 80px;
-        padding-top: 0;
-    }
-
-    .navbar-default .navbar-nav > li {
-        margin: 0 0.25em 0 0.25em;
-       
-    }
-
-    .btn-group .btn{
-        line-height: 80px;
-        padding: 0 1em 0 1em;
-        border-radius: 0;
-        background-color: transparent;
-        color: white;
-       
-        border: none;
-    }
-    .input-group input, .input-group button {
-        padding: 0 2em 0 2em;
-        height: 80px;
-        border-radius: 0;
-        background-color: #303030;
-        color: white;
-        border: none;
-        
-
-    }
-    .input-group input {
-        font-size: 1em;
-        
-    }
-    .navbar-form .input-group>.form-control {
-        
-    }
-    .input-group button {
-        background-repeat: no-repeat;
-        background-image: url("../Content/images/ic_nav_search.png");
-        background-position: center;
-        background-size: 20px 20px;
-        border-left: 1px solid rgba(255,255,255,0.2);
-    }
-    .navbar-form {
-        padding: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .container-fluid>.navbar-collapse {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 
 .top-bg {
     width: 100%;
@@ -352,6 +280,138 @@ body {
     font-size: 0.7em;
     border-top: 1px solid @divider-color;
     
+}
+
+//英文网站
+.en-home {
+    .navbar.navbar-default {
+        background-color: black;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        color: white;
+        font-size: 1em;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        color: white;
+        font-size: 1em;
+        height: 80px;
+        
+        line-height: 80px;
+        padding-top: 0;
+    }
+
+    .navbar-default .navbar-nav > li {
+        margin: 0 0.25em 0 0.25em;
+       
+    }
+
+    .btn-group .btn{
+        line-height: 80px;
+        padding: 0 1em 0 1em;
+        border-radius: 0;
+        background-color: transparent;
+        color: white;
+       
+        border: none;
+    }
+    .input-group input, .input-group button {
+        padding: 0 2em 0 2em;
+        height: 80px;
+        border-radius: 0;
+        background-color: #303030;
+        color: white;
+        border: none;
+        
+
+    }
+    .input-group input {
+        font-size: 1em;
+        
+    }
+    .navbar-form .input-group>.form-control {
+        
+    }
+    .input-group button {
+        background-repeat: no-repeat;
+        background-image: url("../Content/images/ic_nav_search.png");
+        background-position: center;
+        background-size: 20px 20px;
+        border-left: 1px solid rgba(255,255,255,0.2);
+    }
+    .navbar-form {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .container-fluid>.navbar-collapse {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.en-footer {
+    padding: 0;
+    width: 100%;
+    color: black;
+    .footer-first {
+        padding: 3em;
+        background-image: url("../Content/images/img_bottom.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        h1 {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 1em;
+        }
+        p {
+            font-size: 0.7em;
+            font-weight: 100;
+            color: @text-third-color;
+        }
+        a {
+            font-size: 0.7em;
+            font-weight: 100;
+            color: @text-third-color;
+        }
+    }
+    .footer-second {
+        padding: 3em;
+        background-color: #262F49;
+        h1 {
+            font-size: 2em;
+            color: white;
+        }
+        .links a {
+            font-size: 0.7em;
+            font-weight: 100;
+            color: @text-third-color;
+            margin: 0 0.5em 0 0.5em;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .links a:nth-child(n)::after {
+            content: "\00a0\00a0\00a0\00a0 | ";
+        }
+    }
+    .copyright {
+        background-color: #262F49;
+        padding: 0 2em 2em 2em;
+        font-size: 0.7em;
+        font-weight: 100;
+        color: @text-third-color;
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+    }
 }
 @media only screen
 and (max-device-width: 768px) {
