@@ -23,6 +23,12 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageUndergraduateAffairs = new Permission
+        {
+            Description = XmContentType.UndergraduateAffairs.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.UndergraduateAffairs.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 
@@ -31,15 +37,22 @@ namespace Orchard.Xmu
             return new[] {
                 new PermissionStereotype {
                     Name = "Administrator",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Editor",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Moderator",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Author",
@@ -56,6 +69,7 @@ namespace Orchard.Xmu
             {
                 ManageCollegeNews,
                 ManageCollegeAffairsNotify,
+                ManageUndergraduateAffairs,
             };
         }
     }

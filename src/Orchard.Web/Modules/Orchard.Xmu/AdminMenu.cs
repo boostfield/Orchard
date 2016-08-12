@@ -17,11 +17,18 @@ namespace Orchard.Xmu
         {
              
             builder.AddImageSet("")
-                      .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" }));
+                      .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" })
+                      .Permission(Permissions.ManageCollegeNews));
 
 
             builder.AddImageSet("")
-                     .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" }));
+                     .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" })
+                     .Permission(Permissions.ManageCollegeAffairsNotify));
+
+
+            builder.AddImageSet("")
+                     .Add(T(XmContentType.UndergraduateAffairs.ContentTypeDisplayName), "2", menu => menu.Action("List", "UndergraduateAffairsAdmin", new { area = "Orchard.Xmu" })
+                     .Permission(Permissions.ManageUndergraduateAffairs));
 
         }
     }
