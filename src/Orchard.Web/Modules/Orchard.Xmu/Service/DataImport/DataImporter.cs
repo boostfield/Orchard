@@ -127,13 +127,39 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => ImportSingleCollegeAffairsNotify(i),
+            i => GenerateImportSingleOldContent<CollegeAffairsNotifyPart>(XmContentType.CollegeAffairsNotify)(i),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
             );
         }
 
+        /// <summary>
+        ///导入单一的InformationDBS
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="contentDefinition"></param>
+        /// <returns></returns>
+        private Func<OldContent,int> GenerateImportSingleOldContent<T>(XmContentDefinition contentDefinition) where T: BaseContentPart
 
+        {
+            return (oldContent) =>
+            {
+
+                var info = _contentManager.New(contentDefinition.ContentTypeName);
+                var infopart = info.As<T>();
+                infopart.Title = oldContent.Title;
+                infopart.Text = oldContent.Content;
+                infopart.PublishedUtc = oldContent.PubTime;
+                infopart.Author = oldContent.Author;
+                infopart.Editor = oldContent.Editor;
+
+
+                _contentManager.Create(info, VersionOptions.Published);
+                System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", contentDefinition.ContentTypeDisplayName, info.Id));
+                DoVote(infopart.ContentItem, oldContent.Clicks);
+                return info.Id;
+            };
+        }
 
         private int ImportSingleCollegeAffairsNotify(OldContent oldPartyNews)
         {
@@ -143,10 +169,13 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Title = oldPartyNews.Title;
             infopart.Text = oldPartyNews.Content;
             infopart.PublishedUtc = oldPartyNews.PubTime;
+            infopart.Author = oldPartyNews.Author;
+            infopart.Editor = oldPartyNews.Editor;
+
 
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CollegeAffairsNotify.ContentTypeDisplayName, info.Id ));
- 
+            DoVote(infopart.ContentItem, oldPartyNews.Clicks);
             return info.Id;
 
         }
