@@ -8,3 +8,4 @@ Description: Description for the module Orchard.Xmu.
 Features:
     Orchard.Xmu:
         Description: Description for feature Orchard.Xmu.
+		Dependencies: NGM.ContentViewCounter

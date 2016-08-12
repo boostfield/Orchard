@@ -1,4 +1,5 @@
-﻿using Orchard.ContentManagement;
+﻿using NGM.ContentViewCounter.Models;
+using Orchard.ContentManagement;
 using Orchard.ContentManagement.Aspects;
 using Orchard.Core.Common.Models;
 using Orchard.Core.Title.Models;
@@ -35,5 +36,24 @@ namespace Orchard.Xmu.Models
             get { return this.As<ICommonPart>().PublishedUtc; }
             set { this.As<ICommonPart>().PublishedUtc = value; }
         }
+
+        public string Author
+        {
+            get { return this.As<CommonPart>().Author; }
+            set { this.As<CommonPart>().Author = value; }
+        }
+
+        public string Editor
+        {
+            get { return this.As<CommonPart>().Editor; }
+            set { this.As<CommonPart>().Editor = value; }
+        }
+
+        public int ViewCount
+        {
+            get { return this.As<UserViewPart>().TotalViews; }
+            set { this.As<UserViewPart>().TotalViews = value; }
+        }
+
     }
 }

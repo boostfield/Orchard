@@ -63,6 +63,11 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Title = oldnews.Title;
             infopart.Text = oldnews.Content;
             infopart.PublishedUtc = oldnews.PubTime;
+            infopart.Author = oldnews.Author;
+            infopart.Editor = oldnews.Editor;
+            infopart.ViewCount = oldnews.Clicks;
+
+             
             //TODO: 其它的一些数据
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
