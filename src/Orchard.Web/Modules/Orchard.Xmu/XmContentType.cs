@@ -45,6 +45,13 @@ namespace Orchard.Xmu
             ContentTypeName = "StudentInfo"
         };
 
+        public static XmContentDefinition PublicPartyCollegeAffairs = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "党务院务公开",
+            PermissionDesc = "管理党务院务公开",
+            ContentTypeName = "PublicPartyCollegeAffairs"
+        };
+
     }
 
 

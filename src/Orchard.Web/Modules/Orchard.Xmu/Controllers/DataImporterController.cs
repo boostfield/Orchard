@@ -69,5 +69,17 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        /// <summary>
+        /// 党院教务公开
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportPartyCollegeAffairs()
+        {
+
+            _dataImporter.ImportPartyCollegeAffairs();
+            return View("Index");
+
+        }
     }
 }

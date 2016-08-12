@@ -143,5 +143,25 @@ namespace Orchard.Xmu
             return 6;
 
         }
+
+        public int UpdateFrom6()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.PublicPartyCollegeAffairs.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(StudentInfoPart).Name)
+       .WithPart(typeof(PublicPartyCollegeAffairsPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 7;
+
+        }
     }
 }

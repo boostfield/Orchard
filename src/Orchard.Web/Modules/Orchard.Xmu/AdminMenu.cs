@@ -39,6 +39,11 @@ namespace Orchard.Xmu
                  .Add(T(XmContentType.StudentInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "StudentInfoAdmin", new { area = "Orchard.Xmu" })
                  .Permission(Permissions.ManageStudentInfo));
 
+            builder.AddImageSet("")
+                 .Add(T(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName), "2", menu => menu.Action("List", "PublicPartyCollegeAffairsAdmin", new { area = "Orchard.Xmu" })
+                 .Permission(Permissions.ManagePublicPartyCollegeAffairs));
+
+
         }
     }
 }

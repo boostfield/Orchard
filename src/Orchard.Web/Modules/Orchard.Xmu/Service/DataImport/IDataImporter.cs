@@ -17,5 +17,6 @@ namespace Orchard.Xmu.Service.DataImport
         void ImportUndergraduateAffairs(); //本科生教务
         void ImportGraduateAffairs(); //研究生教务
         void ImportStudentInfo(); //学生资讯
+        void ImportPartyCollegeAffairs(); //党务教务
     }
 }

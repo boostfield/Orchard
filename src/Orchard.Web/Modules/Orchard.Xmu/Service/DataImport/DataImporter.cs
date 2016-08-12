@@ -4,6 +4,7 @@ using NGM.ContentViewCounter.Models;
 using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.Security;
+using Orchard.Services;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Users.Models;
@@ -26,6 +27,7 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IMembershipService _memberShipService;
         private readonly IVotingService _votingService;
         private readonly IOrchardServices _orchardService;
+        private readonly IClock _clock;
 
         private readonly int MAX = 300;
 
@@ -36,7 +38,8 @@ namespace Orchard.Xmu.Service.DataImport
             ITransactionManager transactionManager,
             IMembershipService memberShipService,
             IVotingService votingService,
-            IOrchardServices orchardService
+            IOrchardServices orchardService,
+            IClock clock
 
             )
         {
@@ -46,6 +49,7 @@ namespace Orchard.Xmu.Service.DataImport
             _memberShipService = memberShipService;
             _votingService = votingService;
             _orchardService = orchardService;
+            _clock = clock;
         }
 
 
@@ -152,6 +156,15 @@ namespace Orchard.Xmu.Service.DataImport
          );
         }
 
+        public void ImportPartyCollegeAffairs()
+        {
+            ImportDataTemplate<OldContent>(
+        () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开.txt"),
+        i => GenerateImportSingleOldContent<PublicPartyCollegeAffairsPart>(XmContentType.PublicPartyCollegeAffairs)(i),
+        r => r.ID,
+        @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开ID对照.txt"
+        );
+        }
 
         /// <summary>
         /// 院务通知
@@ -182,7 +195,7 @@ namespace Orchard.Xmu.Service.DataImport
                 var infopart = info.As<T>();
                 infopart.Title = oldContent.Title;
                 infopart.Text = oldContent.Content;
-                infopart.PublishedUtc = oldContent.PubTime;
+                infopart.PublishedUtc = oldContent.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : oldContent.PubTime;
                 infopart.Author = oldContent.Author;
                 infopart.Editor = oldContent.Editor;
 
@@ -194,24 +207,7 @@ namespace Orchard.Xmu.Service.DataImport
             };
         }
 
-        private int ImportSingleCollegeAffairsNotify(OldContent oldPartyNews)
-        {
-             
-            var info = _contentManager.New(XmContentType.CollegeAffairsNotify.ContentTypeName);
-            var infopart = info.As<CollegeAffairsNotifyPart>();
-            infopart.Title = oldPartyNews.Title;
-            infopart.Text = oldPartyNews.Content;
-            infopart.PublishedUtc = oldPartyNews.PubTime;
-            infopart.Author = oldPartyNews.Author;
-            infopart.Editor = oldPartyNews.Editor;
-
-
-            _contentManager.Create(info, VersionOptions.Published);
-            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CollegeAffairsNotify.ContentTypeDisplayName, info.Id ));
-            DoVote(infopart.ContentItem, oldPartyNews.Clicks);
-            return info.Id;
-
-        }
+      
         
 
         public void ImportNews()
