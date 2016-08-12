@@ -178,6 +178,7 @@
     <Content Include="Views\Home\Paging.cshtml" />
     <Content Include="Views\CollegeAffairsNotifyAdmin\List.cshtml" />
     <Content Include="Views\UndergraduateAffairsAdmin\List.cshtml" />
+    <Content Include="Views\GraduateAffairsAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,10 +192,12 @@
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
+    <Compile Include="Controllers\GraduateAffairsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UndergraduateAffairsAdminController.cs" />
     <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
+    <Compile Include="Drivers\GraduateAffairsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Drivers\UndergraduateAffairsPartDriver.cs" />
     <Compile Include="Handlers\InfomationPartHandler.cs" />
@@ -202,6 +205,7 @@
     <Compile Include="Models\BaseContentPart.cs" />
     <Compile Include="Models\CollegeAffairsNotifyPart.cs" />
     <Compile Include="Models\CollegeNewsPart.cs" />
+    <Compile Include="Models\GraduateAffairsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Models\UndergraduateAffairsPart.cs" />
     <Compile Include="Permissions.cs" />

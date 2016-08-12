@@ -31,6 +31,12 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition GraduateAffairs = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "研究生教务",
+            PermissionDesc = "管理研究生教务",
+            ContentTypeName = "GraduateAffairs"
+        };
 
     }
 

@@ -29,6 +29,13 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.UndergraduateAffairs.ContentTypeName)
         };
 
+
+        public static readonly Permission ManageGraduateAffairs = new Permission
+        {
+            Description = XmContentType.GraduateAffairs.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.GraduateAffairs.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 

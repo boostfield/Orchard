@@ -49,5 +49,11 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        public ActionResult ImportGraduateAffairs()
+        {
+            _dataImporter.ImportGraduateAffairs();
+            return View("Index");
+        }
     }
 }

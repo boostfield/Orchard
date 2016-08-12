@@ -15,6 +15,6 @@ namespace Orchard.Xmu.Service.DataImport
         void ImportCollegeNews();//学院新闻
         void ImportCollegeAffairsNoti();///院务通知
         void ImportUndergraduateAffairs(); //本科生教务
-
+        void ImportGraduateAffairs(); //研究生教务
     }
 }

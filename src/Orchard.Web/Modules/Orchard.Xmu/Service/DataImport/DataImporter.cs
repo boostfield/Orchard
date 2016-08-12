@@ -132,6 +132,17 @@ namespace Orchard.Xmu.Service.DataImport
         }
 
 
+        public void ImportGraduateAffairs()
+        {
+            ImportDataTemplate<OldContent>(
+          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
+          i => GenerateImportSingleOldContent<GraduateAffairsPart>(XmContentType.GraduateAffairs)(i),
+          r => r.ID,
+          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
+          );
+        }
+
+
 
         /// <summary>
         /// 院务通知
