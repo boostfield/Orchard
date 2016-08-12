@@ -18,6 +18,21 @@ namespace Orchard.Xmu.Controllers
             _dataImporter = dataImporter;
         }
 
+
+        public ActionResult All()
+        {
+            _dataImporter.ImportCollegeNews();
+            _dataImporter.ImportCollegeAffairsNoti();
+            _dataImporter.ImportUndergraduateAffairs();
+            _dataImporter.ImportGraduateAffairs();
+            _dataImporter.ImportStudentInfo();
+            _dataImporter.ImportPartyCollegeAffairs();
+            _dataImporter.ImportRecruitInfo();
+            return View("Index");
+
+
+        }
+
         /// <summary>
         /// 学院新闻
         /// </summary>
