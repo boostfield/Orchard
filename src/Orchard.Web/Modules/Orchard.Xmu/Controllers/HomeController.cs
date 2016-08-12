@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using Orchard.UI.Navigation;
 using Orchard.Settings;
+using System.Globalization;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -45,8 +46,8 @@ namespace Orchard.Xmu.Controllers
             ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeNews.ContentTypeName)
                 .Select(p => p.As<CollegeNewsPart>()).ToList();
 
-           
-            
+
+
             return View();
         }
 
