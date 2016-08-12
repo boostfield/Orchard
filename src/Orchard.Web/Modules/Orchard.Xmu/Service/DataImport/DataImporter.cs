@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Contrib.Voting.Services;
+using Newtonsoft.Json;
+using NGM.ContentViewCounter.Models;
 using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.Security;
@@ -22,6 +24,8 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IContentManager _contentManager;
         private readonly ITransactionManager _transactionManager;
         private readonly IMembershipService _memberShipService;
+        private readonly IVotingService _votingService;
+        private readonly IOrchardServices _orchardService;
 
         private readonly int MAX = 300;
 
@@ -30,7 +34,9 @@ namespace Orchard.Xmu.Service.DataImport
             ITaxonomyService taxonomyService,
             IContentManager contentManager,
             ITransactionManager transactionManager,
-            IMembershipService memberShipService
+            IMembershipService memberShipService,
+            IVotingService votingService,
+            IOrchardServices orchardService
 
             )
         {
@@ -38,6 +44,8 @@ namespace Orchard.Xmu.Service.DataImport
             _contentManager = contentManager;
             _transactionManager = transactionManager;
             _memberShipService = memberShipService;
+            _votingService = votingService;
+            _orchardService = orchardService;
         }
 
 
@@ -65,16 +73,22 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.PublishedUtc = oldnews.PubTime;
             infopart.Author = oldnews.Author;
             infopart.Editor = oldnews.Editor;
-            infopart.ViewCount = oldnews.Clicks;
 
              
             //TODO: 其它的一些数据
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
+            DoVote(infopart.ContentItem, oldnews.Clicks);
+
 
             return info.Id;
         }
 
+        private void DoVote(ContentItem contentItem, double count)
+        {
+            _votingService.Vote(contentItem, "admin", _orchardService.WorkContext.HttpContext.Request.UserHostAddress, count, Constants.Dimension);
+
+        }
 
 
 
