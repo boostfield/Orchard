@@ -107,6 +107,7 @@ namespace Orchard.Xmu
 
         public int UpdateFrom4()
         {
+
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.GraduateAffairs.ContentTypeName,
              cfg => cfg
        .DisplayedAs(XmContentType.GraduateAffairs.ContentTypeDisplayName)
@@ -120,7 +121,27 @@ namespace Orchard.Xmu
        .Securable()
        );
             return 5;
+
         }
 
+        public int UpdateFrom5()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.StudentInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.StudentInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(StudentInfoPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 6;
+
+        }
     }
 }

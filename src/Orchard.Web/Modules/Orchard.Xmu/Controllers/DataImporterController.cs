@@ -49,11 +49,25 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
-
+        /// <summary>
+        /// 研究生教务 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ImportGraduateAffairs()
         {
             _dataImporter.ImportGraduateAffairs();
             return View("Index");
+        }
+
+        /// <summary>
+        /// 学生资讯
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportStudentInfo()
+        {
+            _dataImporter.ImportStudentInfo();
+            return View("Index");
+
         }
     }
 }

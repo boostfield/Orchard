@@ -38,6 +38,13 @@ namespace Orchard.Xmu
             ContentTypeName = "GraduateAffairs"
         };
 
+        public static XmContentDefinition StudentInfo = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "学生资讯",
+            PermissionDesc = "管理学生资讯",
+            ContentTypeName = "StudentInfo"
+        };
+
     }
 
 

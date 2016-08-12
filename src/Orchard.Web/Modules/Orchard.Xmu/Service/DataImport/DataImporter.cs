@@ -142,6 +142,15 @@ namespace Orchard.Xmu.Service.DataImport
           );
         }
 
+        public void ImportStudentInfo()
+        {
+            ImportDataTemplate<OldContent>(
+         () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
+         i => GenerateImportSingleOldContent<StudentInfoPart>(XmContentType.StudentInfo)(i),
+         r => r.ID,
+         @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
+         );
+        }
 
 
         /// <summary>
