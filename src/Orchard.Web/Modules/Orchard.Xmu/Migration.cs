@@ -175,7 +175,6 @@ namespace Orchard.Xmu
        .WithPart(typeof(TitlePart).Name)
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(StudentInfoPart).Name)
        .WithPart(typeof(RecruitInfoPart).Name)
        .Creatable()
        .Draftable()
@@ -208,6 +207,25 @@ namespace Orchard.Xmu
        );
 
             return 9;
+        }
+
+        public int UpdateFrom9()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.AcademicNews.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.AcademicNews.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(AcademicNewsPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+            return 10;
         }
     }
 }

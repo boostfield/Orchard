@@ -68,6 +68,16 @@ namespace Orchard.Xmu
             ContentTypeName = "LectureInfo",
             ContentTypePartName = "LectureInfoPart"
         };
+
+        public static XmContentDefinition AcademicNews = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "学术动态",
+            PermissionDesc = "管理学术动态",
+            ContentTypeName = "AcademicNews",
+            ContentTypePartName = "AcademicNewsPart"
+        };
+
+
     }
 
 

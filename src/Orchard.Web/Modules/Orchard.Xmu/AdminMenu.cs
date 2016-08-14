@@ -52,6 +52,10 @@ namespace Orchard.Xmu
             .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageLectureInfo));
 
+            builder.AddImageSet("")
+            .Add(T(XmContentType.AcademicNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "AcademicNewsAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageAcademicNews));
+
         }
     }
 }

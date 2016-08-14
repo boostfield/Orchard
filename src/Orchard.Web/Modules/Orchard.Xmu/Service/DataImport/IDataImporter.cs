@@ -20,5 +20,6 @@ namespace Orchard.Xmu.Service.DataImport
         void ImportPartyCollegeAffairs(); //党务教务
         void ImportRecruitInfo(); //招录信息
         void ImportLectureInfo(); //讲座信息
+        void ImportAcademicNews(); //学术动态
     }
 }

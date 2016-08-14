@@ -120,5 +120,17 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+        /// <summary>
+        /// 学术动态
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportAcademicNews()
+        {
+
+            _dataImporter.ImportAcademicNews();
+            return View("Index");
+
+        }
     }
 }

@@ -198,12 +198,27 @@ namespace Orchard.Xmu.Service.DataImport
         /// </summary>
         public void ImportCollegeAffairsNoti()
         {
+
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
             i => GenerateImportSingleOldContent<CollegeAffairsNotifyPart,OldContent>(XmContentType.CollegeAffairsNotify)(i, null),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
             );
+        }
+
+
+
+        public void ImportAcademicNews()
+        {
+
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态.txt"),
+            i => GenerateImportSingleOldContent<AcademicNewsPart, OldContent>(XmContentType.AcademicNews)(i, null),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态ID对照.txt"
+            );
+
         }
 
         /// <summary>
