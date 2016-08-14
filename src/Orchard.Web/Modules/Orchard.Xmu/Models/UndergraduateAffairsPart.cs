@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class UndergraduateAffairsPart: BaseContentPart
+    public class UndergraduateAffairsPart: XmContentPart
     {
     }
 }

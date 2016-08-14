@@ -184,6 +184,7 @@
     <Content Include="Views\RecruitInfoAdmin\List.cshtml" />
     <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <Content Include="Views\AcademicNewsAdmin\List.cshtml" />
+    <Content Include="Views\XmContentAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,7 +206,9 @@
     <Compile Include="Controllers\RecruitInfoAdminController.cs" />
     <Compile Include="Controllers\StudentInfoAdminController.cs" />
     <Compile Include="Controllers\UndergraduateAffairsAdminController.cs" />
+    <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\AcademicNewsPartDriver.cs" />
+    <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
     <Compile Include="Drivers\GraduateAffairsPartDriver.cs" />

@@ -10,7 +10,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class CollegeAffairsNotifyPart: BaseContentPart
+    public class CollegeAffairsNotifyPart: XmContentPart
     {
        
     }

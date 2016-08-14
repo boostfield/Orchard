@@ -50,21 +50,21 @@ namespace Orchard.Xmu
 
         public int UpdateFrom1()
         {
- 
-    
+
+
             //学院新闻
-           ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
-                cfg => cfg
-          .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
-          .WithPart(typeof(TitlePart).Name)
-          .WithPart(typeof(CommonPart).Name)
-          .WithPart(typeof(BodyPart).Name)
-          .WithPart(typeof(CollegeNewsPart).Name)
-          .WithPart(typeof(UserViewPart).Name)
-          .Creatable()
-          .Draftable()
-          .Securable()
-          );
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(CollegeNewsPart).Name)
+           .WithPart(typeof(UserViewPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
 
             return 2;
         }
@@ -190,8 +190,8 @@ namespace Orchard.Xmu
             ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
                  cfg =>
                  cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
-                 .WithField("lectureAddress",b=>b.OfType("TextField").WithDisplayName("讲座地址"))
-                 .WithField("startTime",b=> b.OfType("DateTimeField").WithDisplayName("开始时间"))
+                 .WithField("lectureAddress", b => b.OfType("TextField").WithDisplayName("讲座地址"))
+                 .WithField("startTime", b => b.OfType("DateTimeField").WithDisplayName("开始时间"))
              );
 
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
@@ -226,6 +226,31 @@ namespace Orchard.Xmu
        );
 
             return 10;
+        }
+
+        public int UpdateFrom10()
+        {
+            foreach (var mapping in XmContentType.Mappings)
+            {
+
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(mapping.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(XmContentPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+
+
+            }
+
+            return 11;
         }
     }
 }

@@ -11,7 +11,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public abstract class BaseContentPart:ContentPart
+    public class XmContentPart:ContentPart
     {
         public string Title
         {

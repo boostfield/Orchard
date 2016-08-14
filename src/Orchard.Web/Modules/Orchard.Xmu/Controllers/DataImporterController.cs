@@ -132,5 +132,13 @@ namespace Orchard.Xmu.Controllers
             return View("Index");
 
         }
+
+
+       public ActionResult ImportXmContents()
+        {
+            _dataImporter.ImportXmContent();
+            return View("Index");
+
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public DateTime PubTime { get; set; }
         public DateTime EdiTime { get; set; }
         public int Clicks { get; set; }
+
         public int Part { get; set; }   //part
+        public int Cate { get; set; }   //Cate
 
     }
 }

@@ -56,7 +56,21 @@ namespace Orchard.Xmu
             .Add(T(XmContentType.AcademicNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "AcademicNewsAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageAcademicNews));
 
+
+
+            foreach(var mapping in XmContentType.Mappings)
+            {
+
+                builder.AddImageSet("")
+                .Add(T(mapping.ContentTypeDisplayName), "2", 
+                menu => menu.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
+                .Permission(mapping.permission));
+
+
+            }
+
         }
+
     }
 }
 

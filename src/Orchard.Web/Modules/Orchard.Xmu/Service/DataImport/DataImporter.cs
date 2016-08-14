@@ -220,6 +220,58 @@ namespace Orchard.Xmu.Service.DataImport
             );
 
         }
+        /// <summary>
+        /// 导入原本为Contents的数据
+        /// </summary>
+        public void ImportXmContent()
+        {
+            ImportDataTemplate<OldContent>(
+                       () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\Contents.txt"),
+                       i => ImportSingleContent(i),
+                       r => r.ID,
+                       @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\ContentsID对照.txt"
+                       );
+        }
+
+        private int ImportSingleContent(OldContent content)
+        {
+            var mapping = GetMapping(content.Cate);
+            if(mapping==null)
+            {
+                return -1;
+            }
+
+            var info = _contentManager.New(mapping.ContentTypeName);
+            var infopart = info.As<XmContentPart>();
+            infopart.Title = content.Title;
+            infopart.Text = content.Content;
+            infopart.PublishedUtc = content.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : content.PubTime;
+            infopart.Author = content.Author;
+            infopart.Editor = content.Editor;
+
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", mapping.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, content.Clicks);
+            return info.Id;
+
+        }
+
+        private XmContentMapping GetMapping(int Id)
+        {
+            foreach(var mapping in XmContentType.Mappings)
+            {
+                if(mapping.Id == Id)
+                {
+                    return mapping;
+                }
+            }
+            return null;
+            
+        }
+
+
 
         /// <summary>
         ///导入单一的InformationDBS
@@ -227,7 +279,7 @@ namespace Orchard.Xmu.Service.DataImport
         /// <typeparam name="T"></typeparam>
         /// <param name="contentDefinition"></param>
         /// <returns></returns>
-        private Func<U, Action<U,T>,int> GenerateImportSingleOldContent<T,U>(XmContentDefinition contentDefinition) where T: BaseContentPart where U:OldContent
+        private Func<U, Action<U,T>,int> GenerateImportSingleOldContent<T,U>(XmContentDefinition contentDefinition) where T: XmContentPart where U:OldContent
 
         {
             return (oldContent, assignAction) =>
@@ -278,10 +330,15 @@ namespace Orchard.Xmu.Service.DataImport
 
             foreach (var item in items)
             {
+                var newId = SingerItemImporter(item);
+                if(newId == -1)
+                {
+                    continue;
+                }
                 ids.Add(new NewOldID
                 {
                     OldId = GetOldIDFromItem(item),
-                    NewId = SingerItemImporter(item)
+                    NewId = newId
                 });
                 if (++i >= MAX)
                 {
@@ -323,5 +380,6 @@ namespace Orchard.Xmu.Service.DataImport
             File.WriteAllText(filepath, JsonConvert.SerializeObject(ids));
         }
 
+        
     }
 }

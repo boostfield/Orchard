@@ -72,6 +72,7 @@ namespace Orchard.Xmu
 
 
 
+
         public virtual Feature Feature { get; set; }
 
 
@@ -126,7 +127,7 @@ namespace Orchard.Xmu
 
         public IEnumerable<Permission> GetPermissions()
         {
-            return new[]
+            var staticPermissions = new[]
             {
                ManageCollegeNews, ManageCollegeAffairsNotify,
                     ManageUndergraduateAffairs,
@@ -135,6 +136,14 @@ namespace Orchard.Xmu
                     ManagePublicPartyCollegeAffairs,
                     ManageRecruitInfo,
             };
+
+
+            var contentPermissions = XmContentType.Mappings
+                .Select(p => p.permission).ToList();
+            contentPermissions.AddRange(staticPermissions);
+
+
+            return contentPermissions;
         }
     }
 }

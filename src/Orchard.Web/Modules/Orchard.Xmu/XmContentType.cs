@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orchard.Security.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,7 +77,45 @@ namespace Orchard.Xmu
             ContentTypeName = "AcademicNews",
             ContentTypePartName = "AcademicNewsPart"
         };
+        //------------- Content Mapping..
+        public static XmContentMapping[] Mappings =
+            new XmContentMapping[]
+            {
+                new XmContentMapping
+                {
+                    Id = 99,
+                    TopicName = "厦大法律人",
+                    ContentTypeName = "XmLawyer",
+                    PermissionDesc = "管理厦大法律人",
+                    ContentTypeDisplayName = "厦大法律人",
+                    ContentTypePartName = "XmLawyerPart",
+                    permission = new Permission
+                    {
+                         Description =  "管理厦大法律人",
 
+                         Name = string.Format("Manage{0}","XmLawyer")
+
+                    }
+                },
+
+                new XmContentMapping
+                {
+                    Id=79,
+                    TopicName = "国际合作",
+                    ContentTypePartName = "InterCopPart",
+                    PermissionDesc = "管理国际合作",
+                    ContentTypeDisplayName = "国际合作",
+                    ContentTypeName = "InterCop",
+                    permission = new Permission
+                    {
+                        Description =  "管理国际合作",
+                        Name = string.Format("Manage{0}","InterCopPart")
+                    }
+                    
+                }
+
+
+            };
 
     }
 
@@ -88,5 +127,14 @@ namespace Orchard.Xmu
         public string PermissionDesc { get; set; }
         public string ContentTypePartName { get; set; }
 
+    }
+
+
+
+    public class XmContentMapping: XmContentDefinition
+    {
+        public int Id { get; set; } 
+        public string TopicName { get; set; }
+        public Permission permission { get; set; }
     }
 }
