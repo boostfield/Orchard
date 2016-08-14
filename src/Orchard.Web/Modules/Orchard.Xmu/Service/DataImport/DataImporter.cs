@@ -298,8 +298,11 @@ namespace Orchard.Xmu.Service.DataImport
                 _contentManager.Create(info, VersionOptions.Published);
                 System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", contentDefinition.ContentTypeDisplayName, info.Id));
                 DoVote(infopart.ContentItem, oldContent.Clicks);
-                assignAction?.Invoke(oldContent, infopart);
-
+                if (assignAction != null)
+                {
+                    assignAction.Invoke(oldContent, infopart);
+                }
+                
                 return info.Id;
             };
         }
