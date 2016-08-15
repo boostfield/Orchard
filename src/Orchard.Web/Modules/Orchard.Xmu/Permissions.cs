@@ -139,7 +139,7 @@ namespace Orchard.Xmu
 
 
             var contentPermissions = XmContentType.Mappings
-                .Select(p => p.permission).ToList();
+                .Select(p => p.Permission).ToList();
             contentPermissions.AddRange(staticPermissions);
 
 

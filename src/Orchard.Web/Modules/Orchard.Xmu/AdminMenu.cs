@@ -64,7 +64,7 @@ namespace Orchard.Xmu
                 builder.AddImageSet("")
                 .Add(T(mapping.ContentTypeDisplayName), "2", 
                 menu => menu.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
-                .Permission(mapping.permission));
+                .Permission(mapping.Permission));
 
 
             }
