@@ -161,7 +161,9 @@
       <Name>Orchard.Users</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\ContentDetail\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Placement.info">
       <SubType>Designer</SubType>
@@ -197,6 +199,7 @@
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AcademicNewsAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
+    <Compile Include="Controllers\ContentDetailController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />

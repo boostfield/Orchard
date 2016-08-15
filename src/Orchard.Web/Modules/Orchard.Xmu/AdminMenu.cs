@@ -23,7 +23,7 @@ namespace Orchard.Xmu
                 .Add(T("院庆CMS"), "1.0", BuildCelCmsMenu);
         }
 
-
+  
 
         private void BuildCelCmsMenu(NavigationItemBuilder menu)
         {
