@@ -96,7 +96,9 @@
     <Content Include="OrchardBS\Content\images\ic_new_list_content.png" />
     <Content Include="OrchardBS\Content\images\img_bottom.jpg" />
     <Content Include="OrchardBS\Content\images\img_buttom_logo.png" />
+    <Content Include="OrchardBS\Content\images\img_logo_top.png" />
     <Content Include="OrchardBS\Content\images\img_nav_logo.png" />
+    <Content Include="OrchardBS\Content\images\img_nav_logo_anniversary.png" />
     <Content Include="OrchardBS\Content\images\img_public_affairs.jpg" />
     <Content Include="OrchardBS\Content\images\img_recruiting_information.jpg" />
     <Content Include="OrchardBS\Content\images\img_research_institute.jpg" />
@@ -173,6 +175,7 @@
     <Content Include="OrchardBS\Views\ENFooterFirst.cshtml" />
     <Content Include="OrchardBS\Views\ENFooterSecond.cshtml" />
     <Content Include="OrchardBS\Views\ENBadgeOfHonor.cshtml" />
+    <Content Include="OrchardBS\Views\Layout-url-anniversary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Styles\images\icons.png" />
