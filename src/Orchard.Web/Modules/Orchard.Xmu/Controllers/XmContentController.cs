@@ -14,14 +14,14 @@ using System.Web.Mvc;
 namespace Orchard.Xmu.Controllers
 {
     [Themed]
-    public class ContentController : Controller
+    public class XmContentController : Controller
     {
         private readonly IOrchardServices _service;
         private readonly IFrontEndService _frontEndService;
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
 
-        public ContentController(IOrchardServices service,
+        public XmContentController(IOrchardServices service,
              IFrontEndService frontEndService,
              IContentManager contentManager,
             ISiteService siteService)

@@ -244,7 +244,7 @@ namespace Orchard.Xmu
 
                  { "area", "Orchard.Xmu"},
 
-                 { "controller", "Content"},
+                 { "controller", "XmContent"},
 
                  { "action", "Paging"}
 
