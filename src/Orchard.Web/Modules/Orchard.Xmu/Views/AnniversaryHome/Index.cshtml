@@ -1,4 +1,5 @@
 ﻿@{
+    Script.Require("NewsMarquee");
     ViewBag.Title = "AnniversaryHome";
 }
 <div class="top-bg">
@@ -6,4 +7,44 @@
 </div>
 <div class="container">
     <h2>AnniversaryHome</h2>
+   
+        <ul id="news-ticker">
+            <li>1杨adadadadadadada  2016/03/19</li>
+            <li>2李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>3杨adadadadadadada  2016/03/19</li>
+            <li>4李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>5杨adadadadadadada  2016/03/19</li>
+            <li>6李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>7杨adadadadadadada  2016/03/19</li>
+            <li>8李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>9杨adadadadadadada  2016/03/19</li>
+            <li>10李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>11杨adadadadadadada  2016/03/19</li>
+            <li>12李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>13杨adadadadadadada  2016/03/19</li>
+            <li>14李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>15杨adadadadadadada  2016/03/19</li>
+            <li>16李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>17杨adadadadadadada  2016/03/19</li>
+            <li>18李 sghjhkhkhkhjkhjkhkh/03/24</li>
+            <li>19杨adadadadadadada  2016/03/19</li>
+            <li>20李 sghjhkhkhkhjkhjkhkh/03/24</li>
+        </ul>
+    
 </div>
+<script>
+   
+$(function(){
+    $('#news-ticker').newsTicker({
+        row_height: 28,
+        max_rows: 5,
+        speed: 600,
+        direction: 'up',
+        duration: 2000,
+        autostart: 1,
+        pauseOnHover: 0
+    });
+
+});
+
+</script>
