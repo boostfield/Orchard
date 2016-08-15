@@ -45,9 +45,9 @@
     ***************************************************************/
 
 
-    //WorkContext.Layout.Footer.Add(New.ENFooterFirst(), "5");
+    WorkContext.Layout.Footer.Add(New.AnniversaryFooter(), "5");
     //WorkContext.Layout.Footer.Add(New.ENFooterSecond(), "10");
-    //WorkContext.Layout.Footer.Add(New.ENBadgeOfHonor(), "15"); 
+    WorkContext.Layout.Footer.Add(New.AnniversaryBadgeOfHonor(), "10"); 
                                                           
 
     /* Last bit of code to prep the layout wrapper
@@ -57,13 +57,13 @@
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
 @tag.StartElement
-
-<div class="anniversary navbar-wrapper">
+<div class="anniversary">
+<div class="navbar-wrapper">
     <div class="navbar navbar-default center" role="navigation">
         <div class="navbar-inner">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="~/en"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/img_nav_logo_anniversary.png"))"/></a>
+                    <a class="navbar-brand" href="~/anniversary"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/nav-logo.png"))"/></a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -75,8 +75,8 @@
                     }
                     
                 </div>
-               m>
-                </div>
+              
+                
                 <div class="navbar-collapse collapse pull-right">
                     @if (Model.Navigation != null)
                     {
@@ -88,10 +88,8 @@
             </div>
         </div>
     </div>
-</div>
-
-<section id="content">
-    <div class="container">
+<section id="content" class="content">
+    <div class="container-fluid">
         @if (Model.BeforeMain != null)
         { 
             <div class="row">
@@ -119,7 +117,7 @@
                     </div>
                 </aside>    
             }
-            <div class="container">
+            <div class="container-fluid">
                @if (Model.Messages != null)
                {             
                      @Zone(Model.Messages)
@@ -192,5 +190,5 @@
         }
     </div>
 </footer>
-
+</div>
 @tag.EndElement
