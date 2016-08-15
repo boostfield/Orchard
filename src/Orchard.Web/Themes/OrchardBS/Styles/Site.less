@@ -7,6 +7,11 @@
 @text-color: #333333;
 @text-second-color: #999999;
 @text-third-color: rgba(255,255,255,0.7);
+.transition-all() {
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s;
+}
 body {
     font-family: Helvetica, 'Microsoft YaHei', sans-serif;
     font-size: 20px;
@@ -281,7 +286,60 @@ body {
     border-top: 1px solid @divider-color;
     
 }
+.cn-list {
+    h1 {
+        color: @primary-color;
+        font-size: 1.2em;
+    }
 
+    .list-group-item {
+        border-left: none;
+        border-right: none;
+        font-size: 0.7em;
+    }
+    .title-name {
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 2em;
+        background-image: url(../Content/images/ic_new_list_content.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    .title-time {
+        text-align: right;
+    }
+    .list-group-item:nth-child(odd){
+        background-color: #FCFCFC;
+    }
+    .list-group-item:first-child {
+        border-radius: 0;
+        border-top: 2px solid @primary-color;
+    }
+    .list-group-item:last-child {
+        border-radius: 0;
+    }
+}
+#pagination  {
+   .pagination>li>a , .pagination>li>span {
+       border: none;
+       font-size: 0.7em;
+       padding: 6px;
+       color: @text-color;
+       margin: 0 3px 0 3px;
+       min-width: 28px;
+       text-align: center;
+       .transition-all;
+   }
+   .pagination>.active>a {
+       color: white;
+       background-color: @primary-color;
+   }
+   .pagination>li.first>a, .pagination>li.prev>a,.pagination>li.last>a, .pagination>li.next>a {
+       color: @primary-color;
+   }
+}
 //英文网站
 .en-home {
     .navbar.navbar-default {

@@ -66,11 +66,7 @@ namespace Orchard.Xmu.Controllers
             ViewBag.page = pager.Page;
             ViewBag.pageSize = pager.PageSize;
 
-
-            var lecture = _contentManager.Get(14).As<LectureInfoPart>();
-            lecture.Lecturer = "1110";
-            lecture.LectureAddress = "11222";
-            lecture.StartTime = DateTime.Now;
+ 
 
             return View();
 

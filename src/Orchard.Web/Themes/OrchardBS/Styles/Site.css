@@ -254,6 +254,61 @@
   font-size: 0.7em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+.cn-list h1 {
+  color: #2D44AA;
+  font-size: 1.2em;
+}
+.cn-list .list-group-item {
+  border-left: none;
+  border-right: none;
+  font-size: 0.7em;
+}
+.cn-list .title-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2em;
+  background-image: url(../Content/images/ic_new_list_content.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.cn-list .title-time {
+  text-align: right;
+}
+.cn-list .list-group-item:nth-child(odd) {
+  background-color: #FCFCFC;
+}
+.cn-list .list-group-item:first-child {
+  border-radius: 0;
+  border-top: 2px solid #2D44AA;
+}
+.cn-list .list-group-item:last-child {
+  border-radius: 0;
+}
+#pagination .pagination > li > a,
+#pagination .pagination > li > span {
+  border: none;
+  font-size: 0.7em;
+  padding: 6px;
+  color: #333333;
+  margin: 0 3px 0 3px;
+  min-width: 28px;
+  text-align: center;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+#pagination .pagination > .active > a {
+  color: white;
+  background-color: #2D44AA;
+}
+#pagination .pagination > li.first > a,
+#pagination .pagination > li.prev > a,
+#pagination .pagination > li.last > a,
+#pagination .pagination > li.next > a {
+  color: #2D44AA;
+}
 .en-home .navbar.navbar-default {
   background-color: black;
 }
