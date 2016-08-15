@@ -185,7 +185,11 @@
     <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <Content Include="Views\AcademicNewsAdmin\List.cshtml" />
     <Content Include="Views\XmContentAdmin\List.cshtml" />
+
     <Content Include="Views\College90CelebrationAdmin\List.cshtml" />
+
+    <Content Include="Views\AnniversaryHome\Index.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -196,7 +200,11 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AcademicNewsAdminController.cs" />
+
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
+
+    <Compile Include="Controllers\AnniversaryHomeController.cs" />
+
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
