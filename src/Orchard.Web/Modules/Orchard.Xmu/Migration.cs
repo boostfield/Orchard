@@ -154,8 +154,8 @@ namespace Orchard.Xmu
        .WithPart(typeof(TitlePart).Name)
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(StudentInfoPart).Name)
        .WithPart(typeof(PublicPartyCollegeAffairsPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
        .Creatable()
        .Draftable()
        .Securable()
@@ -176,6 +176,8 @@ namespace Orchard.Xmu
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(RecruitInfoPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+
        .Creatable()
        .Draftable()
        .Securable()
@@ -201,6 +203,8 @@ namespace Orchard.Xmu
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
+           .WithPart(typeof(UserViewPart).Name)
+
        .Creatable()
        .Draftable()
        .Securable()
@@ -220,6 +224,8 @@ namespace Orchard.Xmu
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(AcademicNewsPart).Name)
+              .WithPart(typeof(UserViewPart).Name)
+
        .Creatable()
        .Draftable()
        .Securable()
@@ -230,7 +236,7 @@ namespace Orchard.Xmu
 
         public int UpdateFrom10()
         {
-            foreach (var mapping in XmContentType.Mappings)
+            foreach (var mapping in XmContentType.ENCMSMappings)
             {
 
 
@@ -241,6 +247,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name)
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
+                  .WithPart(typeof(UserViewPart).Name)
+
            .Creatable()
            .Draftable()
            .Securable()
@@ -251,6 +259,31 @@ namespace Orchard.Xmu
             }
 
             return 11;
+        }
+
+
+        public int UpdateFrom11()
+        {
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(mapping.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(College90CelebrationPart).Name)
+           .WithPart(typeof(UserViewPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+
+            }
+
+            return 12;
         }
     }
 }

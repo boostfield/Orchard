@@ -1,0 +1,46 @@
+﻿@{
+
+    var total = ViewBag.total;
+    var items = ViewBag.items;
+    var page = ViewBag.page;
+    var pagesize = ViewBag.pageSize;
+    var contentTypeName = ViewBag.ContentTypeName;
+
+}
+
+<div class="container cn-list">
+    <h1>学院新闻</h1>
+    <ul class="list-group">
+        @foreach (var item in items)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="@Url.Action("Item","Content",new { Id=@item.Id, contentTypeName  = contentTypeName})">
+                        <div class="col-sm-9 title-name">@item.Title</div>
+                        <div class="col-sm-3 title-time">@item.PublishedUtc.ToString("yyyy-MM-dd")</div>
+                    </a>
+                </div>
+
+            </li>
+        }
+    </ul>
+
+    <div class="row">
+        <div id="pagination"></div>
+    </div>
+</div>
+<script>
+    $('#pagination').bootpag({
+        total: parseInt((@total - 1) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: '下一页',
+        prev: '上一页',
+        firstLastUse: true,
+        first: '首页',
+        last: parseInt((@total - 1) / 10),
+    }).on('page', function (event, num) {
+        window.location = (location.protocol + '//' + location.host + location.pathname '/'+@contentTypeName + "?page=" + num + "&pageSize=10");
+    });
+</script>

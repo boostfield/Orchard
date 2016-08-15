@@ -1,4 +1,4 @@
-﻿
+﻿@using Orchard.Xmu;
 @{
     ViewBag.Title = "Index";
 }
@@ -132,7 +132,7 @@
                     讲座会议
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-4 column-more">
-                    查看全部
+                    <a href="@Url.Action("Paging", "XmContent", new { contentTypeName="CollegeNews", page = 1,pageSize=10 })">查看全部</a>
                 </div>
             </div>
             <div class="row">
