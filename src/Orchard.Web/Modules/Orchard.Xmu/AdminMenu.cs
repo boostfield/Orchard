@@ -18,6 +18,21 @@ namespace Orchard.Xmu
 
             builder.AddImageSet("")
                 .Add(T("中文CMS"), "1.0", BuildCNCmsMenu);
+
+            builder.AddImageSet("")
+                .Add(T("院庆CMS"), "1.0", BuildCelCmsMenu);
+        }
+
+
+
+        private void BuildCelCmsMenu(NavigationItemBuilder menu)
+        {
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+                menu.Add(T(mapping.ContentTypeDisplayName), "2",
+                item => item.Action("List", "College90CelebrationAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
+                .Permission(mapping.Permission));
+            }
         }
 
         private void BuildCNCmsMenu(NavigationItemBuilder menu)
@@ -66,7 +81,7 @@ namespace Orchard.Xmu
 
 
 
-            foreach (var mapping in XmContentType.Mappings)
+            foreach (var mapping in XmContentType.ENCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",
                 item => item.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })

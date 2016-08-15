@@ -10,12 +10,13 @@ using System.Web.Mvc;
 namespace Orchard.Xmu.Controllers
 {
     [Admin]
-    public class XmContentAdminController : Controller
+
+    public class College90CelebrationAdminController : Controller
     {
         private readonly IAdminPagingService _pagingService;
 
 
-        public XmContentAdminController(
+        public College90CelebrationAdminController(
            IAdminPagingService pagingService
             )
         {
@@ -33,16 +34,16 @@ namespace Orchard.Xmu.Controllers
                  searchText);
 
             return View(vm);
-            
+
         }
 
 
 
         private string GetDisplayName(string typename)
         {
-            foreach(var mapping in XmContentType.ENCMSMappings)
+            foreach (var mapping in XmContentType.NinetyMappings)
             {
-                if(mapping.ContentTypeName.Equals(typename))
+                if (mapping.ContentTypeName.Equals(typename))
                 {
                     return mapping.ContentTypeDisplayName;
                 }
@@ -50,5 +51,5 @@ namespace Orchard.Xmu.Controllers
 
             return "内容";
         }
-    } 
+    }
 }

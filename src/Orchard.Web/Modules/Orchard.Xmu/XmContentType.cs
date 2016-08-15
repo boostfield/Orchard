@@ -78,10 +78,141 @@ namespace Orchard.Xmu
             ContentTypePartName = "AcademicNewsPart"
         };
         //------------- Content Mapping..
-        public static XmContentMapping[] Mappings =
-            new XmContentMapping[]
+
+
+        // 90's CMS
+
+
+
+        public static NinetyCMSContentMapping[] NinetyMappings =
+            new NinetyCMSContentMapping[]
             {
-                new XmContentMapping
+                new NinetyCMSContentMapping
+                {
+                    
+                    ContentTypeDisplayName = "通知公告",
+                    ContentTypeName = "CelAnnouncement",
+                    PermissionDesc = "管理通知公告",
+                    ContentTypePartName = "CelAnnouncementPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理通知公告",
+                        Name = string.Format("Manage{0}","CelAnnouncement")
+                    },
+                },
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "院庆动态",
+                    ContentTypeName = "CelNews",
+                    PermissionDesc = "管理院庆动态",
+                    ContentTypePartName = "CelNewsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理院庆动态",
+                        Name = string.Format("Manage{0}","CelNews")
+                    },
+                },
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "院庆捐赠",
+                    ContentTypeName = "CelDonation",
+                    PermissionDesc = "管理院庆捐赠",
+                    ContentTypePartName = "CelDonationPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理院庆捐赠",
+                        Name = string.Format("Manage{0}","CelDonation")
+                    },
+                },
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "成果展示",
+                    ContentTypeName = "CelVictory",
+                    PermissionDesc = "管理成果展示",
+                    ContentTypePartName = "CelVictoryPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理成果展示",
+                        Name = string.Format("Manage{0}","CelVictory")
+                    },
+                },
+
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "院友随笔",
+                    ContentTypeName = "CelMatesArticle",
+                    PermissionDesc = "管理院友随笔",
+                    ContentTypePartName = "CelMatesArticlePart",
+                    Permission = new Permission
+                    {
+                        Description = "管理院友随笔",
+                        Name = string.Format("Manage{0}","CelMatesArticle")
+                    },
+                },
+
+
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "院友风采",
+                    ContentTypeName = "CelMatesShows",
+                    PermissionDesc = "管理院友风采",
+                    ContentTypePartName = "CelMatesShowsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理院友风采",
+                        Name = string.Format("Manage{0}","CelMatesShows")
+                    },
+                },
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "学院历程",
+                    ContentTypeName = "CelCollegeHistory",
+                    PermissionDesc = "管理学院历程",
+                    ContentTypePartName = "CelCollegeHistoryPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理学院历程",
+                        Name = string.Format("Manage{0}","CelCollegeHistory")
+                    },
+                },
+
+                new NinetyCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "院友祝福",
+                    ContentTypeName = "CelMatesBlessing",
+                    PermissionDesc = "管理院友祝福",
+                    ContentTypePartName = "CelMatesBlessingPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理院友祝福",
+                        Name = string.Format("Manage{0}","CelMatesBlessing")
+                    },
+                },
+
+
+
+
+            };
+
+
+        //------- CN CMS
+        public static XmCNCMSContentMapping[] ENCMSMappings =
+            new XmCNCMSContentMapping[]
+            {
+                new XmCNCMSContentMapping
                 {
                     Id=28,
                     TopicName = "学院简介",
@@ -96,7 +227,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-                 new XmContentMapping
+                 new XmCNCMSContentMapping
                 {
                     Id=29,
                     TopicName = "学院风光",
@@ -112,7 +243,7 @@ namespace Orchard.Xmu
 
                 },
 
-               new XmContentMapping
+               new XmCNCMSContentMapping
                 {
                     Id=31,
                     TopicName = "现任领导",
@@ -128,7 +259,7 @@ namespace Orchard.Xmu
 
                 },
 
-               new XmContentMapping
+               new XmCNCMSContentMapping
                 {
                     Id=32,
                     TopicName = "工作人员",
@@ -144,7 +275,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=34,
                     TopicName = "联系我们",
@@ -160,7 +291,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=59,
                     TopicName = "退休教师",
@@ -177,7 +308,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=60,
                     TopicName = "永远怀念",
@@ -193,7 +324,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=75,
                     TopicName = "学院刊物",
@@ -209,7 +340,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=78,
                     TopicName = "国内合作",
@@ -226,7 +357,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=79,
                     TopicName = "国际合作",
@@ -243,7 +374,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=80,
                     TopicName = "共建单位",
@@ -259,7 +390,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=87,
                     TopicName = "就业实习",
@@ -276,7 +407,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=88,
                     TopicName = "社会实践",
@@ -293,7 +424,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=89,
                     TopicName = "志愿服务",
@@ -309,7 +440,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=90,
                     TopicName = "法律援助",
@@ -325,7 +456,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=91,
                     TopicName = "学生组织",
@@ -341,7 +472,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=92,
                     TopicName = "法硕联合会",
@@ -356,7 +487,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=94,
                     TopicName = "校友通讯",
@@ -372,7 +503,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=96,
                     TopicName = "校友论坛",
@@ -388,7 +519,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=97,
                     TopicName = "捐赠芳名",
@@ -404,7 +535,7 @@ namespace Orchard.Xmu
 
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id = 99,
                     TopicName = "厦大法律人",
@@ -421,7 +552,7 @@ namespace Orchard.Xmu
                     }
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id = 101,
                     TopicName = "法学社",
@@ -439,7 +570,7 @@ namespace Orchard.Xmu
                 },
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id = 102,
                     TopicName = "国辩协会",
@@ -458,7 +589,7 @@ namespace Orchard.Xmu
 
 
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id = 102,
                     TopicName = "国辩协会",
@@ -475,7 +606,7 @@ namespace Orchard.Xmu
                     }
                 },
 
-                new XmContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id = 111,
                     TopicName = "榜样力量",
@@ -508,10 +639,16 @@ namespace Orchard.Xmu
 
 
 
-    public class XmContentMapping: XmContentDefinition
+    public class XmCNCMSContentMapping: XmContentDefinition
     {
         public int Id { get; set; } 
         public string TopicName { get; set; }
+        public Permission Permission { get; set; }
+    }
+
+
+    public class NinetyCMSContentMapping: XmContentDefinition
+    {
         public Permission Permission { get; set; }
     }
 }

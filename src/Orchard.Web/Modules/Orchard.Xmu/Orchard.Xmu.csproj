@@ -185,6 +185,7 @@
     <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <Content Include="Views\AcademicNewsAdmin\List.cshtml" />
     <Content Include="Views\XmContentAdmin\List.cshtml" />
+    <Content Include="Views\College90CelebrationAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +196,7 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\AcademicNewsAdminController.cs" />
+    <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
@@ -208,6 +210,7 @@
     <Compile Include="Controllers\UndergraduateAffairsAdminController.cs" />
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\AcademicNewsPartDriver.cs" />
+    <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
@@ -220,7 +223,8 @@
     <Compile Include="Drivers\UndergraduateAffairsPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\AcademicNewsPart.cs" />
-    <Compile Include="Models\BaseContentPart.cs" />
+    <Compile Include="Models\XmContentPart.cs" />
+    <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\CollegeAffairsNotifyPart.cs" />
     <Compile Include="Models\CollegeNewsPart.cs" />
     <Compile Include="Models\GraduateAffairsPart.cs" />

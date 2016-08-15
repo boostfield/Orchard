@@ -258,9 +258,9 @@ namespace Orchard.Xmu.Service.DataImport
 
         }
 
-        private XmContentMapping GetMapping(int Id)
+        private XmCNCMSContentMapping GetMapping(int Id)
         {
-            foreach(var mapping in XmContentType.Mappings)
+            foreach(var mapping in XmContentType.ENCMSMappings)
             {
                 if(mapping.Id == Id)
                 {
