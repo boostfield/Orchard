@@ -175,7 +175,7 @@
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <Content Include="Views\CollegeNewsAdmin\List.cshtml" />
-    <Content Include="Views\Home\Paging.cshtml" />
+    <Content Include="Views\Content\Paging.cshtml" />
     <Content Include="Views\CollegeAffairsNotifyAdmin\List.cshtml" />
     <Content Include="Views\UndergraduateAffairsAdmin\List.cshtml" />
     <Content Include="Views\GraduateAffairsAdmin\List.cshtml" />
@@ -187,7 +187,7 @@
     <Content Include="Views\XmContentAdmin\List.cshtml" />
     <Content Include="Views\College90CelebrationAdmin\List.cshtml" />
     <Content Include="Views\AnniversaryHome\Index.cshtml" />
-    <Content Include="Views\ContentDetail\Item.cshtml" />
+    <Content Include="Views\Content\Item.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,7 +200,7 @@
     <Compile Include="Controllers\AcademicNewsAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
-    <Compile Include="Controllers\ContentDetailController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />

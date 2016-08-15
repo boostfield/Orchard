@@ -223,7 +223,7 @@ namespace Orchard.Xmu
                                         "Detail/{contentTypeName}/{Id}",
                                         new RouteValueDictionary {
                                                                     {"area", "Orchard.Xmu"},
-                                                                    {"controller", "ContentDetail"},
+                                                                    {"controller", "Content"},
                                                                     {"action", "Item"}
                                                                 },
                                         new RouteValueDictionary(),
@@ -236,15 +236,20 @@ namespace Orchard.Xmu
 
                          new RouteDescriptor
                 {
-                  Priority = 10,
+                  Priority = 22,
 
             Route = new Route(
-             "front/{controller}/{action}",
+             "Paging/{contentTypeName}",
              new RouteValueDictionary {
-                                        {"area", "Orchard.Xmu"},
-                                       
-                                       
+
+                 { "area", "Orchard.Xmu"},
+
+                 { "controller", "Content"},
+
+                 { "action", "Paging"}
+
                                        },
+
              new RouteValueDictionary(),
              new RouteValueDictionary {
                                           {"area", "Orchard.Xmu"}

@@ -51,27 +51,6 @@ namespace Orchard.Xmu.Controllers
             return View();
         }
 
-        public ActionResult Paging(PagerParameters pagerParameters)
-        {
-            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-
-            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.CollegeNews.ContentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
-
-            var total = q.Count();
-            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => p.As<CollegeNewsPart>()).ToList();
-            ViewBag.total = total;
-            ViewBag.items = items;
-            ViewBag.page = pager.Page;
-            ViewBag.pageSize = pager.PageSize;
-
- 
-
-            return View();
-
-
-
-        }
+    
     }
 }
