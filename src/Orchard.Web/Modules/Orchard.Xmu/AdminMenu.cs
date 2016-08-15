@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Orchard.Xmu
 {
-    public class AdminMenu: INavigationProvider
+    public class AdminMenu : INavigationProvider
     {
 
         public Localizer T { get; set; }
@@ -15,60 +15,63 @@ namespace Orchard.Xmu
 
         public void GetNavigation(NavigationBuilder builder)
         {
-             
+
             builder.AddImageSet("")
-                      .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" })
+                .Add(T("中文CMS"), "1.0", BuildCNCmsMenu);
+        }
+
+        private void BuildCNCmsMenu(NavigationItemBuilder menu)
+        {
+
+
+            menu
+             .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", item => item.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" })
                       .Permission(Permissions.ManageCollegeNews));
 
 
-            builder.AddImageSet("")
-                     .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", menu => menu.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+                     .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", item => item.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" })
                      .Permission(Permissions.ManageCollegeAffairsNotify));
 
 
-            builder.AddImageSet("")
-                     .Add(T(XmContentType.UndergraduateAffairs.ContentTypeDisplayName), "2", menu => menu.Action("List", "UndergraduateAffairsAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+                     .Add(T(XmContentType.UndergraduateAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "UndergraduateAffairsAdmin", new { area = "Orchard.Xmu" })
                      .Permission(Permissions.ManageUndergraduateAffairs));
 
-            builder.AddImageSet("")
-                 .Add(T(XmContentType.GraduateAffairs.ContentTypeDisplayName), "2", menu => menu.Action("List", "GraduateAffairsAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+                 .Add(T(XmContentType.GraduateAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "GraduateAffairsAdmin", new { area = "Orchard.Xmu" })
                  .Permission(Permissions.ManageGraduateAffairs));
 
 
-            builder.AddImageSet("")
-                 .Add(T(XmContentType.StudentInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "StudentInfoAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+                 .Add(T(XmContentType.StudentInfo.ContentTypeDisplayName), "2", item => item.Action("List", "StudentInfoAdmin", new { area = "Orchard.Xmu" })
                  .Permission(Permissions.ManageStudentInfo));
 
-            builder.AddImageSet("")
-                 .Add(T(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName), "2", menu => menu.Action("List", "PublicPartyCollegeAffairsAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+                 .Add(T(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "PublicPartyCollegeAffairsAdmin", new { area = "Orchard.Xmu" })
                  .Permission(Permissions.ManagePublicPartyCollegeAffairs));
 
 
-            builder.AddImageSet("")
-              .Add(T(XmContentType.RecruitInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "RecruitInfoAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+              .Add(T(XmContentType.RecruitInfo.ContentTypeDisplayName), "2", item => item.Action("List", "RecruitInfoAdmin", new { area = "Orchard.Xmu" })
               .Permission(Permissions.ManageRecruitInfo));
 
-            builder.AddImageSet("")
-            .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", menu => menu.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+            .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", item => item.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageLectureInfo));
 
-            builder.AddImageSet("")
-            .Add(T(XmContentType.AcademicNews.ContentTypeDisplayName), "2", menu => menu.Action("List", "AcademicNewsAdmin", new { area = "Orchard.Xmu" })
+            menu.AddImageSet("")
+            .Add(T(XmContentType.AcademicNews.ContentTypeDisplayName), "2", item => item.Action("List", "AcademicNewsAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageAcademicNews));
 
 
 
-            foreach(var mapping in XmContentType.Mappings)
+            foreach (var mapping in XmContentType.Mappings)
             {
-
-                builder.AddImageSet("")
-                .Add(T(mapping.ContentTypeDisplayName), "2", 
-                menu => menu.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
+                menu.Add(T(mapping.ContentTypeDisplayName), "2",
+                item => item.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
                 .Permission(mapping.Permission));
-
-
             }
-
         }
 
     }
