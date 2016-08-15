@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using Orchard.UI.Navigation;
 using Orchard.Settings;
+using System.Globalization;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -45,8 +46,8 @@ namespace Orchard.Xmu.Controllers
             ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeAffairsNotify.ContentTypeName)
                 .Select(p => p.As<CollegeAffairsNotifyPart>()).ToList();
 
-           
-            
+
+
             return View();
         }
 
@@ -65,11 +66,7 @@ namespace Orchard.Xmu.Controllers
             ViewBag.page = pager.Page;
             ViewBag.pageSize = pager.PageSize;
 
-
-            var lecture = _contentManager.Get(14).As<LectureInfoPart>();
-            lecture.Lecturer = "1110";
-            lecture.LectureAddress = "11222";
-            lecture.StartTime = DateTime.Now;
+ 
 
             return View();
 
