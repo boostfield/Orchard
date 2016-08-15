@@ -82,6 +82,122 @@ namespace Orchard.Xmu
                                                                 },
                                         new MvcRouteHandler())
                              },
+                          new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/UndergraduateAffairs",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "UndergraduateAffairsAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+                           new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/GraduateAffairs",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "GraduateAffairsAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+
+                           new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/StudentInfo",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "StudentInfoAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+
+                           new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/PublicPartCollegeAffairs",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "PublicPartyCollegeAffairsAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+                                  new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/RecuritInfo",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "RecuritInfoAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+
+                                  new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/AcademicNews",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "AcademicNewsAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
+
+
+                                  new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/XmContent/{contentTypeName}",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "XmContentAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
 
                          new RouteDescriptor
                 {

@@ -18,6 +18,21 @@ namespace Orchard.Xmu.Controllers
             _dataImporter = dataImporter;
         }
 
+
+        public ActionResult All()
+        {
+            _dataImporter.ImportCollegeNews();
+            _dataImporter.ImportCollegeAffairsNoti();
+            _dataImporter.ImportUndergraduateAffairs();
+            _dataImporter.ImportGraduateAffairs();
+            _dataImporter.ImportStudentInfo();
+            _dataImporter.ImportPartyCollegeAffairs();
+            _dataImporter.ImportRecruitInfo();
+            return View("Index");
+
+
+        }
+
         /// <summary>
         /// 学院新闻
         /// </summary>
@@ -29,11 +44,101 @@ namespace Orchard.Xmu.Controllers
 
         }
 
-
+        /// <summary>
+        /// 院务通知
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ImportCollegeAffairsNotify()
         {
             _dataImporter.ImportCollegeAffairsNoti();
             return View("Index");
+        }
+
+        /// <summary>
+        /// 本科生教务
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportUndergraduateAffairs()
+        {
+            _dataImporter.ImportUndergraduateAffairs();
+            return View("Index");
+
+        }
+        /// <summary>
+        /// 研究生教务 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportGraduateAffairs()
+        {
+            _dataImporter.ImportGraduateAffairs();
+            return View("Index");
+        }
+
+        /// <summary>
+        /// 学生资讯
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportStudentInfo()
+        {
+            _dataImporter.ImportStudentInfo();
+            return View("Index");
+
+        }
+
+        /// <summary>
+        /// 党院教务公开
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportPartyCollegeAffairs()
+        {
+
+            _dataImporter.ImportPartyCollegeAffairs();
+            return View("Index");
+
+        }
+
+        /// <summary>
+        /// 招录信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportRecruitInfo()
+        {
+
+            _dataImporter.ImportRecruitInfo();
+            return View("Index");
+
+        }
+
+        /// <summary>
+        /// 讲座信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportLectureInfo()
+        {
+
+            _dataImporter.ImportLectureInfo();
+            return View("Index");
+
+        }
+
+        /// <summary>
+        /// 学术动态
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ImportAcademicNews()
+        {
+
+            _dataImporter.ImportAcademicNews();
+            return View("Index");
+
+        }
+
+
+       public ActionResult ImportXmContents()
+        {
+            _dataImporter.ImportXmContent();
+            return View("Index");
+
         }
     }
 }

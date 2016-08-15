@@ -8,5 +8,7 @@ namespace Orchard.Core.Common.Models {
         public virtual DateTime? CreatedUtc { get; set; }
         public virtual DateTime? PublishedUtc { get; set; }
         public virtual DateTime? ModifiedUtc { get; set; }
+        public virtual string Author { get; set; }
+        public virtual string Editor { get; set; }
     }
 }

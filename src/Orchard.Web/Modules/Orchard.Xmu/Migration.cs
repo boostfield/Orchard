@@ -50,21 +50,21 @@ namespace Orchard.Xmu
 
         public int UpdateFrom1()
         {
- 
-    
+
+
             //学院新闻
-           ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
-                cfg => cfg
-          .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
-          .WithPart(typeof(TitlePart).Name)
-          .WithPart(typeof(CommonPart).Name)
-          .WithPart(typeof(BodyPart).Name)
-          .WithPart(typeof(CollegeNewsPart).Name)
-          .WithPart(typeof(UserViewPart).Name)
-          .Creatable()
-          .Draftable()
-          .Securable()
-          );
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(CollegeNewsPart).Name)
+           .WithPart(typeof(UserViewPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
 
             return 2;
         }
@@ -77,7 +77,7 @@ namespace Orchard.Xmu
        .WithPart(typeof(TitlePart).Name)
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(CollegeNewsPart).Name)
+       .WithPart(typeof(CollegeAffairsNotifyPart).Name)
        .WithPart(typeof(UserViewPart).Name)
        .Creatable()
        .Draftable()
@@ -86,5 +86,171 @@ namespace Orchard.Xmu
             return 3;
         }
 
+        public int UpdateFrom3()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.UndergraduateAffairs.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.UndergraduateAffairs.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(UndergraduateAffairsPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 4;
+
+        }
+
+        public int UpdateFrom4()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.GraduateAffairs.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.GraduateAffairs.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(GraduateAffairsPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 5;
+
+        }
+
+        public int UpdateFrom5()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.StudentInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.StudentInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(StudentInfoPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 6;
+
+        }
+
+        public int UpdateFrom6()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.PublicPartyCollegeAffairs.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(StudentInfoPart).Name)
+       .WithPart(typeof(PublicPartyCollegeAffairsPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 7;
+
+        }
+
+
+        public int UpdateFrom7()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.RecruitInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.RecruitInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(RecruitInfoPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+            return 8;
+
+        }
+
+
+        public int UpdateFrom8()
+        {
+            ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
+                 cfg =>
+                 cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
+                 .WithField("lectureAddress", b => b.OfType("TextField").WithDisplayName("讲座地址"))
+                 .WithField("startTime", b => b.OfType("DateTimeField").WithDisplayName("开始时间"))
+             );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.LectureInfo.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(LectureInfoPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+            return 9;
+        }
+
+        public int UpdateFrom9()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.AcademicNews.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.AcademicNews.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name)
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(AcademicNewsPart).Name)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+            return 10;
+        }
+
+        public int UpdateFrom10()
+        {
+            foreach (var mapping in XmContentType.Mappings)
+            {
+
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(mapping.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(XmContentPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+
+
+            }
+
+            return 11;
+        }
     }
 }

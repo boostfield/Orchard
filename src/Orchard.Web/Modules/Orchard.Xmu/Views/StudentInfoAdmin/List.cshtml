@@ -2,9 +2,11 @@
 @using Orchard.Xmu;
 
 <div class="manage">
-    @Html.ActionLink(string.Format("新建{0}", T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName)), "Create", new { Area = "Contents", Controller = "Admin",Id = XmContentType.CollegeAffairsNotify.ContentTypeName  }, new { @class = "button primaryAction" })
+    @Html.ActionLink(string.Format("新建{0}", 
+    T(XmContentType.StudentInfo.ContentTypeDisplayName)), "Create", 
+    new { Area = "Contents", Controller = "Admin",Id = XmContentType.StudentInfo.ContentTypeName  }, new { @class = "button primaryAction" })
 </div>
-@using (Html.BeginFormAntiForgeryPost(Url.Action("List", new { controller = "CollegeAffairsNotifyAdmin", area = "Orchard.Xmu" }), FormMethod.Get))
+@using (Html.BeginFormAntiForgeryPost(Url.Action("List", new { controller = "StudentInfoAdmin", area = "Orchard.Xmu" }), FormMethod.Get))
 {
     <label for="search-text">标题搜索</label>
     @Html.TextBox("searchText", Model.SearchText, new { @class = "text medium", autofocus = "autofocus" })

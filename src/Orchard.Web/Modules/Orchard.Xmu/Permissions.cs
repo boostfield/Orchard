@@ -23,6 +23,56 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageUndergraduateAffairs = new Permission
+        {
+            Description = XmContentType.UndergraduateAffairs.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.UndergraduateAffairs.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageGraduateAffairs = new Permission
+        {
+            Description = XmContentType.GraduateAffairs.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.GraduateAffairs.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageStudentInfo = new Permission
+        {
+            Description = XmContentType.StudentInfo.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.StudentInfo.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManagePublicPartyCollegeAffairs = new Permission
+        {
+            Description = XmContentType.PublicPartyCollegeAffairs.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.PublicPartyCollegeAffairs.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageRecruitInfo = new Permission
+        {
+            Description = XmContentType.RecruitInfo.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.RecruitInfo.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageLectureInfo = new Permission
+        {
+            Description = XmContentType.LectureInfo.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.LectureInfo.ContentTypeName)
+        };
+
+        public static readonly Permission ManageAcademicNews = new Permission
+        {
+            Description = XmContentType.AcademicNews.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.AcademicNews.ContentTypeName)
+        };
+
+
+
+
         public virtual Feature Feature { get; set; }
 
 
@@ -31,15 +81,40 @@ namespace Orchard.Xmu
             return new[] {
                 new PermissionStereotype {
                     Name = "Administrator",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews,
+                        ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                    ManageGraduateAffairs,
+                    ManageStudentInfo,
+                    ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
+                    ManageLectureInfo,
+
+
+
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Editor",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                                        ManageGraduateAffairs,
+                    ManageStudentInfo,
+                    ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
+                    ManageLectureInfo,
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Moderator",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify }
+                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                                        ManageGraduateAffairs,
+                    ManageStudentInfo,
+                    ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
+                    ManageLectureInfo,
+                    }
                 },
                 new PermissionStereotype {
                     Name = "Author",
@@ -52,11 +127,23 @@ namespace Orchard.Xmu
 
         public IEnumerable<Permission> GetPermissions()
         {
-            return new[]
+            var staticPermissions = new[]
             {
-                ManageCollegeNews,
-                ManageCollegeAffairsNotify,
+               ManageCollegeNews, ManageCollegeAffairsNotify,
+                    ManageUndergraduateAffairs,
+                                        ManageGraduateAffairs,
+                    ManageStudentInfo,
+                    ManagePublicPartyCollegeAffairs,
+                    ManageRecruitInfo,
             };
+
+
+            var contentPermissions = XmContentType.Mappings
+                .Select(p => p.permission).ToList();
+            contentPermissions.AddRange(staticPermissions);
+
+
+            return contentPermissions;
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Contrib.Voting.Services;
+using Newtonsoft.Json;
+using NGM.ContentViewCounter.Models;
 using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.Security;
+using Orchard.Services;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Users.Models;
@@ -22,6 +25,9 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IContentManager _contentManager;
         private readonly ITransactionManager _transactionManager;
         private readonly IMembershipService _memberShipService;
+        private readonly IVotingService _votingService;
+        private readonly IOrchardServices _orchardService;
+        private readonly IClock _clock;
 
         private readonly int MAX = 300;
 
@@ -30,7 +36,10 @@ namespace Orchard.Xmu.Service.DataImport
             ITaxonomyService taxonomyService,
             IContentManager contentManager,
             ITransactionManager transactionManager,
-            IMembershipService memberShipService
+            IMembershipService memberShipService,
+            IVotingService votingService,
+            IOrchardServices orchardService,
+            IClock clock
 
             )
         {
@@ -38,6 +47,9 @@ namespace Orchard.Xmu.Service.DataImport
             _contentManager = contentManager;
             _transactionManager = transactionManager;
             _memberShipService = memberShipService;
+            _votingService = votingService;
+            _orchardService = orchardService;
+            _clock = clock;
         }
 
 
@@ -63,13 +75,24 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Title = oldnews.Title;
             infopart.Text = oldnews.Content;
             infopart.PublishedUtc = oldnews.PubTime;
+            infopart.Author = oldnews.Author;
+            infopart.Editor = oldnews.Editor;
+
+             
             //TODO: 其它的一些数据
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine("学院新闻 newId:" + info.Id);
+            DoVote(infopart.ContentItem, oldnews.Clicks);
+
 
             return info.Id;
         }
 
+        private void DoVote(ContentItem contentItem, double count)
+        {
+            _votingService.Vote(contentItem, "admin", _orchardService.WorkContext.HttpContext.Request.UserHostAddress, count, Constants.Dimension);
+
+        }
 
 
 
@@ -101,14 +124,84 @@ namespace Orchard.Xmu.Service.DataImport
             return term;
         }
 
+
+        public void ImportUndergraduateAffairs()
+        {
+            ImportDataTemplate<OldContent>(
+           () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
+           i => GenerateImportSingleOldContent<UndergraduateAffairsPart, OldContent>(XmContentType.UndergraduateAffairs)(i,null),
+           r => r.ID,
+           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
+           );
+        }
+
+
+
+        public void ImportGraduateAffairs()
+        {
+            ImportDataTemplate<OldContent>(
+          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
+          i => GenerateImportSingleOldContent<GraduateAffairsPart, OldContent>(XmContentType.GraduateAffairs)(i,null),
+          r => r.ID,
+          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
+          );
+        }
+
+        public void ImportStudentInfo()
+        {
+            ImportDataTemplate<OldContent>(
+         () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
+         i => GenerateImportSingleOldContent<StudentInfoPart, OldContent>(XmContentType.StudentInfo)(i,null),
+         r => r.ID,
+         @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
+         );
+        }
+
+        public void ImportPartyCollegeAffairs()
+        {
+            ImportDataTemplate<OldContent>(
+        () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开.txt"),
+        i => GenerateImportSingleOldContent<PublicPartyCollegeAffairsPart, OldContent>(XmContentType.PublicPartyCollegeAffairs)(i,null),
+        r => r.ID,
+        @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开ID对照.txt"
+        );
+        }
+
+        public void ImportRecruitInfo()
+        {
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息.txt"),
+            i => GenerateImportSingleOldContent<RecruitInfoPart, OldContent>(XmContentType.RecruitInfo)(i,null),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息ID对照.txt"
+            );
+        }
+
+
+        public void ImportLectureInfo ()
+        {
+            ImportDataTemplate<OldLecture>(
+           () => ReadDataFromJsonFile<OldLecture>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息.txt"),
+           i => GenerateImportSingleOldContent<LectureInfoPart, OldLecture>(XmContentType.LectureInfo)(i, (oldcontent, part)=> {
+               part.Lecturer = oldcontent.Lecturer;
+               part.LectureAddress = oldcontent.Address;
+               part.StartTime = oldcontent.StartTime;
+           }),
+           r => r.ID,
+           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息ID对照.txt"
+           );
+
+        }
+
         /// <summary>
         /// 院务通知
         /// </summary>
         public void ImportCollegeAffairsNoti()
         {
+
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => ImportSinglePartyNews(i),
+            i => GenerateImportSingleOldContent<CollegeAffairsNotifyPart,OldContent>(XmContentType.CollegeAffairsNotify)(i, null),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
             );
@@ -116,20 +209,102 @@ namespace Orchard.Xmu.Service.DataImport
 
 
 
-        private int ImportSinglePartyNews(OldContent oldPartyNews)
+        public void ImportAcademicNews()
         {
-             
-            var info = _contentManager.New(XmContentType.CollegeAffairsNotify.ContentTypeName);
-            var infopart = info.As<CollegeNewsPart>();
-            infopart.Title = oldPartyNews.Title;
-            infopart.Text = oldPartyNews.Content;
+
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态.txt"),
+            i => GenerateImportSingleOldContent<AcademicNewsPart, OldContent>(XmContentType.AcademicNews)(i, null),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态ID对照.txt"
+            );
+
+        }
+        /// <summary>
+        /// 导入原本为Contents的数据
+        /// </summary>
+        public void ImportXmContent()
+        {
+            ImportDataTemplate<OldContent>(
+                       () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\Contents.txt"),
+                       i => ImportSingleContent(i),
+                       r => r.ID,
+                       @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\ContentsID对照.txt"
+                       );
+        }
+
+        private int ImportSingleContent(OldContent content)
+        {
+            var mapping = GetMapping(content.Cate);
+            if(mapping==null)
+            {
+                return -1;
+            }
+
+            var info = _contentManager.New(mapping.ContentTypeName);
+            var infopart = info.As<XmContentPart>();
+            infopart.Title = content.Title;
+            infopart.Text = content.Content;
+            infopart.PublishedUtc = content.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : content.PubTime;
+            infopart.Author = content.Author;
+            infopart.Editor = content.Editor;
+
+
 
             _contentManager.Create(info, VersionOptions.Published);
-            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CollegeAffairsNotify.ContentTypeDisplayName, info.Id ));
- 
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", mapping.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, content.Clicks);
             return info.Id;
 
         }
+
+        private XmContentMapping GetMapping(int Id)
+        {
+            foreach(var mapping in XmContentType.Mappings)
+            {
+                if(mapping.Id == Id)
+                {
+                    return mapping;
+                }
+            }
+            return null;
+            
+        }
+
+
+
+        /// <summary>
+        ///导入单一的InformationDBS
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="contentDefinition"></param>
+        /// <returns></returns>
+        private Func<U, Action<U,T>,int> GenerateImportSingleOldContent<T,U>(XmContentDefinition contentDefinition) where T: XmContentPart where U:OldContent
+
+        {
+            return (oldContent, assignAction) =>
+            {
+
+                var info = _contentManager.New(contentDefinition.ContentTypeName);
+                var infopart = info.As<T>();
+                infopart.Title = oldContent.Title;
+                infopart.Text = oldContent.Content;
+                infopart.PublishedUtc = oldContent.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : oldContent.PubTime;
+                infopart.Author = oldContent.Author;
+                infopart.Editor = oldContent.Editor;
+
+
+
+                _contentManager.Create(info, VersionOptions.Published);
+                System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", contentDefinition.ContentTypeDisplayName, info.Id));
+                DoVote(infopart.ContentItem, oldContent.Clicks);
+                assignAction?.Invoke(oldContent, infopart);
+
+                return info.Id;
+            };
+        }
+
+      
         
 
         public void ImportNews()
@@ -155,10 +330,15 @@ namespace Orchard.Xmu.Service.DataImport
 
             foreach (var item in items)
             {
+                var newId = SingerItemImporter(item);
+                if(newId == -1)
+                {
+                    continue;
+                }
                 ids.Add(new NewOldID
                 {
                     OldId = GetOldIDFromItem(item),
-                    NewId = SingerItemImporter(item)
+                    NewId = newId
                 });
                 if (++i >= MAX)
                 {
@@ -200,5 +380,6 @@ namespace Orchard.Xmu.Service.DataImport
             File.WriteAllText(filepath, JsonConvert.SerializeObject(ids));
         }
 
+        
     }
 }

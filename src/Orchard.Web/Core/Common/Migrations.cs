@@ -112,5 +112,19 @@ namespace Orchard.Core.Common {
             SchemaBuilder.AlterTable("CommonPartVersionRecord", table => table.AddColumn<string>("ModifiedBy", command => command.Nullable()));
             return 5;
         }
+
+        public int UpdateFrom5()
+        {
+            SchemaBuilder.AlterTable("CommonPartRecord",
+                table =>
+                {
+                    table.AddColumn<string>("Author");
+                    table.AddColumn<string>("Editor");
+                }
+
+            );
+
+            return 6;
+        }
     }
 }

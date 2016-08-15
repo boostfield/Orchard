@@ -43,8 +43,8 @@ namespace Orchard.Xmu.Controllers
         {
             
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
-            ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeNews.ContentTypeName)
-                .Select(p => p.As<CollegeNewsPart>()).ToList();
+            ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeAffairsNotify.ContentTypeName)
+                .Select(p => p.As<CollegeAffairsNotifyPart>()).ToList();
 
 
 
@@ -65,6 +65,13 @@ namespace Orchard.Xmu.Controllers
             ViewBag.items = items;
             ViewBag.page = pager.Page;
             ViewBag.pageSize = pager.PageSize;
+
+
+            var lecture = _contentManager.Get(14).As<LectureInfoPart>();
+            lecture.Lecturer = "1110";
+            lecture.LectureAddress = "11222";
+            lecture.StartTime = DateTime.Now;
+
             return View();
 
 

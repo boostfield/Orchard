@@ -140,6 +140,10 @@
       <Name>Orchard.Core</Name>
       <Private>false</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Contrib.Voting\Contrib.Voting.csproj">
+      <Project>{4DA5F35F-E62C-4B49-B5A8-379503257B3A}</Project>
+      <Name>Contrib.Voting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NGM.ContentViewCounter\NGM.ContentViewCounter.csproj">
       <Project>{29E9743A-B6E4-40FB-ABBA-569034ABFE88}</Project>
       <Name>NGM.ContentViewCounter</Name>
@@ -173,6 +177,14 @@
     <Content Include="Views\CollegeNewsAdmin\List.cshtml" />
     <Content Include="Views\Home\Paging.cshtml" />
     <Content Include="Views\CollegeAffairsNotifyAdmin\List.cshtml" />
+    <Content Include="Views\UndergraduateAffairsAdmin\List.cshtml" />
+    <Content Include="Views\GraduateAffairsAdmin\List.cshtml" />
+    <Content Include="Views\StudentInfoAdmin\List.cshtml" />
+    <Content Include="Views\PublicPartyCollegeAffairsAdmin\List.cshtml" />
+    <Content Include="Views\RecruitInfoAdmin\List.cshtml" />
+    <Content Include="Views\LectureInfoAdmin\List.cshtml" />
+    <Content Include="Views\AcademicNewsAdmin\List.cshtml" />
+    <Content Include="Views\XmContentAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,22 +194,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="Controllers\AcademicNewsAdminController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
     <Compile Include="Controllers\CollegeNewsAdminController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
+    <Compile Include="Controllers\GraduateAffairsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LectureInfoAdminController.cs" />
+    <Compile Include="Controllers\PublicPartyCollegeAffairsAdminController.cs" />
+    <Compile Include="Controllers\RecruitInfoAdminController.cs" />
+    <Compile Include="Controllers\StudentInfoAdminController.cs" />
+    <Compile Include="Controllers\UndergraduateAffairsAdminController.cs" />
+    <Compile Include="Controllers\XmContentAdminController.cs" />
+    <Compile Include="Drivers\AcademicNewsPartDriver.cs" />
+    <Compile Include="Drivers\XmContentPartDriver.cs" />
+    <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
+    <Compile Include="Drivers\GraduateAffairsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
-    <Compile Include="Handlers\InfomationPartHandler.cs" />
+    <Compile Include="Drivers\LectureInfoPartDriver.cs" />
+    <Compile Include="Drivers\PublicPartyCollegeAffairsPartDriver.cs" />
+    <Compile Include="Drivers\RecruitInfoPartDriver.cs" />
+    <Compile Include="Drivers\StudentInfoPartDriver.cs" />
+    <Compile Include="Drivers\UndergraduateAffairsPartDriver.cs" />
     <Compile Include="Migration.cs" />
+    <Compile Include="Models\AcademicNewsPart.cs" />
+    <Compile Include="Models\BaseContentPart.cs" />
+    <Compile Include="Models\CollegeAffairsNotifyPart.cs" />
     <Compile Include="Models\CollegeNewsPart.cs" />
+    <Compile Include="Models\GraduateAffairsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
+    <Compile Include="Models\LectureInfoPart.cs" />
+    <Compile Include="Models\PublicPartyCollegeAffairsPart.cs" />
+    <Compile Include="Models\RecruitInfoPart.cs" />
+    <Compile Include="Models\StudentInfoPart.cs" />
+    <Compile Include="Models\UndergraduateAffairsPart.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />
     <Compile Include="Service\DataImport\Model\OldCategory.cs" />
+    <Compile Include="Service\DataImport\Model\OldLecture.cs" />
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
     <Compile Include="Service\FrontEndService.cs" />
