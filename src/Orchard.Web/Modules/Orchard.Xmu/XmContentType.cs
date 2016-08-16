@@ -8,14 +8,7 @@ namespace Orchard.Xmu
 {
     public class XmContentType
     {
-
-        public static XmContentDefinition RecruitInfo = new XmContentDefinition
-        {
-            ContentTypeDisplayName = "招录信息",
-            PermissionDesc = "管理招录信息",
-            ContentTypeName = "RecruitInfo"
-        };
-
+ 
 
         public static XmContentDefinition LectureInfo = new XmContentDefinition
         {
@@ -256,6 +249,20 @@ namespace Orchard.Xmu
 
                     }
 
+                },
+
+                new XmCNCMSContentMapping
+                {
+                    ContentTypeDisplayName = "招录信息",
+                    PermissionDesc = "管理招录信息",
+                    ContentTypeName = "RecruitInfo",
+                    ContentTypePartName = "RecruitInfoPart",
+                    Permission = new Permission
+                    {
+                        Description="管理招录信息",
+                        Name = string.Format("Manage{0}","RecruitInfo")
+
+                    }
                 },
                       
 

@@ -9,15 +9,7 @@ namespace Orchard.Xmu
 {
     public class Permissions : IPermissionProvider
     {
-
-        public static readonly Permission ManageRecruitInfo = new Permission
-        {
-            Description = XmContentType.RecruitInfo.PermissionDesc,
-            Name = string.Format("Manage{0}", XmContentType.RecruitInfo.ContentTypeName)
-        };
-
-
-        public static readonly Permission ManageLectureInfo = new Permission
+     public static readonly Permission ManageLectureInfo = new Permission
         {
             Description = XmContentType.LectureInfo.PermissionDesc,
             Name = string.Format("Manage{0}", XmContentType.LectureInfo.ContentTypeName)
@@ -41,7 +33,6 @@ namespace Orchard.Xmu
                 new PermissionStereotype {
                     Name = "Administrator",
                     Permissions = new[] { 
-                    ManageRecruitInfo,
                     ManageLectureInfo,
 
 
@@ -51,14 +42,12 @@ namespace Orchard.Xmu
                 new PermissionStereotype {
                     Name = "Editor",
                     Permissions = new[] {  
-                    ManageRecruitInfo,
                     ManageLectureInfo,
                     }
                 },
                 new PermissionStereotype {
                     Name = "Moderator",
                     Permissions = new[] {
-                    ManageRecruitInfo,
                     ManageLectureInfo,
                     }
                 },
@@ -75,8 +64,7 @@ namespace Orchard.Xmu
         {
             var staticPermissions = new[]
             {
-                
-                    ManageRecruitInfo,
+                ManageLectureInfo
             };
 
 
