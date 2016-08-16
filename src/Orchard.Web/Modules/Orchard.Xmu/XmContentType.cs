@@ -22,11 +22,21 @@ namespace Orchard.Xmu
         public static XmContentDefinition CNBanner = new XmContentDefinition
         {
             ContentTypeDisplayName = "首页Banner",
-            PermissionDesc = "管理首页Banner",
+            PermissionDesc = "管理中文CMS首页Banner",
             ContentTypeName = "CNBanner",
             ContentTypePartName = "CNBannerPart"
         };
- 
+
+
+        public static XmContentDefinition ENBanner = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "首页Banner",
+            PermissionDesc = "管理英文CMS首页Banner",
+            ContentTypeName = "ENBanner",
+            ContentTypePartName = "ENBannerPart"
+        };
+
+
         //------------- Content Mapping..
 
 
