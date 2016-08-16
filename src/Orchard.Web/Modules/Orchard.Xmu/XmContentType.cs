@@ -10,12 +10,7 @@ namespace Orchard.Xmu
     {
 
 
-        public static XmContentDefinition CollegeNews = new XmContentDefinition {
-            ContentTypeDisplayName = "学院新闻",
-            PermissionDesc = "管理学院新闻",
-            ContentTypeName = "CollegeNews"
-        };
-
+       
         public static XmContentDefinition CollegeAffairsNotify = new XmContentDefinition
         {
             ContentTypeDisplayName = "院务通知",
@@ -213,6 +208,21 @@ namespace Orchard.Xmu
         public static XmCNCMSContentMapping[] ENCMSMappings =
             new XmCNCMSContentMapping[]
             {
+
+                new XmCNCMSContentMapping
+                {
+                    ContentTypeName = "CollegeNews",
+                    PermissionDesc = "管理学院新闻",
+                    ContentTypeDisplayName = "学院新闻",
+                    ContentTypePartName = "CollegeNewsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理学院新闻",
+                        Name = string.Format("Manage{0}","CollegeNews")
+                    }
+                },
+
+
                 new XmCNCMSContentMapping
                 {
                     Id=28,

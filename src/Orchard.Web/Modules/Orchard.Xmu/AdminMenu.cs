@@ -45,11 +45,6 @@ namespace Orchard.Xmu
 
 
             menu
-             .Add(T(XmContentType.CollegeNews.ContentTypeDisplayName), "2", item => item.Action("List", "CollegeNewsAdmin", new { area = "Orchard.Xmu" })
-                      .Permission(Permissions.ManageCollegeNews));
-
-
-            menu
                      .Add(T(XmContentType.CollegeAffairsNotify.ContentTypeDisplayName), "2", item => item.Action("List", "CollegeAffairsNotifyAdmin", new { area = "Orchard.Xmu" })
                      .Permission(Permissions.ManageCollegeAffairsNotify));
 

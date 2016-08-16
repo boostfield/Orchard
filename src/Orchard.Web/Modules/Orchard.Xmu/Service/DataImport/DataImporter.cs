@@ -68,8 +68,8 @@ namespace Orchard.Xmu.Service.DataImport
 
         private int ImportSingleCollegeNews(OldNews oldnews)
         {
-            var info = _contentManager.New(XmContentType.CollegeNews.ContentTypeName);
-            var infopart = info.As<CollegeNewsPart>();
+            var info = _contentManager.New("CollegeNews");
+            var infopart = info.As<XmContentPart>();
 
 
             infopart.Title = oldnews.Title;

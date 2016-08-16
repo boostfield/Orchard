@@ -53,7 +53,7 @@ namespace Orchard.Xmu.Controllers
 
             var total = q.Count();
             var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => p.As<CollegeNewsPart>()).ToList();
+                .Select(p => p.As<XmContentPart>()).ToList();
             ViewBag.total = total;
             ViewBag.items = items;
             ViewBag.page = pager.Page;

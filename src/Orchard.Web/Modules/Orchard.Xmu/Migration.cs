@@ -51,21 +51,6 @@ namespace Orchard.Xmu
         public int UpdateFrom1()
         {
 
-
-            //学院新闻
-            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CollegeNews.ContentTypeName,
-                 cfg => cfg
-           .DisplayedAs(XmContentType.CollegeNews.ContentTypeDisplayName)
-           .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
-           .WithPart(typeof(BodyPart).Name)
-           .WithPart(typeof(CollegeNewsPart).Name)
-           .WithPart(typeof(UserViewPart).Name)
-           .Creatable()
-           .Draftable()
-           .Securable()
-           );
-
             return 2;
         }
 

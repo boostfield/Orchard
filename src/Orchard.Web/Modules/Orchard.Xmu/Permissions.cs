@@ -9,12 +9,7 @@ namespace Orchard.Xmu
 {
     public class Permissions : IPermissionProvider
     {
-        public static readonly Permission ManageCollegeNews = new Permission
-        {
-            Description = XmContentType.CollegeNews.PermissionDesc,
-            Name = string.Format("Manage{0}",XmContentType.CollegeNews.ContentTypeName)
-        };
-
+      
 
         public static readonly Permission ManageCollegeAffairsNotify = new Permission
         {
@@ -81,7 +76,7 @@ namespace Orchard.Xmu
             return new[] {
                 new PermissionStereotype {
                     Name = "Administrator",
-                    Permissions = new[] { ManageCollegeNews,
+                    Permissions = new[] { 
                         ManageCollegeAffairsNotify,
                     ManageUndergraduateAffairs,
                     ManageGraduateAffairs,
@@ -96,7 +91,7 @@ namespace Orchard.Xmu
                 },
                 new PermissionStereotype {
                     Name = "Editor",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    Permissions = new[] {  ManageCollegeAffairsNotify,
                     ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
@@ -107,7 +102,7 @@ namespace Orchard.Xmu
                 },
                 new PermissionStereotype {
                     Name = "Moderator",
-                    Permissions = new[] { ManageCollegeNews, ManageCollegeAffairsNotify,
+                    Permissions = new[] { ManageCollegeAffairsNotify,
                     ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
@@ -129,7 +124,7 @@ namespace Orchard.Xmu
         {
             var staticPermissions = new[]
             {
-               ManageCollegeNews, ManageCollegeAffairsNotify,
+                ManageCollegeAffairsNotify,
                     ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
