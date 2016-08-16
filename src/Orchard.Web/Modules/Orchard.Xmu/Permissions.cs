@@ -9,10 +9,18 @@ namespace Orchard.Xmu
 {
     public class Permissions : IPermissionProvider
     {
-     public static readonly Permission ManageLectureInfo = new Permission
+
+        public static readonly Permission ManageLectureInfo = new Permission
         {
             Description = XmContentType.LectureInfo.PermissionDesc,
             Name = string.Format("Manage{0}", XmContentType.LectureInfo.ContentTypeName)
+        };
+
+        public static readonly Permission ManageCNBanner = new Permission
+        {
+            Description = XmContentType.CNBanner.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNBanner.ContentTypeName)
+
         };
 
 

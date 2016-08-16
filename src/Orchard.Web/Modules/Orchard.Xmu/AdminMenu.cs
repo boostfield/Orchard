@@ -27,6 +27,8 @@ namespace Orchard.Xmu
 
         private void BuildCelCmsMenu(NavigationItemBuilder menu)
         {
+            menu.LinkToFirstChild(false);
+
             foreach (var mapping in XmContentType.NinetyMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",
@@ -42,9 +44,17 @@ namespace Orchard.Xmu
 
         private void BuildCNCmsMenu(NavigationItemBuilder menu)
         {
+
+            menu.LinkToFirstChild(false);
+
             menu
             .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", item => item.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageLectureInfo));
+
+            menu
+          .Add(T(XmContentType.CNBanner.ContentTypeDisplayName), "2", item => item.Action("List", "CNBannerAdmin", new { area = "Orchard.Xmu" })
+          .Permission(Permissions.ManageCNBanner));
+
 
             foreach (var mapping in XmContentType.ENCMSMappings)
             {

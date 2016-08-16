@@ -18,6 +18,14 @@ namespace Orchard.Xmu
             ContentTypePartName = "LectureInfoPart"
         };
 
+
+        public static XmContentDefinition CNBanner = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "首页Banner",
+            PermissionDesc = "管理首页Banner",
+            ContentTypeName = "CNBanner",
+            ContentTypePartName = "CNBannerPart"
+        };
  
         //------------- Content Mapping..
 

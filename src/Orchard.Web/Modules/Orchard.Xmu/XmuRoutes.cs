@@ -98,6 +98,37 @@ namespace Orchard.Xmu
                                         new MvcRouteHandler())
                              },
 
+                                           new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/LectureInfo",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "LectureInfoAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+                new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/CNBanner",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "CNBannerAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
 
                                   new RouteDescriptor {
                                     Priority = 20,
