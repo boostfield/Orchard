@@ -103,6 +103,8 @@
     <Content Include="OrchardBS\Content\images\anniversary\img_number_2.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_number_3.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_number_4.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_picture_fourth.jpg" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_picture_third.jpg" />
     <Content Include="OrchardBS\Content\images\anniversary\img_picture_title.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_title_fourth.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_title_first.png" />
@@ -112,6 +114,8 @@
     <Content Include="OrchardBS\Content\images\anniversary\qr_code.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bottom-text.png" />
     <Content Include="OrchardBS\Content\images\cn\footer-bg.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_banner_next_left_n.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_banner_next_right_n.png" />
     <Content Include="OrchardBS\Content\images\en\img_bottom.jpg" />
     <Content Include="OrchardBS\Content\images\ic_nav_search.png" />
     <Content Include="OrchardBS\Content\images\cn\ic_new_list_content.png" />
