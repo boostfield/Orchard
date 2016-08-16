@@ -14,7 +14,7 @@
     transition: all 0.25s;
 }
 body {
-    font-family: Helvetica, 'Microsoft YaHei', sans-serif;
+    font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
     font-size: 20px;
     color: black;
 }
@@ -536,6 +536,9 @@ body {
         .copyright a {
             color: white;
         }
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
     }
     #carousel-anniversary {
         margin-top: -200px;
@@ -565,22 +568,26 @@ body {
             position: absolute;
             z-index: 5;
             display: inline-block;
-            padding: 1em;
+            padding: 0.75em 1em 0.75em 1em;
             background-color: @anniversary-primary-color;
            
         }
     }
-    .banner1 {
+    
+    .banner1, .banner2 {
         background: #FFFFFF;
         box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        margin-top: 2em;
         .img-title {
-            margin-top: -2em;
+            margin-top: -1em;
             margin-left: 1em;
         }
         .img-number {
             margin-top: -2em;
+            
         }
         .list-group {
+            
             padding: 0 1em 0 1em;
         }
         .list-group-item {
@@ -594,6 +601,9 @@ body {
             background-position: left center;
             .tilte-name {
                 text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .title-time {
                 text-align: right;
@@ -610,16 +620,26 @@ body {
             margin: 0 1em 1em 0;
             display: inline-block;
             cursor: pointer;
+            font-weight: bold;
         }
     }
+    .banner2 {
+        margin-top: 4em;
+    }
     .donation {
-        padding: 2em;
+        padding: 2em 2em 3em 2em;
         margin-left: 1em;
         background-color: @anniversary-primary-color;
         color: white;
         background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png),url(../Content/images/anniversary/img_donation_pattern_top_2.png),url(../Content/images/anniversary/img_donation_pattern_bottom_1.png),url(../Content/images/anniversary/img_donation_pattern_bottom_2.png);
         background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%;
         background-repeat: no-repeat;
+        #news-ticker {
+            padding-left: 4px;
+            
+            list-style-type: none;
+            list-style: none;
+        }
         #news-ticker li {
             font-size: 0.8em;
             
@@ -633,8 +653,81 @@ body {
             border-top: 1px solid rgba(0,0,0,0.15);
             margin-left: 1em;
             margin-right: 1em;
+            margin-bottom: 2em;
+        }
+        .name {
+            display: inline-block;
+            text-align: left;
+            width: 45%;
+            
+        }
+        .fund {
+            display: inline-block;
+            text-align: left;
+            width: 25%;
+            
+        }
+        .time {
+            display: inline-block;
+            text-align: right;
+            width: 20%;
+            white-space: nowrap;
+        
         }
     }
+    .banner3, .banner4 {
+        background: white;
+        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        margin-top: 4em;
+        .img-cover {
+            margin-top: -1em;
+            margin-left: -1em;
+        }
+        .img-title {
+           margin-top: 2em;
+            margin-right: 2em;
+        }
+        .img-number {
+            margin-top: -2em;
+        }
+        .list-group {
+           display: block;
+            padding: 0 1em 0 1em;
+        }
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            font-size: 0.7em;
+            padding-right: 0;
+            background-image: url(../Content/images/anniversary/img_list_dot.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            .tilte-name {
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .title-time {
+                text-align: right;
+                color: @text-second-color;
+            }
+        }
+        .list-group-item:first-child {
+            border-top: none;
+        }
+        p.more a{
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 0 1em 1em 0;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
 }
 
 @media only screen

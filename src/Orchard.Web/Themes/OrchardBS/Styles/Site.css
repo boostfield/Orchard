@@ -1,5 +1,5 @@
 ﻿body {
-  font-family: Helvetica, 'Microsoft YaHei', sans-serif;
+  font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
   font-size: 20px;
   color: black;
 }
@@ -492,6 +492,9 @@
 .anniversary .anniversary-footer .copyright a {
   color: white;
 }
+.anniversary .anniversary-footer hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
 .anniversary #carousel-anniversary {
   margin-top: -200px;
 }
@@ -520,24 +523,30 @@
   position: absolute;
   z-index: 5;
   display: inline-block;
-  padding: 1em;
+  padding: 0.75em 1em 0.75em 1em;
   background-color: #D0021B;
 }
-.anniversary .banner1 {
+.anniversary .banner1,
+.anniversary .banner2 {
   background: #FFFFFF;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+  margin-top: 2em;
 }
-.anniversary .banner1 .img-title {
-  margin-top: -2em;
+.anniversary .banner1 .img-title,
+.anniversary .banner2 .img-title {
+  margin-top: -1em;
   margin-left: 1em;
 }
-.anniversary .banner1 .img-number {
+.anniversary .banner1 .img-number,
+.anniversary .banner2 .img-number {
   margin-top: -2em;
 }
-.anniversary .banner1 .list-group {
+.anniversary .banner1 .list-group,
+.anniversary .banner2 .list-group {
   padding: 0 1em 0 1em;
 }
-.anniversary .banner1 .list-group-item {
+.anniversary .banner1 .list-group-item,
+.anniversary .banner2 .list-group-item {
   border-left: none;
   border-right: none;
   border-radius: 0;
@@ -547,32 +556,48 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-.anniversary .banner1 .list-group-item .tilte-name {
+.anniversary .banner1 .list-group-item .tilte-name,
+.anniversary .banner2 .list-group-item .tilte-name {
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.anniversary .banner1 .list-group-item .title-time {
+.anniversary .banner1 .list-group-item .title-time,
+.anniversary .banner2 .list-group-item .title-time {
   text-align: right;
   color: #999999;
 }
-.anniversary .banner1 .list-group-item:first-child {
+.anniversary .banner1 .list-group-item:first-child,
+.anniversary .banner2 .list-group-item:first-child {
   border-top: none;
 }
-.anniversary .banner1 p.more a {
+.anniversary .banner1 p.more a,
+.anniversary .banner2 p.more a {
   color: #D0021B;
   font-size: 0.8em;
   text-decoration: underline;
   margin: 0 1em 1em 0;
   display: inline-block;
   cursor: pointer;
+  font-weight: bold;
+}
+.anniversary .banner2 {
+  margin-top: 4em;
 }
 .anniversary .donation {
-  padding: 2em;
+  padding: 2em 2em 3em 2em;
   margin-left: 1em;
   background-color: #D0021B;
   color: white;
   background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png), url(../Content/images/anniversary/img_donation_pattern_top_2.png), url(../Content/images/anniversary/img_donation_pattern_bottom_1.png), url(../Content/images/anniversary/img_donation_pattern_bottom_2.png);
   background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%;
   background-repeat: no-repeat;
+}
+.anniversary .donation #news-ticker {
+  padding-left: 4px;
+  list-style-type: none;
+  list-style: none;
 }
 .anniversary .donation #news-ticker li {
   font-size: 0.8em;
@@ -586,6 +611,85 @@
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   margin-left: 1em;
   margin-right: 1em;
+  margin-bottom: 2em;
+}
+.anniversary .donation .name {
+  display: inline-block;
+  text-align: left;
+  width: 45%;
+}
+.anniversary .donation .fund {
+  display: inline-block;
+  text-align: left;
+  width: 25%;
+}
+.anniversary .donation .time {
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+  white-space: nowrap;
+}
+.anniversary .banner3,
+.anniversary .banner4 {
+  background: white;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+  margin-top: 4em;
+}
+.anniversary .banner3 .img-cover,
+.anniversary .banner4 .img-cover {
+  margin-top: -1em;
+  margin-left: -1em;
+}
+.anniversary .banner3 .img-title,
+.anniversary .banner4 .img-title {
+  margin-top: 2em;
+  margin-right: 2em;
+}
+.anniversary .banner3 .img-number,
+.anniversary .banner4 .img-number {
+  margin-top: -2em;
+}
+.anniversary .banner3 .list-group,
+.anniversary .banner4 .list-group {
+  display: block;
+  padding: 0 1em 0 1em;
+}
+.anniversary .banner3 .list-group-item,
+.anniversary .banner4 .list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  font-size: 0.7em;
+  padding-right: 0;
+  background-image: url(../Content/images/anniversary/img_list_dot.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.anniversary .banner3 .list-group-item .tilte-name,
+.anniversary .banner4 .list-group-item .tilte-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.anniversary .banner3 .list-group-item .title-time,
+.anniversary .banner4 .list-group-item .title-time {
+  text-align: right;
+  color: #999999;
+}
+.anniversary .banner3 .list-group-item:first-child,
+.anniversary .banner4 .list-group-item:first-child {
+  border-top: none;
+}
+.anniversary .banner3 p.more a,
+.anniversary .banner4 p.more a {
+  color: #D0021B;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 0 1em 1em 0;
+  display: inline-block;
+  cursor: pointer;
 }
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {

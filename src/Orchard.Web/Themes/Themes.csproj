@@ -93,6 +93,7 @@
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_left.png" />
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_right.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_bottom.jpg" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_donation_90.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_bottom_1.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_bottom_2.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_top_1.png" />
