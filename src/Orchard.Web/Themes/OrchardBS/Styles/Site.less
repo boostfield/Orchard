@@ -7,6 +7,7 @@
 @text-color: #333333;
 @text-second-color: #999999;
 @text-third-color: rgba(255,255,255,0.7);
+@anniversary-primary-color: #D0021B;
 .transition-all() {
     -webkit-transition: all 0.25s;
     -moz-transition: all 0.25s;
@@ -92,7 +93,7 @@ body {
 } 
 
 
-.cn-home {
+.cn-home{
     .top-bg {
         width: 100%;
         height: 190px;
@@ -111,7 +112,7 @@ body {
 }
 
 .footer {
-    padding: 2em;
+    padding: 2em 2em 1em 2em;
     width: 100%;
     background-image: url("../Content/images/cn/footer-bg.png");
     background-position: center;
@@ -475,6 +476,7 @@ body {
 }
 //院庆网站
 .anniversary {
+    background-color: @anniversary-primary-color;
     .navbar {
         background-color: transparent;
         border: none;
@@ -498,6 +500,7 @@ body {
     }
     .content {
         margin-top: -140px;
+        background-color: #FCFCFC;
     }
     .top-bg {
         height: 743px;
@@ -534,7 +537,104 @@ body {
             color: white;
         }
     }
-    
+    #carousel-anniversary {
+        margin-top: -200px;
+        
+        .carousel-inner .item {
+            width: 100%;
+            height: 500px;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+        }
+        .carousel-indicators li.active {
+            background-color: @anniversary-primary-color;
+        }
+        .carousel-control  {
+            background-image: none;
+            width: 5%;
+             opacity: 1;
+        }
+        .carousel-control img {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            z-index: 5;
+            display: inline-block;
+            padding: 1em;
+            background-color: @anniversary-primary-color;
+           
+        }
+    }
+    .banner1 {
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        .img-title {
+            margin-top: -2em;
+            margin-left: 1em;
+        }
+        .img-number {
+            margin-top: -2em;
+        }
+        .list-group {
+            padding: 0 1em 0 1em;
+        }
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            font-size: 0.7em;
+            padding-right: 0;
+            background-image: url(../Content/images/anniversary/img_list_dot.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            .tilte-name {
+                text-align: left;
+            }
+            .title-time {
+                text-align: right;
+                color: @text-second-color;
+            }
+        }
+        .list-group-item:first-child {
+            border-top: none;
+        }
+        p.more a{
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            text-decoration: underline;
+            margin: 0 1em 1em 0;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+    .donation {
+        padding: 2em;
+        margin-left: 1em;
+        background-color: @anniversary-primary-color;
+        color: white;
+        background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png),url(../Content/images/anniversary/img_donation_pattern_top_2.png),url(../Content/images/anniversary/img_donation_pattern_bottom_1.png),url(../Content/images/anniversary/img_donation_pattern_bottom_2.png);
+        background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%;
+        background-repeat: no-repeat;
+        #news-ticker li {
+            font-size: 0.8em;
+            
+        }
+        .title {
+            margin: 1em;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        hr {
+            border-top: 1px solid rgba(0,0,0,0.15);
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+    }
 }
 
 @media only screen
@@ -550,6 +650,7 @@ and (max-device-width: 768px) {
 and (max-device-width: 640px),
 only screen and (max-device-width: 667px),
 only screen and (max-width: 480px) {
+    //中文
     .top-bg {
         height: 95px;
     }
@@ -585,5 +686,58 @@ only screen and (max-width: 480px) {
         color: black;
         border-radius: 0;
        
+    }
+    //英文
+    .en-footer {
+        .footer-first {
+            padding: 1em;
+        }
+        .footer-first img {
+            
+             width: 98px;
+             height: 117.5px;
+        }
+    }
+    //院庆
+    .anniversary {
+        .navbar-brand img{
+            width: 193px;
+            height: 48px;
+        }
+        .top-bg {
+            height: 300px;
+        }
+        #carousel-anniversary {
+            margin-top: -100px;
+            .carousel-inner .item {
+            height: 250px;
+        }
+        }
+        
+        .donation {
+            padding: 1em;
+            margin-left: 0;
+        }
+        .navbar .navbar-brand {
+            height: 80px;
+        }
+        .navbar .navbar-brand img {
+            line-height: 80px;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+            font-size: 1em;
+            height: 80px;
+            line-height: 80px;
+            padding-top: 0;
+        }
+        .navbar .collapse {
+            
+        }
+        .anniversary-footer .logo {
+           margin-top: 1em;
+            width: 182.5px;
+            height: 29px;
+        }
     }
 }

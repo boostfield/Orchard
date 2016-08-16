@@ -90,7 +90,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="OrchardBS\Content\images\anniversary\ic_banner_left.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\ic_banner_right.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_bottom.jpg" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_bottom_1.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_bottom_2.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_top_1.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_top_2.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_list_dot.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_number_1.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_number_2.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_number_3.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_number_4.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_picture_title.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_title_fourth.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_title_first.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_title_second.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_title_third.png" />
     <Content Include="OrchardBS\Content\images\anniversary\nav-bg.png" />
     <Content Include="OrchardBS\Content\images\anniversary\qr_code.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bottom-text.png" />
