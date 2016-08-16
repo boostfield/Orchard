@@ -175,7 +175,6 @@
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <Content Include="Views\XmContent\Paging.cshtml" />
-    <Content Include="Views\PublicPartyCollegeAffairsAdmin\List.cshtml" />
     <Content Include="Views\RecruitInfoAdmin\List.cshtml" />
     <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <Content Include="Views\AcademicNewsAdmin\List.cshtml" />
@@ -202,7 +201,6 @@
     <Compile Include="Controllers\DataImporterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LectureInfoAdminController.cs" />
-    <Compile Include="Controllers\PublicPartyCollegeAffairsAdminController.cs" />
     <Compile Include="Controllers\RecruitInfoAdminController.cs" />
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\AcademicNewsPartDriver.cs" />
@@ -211,7 +209,6 @@
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
-    <Compile Include="Drivers\PublicPartyCollegeAffairsPartDriver.cs" />
     <Compile Include="Drivers\RecruitInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\AcademicNewsPart.cs" />
@@ -220,7 +217,6 @@
     <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
-    <Compile Include="Models\PublicPartyCollegeAffairsPart.cs" />
     <Compile Include="Models\RecruitInfoPart.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />

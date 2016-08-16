@@ -9,20 +9,6 @@ namespace Orchard.Xmu
     public class XmContentType
     {
 
-
-       
-        
-
- 
-
-        public static XmContentDefinition PublicPartyCollegeAffairs = new XmContentDefinition
-        {
-            ContentTypeDisplayName = "党务院务公开",
-            PermissionDesc = "管理党务院务公开",
-            ContentTypeName = "PublicPartyCollegeAffairs"
-        };
-
-
         public static XmContentDefinition RecruitInfo = new XmContentDefinition
         {
             ContentTypeDisplayName = "招录信息",
@@ -257,6 +243,20 @@ namespace Orchard.Xmu
 
                 },
 
+                new XmCNCMSContentMapping
+                {
+                     ContentTypeDisplayName = "党务院务公开",
+                     PermissionDesc = "管理党务院务公开",
+                    ContentTypeName = "PublicPartyCollegeAffairs",
+                    ContentTypePartName = "PublicPartyCollegeAffairsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理党务院务公开",
+                        Name = string.Format("Manage{0}","PublicPartyCollegeAffairs")
+
+                    }
+
+                },
                       
 
         //------------------

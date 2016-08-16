@@ -44,11 +44,6 @@ namespace Orchard.Xmu
         {
 
             menu
-                 .Add(T(XmContentType.PublicPartyCollegeAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "PublicPartyCollegeAffairsAdmin", new { area = "Orchard.Xmu" })
-                 .Permission(Permissions.ManagePublicPartyCollegeAffairs));
-
-
-            menu
               .Add(T(XmContentType.RecruitInfo.ContentTypeDisplayName), "2", item => item.Action("List", "RecruitInfoAdmin", new { area = "Orchard.Xmu" })
               .Permission(Permissions.ManageRecruitInfo));
 
