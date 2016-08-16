@@ -2,6 +2,8 @@
 @using Orchard.Fields.Settings;
 @{
     var settings = Model.PartFieldDefinition.Settings.GetModel<LinkFieldSettings>();
+    var isTextRequired = settings.LinkTextMode == LinkTextMode.Required;
+    var isRequired = settings.Required;
     string target = String.Empty;
     switch (settings.TargetMode) {
         case TargetMode.NewWindow:
