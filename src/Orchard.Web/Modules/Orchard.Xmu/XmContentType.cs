@@ -82,6 +82,19 @@ namespace Orchard.Xmu
 
         // 90's CMS
 
+        public static NinetyCMSContentMapping NinetyDonation = new NinetyCMSContentMapping
+        {
+
+            ContentTypeDisplayName = "院庆捐赠",
+            ContentTypeName = "CelDonation",
+            PermissionDesc = "管理院庆捐赠",
+            ContentTypePartName = "CelDonationPart",
+            Permission = new Permission
+            {
+                Description = "管理院庆捐赠",
+                Name = string.Format("Manage{0}", "CelDonation")
+            },
+        };
 
 
         public static NinetyCMSContentMapping[] NinetyMappings =
@@ -115,19 +128,7 @@ namespace Orchard.Xmu
                     },
                 },
 
-                new NinetyCMSContentMapping
-                {
-
-                    ContentTypeDisplayName = "院庆捐赠",
-                    ContentTypeName = "CelDonation",
-                    PermissionDesc = "管理院庆捐赠",
-                    ContentTypePartName = "CelDonationPart",
-                    Permission = new Permission
-                    {
-                        Description = "管理院庆捐赠",
-                        Name = string.Format("Manage{0}","CelDonation")
-                    },
-                },
+               
 
                 new NinetyCMSContentMapping
                 {

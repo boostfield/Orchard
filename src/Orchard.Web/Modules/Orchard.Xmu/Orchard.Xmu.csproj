@@ -188,6 +188,7 @@
     <Content Include="Views\College90CelebrationAdmin\List.cshtml" />
     <Content Include="Views\AnniversaryHome\Index.cshtml" />
     <Content Include="Views\XmContent\Item.cshtml" />
+    <Content Include="Views\NinetyCelebrationDonationAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,6 +201,7 @@
     <Compile Include="Controllers\AcademicNewsAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
+    <Compile Include="Controllers\NinetyCelebrationDonationAdminController.cs" />
     <Compile Include="Controllers\XmContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\CollegeAffairsNotifyAdminController.cs" />
@@ -215,6 +217,7 @@
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\AcademicNewsPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
+    <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\CollegeAffairsNotifyPartDriver.cs" />
     <Compile Include="Drivers\CollegeNewsPartDriver.cs" />
@@ -227,6 +230,7 @@
     <Compile Include="Drivers\UndergraduateAffairsPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\AcademicNewsPart.cs" />
+    <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\CollegeAffairsNotifyPart.cs" />

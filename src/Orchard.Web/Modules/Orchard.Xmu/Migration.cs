@@ -203,7 +203,7 @@ namespace Orchard.Xmu
        .WithPart(typeof(CommonPart).Name)
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
-           .WithPart(typeof(UserViewPart).Name)
+       .WithPart(typeof(UserViewPart).Name)
 
        .Creatable()
        .Draftable()
@@ -280,10 +280,35 @@ namespace Orchard.Xmu
            .Securable()
            );
 
-
             }
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(NinetyCelebrationDonationPart).Name,
+                cfg =>
+                cfg.WithField("donator", b => b.OfType("TextField").WithDisplayName("捐款人").WithSetting("TextFieldSettings.Required","true"))
+                .WithField("donationAmount", b => b.OfType("TextField").WithDisplayName("捐款金额").WithSetting("TextFieldSettings.Required", "true"))
+                .WithField("donationTime", b => b.OfType("DateTimeField").WithDisplayName("捐款时间").WithSetting("DateTimeFieldSettings.Required", "true")
+                .WithSetting("DateTimeFieldSettings.Display", "DateOnly"))
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyDonation.ContentTypeName,
+            
+                cfg => cfg
+                .DisplayedAs(XmContentType.NinetyDonation.ContentTypeDisplayName)
+                .WithPart(typeof(TitlePart).Name)
+                .WithPart(typeof(CommonPart).Name)
+                .WithPart(typeof(NinetyCelebrationDonationPart).Name)
+                .WithPart(typeof(UserViewPart).Name)
+                .Creatable()
+                .Draftable()
+                .Securable()
+       );
+
+
+
 
             return 12;
         }
+
+
     }
 }
