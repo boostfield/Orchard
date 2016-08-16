@@ -18,13 +18,7 @@ namespace Orchard.Xmu
             ContentTypePartName = "LectureInfoPart"
         };
 
-        public static XmContentDefinition AcademicNews = new XmContentDefinition
-        {
-            ContentTypeDisplayName = "学术动态",
-            PermissionDesc = "管理学术动态",
-            ContentTypeName = "AcademicNews",
-            ContentTypePartName = "AcademicNewsPart"
-        };
+ 
         //------------- Content Mapping..
 
 
@@ -262,6 +256,19 @@ namespace Orchard.Xmu
                         Description="管理招录信息",
                         Name = string.Format("Manage{0}","RecruitInfo")
 
+                    }
+                },
+
+                new XmCNCMSContentMapping
+                {
+                    ContentTypeDisplayName = "学术动态",
+                    PermissionDesc = "c",
+                    ContentTypeName = "AcademicNews",
+                    ContentTypePartName = "AcademicNewsPart",
+                    Permission = new Permission
+                    {
+                     Description= "管理学术动态",
+                     Name = string.Format("Manage{0}","AcademicNews")
                     }
                 },
                       

@@ -214,7 +214,7 @@ namespace Orchard.Xmu.Service.DataImport
 
             ImportDataTemplate<OldContent>(
             () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态.txt"),
-            i => GenerateImportSingleOldContent<AcademicNewsPart, OldContent>("AcademicNews", "学术动态")(i, null),
+            i => GenerateImportSingleOldContent<XmContentPart, OldContent>("AcademicNews", "学术动态")(i, null),
             r => r.ID,
             @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态ID对照.txt"
             );

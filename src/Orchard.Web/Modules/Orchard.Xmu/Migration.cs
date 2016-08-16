@@ -124,22 +124,6 @@ namespace Orchard.Xmu
 
         public int UpdateFrom9()
         {
-
-
-            ContentDefinitionManager.AlterTypeDefinition(XmContentType.AcademicNews.ContentTypeName,
-             cfg => cfg
-       .DisplayedAs(XmContentType.AcademicNews.ContentTypeDisplayName)
-       .WithPart(typeof(TitlePart).Name)
-       .WithPart(typeof(CommonPart).Name)
-       .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(AcademicNewsPart).Name)
-              .WithPart(typeof(UserViewPart).Name)
-
-       .Creatable()
-       .Draftable()
-       .Securable()
-       );
-
             return 10;
         }
 

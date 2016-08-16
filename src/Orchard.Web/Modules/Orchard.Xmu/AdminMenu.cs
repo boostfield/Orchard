@@ -46,12 +46,6 @@ namespace Orchard.Xmu
             .Add(T(XmContentType.LectureInfo.ContentTypeDisplayName), "2", item => item.Action("List", "LectureInfoAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageLectureInfo));
 
-            menu
-            .Add(T(XmContentType.AcademicNews.ContentTypeDisplayName), "2", item => item.Action("List", "AcademicNewsAdmin", new { area = "Orchard.Xmu" })
-            .Permission(Permissions.ManageAcademicNews));
-
-
-
             foreach (var mapping in XmContentType.ENCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

@@ -15,14 +15,6 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.LectureInfo.ContentTypeName)
         };
 
-        public static readonly Permission ManageAcademicNews = new Permission
-        {
-            Description = XmContentType.AcademicNews.PermissionDesc,
-            Name = string.Format("Manage{0}", XmContentType.AcademicNews.ContentTypeName)
-        };
-
-
-
 
         public virtual Feature Feature { get; set; }
 
