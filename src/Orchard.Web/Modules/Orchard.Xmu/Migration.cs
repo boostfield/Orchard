@@ -70,18 +70,7 @@ namespace Orchard.Xmu
         public int UpdateFrom4()
         {
 
-            ContentDefinitionManager.AlterTypeDefinition(XmContentType.GraduateAffairs.ContentTypeName,
-             cfg => cfg
-       .DisplayedAs(XmContentType.GraduateAffairs.ContentTypeDisplayName)
-       .WithPart(typeof(TitlePart).Name)
-       .WithPart(typeof(CommonPart).Name)
-       .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(GraduateAffairsPart).Name)
-       .WithPart(typeof(UserViewPart).Name)
-       .Creatable()
-       .Draftable()
-       .Securable()
-       );
+       
             return 5;
 
         }

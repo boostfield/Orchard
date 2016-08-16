@@ -175,7 +175,6 @@
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\InformationAdmin\List.cshtml" />
     <Content Include="Views\XmContent\Paging.cshtml" />
-    <Content Include="Views\GraduateAffairsAdmin\List.cshtml" />
     <Content Include="Views\StudentInfoAdmin\List.cshtml" />
     <Content Include="Views\PublicPartyCollegeAffairsAdmin\List.cshtml" />
     <Content Include="Views\RecruitInfoAdmin\List.cshtml" />
@@ -202,7 +201,6 @@
     <Compile Include="Controllers\XmContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
-    <Compile Include="Controllers\GraduateAffairsAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LectureInfoAdminController.cs" />
     <Compile Include="Controllers\PublicPartyCollegeAffairsAdminController.cs" />
@@ -213,7 +211,6 @@
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
-    <Compile Include="Drivers\GraduateAffairsPartDriver.cs" />
     <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Drivers\PublicPartyCollegeAffairsPartDriver.cs" />
@@ -224,7 +221,6 @@
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
-    <Compile Include="Models\GraduateAffairsPart.cs" />
     <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
     <Compile Include="Models\PublicPartyCollegeAffairsPart.cs" />
