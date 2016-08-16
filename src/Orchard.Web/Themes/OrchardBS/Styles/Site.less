@@ -705,7 +705,7 @@ only screen and (max-width: 480px) {
             height: 48px;
         }
         .top-bg {
-            height: 300px;
+            height: 400px;
         }
         #carousel-anniversary {
             margin-top: -100px;
@@ -719,20 +719,29 @@ only screen and (max-width: 480px) {
             margin-left: 0;
         }
         .navbar .navbar-brand {
-            height: 80px;
+            height: 50px;
         }
         .navbar .navbar-brand img {
-            line-height: 80px;
+            line-height: 50px;
         }
         .navbar-default .navbar-nav > li > a {
             color: white;
             font-size: 1em;
-            height: 80px;
-            line-height: 80px;
+            height: 50px;
+            line-height: 50px;
             padding-top: 0;
-        }
-        .navbar .collapse {
             
+        }
+        .navbar button.navbar-toggle {
+            background-color: transparent;
+            border: none;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: white;
+        }
+        .navbar .collapse, .navbar .collapsing {
+            float: none !important;
+            border: none;
         }
         .anniversary-footer .logo {
            margin-top: 1em;
