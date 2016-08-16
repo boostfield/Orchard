@@ -129,7 +129,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
-           i => GenerateImportSingleOldContent<UndergraduateAffairsPart, OldContent>("UndergraduateAffairs","本科生教务")(i,null),
+           i => GenerateImportSingleOldContent<XmContentPart, OldContent>("UndergraduateAffairs","本科生教务")(i,null),
            r => r.ID,
            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
            );

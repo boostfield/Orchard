@@ -9,16 +9,6 @@ namespace Orchard.Xmu
 {
     public class Permissions : IPermissionProvider
     {
-      
-
-      
-
-        public static readonly Permission ManageUndergraduateAffairs = new Permission
-        {
-            Description = XmContentType.UndergraduateAffairs.PermissionDesc,
-            Name = string.Format("Manage{0}", XmContentType.UndergraduateAffairs.ContentTypeName)
-        };
-
 
         public static readonly Permission ManageGraduateAffairs = new Permission
         {
@@ -72,7 +62,6 @@ namespace Orchard.Xmu
                 new PermissionStereotype {
                     Name = "Administrator",
                     Permissions = new[] { 
-                    ManageUndergraduateAffairs,
                     ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
@@ -86,7 +75,6 @@ namespace Orchard.Xmu
                 new PermissionStereotype {
                     Name = "Editor",
                     Permissions = new[] {  
-                    ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
@@ -97,7 +85,6 @@ namespace Orchard.Xmu
                 new PermissionStereotype {
                     Name = "Moderator",
                     Permissions = new[] {
-                    ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,
@@ -119,7 +106,6 @@ namespace Orchard.Xmu
             var staticPermissions = new[]
             {
                 
-                    ManageUndergraduateAffairs,
                                         ManageGraduateAffairs,
                     ManageStudentInfo,
                     ManagePublicPartyCollegeAffairs,

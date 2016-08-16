@@ -14,13 +14,6 @@ namespace Orchard.Xmu
         
 
 
-        public static XmContentDefinition UndergraduateAffairs = new XmContentDefinition
-        {
-            ContentTypeDisplayName = "本科生教务",
-            PermissionDesc = "管理本科生教务",
-            ContentTypeName = "UndergraduateAffairs"
-        };
-
 
         public static XmContentDefinition GraduateAffairs = new XmContentDefinition
         {
@@ -232,6 +225,25 @@ namespace Orchard.Xmu
 
                 },
 
+                new XmCNCMSContentMapping
+                {
+
+                    ContentTypeDisplayName = "本科生教务",
+                    PermissionDesc = "管理本科生教务",
+                    ContentTypeName = "UndergraduateAffairs",
+                    ContentTypePartName = "UndergraduateAffairsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理本科生教务",
+                        Name = string.Format("Manage{0}","UndergraduateAffairs")
+
+                    }
+
+                },
+
+
+
+                //------------------
 
                 new XmCNCMSContentMapping
                 {

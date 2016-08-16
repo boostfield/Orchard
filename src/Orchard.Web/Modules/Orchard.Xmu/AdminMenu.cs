@@ -42,10 +42,7 @@ namespace Orchard.Xmu
 
         private void BuildCNCmsMenu(NavigationItemBuilder menu)
         {
-            menu
-                     .Add(T(XmContentType.UndergraduateAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "UndergraduateAffairsAdmin", new { area = "Orchard.Xmu" })
-                     .Permission(Permissions.ManageUndergraduateAffairs));
-
+         
             menu
                  .Add(T(XmContentType.GraduateAffairs.ContentTypeDisplayName), "2", item => item.Action("List", "GraduateAffairsAdmin", new { area = "Orchard.Xmu" })
                  .Permission(Permissions.ManageGraduateAffairs));

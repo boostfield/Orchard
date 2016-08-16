@@ -82,22 +82,7 @@ namespace Orchard.Xmu
                                         new MvcRouteHandler())
                             },
 
-                          new RouteDescriptor {
-                                    Priority = 20,
-                                    Route = new Route(
-                                        "Admin/UndergraduateAffairs",
-                                        new RouteValueDictionary {
-                                                                    {"area", "Orchard.Xmu"},
-                                                                    {"controller", "UndergraduateAffairsAdmin"},
-                                                                    {"action", "List"}
-                                                                },
-                                        new RouteValueDictionary(),
-                                        new RouteValueDictionary {
-                                                                    {"area", "Orchard.Xmu"},
-                                                                },
-                                        new MvcRouteHandler())
-                             },
-
+        
                            new RouteDescriptor {
                                     Priority = 20,
                                     Route = new Route(
