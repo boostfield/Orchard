@@ -7,6 +7,13 @@
   margin-left: 0;
   margin-right: 0;
 }
+.container-fluid > .navbar-collapse,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container > .navbar-header {
+  margin-left: 0;
+  margin-right: 0;
+}
 .home-search .btn-default.active.focus,
 .home-search .btn-default.active:focus,
 .home-search .btn-default.active:hover,
@@ -50,6 +57,7 @@
 }
 .home .navbar.navbar-default {
   background-color: #252F4A;
+  margin-bottom: 0;
 }
 .home .navbar-default .navbar-nav > .active > a,
 .home .navbar-default .navbar-nav > .active > a:focus,
@@ -136,7 +144,6 @@
 }
 #carousel-home {
   width: 100%;
-  margin-top: -20px;
 }
 .carousel-inner .item {
   width: 100%;
@@ -311,6 +318,7 @@
 }
 .en-home .navbar.navbar-default {
   background-color: #2D44AA;
+  margin-bottom: 0;
 }
 .en-home .navbar-default .navbar-nav > .active > a,
 .en-home .navbar-default .navbar-nav > .active > a:focus,
@@ -371,13 +379,59 @@
   padding-left: 0;
   padding-right: 0;
 }
+.en-home #carousel-en {
+  width: 100%;
+}
+.en-home #carousel-en .carousel-inner .item {
+  width: 100%;
+  height: 36.45833333vw;
+  vertical-align: middle;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  cursor: pointer;
+  background-position: center center;
+}
+.en-home #carousel-en .carousel-caption {
+  left: auto;
+  margin-left: 6em;
+  right: initial;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  bottom: initial;
+  max-width: 590px;
+}
+.en-home #carousel-en .carousel-caption p {
+  font-size: 2.3em;
+  text-shadow: none;
+}
+.en-home #carousel-en .carousel-caption button.btn-primary {
+  background-color: #2D44AA;
+  border-radius: 2px;
+  padding: 1em;
+  color: white;
+}
+.en-home #carousel-en .carousel-control {
+  background-image: none;
+  width: 8%;
+  opacity: 1;
+}
+.en-home #carousel-en .carousel-control img {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 5;
+  display: inline-block;
+}
 .en-footer {
   padding: 0;
   width: 100%;
   color: black;
 }
 .en-footer .footer-first {
-  padding: 3em;
+  padding: 3em 0 3em 0;
   background-image: url("../Content/images/en/img_bottom.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -399,7 +453,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 .en-footer .footer-second {
-  padding: 3em;
+  padding: 3em 0 3em 0;
   background-color: #262F49;
 }
 .en-footer .footer-second h1 {
@@ -704,6 +758,26 @@
   }
 }
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) {
+  .navbar button.navbar-toggle {
+    background-color: transparent;
+    border: none;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .navbar .collapse,
+  .navbar .collapsing {
+    float: none !important;
+    border: none;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+  }
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+  }
   .top-bg {
     height: 95px;
   }
@@ -739,8 +813,20 @@
     color: black;
     border-radius: 0;
   }
+  .en-home #carousel-en .carousel-inner .item {
+    height: 300px;
+  }
+  .en-home #carousel-en .carousel-caption {
+    margin-left: 1em;
+  }
+  .en-home #carousel-en .carousel-caption p {
+    font-size: 1.2em;
+  }
+  .en-home #carousel-en .carousel-caption button.btn-primary {
+    font-size: 0.5em;
+  }
   .en-footer .footer-first {
-    padding: 1em;
+    padding: 1em 0 1em 0;
   }
   .en-footer .footer-first img {
     width: 98px;
@@ -776,18 +862,6 @@
     height: 50px;
     line-height: 50px;
     padding-top: 0;
-  }
-  .anniversary .navbar button.navbar-toggle {
-    background-color: transparent;
-    border: none;
-  }
-  .anniversary .navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
-  }
-  .anniversary .navbar .collapse,
-  .anniversary .navbar .collapsing {
-    float: none !important;
-    border: none;
   }
   .anniversary .anniversary-footer .logo {
     margin-top: 1em;
