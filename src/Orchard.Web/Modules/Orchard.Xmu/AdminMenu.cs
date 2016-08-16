@@ -21,9 +21,19 @@ namespace Orchard.Xmu
 
             builder.AddImageSet("")
                 .Add(T("院庆CMS"), "1.0", BuildCelCmsMenu);
+
+
+            builder.AddImageSet("")
+                .Add(T("英文CMS"), "1.0", BuildENCmsMenu);
         }
 
   
+       private void BuildENCmsMenu(NavigationItemBuilder menu)
+        {
+            menu.LinkToFirstChild(false);
+            menu.Add(T(XmContentType.ENBanner.ContentTypeDisplayName), "2", item => item.Action("List", "ENBannerAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageENBanner));
+        }
 
         private void BuildCelCmsMenu(NavigationItemBuilder menu)
         {

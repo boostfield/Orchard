@@ -163,5 +163,21 @@ namespace Orchard.Xmu
             return 2;
         }
 
+        public int UpdateFrom2()
+        {
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENBanner.ContentTypeName,
+
+             cfg => cfg
+             .DisplayedAs(XmContentType.ENBanner.ContentTypeDisplayName)
+             .WithPart(typeof(TitlePart).Name)
+             .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+             .WithPart(typeof(BannerPart).Name)
+             .Creatable()
+             .Draftable()
+             .Securable()
+             );
+            return 3;
+        }
+
     }
 }
