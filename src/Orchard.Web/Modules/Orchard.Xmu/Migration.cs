@@ -42,62 +42,6 @@ namespace Orchard.Xmu
           );
 
             */
-
-            return 1;
-        }
-
-
-
-        public int UpdateFrom1()
-        {
-
-            return 2;
-        }
-
-        public int UpdateFrom2()
-        {
-        
-            return 3;
-        }
-
-        public int UpdateFrom3()
-        {
-
-            return 4;
-
-        }
-
-        public int UpdateFrom4()
-        {
-
-       
-            return 5;
-
-        }
-
-        public int UpdateFrom5()
-        {
-            return 6;
-
-        }
-
-        public int UpdateFrom6()
-        {
-            return 7;
-
-        }
-
-
-        public int UpdateFrom7()
-        {
-
-            return 8;
-
-        }
-
-
-        public int UpdateFrom8()
-        {
             ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
                  cfg =>
                  cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
@@ -119,16 +63,7 @@ namespace Orchard.Xmu
        .Securable()
        );
 
-            return 9;
-        }
 
-        public int UpdateFrom9()
-        {
-            return 10;
-        }
-
-        public int UpdateFrom10()
-        {
             foreach (var mapping in XmContentType.ENCMSMappings)
             {
 
@@ -151,12 +86,7 @@ namespace Orchard.Xmu
 
             }
 
-            return 11;
-        }
 
-
-        public int UpdateFrom11()
-        {
             foreach (var mapping in XmContentType.NinetyMappings)
             {
 
@@ -177,14 +107,14 @@ namespace Orchard.Xmu
 
             ContentDefinitionManager.AlterPartDefinition(typeof(NinetyCelebrationDonationPart).Name,
                 cfg =>
-                cfg.WithField("donator", b => b.OfType("TextField").WithDisplayName("捐款人").WithSetting("TextFieldSettings.Required","true"))
+                cfg.WithField("donator", b => b.OfType("TextField").WithDisplayName("捐款人").WithSetting("TextFieldSettings.Required", "true"))
                 .WithField("donationAmount", b => b.OfType("TextField").WithDisplayName("捐款金额").WithSetting("TextFieldSettings.Required", "true"))
                 .WithField("donationTime", b => b.OfType("DateTimeField").WithDisplayName("捐款时间").WithSetting("DateTimeFieldSettings.Required", "true")
                 .WithSetting("DateTimeFieldSettings.Display", "DateOnly"))
             );
 
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyDonation.ContentTypeName,
-            
+
                 cfg => cfg
                 .DisplayedAs(XmContentType.NinetyDonation.ContentTypeDisplayName)
                 .WithPart(typeof(TitlePart).Name)
@@ -197,11 +127,8 @@ namespace Orchard.Xmu
        );
 
 
-
-
-            return 12;
+            return 1;
         }
-
 
     }
 }
