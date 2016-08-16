@@ -43,8 +43,8 @@ namespace Orchard.Xmu.Controllers
         {
             
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
-            ViewBag.items = _frontEndService.LatestContentOfType(XmContentType.CollegeAffairsNotify.ContentTypeName)
-                .Select(p => p.As<CollegeAffairsNotifyPart>()).ToList();
+            ViewBag.items = _frontEndService.LatestContentOfType("CollegeAffairsNotify")
+                .Select(p => p.As<XmContentPart>()).ToList();
 
 
 
