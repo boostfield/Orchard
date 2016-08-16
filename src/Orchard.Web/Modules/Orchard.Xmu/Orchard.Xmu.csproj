@@ -120,6 +120,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.newsTicker.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Styles\Styles.min.css" />
@@ -212,6 +213,7 @@
     <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
     <Compile Include="Permissions.cs" />
+    <Compile Include="ResourceManifest.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />

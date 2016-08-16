@@ -7,21 +7,30 @@
 @text-color: #333333;
 @text-second-color: #999999;
 @text-third-color: rgba(255,255,255,0.7);
+@anniversary-primary-color: #D0021B;
 .transition-all() {
     -webkit-transition: all 0.25s;
     -moz-transition: all 0.25s;
     transition: all 0.25s;
 }
 body {
-    font-family: Helvetica, 'Microsoft YaHei', sans-serif;
+    font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
     font-size: 20px;
     color: black;
 }
-
+.container-fluid {
+        padding-left: 0px;
+        padding-right: 0px;
+}
 .row {
     margin-left: 0;
     margin-right: 0;
 }
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    margin-left: 0;
+    margin-right: 0;
+}
+//中文
 .home-search {
     .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
         background-color: transparent;
@@ -60,6 +69,7 @@ body {
 .home  {
     .navbar.navbar-default {
         background-color: @primary-nav-color;
+        margin-bottom: 0;
     }
 
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
@@ -89,135 +99,135 @@ body {
     .navbar-default .navbar-nav > li {
         margin: auto 0.25em auto 0.25em;
     }
-} 
-
-
-.cn-home {
-    .top-bg {
+    .cn-home{
+        .top-bg {
+            width: 100%;
+            height: 190px;
+            background-image: url("../Content/images/cn/top-bg.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .top-bg .img-container {
+            line-height: 190px;
+        }
+        .top-bg img {
+            width: 661px;
+            height: 103px;
+        }
+    }
+    .footer {
+        padding: 2em 2em 1em 2em;
         width: 100%;
-        height: 190px;
-        background-image: url("../Content/images/cn/top-bg.png");
+        background-image: url("../Content/images/cn/footer-bg.png");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        color: white;
+
+        img {
+            margin-bottom: 2em;
+        }
+
+        a.main-link {
+            font-size: 0.9em;
+            color: white;
+            margin: auto 1em auto 1em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        p {
+            color: rgba(255,255,255,0.7);
+            margin-top: 1.5em;
+            font-size: 0.7em;
+            line-height: 1.75em;
+        }
+
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .copyright {
+            font-size: 0.7em;
+            color: rgba(255,255,255,0.3);
+        }
+
+        #footer li {
+            display: inline;
+           margin-right: 1em;
+            font-size: 0.7em;
+        }
+        #footer li>a {
+             color: rgba(255,255,255,0.3);
+        }
+
+        #footer h3 {
+            font-size: 0.9em;
+        }
     }
-    .top-bg .img-container {
-        line-height: 190px;
+    #carousel-home {
+        width: 100%;
+        .carousel-inner .item {
+        width: 100%;
+        height: 60700/1920vw;
+        vertical-align: middle;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+        cursor: pointer;
+        background-position: center center;
     }
-    .top-bg img {
-        width: 661px;
-        height: 103px;
+
+    .carousel-caption {
+        background-color: @carousel-caption-color;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 1.2em;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        text-shadow: none;
     }
-}
-
-.footer {
-    padding: 2em;
-    width: 100%;
-    background-image: url("../Content/images/cn/footer-bg.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-}
-
-.footer img {
-    margin-bottom: 2em;
-}
-
-.footer a.main-link {
-    font-size: 0.9em;
-    color: white;
-    margin: auto 1em auto 1em;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.footer p {
-    color: rgba(255,255,255,0.7);
-    margin-top: 1.5em;
-    font-size: 0.7em;
-    line-height: 1.75em;
-}
-
-.footer hr {
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer .copyright {
-    font-size: 0.7em;
-    color: rgba(255,255,255,0.3);
-}
-
-#footer li {
-    display: inline;
-   margin-right: 1em;
-    font-size: 0.7em;
-}
-#footer li>a {
-     color: rgba(255,255,255,0.3);
-}
-
-#footer h3 {
-    font-size: 0.9em;
-}
-
-#carousel-home {
-    width: 100%;
-    margin-top: -20px; //so weird
-}
-.carousel-inner .item {
-    width: 100%;
-    height: 500px;
-    vertical-align: middle;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-    cursor: pointer;
-    background-position: center center;
-}
-
-#carousel-home .carousel-caption {
-    background-color: @carousel-caption-color;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    font-size: 1.2em;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    text-shadow: none;
-}
-.container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-#carousel-home .carousel-indicators {
-    left: 90%;
-    right: 10%;
-    width: auto;
-    bottom: 10px;
-}
-.carousel-indicators-numbers {
-    li {
-      text-indent: 0;
-      margin: 0 2px;
-      width: 30px;
-      height: 30px;
-      border: 1px solid white;
-      border-radius: 0;
-      line-height: 30px;
-      color: #fff;
-      background-color: transparent;
-      transition: all 0.25s ease;
-      &.active, &:hover {
-        color: @primary-color;
-        margin: 0 2px;
-        width: 30px;
-        height: 30px;
-        background-color: white;        
-      }
+    
+    .carousel-indicators {
+        left: 90%;
+        right: 10%;
+        width: auto;
+        bottom: 10px;
     }
-}
+    .carousel-indicators-numbers {
+        li {
+          text-indent: 0;
+          margin: 0 2px;
+          width: 30px;
+          height: 30px;
+          border: 1px solid white;
+          border-radius: 0;
+          line-height: 30px;
+          color: #fff;
+          background-color: transparent;
+          transition: all 0.25s ease;
+          &.active, &:hover {
+            color: @primary-color;
+            margin: 0 2px;
+            width: 30px;
+            height: 30px;
+            background-color: white;        
+          }
+        }
+    }
+    }
+} 
+
+
+
+
+
+
+
+
 .cn-home-columns {
     padding: 2em;
 }
@@ -345,12 +355,13 @@ body {
 //英文网站
 .en-home {
     .navbar.navbar-default {
-        background-color: black;
+        background-color: @primary-color;
+        margin-bottom: 0;
     }
 
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
         color: white;
-        background-color: black;
+        background-color: @primary-color;
     }
 
     .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
@@ -385,7 +396,7 @@ body {
         padding: 0 2em 0 2em;
         height: 80px;
         border-radius: 0;
-        background-color: #303030;
+        background-color: rgba(0,0,0,0.2);
         color: white;
         border: none;
         
@@ -416,13 +427,67 @@ body {
         padding-left: 0;
         padding-right: 0;
     }
+    //carousel
+    #carousel-en {
+        width: 100%;
+           .carousel-inner .item {
+            width: 100%;
+            height: 70000/1920vw;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+        }
+
+        .carousel-caption {
+           left: auto;
+           margin-left: 6em;
+           right: initial;
+           top: 50%;
+          transform: translateY(-50%);
+           text-align: left;
+           bottom: initial;
+           max-width: 590px;
+           p {
+               font-size: 2.3em;
+               text-shadow: none;
+           }
+           button.btn-primary {
+               background-color: @primary-color;
+               border-radius: 2px;
+               padding: 1em;
+               color: white;
+           }
+        }
+        .carousel-control  {
+            background-image: none;
+            width: 8%;
+             opacity: 1;
+        }
+        .carousel-control img {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            z-index: 5;
+            display: inline-block;
+            
+            
+           
+        }
+    }
+    
+    
 }
+//底部栏
 .en-footer {
     padding: 0;
     width: 100%;
     color: black;
     .footer-first {
-        padding: 3em;
+        padding: 3em 0 3em 0;
         background-image: url("../Content/images/en/img_bottom.jpg");
         background-position: center;
         background-repeat: no-repeat;
@@ -444,7 +509,7 @@ body {
         }
     }
     .footer-second {
-        padding: 3em;
+        padding: 3em 0 3em 0;
         background-color: #262F49;
         h1 {
             font-size: 2em;
@@ -475,6 +540,7 @@ body {
 }
 //院庆网站
 .anniversary {
+    background-color: @anniversary-primary-color;
     .navbar {
         background-color: transparent;
         border: none;
@@ -498,6 +564,7 @@ body {
     }
     .content {
         margin-top: -140px;
+        background-color: #FCFCFC;
     }
     .top-bg {
         height: 743px;
@@ -533,8 +600,205 @@ body {
         .copyright a {
             color: white;
         }
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
     }
+    #carousel-anniversary {
+        margin-top: -200px;
+        
+        .carousel-inner .item {
+            width: 100%;
+            height: 50000/1920vw;
+            min-height: 500px;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+        }
+        .carousel-indicators li.active {
+            background-color: @anniversary-primary-color;
+        }
+        .carousel-control  {
+            background-image: none;
+            width: 5%;
+             opacity: 1;
+        }
+        .carousel-control img {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            z-index: 5;
+            display: inline-block;
+            padding: 0.75em 1em 0.75em 1em;
+            background-color: @anniversary-primary-color;
+           
+        }
+    }
+    
+    .banner1, .banner2 {
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        margin-top: 2em;
+        .img-title {
+            margin-top: -1em;
+            margin-left: 1em;
+        }
+        .img-number {
+            margin-top: -2em;
+            
+        }
+        .list-group {
+            
+            padding: 0 1em 0 1em;
+        }
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            font-size: 0.7em;
+            padding-right: 0;
+            background-image: url(../Content/images/anniversary/img_list_dot.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            .tilte-name {
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .title-time {
+                text-align: right;
+                color: @text-second-color;
+            }
+        }
+        .list-group-item:first-child {
+            border-top: none;
+        }
+        p.more a{
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            text-decoration: none;
+            margin: 0 1em 1em 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 2px solid @anniversary-primary-color;
+            padding-bottom: 3px;
+        }
+    }
+    .banner2 {
+        margin-top: 4em;
+    }
+    .donation {
+        padding: 2em 2em 3em 2em;
+        margin-left: 1em;
+        background-color: @anniversary-primary-color;
+        color: white;
+        background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png),url(../Content/images/anniversary/img_donation_pattern_top_2.png),url(../Content/images/anniversary/img_donation_pattern_bottom_1.png),url(../Content/images/anniversary/img_donation_pattern_bottom_2.png), url(../Content/images/anniversary/img_donation_90.png);
+        background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%, 70% 90%;
+        background-repeat: no-repeat;
+        #news-ticker {
+            padding-left: 4px;
+            
+            list-style-type: none;
+            list-style: none;
+        }
+        #news-ticker li {
+            font-size: 0.8em;
+            
+        }
+        .title {
+            margin: 1em;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        hr {
+            border-top: 1px solid rgba(0,0,0,0.15);
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: 2em;
+        }
+        .name {
+            display: inline-block;
+            text-align: left;
+            width: 45%;
+            
+        }
+        .fund {
+            display: inline-block;
+            text-align: left;
+            width: 25%;
+            
+        }
+        .time {
+            display: inline-block;
+            text-align: right;
+            width: 20%;
+            white-space: nowrap;
+        
+        }
+    }
+    .banner3, .banner4 {
+        background: white;
+        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        margin-top: 4em;
+        .img-cover {
+            margin-top: -1em;
+            margin-left: -1em;
+        }
+        .img-title {
+           margin-top: 2.5em;
+            margin-right: 1.75em;
+        }
+        .img-number {
+            margin-top: -2em;
+        }
+        .list-group {
+           display: block;
+            padding: 0 1em 0 1em;
+        }
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            font-size: 0.7em;
+            padding-right: 0;
+            background-image: url(../Content/images/anniversary/img_list_dot.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            .tilte-name {
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .title-time {
+                text-align: right;
+                color: @text-second-color;
+            }
+        }
+        .list-group-item:first-child {
+            border-top: none;
+        }
+        p.more a{
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 1em 1em 0;
+            display: inline-block;
+            cursor: pointer;
+            border-bottom: 2px solid @anniversary-primary-color;
+            padding-bottom: 3px;
+        }
+    }
+
 }
+//移动端适配
 @media only screen
 and (max-device-width: 768px) {
     .cn-home-columns .nav-pills a {
@@ -548,6 +812,24 @@ and (max-device-width: 768px) {
 and (max-device-width: 640px),
 only screen and (max-device-width: 667px),
 only screen and (max-width: 480px) {
+    .navbar button.navbar-toggle {
+            background-color: transparent;
+            border: none;
+        }
+    .navbar-default .navbar-toggle .icon-bar {
+            background-color: white;
+    }
+    .navbar .collapse, .navbar .collapsing {
+            float: none !important;
+            border: none;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border: none;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    //中文
     .top-bg {
         height: 95px;
     }
@@ -583,5 +865,74 @@ only screen and (max-width: 480px) {
         color: black;
         border-radius: 0;
        
+    }
+    //英文
+    .en-home {
+        #carousel-en {
+            .carousel-inner .item {
+                height: 300px;
+            }
+            .carousel-caption {
+                margin-left: 1em;
+                p {
+                    font-size: 1.2em;
+                }
+                button.btn-primary {
+                    font-size: 0.5em;
+                }
+            }
+        }
+    }
+    .en-footer {
+        .footer-first {
+            padding: 1em 0 1em 0;
+        }
+        .footer-first img {
+            
+             width: 98px;
+             height: 117.5px;
+        }
+    }
+    //院庆
+    .anniversary {
+        .navbar-brand img{
+            width: 193px;
+            height: 48px;
+        }
+        .top-bg {
+            height: 400px;
+        }
+        #carousel-anniversary {
+            margin-top: -100px;
+            .carousel-inner .item {
+                height: 250px;
+                min-height: 250px;
+            }
+        }
+        
+        .donation {
+            padding: 1em;
+            margin-left: 0;
+        }
+        .navbar .navbar-brand {
+            height: 50px;
+        }
+        .navbar .navbar-brand img {
+            line-height: 50px;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+            font-size: 1em;
+            height: 50px;
+            line-height: 50px;
+            padding-top: 0;
+            
+        }
+        
+        .anniversary-footer .logo {
+           margin-top: 1em;
+            width: 182.5px;
+            height: 29px;
+        }
     }
 }

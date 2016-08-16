@@ -1,6 +1,6 @@
 Name: OrchardBS
-Author: Abhishek Luv	
-Website: http://www.abhishekluv.in
-Description: Theme by Abhishek Luv
-Version: 1.8.0
+Author: Boostfield	
+Website: http://www.boostfield.com
+Description: Theme by Boostfield
+Version: 1.0.0
 Zones: Header, Navigation, Featured, BeforeMain, AsideFirst, Messages, BeforeContent, Content, AfterContent, AsideSecond, AfterMain, TripelFirst, TripelSecond, TripelThird, FooterQuadFirst, FooterQuadSecond, FooterQuadThird, FooterQuadFourth, Footer

@@ -2,4 +2,54 @@
     ViewBag.Title = "ENHome";
 }
 
-<h2>ENHome</h2>
+<div id="carousel-en" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-en" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-en" data-slide-to="1"></li>
+        <li data-target="#carousel-en" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+
+            <div class="carousel-caption">
+                
+
+                    <p>The Dean of Faculty of Law, The
+                    University of Hong Kong Visited
+                    XMU Law School</p>
+                    <button class="btn btn-default btn-primary">READ MORE></button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+
+            <div class="carousel-caption">
+                
+
+                    <p>The Dean of Faculty of Law, The
+                    University of Hong Kong Visited
+                    XMU Law School</p>
+                <button class="btn btn-default btn-primary">READ MORE></button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+
+            <div class="carousel-caption">
+                
+
+                    <p>The Dean of Faculty of Law, The
+                    University of Hong Kong Visited
+                    XMU Law School</p>
+                <button class="btn btn-default btn-primary">READ MORE></button>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-en" role="button" data-slide="prev">
+        <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_left_n.png"))" />
+    </a>
+    <a class="right carousel-control" href="#carousel-en" role="button" data-slide="next">
+        <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_right_n.png"))" />
+    </a>
+</div>
