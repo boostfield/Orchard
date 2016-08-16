@@ -5,6 +5,7 @@ using Orchard.Themes;
 using Orchard.UI.Navigation;
 using Orchard.Xmu.Models;
 using Orchard.Xmu.Service;
+using Orchard.Xmu.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,22 @@ namespace Orchard.Xmu.Controllers
         // GET: ContentDetail
         public ActionResult Item(string contentTypeName, int Id)
         {
+            var item = _contentManager.Get(Id, VersionOptions.Latest);
+            if(item==null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
             ViewBag.ContentTypeName = contentTypeName;
             ViewBag.Id = Id;
+            if (contentTypeName.Equals("LectureInfo"))
+            {
+                ViewBag.Item = LectureVM.FromLecturePart(item.As<LectureInfoPart>());
+            } else
+            {
+                ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
+
+            }
 
             return View();
         }
@@ -52,10 +67,21 @@ namespace Orchard.Xmu.Controllers
             .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
 
             var total = q.Count();
-            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => p.As<XmContentPart>()).ToList();
+
+            if (contentTypeName.Equals("LectureInfo"))
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
+            }
+            else
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
+
+            }
+
+
             ViewBag.total = total;
-            ViewBag.items = items;
             ViewBag.page = pager.Page;
             ViewBag.pageSize = pager.PageSize;
             ViewBag.ContentTypeName = contentTypeName;

@@ -201,13 +201,11 @@
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
-    <Compile Include="Drivers\InformationPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
-    <Compile Include="Models\InformationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="Service\DataImport\DataImporter.cs" />
@@ -224,6 +222,8 @@
     <Compile Include="Service\IAdminPagingService.cs" />
     <Compile Include="Service\AdminPagingService.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
+    <Compile Include="ViewModels\LectureVM.cs" />
+    <Compile Include="ViewModels\XmContentVM.cs" />
     <Compile Include="XmContentType.cs" />
     <Compile Include="XmTaxonomyNames.cs" />
     <Compile Include="XmuRoutes.cs" />
