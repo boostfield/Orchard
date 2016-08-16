@@ -140,7 +140,7 @@
 }
 .carousel-inner .item {
   width: 100%;
-  height: 500px;
+  height: 31.61458333vw;
   vertical-align: middle;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -310,13 +310,13 @@
   color: #2D44AA;
 }
 .en-home .navbar.navbar-default {
-  background-color: black;
+  background-color: #2D44AA;
 }
 .en-home .navbar-default .navbar-nav > .active > a,
 .en-home .navbar-default .navbar-nav > .active > a:focus,
 .en-home .navbar-default .navbar-nav > .active > a:hover {
   color: white;
-  background-color: black;
+  background-color: #2D44AA;
 }
 .en-home .navbar-default .navbar-nav > li > a:focus,
 .en-home .navbar-default .navbar-nav > li > a:hover {
@@ -346,7 +346,7 @@
   padding: 0 2em 0 2em;
   height: 80px;
   border-radius: 0;
-  background-color: #303030;
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
   border: none;
 }
@@ -500,7 +500,8 @@
 }
 .anniversary #carousel-anniversary .carousel-inner .item {
   width: 100%;
-  height: 500px;
+  height: 26.04166667vw;
+  min-height: 500px;
   vertical-align: middle;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -576,11 +577,13 @@
 .anniversary .banner2 p.more a {
   color: #D0021B;
   font-size: 0.8em;
-  text-decoration: underline;
+  text-decoration: none;
   margin: 0 1em 1em 0;
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+  border-bottom: 2px solid #D0021B;
+  padding-bottom: 3px;
 }
 .anniversary .banner2 {
   margin-top: 4em;
@@ -590,8 +593,8 @@
   margin-left: 1em;
   background-color: #D0021B;
   color: white;
-  background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png), url(../Content/images/anniversary/img_donation_pattern_top_2.png), url(../Content/images/anniversary/img_donation_pattern_bottom_1.png), url(../Content/images/anniversary/img_donation_pattern_bottom_2.png);
-  background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%;
+  background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png), url(../Content/images/anniversary/img_donation_pattern_top_2.png), url(../Content/images/anniversary/img_donation_pattern_bottom_1.png), url(../Content/images/anniversary/img_donation_pattern_bottom_2.png), url(../Content/images/anniversary/img_donation_90.png);
+  background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%, 70% 90%;
   background-repeat: no-repeat;
 }
 .anniversary .donation #news-ticker {
@@ -642,8 +645,8 @@
 }
 .anniversary .banner3 .img-title,
 .anniversary .banner4 .img-title {
-  margin-top: 2em;
-  margin-right: 2em;
+  margin-top: 2.5em;
+  margin-right: 1.75em;
 }
 .anniversary .banner3 .img-number,
 .anniversary .banner4 .img-number {
@@ -686,10 +689,12 @@
   color: #D0021B;
   font-size: 0.8em;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
   margin: 0 1em 1em 0;
   display: inline-block;
   cursor: pointer;
+  border-bottom: 2px solid #D0021B;
+  padding-bottom: 3px;
 }
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {
@@ -753,6 +758,7 @@
   }
   .anniversary #carousel-anniversary .carousel-inner .item {
     height: 250px;
+    min-height: 250px;
   }
   .anniversary .donation {
     padding: 1em;
