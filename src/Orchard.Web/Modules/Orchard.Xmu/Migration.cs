@@ -42,6 +42,18 @@ namespace Orchard.Xmu
           );
 
             */
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(XmContentPart).Name,
+                cfg =>
+                cfg.WithField("image",
+                         b => b.OfType("MediaLibraryPickerField")
+                             .WithDisplayName("封面图")
+                             )
+
+            );
+
+
             ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
                  cfg =>
                  cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
