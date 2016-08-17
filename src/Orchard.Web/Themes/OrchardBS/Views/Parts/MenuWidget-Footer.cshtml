@@ -1,18 +1,7 @@
 ﻿<div class="container">
     <div class="row text-center">
         <h3>友情链接</h3>
-        @{
-
-            var tag = Tag(Model, "div");
-
-            tag.AddCssClass("footermenu");
-        }
-
-        @tag.StartElement
-        @* see MenuItem shape template *@
-        @DisplayChildren(Model.Menu)
-        @tag.EndElement
-
+        @Model.Menu.Items[0].Text
     </div>
     <hr />
 </div>
