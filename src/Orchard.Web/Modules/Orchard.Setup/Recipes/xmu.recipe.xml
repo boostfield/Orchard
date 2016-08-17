@@ -54,6 +54,7 @@
     site setting set baseurl
     menu create /MenuName:"ChineseMenu"
     menu create /MenuName:"EnglishMenu"
+    menu create /MenuName:"RelatedLinks"
     page create /Slug:"welcome-to-orchard" /Title:"Welcome to Orchard!" /Path:"welcome-to-orchard" /Homepage:true /Publish:true /UseWelcomeText:true
     menuitem create /MenuPosition:"0" /MenuText:"Home" /Url:"~/" /MenuName:"ChineseMenu"
     widget create MenuWidget /Title:"Main Menu" /RenderTitle:false /Zone:"Navigation" /Position:"1" /Layer:"Default" /Identity:"MenuWidget1" /MenuName:"ChineseMenu"
