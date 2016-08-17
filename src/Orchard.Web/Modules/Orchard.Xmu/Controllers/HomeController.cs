@@ -13,6 +13,7 @@ using System.Web.Mvc;
 using Orchard.UI.Navigation;
 using Orchard.Settings;
 using System.Globalization;
+using Orchard.Core.Navigation.ViewModels;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -23,11 +24,13 @@ namespace Orchard.Xmu.Controllers
         private readonly IFrontEndService _frontEndService;
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
+        private readonly IXmMenuService _xmMenuService;
 
         public HomeController(IOrchardServices service,
              IFrontEndService frontEndService,
              IContentManager contentManager,
-            ISiteService siteService
+            ISiteService siteService,
+            IXmMenuService xmMenuService
 
 
             )
@@ -36,6 +39,7 @@ namespace Orchard.Xmu.Controllers
             _frontEndService = frontEndService;
             _contentManager = contentManager;
             _siteService = siteService;
+            _xmMenuService = xmMenuService;
          }
 
         // GET: Home
@@ -53,9 +57,13 @@ namespace Orchard.Xmu.Controllers
 
             ViewBag.banners = b;
 
+            var m = _xmMenuService.Get2LevelMenu("RelatedLinks");
+            ViewBag.menus = m;
             return View();
         }
 
     
     }
+
+     
 }

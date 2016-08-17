@@ -161,7 +161,9 @@
       <Name>Orchard.Users</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Placement.info">
       <SubType>Designer</SubType>
@@ -209,6 +211,7 @@
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
+    <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
@@ -227,6 +230,8 @@
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="Service\IAdminPagingService.cs" />
     <Compile Include="Service\AdminPagingService.cs" />
+    <Compile Include="Service\IXmMenuService.cs" />
+    <Compile Include="Service\XmMenuService.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\LectureVM.cs" />
     <Compile Include="ViewModels\XmContentVM.cs" />
