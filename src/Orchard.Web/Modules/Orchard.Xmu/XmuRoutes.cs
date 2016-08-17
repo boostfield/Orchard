@@ -232,12 +232,14 @@ namespace Orchard.Xmu
                   Priority = 22,
 
             Route = new Route(
+             "anniversary/Paging/{contentTypeName}",
              new RouteValueDictionary {
 
                  { "area", "Orchard.Xmu"},
 
                  { "controller", "XmContent"},
 
+                 { "action", "ANPaging"}
 
                                        },
 
