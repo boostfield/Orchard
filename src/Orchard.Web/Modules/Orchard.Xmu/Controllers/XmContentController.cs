@@ -59,6 +59,73 @@ namespace Orchard.Xmu.Controllers
         }
 
 
+        public ActionResult ENPaging(string contentTypeName, PagerParameters pagerParameters)
+        {
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+
+            var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
+
+            var total = q.Count();
+
+            if (contentTypeName.Equals("LectureInfo"))
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
+            }
+            else
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
+
+            }
+
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.ContentTypeName = contentTypeName;
+
+            return View();
+
+
+
+        }
+
+        public ActionResult ANPaging(string contentTypeName, PagerParameters pagerParameters)
+        {
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+
+            var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
+
+            var total = q.Count();
+
+            if (contentTypeName.Equals("LectureInfo"))
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
+            }
+            else
+            {
+                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
+
+            }
+
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.ContentTypeName = contentTypeName;
+
+            return View();
+
+
+
+        }
+
+
         public ActionResult Paging(string contentTypeName,PagerParameters pagerParameters)
         {
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
