@@ -183,7 +183,20 @@ namespace Orchard.Xmu
                         Description = "管理新闻(News)",
                         Name = string.Format("Manage{0}","CollegeENNews")
                     }
-                }
+                },
+                new XmENCMSContentMapping
+                {
+                    ContentTypeName = "CollegeENNotice",
+                    PermissionDesc = "管理通知(Notice)",
+                    ContentTypeDisplayName = "通知(Notice)",
+                    ContentTypePartName = "CollegeENNoticePart",
+                    Permission = new Permission
+                    {
+                        Description = "管理通知(Notice)",
+                        Name = string.Format("Manage{0}","CollegeENNotice")
+                    }
+                },
+
             };
 
 
