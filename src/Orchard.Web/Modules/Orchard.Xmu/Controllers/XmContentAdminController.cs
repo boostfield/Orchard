@@ -40,7 +40,7 @@ namespace Orchard.Xmu.Controllers
 
         private string GetDisplayName(string typename)
         {
-            foreach(var mapping in XmContentType.ENCMSMappings)
+            foreach(var mapping in XmContentType.CNCMSMappings)
             {
                 if(mapping.ContentTypeName.Equals(typename))
                 {
@@ -48,6 +48,13 @@ namespace Orchard.Xmu.Controllers
                 }
             }
 
+            foreach (var mapping in XmContentType.ENCMSMappings)
+            {
+                if (mapping.ContentTypeName.Equals(typename))
+                {
+                    return mapping.ContentTypeDisplayName;
+                }
+            }
             return "内容";
         }
     } 
