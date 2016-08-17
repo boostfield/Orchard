@@ -64,7 +64,7 @@ namespace Orchard.Xmu
        );
 
 
-            foreach (var mapping in XmContentType.ENCMSMappings)
+            foreach (var mapping in XmContentType.CNCMSMappings)
             {
 
 
@@ -177,6 +177,31 @@ namespace Orchard.Xmu
              .Securable()
              );
             return 3;
+        }
+
+        public int UpdateFrom3()
+        {
+            foreach (var mapping in XmContentType.ENCMSMappings)
+            {
+
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(mapping.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(XmContentPart).Name)
+                  .WithPart(typeof(UserViewPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+            }
+
+
+            return 4;
         }
 
     }

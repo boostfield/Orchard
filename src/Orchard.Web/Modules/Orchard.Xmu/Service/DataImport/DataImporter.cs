@@ -260,7 +260,7 @@ namespace Orchard.Xmu.Service.DataImport
 
         private XmCNCMSContentMapping GetMapping(int Id)
         {
-            foreach(var mapping in XmContentType.ENCMSMappings)
+            foreach(var mapping in XmContentType.CNCMSMappings)
             {
                 if(mapping.Id == Id)
                 {
