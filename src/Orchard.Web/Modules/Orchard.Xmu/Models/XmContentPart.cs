@@ -13,6 +13,17 @@ namespace Orchard.Xmu.Models
 {
     public class XmContentPart:ContentPart
     {
+
+        public string ImageAddress
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = content.XmContentPart.image.FirstMediaUrl;
+                return v;
+            }
+        }
+
         public string Title
         {
             get { return this.As<TitlePart>().Title; }

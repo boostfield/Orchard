@@ -23,6 +23,12 @@ namespace Orchard.Xmu
 
         };
 
+        public static readonly Permission ManageENBanner = new Permission
+        {
+            Description = XmContentType.ENBanner.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENBanner.ContentTypeName)
+
+        };
 
         public virtual Feature Feature { get; set; }
 
@@ -68,7 +74,7 @@ namespace Orchard.Xmu
             };
 
 
-            var contentPermissions = XmContentType.ENCMSMappings
+            var contentPermissions = XmContentType.CNCMSMappings
                 .Select(p => p.Permission).ToList();
             contentPermissions.AddRange(staticPermissions);
 

@@ -42,6 +42,18 @@ namespace Orchard.Xmu
           );
 
             */
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(XmContentPart).Name,
+                cfg =>
+                cfg.WithField("image",
+                         b => b.OfType("MediaLibraryPickerField")
+                             .WithDisplayName("封面图")
+                             )
+
+            );
+
+
             ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
                  cfg =>
                  cfg.WithField("lecturer", b => b.OfType("TextField").WithDisplayName("主讲人"))
@@ -64,7 +76,7 @@ namespace Orchard.Xmu
        );
 
 
-            foreach (var mapping in XmContentType.ENCMSMappings)
+            foreach (var mapping in XmContentType.CNCMSMappings)
             {
 
 
@@ -161,6 +173,47 @@ namespace Orchard.Xmu
               );
 
             return 2;
+        }
+
+        public int UpdateFrom2()
+        {
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENBanner.ContentTypeName,
+
+             cfg => cfg
+             .DisplayedAs(XmContentType.ENBanner.ContentTypeDisplayName)
+             .WithPart(typeof(TitlePart).Name)
+             .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+             .WithPart(typeof(BannerPart).Name)
+             .Creatable()
+             .Draftable()
+             .Securable()
+             );
+            return 3;
+        }
+
+        public int UpdateFrom3()
+        {
+            foreach (var mapping in XmContentType.ENCMSMappings)
+            {
+
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .DisplayedAs(mapping.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(BodyPart).Name)
+           .WithPart(typeof(XmContentPart).Name)
+                  .WithPart(typeof(UserViewPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+            }
+
+
+            return 4;
         }
 
     }

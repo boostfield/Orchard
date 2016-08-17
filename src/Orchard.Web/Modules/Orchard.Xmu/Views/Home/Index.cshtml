@@ -21,6 +21,25 @@
         <h3>@b.ImageAddress</h3>
         <h3>@b.LinkAddress</h3>
     }
+
+    <h1>Menus</h1>
+    @foreach(var m in ViewBag.menus)
+    {
+        <label>Position:</label>
+        <h3>@m.Position</h3>
+
+        foreach(var menus in m.List)
+        {
+            <h5>@menus.Text</h5>
+            <h5>@menus.Url</h5>
+            <h5>@menus.Position</h5>
+
+        }
+
+
+
+    }
+
 </div>
 
 <div id="carousel-home" class="carousel slide" data-ride="carousel">

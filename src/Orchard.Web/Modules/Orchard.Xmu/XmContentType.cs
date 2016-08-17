@@ -8,7 +8,7 @@ namespace Orchard.Xmu
 {
     public class XmContentType
     {
- 
+
 
         public static XmContentDefinition LectureInfo = new XmContentDefinition
         {
@@ -22,11 +22,21 @@ namespace Orchard.Xmu
         public static XmContentDefinition CNBanner = new XmContentDefinition
         {
             ContentTypeDisplayName = "首页Banner",
-            PermissionDesc = "管理首页Banner",
+            PermissionDesc = "管理中文CMS首页Banner",
             ContentTypeName = "CNBanner",
             ContentTypePartName = "CNBannerPart"
         };
- 
+
+
+        public static XmContentDefinition ENBanner = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "首页Banner",
+            PermissionDesc = "管理英文CMS首页Banner",
+            ContentTypeName = "ENBanner",
+            ContentTypePartName = "ENBannerPart"
+        };
+
+
         //------------- Content Mapping..
 
 
@@ -52,7 +62,7 @@ namespace Orchard.Xmu
             {
                 new NinetyCMSContentMapping
                 {
-                    
+
                     ContentTypeDisplayName = "通知公告",
                     ContentTypeName = "CelAnnouncement",
                     PermissionDesc = "管理通知公告",
@@ -78,7 +88,7 @@ namespace Orchard.Xmu
                     },
                 },
 
-               
+
 
                 new NinetyCMSContentMapping
                 {
@@ -158,9 +168,40 @@ namespace Orchard.Xmu
 
             };
 
+        //---EN CMS
+        public static XmENCMSContentMapping[] ENCMSMappings =
+            new XmENCMSContentMapping[]
+            {
+                new XmENCMSContentMapping
+                {
+                    ContentTypeName = "CollegeENNews",
+                    PermissionDesc = "管理新闻(News)",
+                    ContentTypeDisplayName = "新闻(News)",
+                    ContentTypePartName = "CollegeENNewsPart",
+                    Permission = new Permission
+                    {
+                        Description = "管理新闻(News)",
+                        Name = string.Format("Manage{0}","CollegeENNews")
+                    }
+                },
+                new XmENCMSContentMapping
+                {
+                    ContentTypeName = "CollegeENNotice",
+                    PermissionDesc = "管理通知(Notice)",
+                    ContentTypeDisplayName = "通知(Notice)",
+                    ContentTypePartName = "CollegeENNoticePart",
+                    Permission = new Permission
+                    {
+                        Description = "管理通知(Notice)",
+                        Name = string.Format("Manage{0}","CollegeENNotice")
+                    }
+                },
+
+            };
+
 
         //------- CN CMS
-        public static XmCNCMSContentMapping[] ENCMSMappings =
+        public static XmCNCMSContentMapping[] CNCMSMappings =
             new XmCNCMSContentMapping[]
             {
 
@@ -279,11 +320,9 @@ namespace Orchard.Xmu
                      Name = string.Format("Manage{0}","AcademicNews")
                     }
                 },
-                      
 
-        //------------------
 
-        new XmCNCMSContentMapping
+                new XmCNCMSContentMapping
                 {
                     Id=28,
                     TopicName = "学院简介",
@@ -710,15 +749,20 @@ namespace Orchard.Xmu
 
 
 
-    public class XmCNCMSContentMapping: XmContentDefinition
+    public class XmCNCMSContentMapping : XmContentDefinition
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string TopicName { get; set; }
         public Permission Permission { get; set; }
     }
 
 
-    public class NinetyCMSContentMapping: XmContentDefinition
+    public class NinetyCMSContentMapping : XmContentDefinition
+    {
+        public Permission Permission { get; set; }
+    }
+
+    public class XmENCMSContentMapping : XmContentDefinition
     {
         public Permission Permission { get; set; }
     }
