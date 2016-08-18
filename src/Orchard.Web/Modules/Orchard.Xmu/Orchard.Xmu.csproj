@@ -187,6 +187,8 @@
     <Content Include="Views\ENBannerAdmin\List.cshtml" />
     <Content Include="Views\XmContent\ENPaging.cshtml" />
     <Content Include="Views\XmContent\ANPaging.cshtml" />
+    <Content Include="Views\XmContent\ENItem.cshtml" />
+    <Content Include="Views\XmContent\ANItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

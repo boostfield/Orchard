@@ -57,66 +57,79 @@ namespace Orchard.Xmu.Controllers
 
             return View();
         }
-
-
-        public ActionResult ENPaging(string contentTypeName, PagerParameters pagerParameters)
+        public ActionResult ENItem(string contentTypeName, int Id)
         {
-            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-
-            var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
-
-            var total = q.Count();
-
+            var item = _contentManager.Get(Id, VersionOptions.Latest);
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
+            ViewBag.ContentTypeName = contentTypeName;
+            ViewBag.Id = Id;
             if (contentTypeName.Equals("LectureInfo"))
             {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
+                ViewBag.Item = LectureVM.FromLecturePart(item.As<LectureInfoPart>());
             }
             else
             {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
+                ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
 
             }
 
+            return View();
+        }
+        public ActionResult ANItem(string contentTypeName, int Id)
+        {
+            var item = _contentManager.Get(Id, VersionOptions.Latest);
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
+            ViewBag.ContentTypeName = contentTypeName;
+            ViewBag.Id = Id;
+            if (contentTypeName.Equals("LectureInfo"))
+            {
+                ViewBag.Item = LectureVM.FromLecturePart(item.As<LectureInfoPart>());
+            }
+            else
+            {
+                ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
 
-            ViewBag.total = total;
-            ViewBag.page = pager.Page;
-            ViewBag.pageSize = pager.PageSize;
+            }
+
+            return View();
+        }
+
+        
+
+        public ActionResult ENPaging(string contentTypeName, PagerParameters pagerParameters)
+        {
+
+
+            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
+
+            ViewBag.total = pagingResult.Item1;
+            ViewBag.page = pagingResult.Item3.Page;
+            ViewBag.pageSize = pagingResult.Item3.PageSize;
+            ViewBag.items = pagingResult.Item2;
             ViewBag.ContentTypeName = contentTypeName;
 
             return View();
-
 
 
         }
 
         public ActionResult ANPaging(string contentTypeName, PagerParameters pagerParameters)
         {
-            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
-            var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
+            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
 
-            var total = q.Count();
-
-            if (contentTypeName.Equals("LectureInfo"))
-            {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
-            }
-            else
-            {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
-                .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
-
-            }
-
-
-            ViewBag.total = total;
-            ViewBag.page = pager.Page;
-            ViewBag.pageSize = pager.PageSize;
+            ViewBag.total = pagingResult.Item1;
+            ViewBag.page = pagingResult.Item3.Page;
+            ViewBag.pageSize = pagingResult.Item3.PageSize;
+            ViewBag.items = pagingResult.Item2;
             ViewBag.ContentTypeName = contentTypeName;
 
             return View();
@@ -128,35 +141,50 @@ namespace Orchard.Xmu.Controllers
 
         public ActionResult Paging(string contentTypeName,PagerParameters pagerParameters)
         {
+
+            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
+
+            ViewBag.total = pagingResult.Item1;
+            ViewBag.page = pagingResult.Item3.Page;
+            ViewBag.pageSize = pagingResult.Item3.PageSize;
+            ViewBag.items = pagingResult.Item2;
+            ViewBag.ContentTypeName = contentTypeName;
+
+            return View();
+
+        }
+
+        private Tuple<int, IList<XmContentVM>, Pager> GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
             var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
             .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
 
             var total = q.Count();
-
+            IList<XmContentVM> items;
             if (contentTypeName.Equals("LectureInfo"))
             {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                items = q.Slice(pager.GetStartIndex(), pager.PageSize)
                 .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
             }
             else
             {
-                ViewBag.items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                items = q.Slice(pager.GetStartIndex(), pager.PageSize)
                 .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
 
             }
-
-
-            ViewBag.total = total;
-            ViewBag.page = pager.Page;
-            ViewBag.pageSize = pager.PageSize;
-            ViewBag.ContentTypeName = contentTypeName;
-
-            return View();
-
-
-
+            return new Tuple<int, IList<XmContentVM>, Pager>(total, items, pager);
         }
+
+
     }
 }

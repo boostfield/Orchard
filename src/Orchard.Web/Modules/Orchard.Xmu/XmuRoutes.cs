@@ -179,6 +179,36 @@ namespace Orchard.Xmu
                                                                 },
                                         new MvcRouteHandler())
                              },
+                        new RouteDescriptor {
+                                    Priority = 22,
+                                    Route = new Route(
+                                        "en/Detail/{contentTypeName}/{Id}",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "XmContent"},
+                                                                    {"action", "ENItem"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+                                new RouteDescriptor {
+                                    Priority = 22,
+                                    Route = new Route(
+                                        "anniversary/Detail/{contentTypeName}/{Id}",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "XmContent"},
+                                                                    {"action", "ANItem"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
 
 
                          new RouteDescriptor
