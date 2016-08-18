@@ -26,7 +26,7 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item active" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
 
                     <div class="carousel-caption">
                         <p>
@@ -38,7 +38,7 @@
             }
             else
             {
-                <div class="item" style="background-image: url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
 
                     <div class="carousel-caption">
                         <p>
@@ -77,7 +77,7 @@
                             <img src="@newsItem.ImageAddress">
                             <div class="caption">
                                 <p class="title">@newsItem.Title</p>
-                                <p class="time">@newsItem.PublishedUtc.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="time">@newsItem.PublishedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
                                 <p class="content">@body</p>
                                 <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">Read More</a></p>
                                 
@@ -99,12 +99,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-2">
-                                <p class="month">@notice.PublishedUtc.ToString("MMM", CultureInfo.CreateSpecificCulture("en-US"))</p>
-                                <p class="date">@notice.PublishedUtc.ToString("dd", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="month">@notice.PublishedUtc.ToLocalTime().ToString("MMM", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="date">@notice.PublishedUtc.ToLocalTime().ToString("dd", CultureInfo.CreateSpecificCulture("en-US"))</p>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
                                 <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CollegeENNotice"})">@notice.Title</a></p>
-                                <p class="time">@notice.PublishedUtc.ToString("hh:mm", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="time">@notice.PublishedUtc.ToLocalTime().ToString("HH:mm")</p>
                             </div>
                         </div>
                     </li>

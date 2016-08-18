@@ -6,7 +6,7 @@
 <div class="container-fluid detail-header">
     <div class="container">
         <h1 class="title">@ViewBag.Item.Title</h1>
-        <span class="time">Published Time: @ViewBag.Item.PublishedUtc.ToString("MM-dd-yyyy")</span>
+        <span class="time">Published Time: @ViewBag.Item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</span>
         <span class="count">View Count: @ViewBag.Item.ViewCount</span>
     </div>
 </div>

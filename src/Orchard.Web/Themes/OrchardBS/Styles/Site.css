@@ -552,7 +552,7 @@
   text-align: center;
   padding-left: 0.15em;
 }
-.en-home .notice .list-group-item .title {
+.en-home .notice .list-group-item .title a {
   margin: auto auto 4px auto;
   font-size: 0.7em;
   overflow: hidden;
@@ -567,6 +567,7 @@
   max-width: 100%;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: #333333;
 }
 .en-home .notice .list-group-item .time {
   font-size: 0.6em;
@@ -700,6 +701,7 @@
 }
 .en-home .detail-container .content {
   background-color: white;
+  font-size: 0.8em;
 }
 .anniversary {
   background-color: #D0021B;
