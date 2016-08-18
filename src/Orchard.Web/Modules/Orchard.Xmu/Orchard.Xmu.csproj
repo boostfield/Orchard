@@ -120,8 +120,10 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.als-1.7.min.js" />
     <Content Include="Scripts\jquery.newsTicker.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\sly.min.js" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Styles\Styles.min.css" />
     <Content Include="Web.config" />
