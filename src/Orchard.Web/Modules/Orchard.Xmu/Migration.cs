@@ -67,7 +67,7 @@ namespace Orchard.Xmu
              cfg => cfg
        .DisplayedAs(XmContentType.LectureInfo.ContentTypeDisplayName)
        .WithPart(typeof(TitlePart).Name)
-       .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
        .WithPart(typeof(UserViewPart).Name)
@@ -86,7 +86,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
                   .WithPart(typeof(UserViewPart).Name)
@@ -108,7 +108,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(College90CelebrationPart).Name)
            .WithPart(typeof(UserViewPart).Name)
@@ -132,7 +132,7 @@ namespace Orchard.Xmu
                 cfg => cfg
                 .DisplayedAs(XmContentType.NinetyDonation.ContentTypeDisplayName)
                 .WithPart(typeof(TitlePart).Name)
-                .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
                 .WithPart(typeof(NinetyCelebrationDonationPart).Name)
                 .WithPart(typeof(UserViewPart).Name)
                 .Creatable()
@@ -203,7 +203,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
                   .WithPart(typeof(UserViewPart).Name)
