@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "ENHome";
+    var menus = ViewBag.submenu;
 }
 
 <div id="carousel-en" class="carousel slide" data-ride="carousel">
@@ -15,33 +16,39 @@
         <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
             <div class="carousel-caption">
-                
 
-                    <p>The Dean of Faculty of Law, The
+
+                <p>
+                    The Dean of Faculty of Law, The
                     University of Hong Kong Visited
-                    XMU Law School</p>
-                    <button class="btn btn-default btn-primary">READ MORE></button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-            <div class="carousel-caption">
-                
-
-                    <p>The Dean of Faculty of Law, The
-                    University of Hong Kong Visited
-                    XMU Law School</p>
+                    XMU Law School
+                </p>
                 <button class="btn btn-default btn-primary">READ MORE></button>
             </div>
         </div>
         <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
             <div class="carousel-caption">
-                
 
-                    <p>The Dean of Faculty of Law, The
+
+                <p>
+                    The Dean of Faculty of Law, The
                     University of Hong Kong Visited
-                    XMU Law School</p>
+                    XMU Law School
+                </p>
+                <button class="btn btn-default btn-primary">READ MORE></button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+
+            <div class="carousel-caption">
+
+
+                <p>
+                    The Dean of Faculty of Law, The
+                    University of Hong Kong Visited
+                    XMU Law School
+                </p>
                 <button class="btn btn-default btn-primary">READ MORE></button>
             </div>
         </div>
@@ -73,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    
+
                 </div>
             </div>
         </div>
@@ -148,18 +155,56 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="margin-top: 2em;">
         <div class="col-md-4 col-sm-4 col-xs-6 entry">
-
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6 entry">
-
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6 entry">
-
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6 entry">
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6 entry">
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6 entry">
+            <div class="content">
+                <p>APPLY TO XLS</p>
+            </div>
         </div>
     </div>
 </div>
 <div class="container">
-   <h1>@ViewBag.submenu.Count</h1> 
+
+    <div class="expand-menu">
+        <div class="row">
+            @foreach (var menu in menus)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <span>@menu.List[0].Text</span>
+                    @for(var i = 1; i < menu.List.Count; i++)
+                    {
+                        <p><a>@menu.List[i].Text</a></p>
+                    }
+                    
+                    
+                </div>
+            }
+
+        </div>
+    </div>
 </div>

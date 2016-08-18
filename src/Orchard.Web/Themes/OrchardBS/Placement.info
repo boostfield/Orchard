@@ -17,4 +17,5 @@
   <Match ContentType="Blog">
     <Place Parts_Common_Metadata="-"/>
   </Match>
+  <Place Parts_Menu_Widget-Footer="Footer:7"/>
 </Placement>

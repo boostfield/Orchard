@@ -551,9 +551,35 @@
 }
 .en-home .entry {
   padding: 4px;
+  margin-top: 4px;
+}
+.en-home .entry .content {
+  position: relative;
   height: 13.02083333vw;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%), url("../Content/images/en/img_bottom.jpg");
   background-size: cover;
+}
+.en-home .entry .content p {
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 1em;
+  position: absolute;
+  color: white;
+}
+.en-home .expand-menu {
+  margin-top: 2em;
+}
+.en-home .expand-menu span {
+  font-family: "MinionPro-SemiboldDisp";
+  font-size: 2em;
+  border-bottom: 1px solid #999999;
+  padding-bottom: 4px;
+}
+.en-home .expand-menu p > a {
+  font-size: 0.8em;
+  font-weight: lighter;
+  cursor: pointer;
+  color: #333333;
 }
 .en-footer {
   padding: 0;
