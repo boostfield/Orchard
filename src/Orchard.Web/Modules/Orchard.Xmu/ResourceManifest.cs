@@ -5,7 +5,7 @@ namespace Orchard.Xmu {
         public void BuildManifests(ResourceManifestBuilder builder) {
             var manifest = builder.Add();
             manifest.DefineScript("NewsMarquee").SetUrl("jquery.newsTicker.min.js").SetDependencies("jQuery");
-            
+            manifest.DefineScript("Sly").SetUrl("sly.min.js").SetDependencies("jQuery");
         }
     }
 }

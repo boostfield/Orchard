@@ -9,6 +9,7 @@
 @text-third-color: rgba(255,255,255,0.7);
 @anniversary-primary-color: #D0021B;
 @en-font: "MinionPro-SemiboldDisp";
+@anniversary-font: "STSongti-SC";
 .transition-all() {
     -webkit-transition: all 0.25s;
     -moz-transition: all 0.25s;
@@ -359,7 +360,20 @@ body {
         background-color: @primary-color;
         margin-bottom: 0;
     }
-
+    .navbar-brand {
+       
+        padding: 6px;
+        
+        line-height: 60px;
+    }
+    .navbar-brand>img {
+        line-height: 60px;
+    }
+    .navbar-text a{
+        color: white;
+        text-decoration: none;
+        font-size: 0.8em;
+    }
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
         color: white;
         background-color: @primary-color;
@@ -369,7 +383,13 @@ body {
         color: white;
         font-size: 0.8em;
     }
-
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+        background-color: transparent;
+    }
+    .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+        color: @text-color;
+        background-color: #f5f5f5;
+    }
     .navbar-default .navbar-nav > li > a {
         color: white;
         font-size: 0.8em;
@@ -378,7 +398,9 @@ body {
         line-height: 60px;
         padding-top: 0;
     }
-
+    .navbar-default .navbar-nav > .active > a {
+        border-bottom: 2px solid white;
+    }
     .navbar-default .navbar-nav > li {
         margin: 0 0.25em 0 0.25em;
        
@@ -616,7 +638,7 @@ body {
              background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.80) 100%),url("../Content/images/en/img_bottom.jpg");
              background-size: cover;
              p {
-                 
+                 font-family: @en-font;
                  left: 50%;
                  transform: translate(-50%, 0);
                  bottom: 1em;
@@ -626,78 +648,92 @@ body {
         }
     }
     .expand-menu {
-        margin-top: 2em;
+        margin-top: 4em;
+        margin-bottom: 4em;
         span {
             font-family: @en-font;
             font-size: 2em;
             border-bottom: 1px solid #999999;
             padding-bottom: 4px;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            display: inline-block;
         }
         p>a {
+            line-height: 2em;
             font-size: 0.8em;
             font-weight: lighter;
             cursor: pointer;
             color: @text-color;
         }
+        
+    }
+    //底部栏
+    .en-footer {
+        padding: 0;
+        width: 100%;
+        color: black;
+        .footer-first {
+            padding: 3em 0 3em 0;
+            background-image: url("../Content/images/en/img_bottom.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            h1 {
+                font-size: 2em;
+                color: white;
+                margin-bottom: 1em;
+                font-family: @en-font;
+                font-weight: bold;
+            }
+            p {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+            }
+            a {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+            }
+            .contact-us {
+                border-right: 1px solid rgba(255,255,255,0.2);
+            }
+        
+        }
+        .footer-second {
+            padding: 3em 0 3em 0;
+            background-color: #262F49;
+            h1 {
+            
+                font-size: 2em;
+                color: white;
+            }
+            .links a {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+                margin: 0 0.5em 0 0.5em;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .links a:nth-child(n)::after {
+                content: "\00a0\00a0\00a0\00a0 | ";
+            }
+        }
+        .copyright {
+            background-color: #262F49;
+            padding: 0 2em 2em 2em;
+            font-size: 0.7em;
+            font-weight: 100;
+            color: @text-third-color;
+            hr {
+                border-top: 1px solid rgba(255,255,255,0.2);
+            }
+        }
     }
 }
-//底部栏
-.en-footer {
-    padding: 0;
-    width: 100%;
-    color: black;
-    .footer-first {
-        padding: 3em 0 3em 0;
-        background-image: url("../Content/images/en/img_bottom.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        h1 {
-            font-size: 2em;
-            color: white;
-            margin-bottom: 1em;
-        }
-        p {
-            font-size: 0.7em;
-            font-weight: 100;
-            color: @text-third-color;
-        }
-        a {
-            font-size: 0.7em;
-            font-weight: 100;
-            color: @text-third-color;
-        }
-    }
-    .footer-second {
-        padding: 3em 0 3em 0;
-        background-color: #262F49;
-        h1 {
-            font-size: 2em;
-            color: white;
-        }
-        .links a {
-            font-size: 0.7em;
-            font-weight: 100;
-            color: @text-third-color;
-            margin: 0 0.5em 0 0.5em;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .links a:nth-child(n)::after {
-            content: "\00a0\00a0\00a0\00a0 | ";
-        }
-    }
-    .copyright {
-        background-color: #262F49;
-        padding: 0 2em 2em 2em;
-        font-size: 0.7em;
-        font-weight: 100;
-        color: @text-third-color;
-        hr {
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-    }
-}
+
 //院庆网站
 .anniversary {
     background-color: @anniversary-primary-color;
@@ -809,7 +845,7 @@ body {
         }
         .img-number {
             margin-top: -2em;
-            
+            margin-right: 0.5em;
         }
         .list-group {
             
@@ -856,13 +892,16 @@ body {
     .donation {
         padding: 2em 2em 3em 2em;
         margin-left: 1em;
-        background-color: @anniversary-primary-color;
-        color: white;
+        background-color: white;
+        color: @anniversary-primary-color;
         background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png),url(../Content/images/anniversary/img_donation_pattern_top_2.png),url(../Content/images/anniversary/img_donation_pattern_bottom_1.png),url(../Content/images/anniversary/img_donation_pattern_bottom_2.png), url(../Content/images/anniversary/img_donation_90.png);
         background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%, 70% 90%;
         background-repeat: no-repeat;
+        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
+        font-family: @anniversary-font;
+        font-weight: bold;
         #news-ticker {
-            padding-left: 4px;
+            padding-left: 8px;
             
             list-style-type: none;
             list-style: none;
@@ -906,16 +945,18 @@ body {
         background: white;
         box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
         margin-top: 4em;
+        margin-left: 1em;
         .img-cover {
             margin-top: -1em;
             margin-left: -1em;
         }
         .img-title {
            margin-top: 2.5em;
-            margin-right: 1.75em;
+            margin-right: 1em;
         }
         .img-number {
             margin-top: -2em;
+            margin-right: 0.5em;
         }
         .list-group {
            display: block;
@@ -956,7 +997,68 @@ body {
             padding-bottom: 3px;
         }
     }
+    .frame {
+	    height: 250px;
+	    line-height: 250px;
+	    overflow: hidden;
+        
+    }
+    .frame ul {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	    height: 100%;
+	    font-size: 50px;
+    }
+    .frame ul li {
+	    float: left;
+	    width: 204px;
+	    height: 100%;
+	    margin: 0 1px 0 0;
+	    padding: 0;
+	    
+	    color: #ddd;
+	    text-align: center;
+	    cursor: pointer;
+    }
+    .frame ul li:hover {
+        background-color: black;
+    }
+    .frame ul li.active {
+	    color: #fff;
+	    background: #a03232;
+    }
+    .crazy {
+        img {
+            width: 200px;
+            height: auto;
+        }
 
+        
+    }
+    .photo-gallery {
+        position: relative;
+        .btn-forward {
+            padding: 1em;
+            background-color: @anniversary-primary-color;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            z-index: 5;
+        }
+        .btn-backward {
+            padding: 1em;
+            background-color: @anniversary-primary-color;
+            position: absolute;
+            left: 0;
+            top: 50%;
+           transform: translateY(-50%);
+           width: auto;
+           z-index: 5;
+        }
+    }
 }
 //移动端适配
 @media only screen
@@ -1040,6 +1142,11 @@ only screen and (max-width: 480px) {
                 button.btn-primary {
                     font-size: 0.5em;
                 }
+            }
+        }
+        .entry {
+            .content {
+                height: 25000/632vw;
             }
         }
     }

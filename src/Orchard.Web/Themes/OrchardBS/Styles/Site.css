@@ -320,6 +320,18 @@
   background-color: #2D44AA;
   margin-bottom: 0;
 }
+.en-home .navbar-brand {
+  padding: 6px;
+  line-height: 60px;
+}
+.en-home .navbar-brand > img {
+  line-height: 60px;
+}
+.en-home .navbar-text a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8em;
+}
 .en-home .navbar-default .navbar-nav > .active > a,
 .en-home .navbar-default .navbar-nav > .active > a:focus,
 .en-home .navbar-default .navbar-nav > .active > a:hover {
@@ -331,12 +343,26 @@
   color: white;
   font-size: 0.8em;
 }
+.en-home .navbar-default .navbar-nav > .open > a,
+.en-home .navbar-default .navbar-nav > .open > a:focus,
+.en-home .navbar-default .navbar-nav > .open > a:hover {
+  background-color: transparent;
+}
+.en-home .dropdown-menu > .active > a,
+.en-home .dropdown-menu > .active > a:focus,
+.en-home .dropdown-menu > .active > a:hover {
+  color: #333333;
+  background-color: #f5f5f5;
+}
 .en-home .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 0.8em;
   height: 60px;
   line-height: 60px;
   padding-top: 0;
+}
+.en-home .navbar-default .navbar-nav > .active > a {
+  border-bottom: 2px solid white;
 }
 .en-home .navbar-default .navbar-nav > li {
   margin: 0 0.25em 0 0.25em;
@@ -560,6 +586,7 @@
   background-size: cover;
 }
 .en-home .entry .content p {
+  font-family: "MinionPro-SemiboldDisp";
   left: 50%;
   transform: translate(-50%, 0);
   bottom: 1em;
@@ -567,56 +594,66 @@
   color: white;
 }
 .en-home .expand-menu {
-  margin-top: 2em;
+  margin-top: 4em;
+  margin-bottom: 4em;
 }
 .en-home .expand-menu span {
   font-family: "MinionPro-SemiboldDisp";
   font-size: 2em;
   border-bottom: 1px solid #999999;
   padding-bottom: 4px;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  display: inline-block;
 }
 .en-home .expand-menu p > a {
+  line-height: 2em;
   font-size: 0.8em;
   font-weight: lighter;
   cursor: pointer;
   color: #333333;
 }
-.en-footer {
+.en-home .en-footer {
   padding: 0;
   width: 100%;
   color: black;
 }
-.en-footer .footer-first {
+.en-home .en-footer .footer-first {
   padding: 3em 0 3em 0;
   background-image: url("../Content/images/en/img_bottom.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.en-footer .footer-first h1 {
+.en-home .en-footer .footer-first h1 {
   font-size: 2em;
   color: white;
   margin-bottom: 1em;
+  font-family: "MinionPro-SemiboldDisp";
+  font-weight: bold;
 }
-.en-footer .footer-first p {
+.en-home .en-footer .footer-first p {
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
 }
-.en-footer .footer-first a {
+.en-home .en-footer .footer-first a {
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
 }
-.en-footer .footer-second {
+.en-home .en-footer .footer-first .contact-us {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.en-home .en-footer .footer-second {
   padding: 3em 0 3em 0;
   background-color: #262F49;
 }
-.en-footer .footer-second h1 {
+.en-home .en-footer .footer-second h1 {
   font-size: 2em;
   color: white;
 }
-.en-footer .footer-second .links a {
+.en-home .en-footer .footer-second .links a {
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
@@ -624,17 +661,17 @@
   text-decoration: none;
   cursor: pointer;
 }
-.en-footer .footer-second .links a:nth-child(n)::after {
+.en-home .en-footer .footer-second .links a:nth-child(n)::after {
   content: "\00a0\00a0\00a0\00a0 | ";
 }
-.en-footer .copyright {
+.en-home .en-footer .copyright {
   background-color: #262F49;
   padding: 0 2em 2em 2em;
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
 }
-.en-footer .copyright hr {
+.en-home .en-footer .copyright hr {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .anniversary {
@@ -751,6 +788,7 @@
 .anniversary .banner1 .img-number,
 .anniversary .banner2 .img-number {
   margin-top: -2em;
+  margin-right: 0.5em;
 }
 .anniversary .banner1 .list-group,
 .anniversary .banner2 .list-group {
@@ -801,14 +839,17 @@
 .anniversary .donation {
   padding: 2em 2em 3em 2em;
   margin-left: 1em;
-  background-color: #D0021B;
-  color: white;
+  background-color: white;
+  color: #D0021B;
   background-image: url(../Content/images/anniversary/img_donation_pattern_top_1.png), url(../Content/images/anniversary/img_donation_pattern_top_2.png), url(../Content/images/anniversary/img_donation_pattern_bottom_1.png), url(../Content/images/anniversary/img_donation_pattern_bottom_2.png), url(../Content/images/anniversary/img_donation_90.png);
   background-position: 5% 5%, 95% 5%, 5% 95%, 95% 95%, 70% 90%;
   background-repeat: no-repeat;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+  font-family: "STSongti-SC";
+  font-weight: bold;
 }
 .anniversary .donation #news-ticker {
-  padding-left: 4px;
+  padding-left: 8px;
   list-style-type: none;
   list-style: none;
 }
@@ -847,6 +888,7 @@
   background: white;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
   margin-top: 4em;
+  margin-left: 1em;
 }
 .anniversary .banner3 .img-cover,
 .anniversary .banner4 .img-cover {
@@ -856,11 +898,12 @@
 .anniversary .banner3 .img-title,
 .anniversary .banner4 .img-title {
   margin-top: 2.5em;
-  margin-right: 1.75em;
+  margin-right: 1em;
 }
 .anniversary .banner3 .img-number,
 .anniversary .banner4 .img-number {
   margin-top: -2em;
+  margin-right: 0.5em;
 }
 .anniversary .banner3 .list-group,
 .anniversary .banner4 .list-group {
@@ -905,6 +948,62 @@
   cursor: pointer;
   border-bottom: 2px solid #D0021B;
   padding-bottom: 3px;
+}
+.anniversary .frame {
+  height: 250px;
+  line-height: 250px;
+  overflow: hidden;
+}
+.anniversary .frame ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 50px;
+}
+.anniversary .frame ul li {
+  float: left;
+  width: 204px;
+  height: 100%;
+  margin: 0 1px 0 0;
+  padding: 0;
+  color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+.anniversary .frame ul li:hover {
+  background-color: black;
+}
+.anniversary .frame ul li.active {
+  color: #fff;
+  background: #a03232;
+}
+.anniversary .crazy img {
+  width: 200px;
+  height: auto;
+}
+.anniversary .photo-gallery {
+  position: relative;
+}
+.anniversary .photo-gallery .btn-forward {
+  padding: 1em;
+  background-color: #D0021B;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  z-index: 5;
+}
+.anniversary .photo-gallery .btn-backward {
+  padding: 1em;
+  background-color: #D0021B;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  z-index: 5;
 }
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {
@@ -980,6 +1079,9 @@
   }
   .en-home #carousel-en .carousel-caption button.btn-primary {
     font-size: 0.5em;
+  }
+  .en-home .entry .content {
+    height: 39.55696203vw;
   }
   .en-footer .footer-first {
     padding: 1em 0 1em 0;

@@ -1,5 +1,6 @@
 ﻿@{
     Script.Require("NewsMarquee");
+    Script.Require("Sly");
     ViewBag.Title = "AnniversaryHome";
 }
 <div class="top-bg">
@@ -218,7 +219,6 @@
                             </div>
 
                         </li>
-                        
                     </ul>
                     <p class="more text-right"><a>查看全部></a></p>
                 </div>
@@ -235,22 +235,22 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
@@ -270,22 +270,22 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">yyyy-MM-dd</div>
+                                    <div class="col-sm-8 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
+                                    <div class="col-sm-4 title-time">yyyy-MM-dd</div>
                                 </div>
 
                             </li>
@@ -295,6 +295,34 @@
                 </div>
             </div>
         </div>
+        
+</div>
+<div class="container-fluid">
+    <div >
+        <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" class="center-block"/>
+    </div>
+    <div class="row photo-gallery">
+        <img class="btn-backward" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_left.png"))" />
+        <img class="btn-forward" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_right.png"))" />
+       
+            <div class="frame crazy" id="crazy">
+                
+                <ul class="clearfix">
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
+
+                </ul>
+            </div>
+        
+        
+    </div>
     
 </div>
 <script>
@@ -309,7 +337,36 @@ $(function(){
         autostart: 1,
         pauseOnHover: 1
     });
+    var $frame = $('#crazy');
+    var $slidee = $frame.children('ul').eq(0);
+    var $wrap = $('.photo-gallery');
 
+    // Call Sly on frame
+    $frame.sly({
+        horizontal: 1,
+        itemNav: 'basic',
+        smart: 1,
+        activateOn: 'click',
+        mouseDragging: 1,
+        touchDragging: 1,
+        releaseSwing: 1,
+        startAt: 1,
+        
+        scrollBy: 1,
+        
+        activatePageOn: 'click',
+        speed: 300,
+        elasticBounds: 1,
+        
+        dragHandle: 1,
+        dynamicHandle: 1,
+        clickBar: 1,
+
+        // Buttons
+        forward: $wrap.find('.btn-forward'),
+        backward: $wrap.find('.btn-backward'),
+       
+    });
 });
 
 </script>
