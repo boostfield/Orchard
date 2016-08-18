@@ -36,6 +36,13 @@ namespace Orchard.Xmu
             ContentTypePartName = "ENBannerPart"
         };
 
+        public static XmContentDefinition ENSection = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "英文版块",
+            PermissionDesc = "管理英文版块",
+            ContentTypeName = "ENSection",
+            ContentTypePartName = "ENSectionPart"
+        };
 
         //------------- Content Mapping..
 
