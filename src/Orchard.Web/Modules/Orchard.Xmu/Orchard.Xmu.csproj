@@ -189,6 +189,9 @@
     <Content Include="Views\ENBannerAdmin\List.cshtml" />
     <Content Include="Views\XmContent\ENPaging.cshtml" />
     <Content Include="Views\XmContent\ANPaging.cshtml" />
+    <Content Include="Views\XmContent\ENItem.cshtml" />
+    <Content Include="Views\XmContent\ANItem.cshtml" />
+    <Content Include="Views\ENSectionAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,6 +205,7 @@
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
     <Compile Include="Controllers\ENBannerAdminController.cs" />
+    <Compile Include="Controllers\ENSectionAdminController.cs" />
     <Compile Include="Controllers\NinetyCelebrationDonationAdminController.cs" />
     <Compile Include="Controllers\XmContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
@@ -211,11 +215,13 @@
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\BannerPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
+    <Compile Include="Drivers\ENSectionPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
+    <Compile Include="Models\ENSectionPart.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\XmContentPart.cs" />

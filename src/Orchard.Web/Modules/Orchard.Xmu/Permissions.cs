@@ -30,6 +30,13 @@ namespace Orchard.Xmu
 
         };
 
+        public static readonly Permission ManageENSection = new Permission
+        {
+            Description = XmContentType.ENSection.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENSection.ContentTypeName)
+
+        };
+
         public virtual Feature Feature { get; set; }
 
 

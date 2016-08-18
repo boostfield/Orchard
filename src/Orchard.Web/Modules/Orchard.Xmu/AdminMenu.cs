@@ -34,6 +34,9 @@ namespace Orchard.Xmu
             menu.Add(T(XmContentType.ENBanner.ContentTypeDisplayName), "2", item => item.Action("List", "ENBannerAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageENBanner));
 
+            menu.Add(T(XmContentType.ENSection.ContentTypeDisplayName), "2", item => item.Action("List", "ENSectionAdmin", new { area = "Orchard.Xmu" })
+             .Permission(Permissions.ManageENSection));
+
             foreach (var mapping in XmContentType.ENCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

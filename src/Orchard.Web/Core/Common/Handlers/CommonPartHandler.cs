@@ -138,9 +138,11 @@ namespace Orchard.Core.Common.Handlers {
 
         protected void AssignPublishingDates(PublishContentContext context, CommonPart part) {
             var utcNow = _clock.UtcNow;
-
-            //part.PublishedUtc = utcNow;
-            //part.VersionPublishedUtc = utcNow;
+            if(part.PublishedUtc==null)
+            {
+                part.PublishedUtc = utcNow;
+            }
+            part.VersionPublishedUtc = utcNow;
         }
 
         protected void LazyLoadHandlers(CommonPart part) {

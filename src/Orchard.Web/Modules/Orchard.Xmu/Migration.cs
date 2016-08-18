@@ -1,4 +1,4 @@
-﻿using NGM.ContentViewCounter.Models;
+﻿    using NGM.ContentViewCounter.Models;
 using Orchard.Autoroute.Models;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
@@ -50,6 +50,8 @@ namespace Orchard.Xmu
                          b => b.OfType("MediaLibraryPickerField")
                              .WithDisplayName("封面图")
                              )
+                             .Attachable()
+                             .WithDescription("厦门大学内容类型组成部分")
 
             );
 
@@ -65,7 +67,7 @@ namespace Orchard.Xmu
              cfg => cfg
        .DisplayedAs(XmContentType.LectureInfo.ContentTypeDisplayName)
        .WithPart(typeof(TitlePart).Name)
-       .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
        .WithPart(typeof(UserViewPart).Name)
@@ -84,7 +86,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
                   .WithPart(typeof(UserViewPart).Name)
@@ -106,7 +108,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(College90CelebrationPart).Name)
            .WithPart(typeof(UserViewPart).Name)
@@ -130,7 +132,7 @@ namespace Orchard.Xmu
                 cfg => cfg
                 .DisplayedAs(XmContentType.NinetyDonation.ContentTypeDisplayName)
                 .WithPart(typeof(TitlePart).Name)
-                .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
                 .WithPart(typeof(NinetyCelebrationDonationPart).Name)
                 .WithPart(typeof(UserViewPart).Name)
                 .Creatable()
@@ -201,7 +203,7 @@ namespace Orchard.Xmu
                  cfg => cfg
            .DisplayedAs(mapping.ContentTypeDisplayName)
            .WithPart(typeof(TitlePart).Name)
-           .WithPart(typeof(CommonPart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
                   .WithPart(typeof(UserViewPart).Name)
@@ -216,5 +218,41 @@ namespace Orchard.Xmu
             return 4;
         }
 
+        public int UpdateFrom4()
+        {
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(ENSectionPart).Name,
+              cfg =>
+              cfg.WithField("image",
+                       b => b.OfType("MediaLibraryPickerField")
+                           .WithDisplayName("选择图片")
+                           .WithSetting("MediaLibraryPickerFieldSettings.Required", "true"))
+                 .WithField("linkAddress",
+                      b => b.OfType("LinkField")
+                          .WithDisplayName("链接地址")
+                          .WithSetting("LinkFieldSettings.Required", "true"))
+                 .WithField("orderWeight",b=>b.OfType("NumericField")
+                 .WithDisplayName("排序顺序(数字大的在前)")
+                 .WithSetting("NumericFieldSettings.Required","true"))
+
+          );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENSection.ContentTypeName,
+
+           cfg => cfg
+           .DisplayedAs(XmContentType.ENSection.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+           .WithPart(typeof(ENSectionPart).Name)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+
+            return 5;
+        }
+
+      
     }
 }
