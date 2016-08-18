@@ -50,6 +50,8 @@ namespace Orchard.Xmu
                          b => b.OfType("MediaLibraryPickerField")
                              .WithDisplayName("封面图")
                              )
+                             .Attachable()
+                             .WithDescription("厦门大学内容类型组成部分")
 
             );
 
@@ -216,5 +218,6 @@ namespace Orchard.Xmu
             return 4;
         }
 
+      
     }
 }
