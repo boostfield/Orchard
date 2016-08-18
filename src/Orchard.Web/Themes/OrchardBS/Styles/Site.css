@@ -319,6 +319,8 @@
 .en-home .navbar.navbar-default {
   background-color: #2D44AA;
   margin-bottom: 0;
+  border: none;
+  border-radius: 0;
 }
 .en-home .navbar-brand {
   padding: 6px;
@@ -434,11 +436,12 @@
   font-family: "MinionPro-SemiboldDisp";
   word-spacing: -4px;
 }
-.en-home #carousel-en .carousel-caption button.btn-primary {
+.en-home #carousel-en .carousel-caption a.btn-primary {
   background-color: #2D44AA;
   border-radius: 2px;
   padding: 1em;
   color: white;
+  border: none;
 }
 .en-home #carousel-en .carousel-control {
   background-image: none;
@@ -673,6 +676,30 @@
 }
 .en-home .en-footer .copyright hr {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.en-home .detail-header {
+  background-color: #262F49;
+  padding: 2em;
+  color: white;
+}
+.en-home .detail-header .title {
+  font-family: "MinionPro-SemiboldDisp";
+  font-size: 2em;
+}
+.en-home .detail-header .time,
+.en-home .detail-header .count {
+  font-size: 0.8em;
+  font-weight: lighter;
+}
+.en-home .detail-header .count {
+  margin-left: 4em;
+}
+.en-home .detail-container {
+  padding: 2em 0 2em 0;
+  background-color: #FCFCFC;
+}
+.en-home .detail-container .content {
+  background-color: white;
 }
 .anniversary {
   background-color: #D0021B;
@@ -1077,7 +1104,7 @@
   .en-home #carousel-en .carousel-caption p {
     font-size: 1.2em;
   }
-  .en-home #carousel-en .carousel-caption button.btn-primary {
+  .en-home #carousel-en .carousel-caption a.btn-primary {
     font-size: 0.5em;
   }
   .en-home .entry .content {

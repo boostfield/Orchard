@@ -6,6 +6,7 @@ using Orchard.Core.Title.Models;
 using Orchard.Security;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -23,6 +24,8 @@ namespace Orchard.Xmu.Models
                 return v;
             }
         }
+
+       
 
         public string Title
         {

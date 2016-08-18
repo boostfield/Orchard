@@ -1,3 +1,18 @@
-﻿<h1>@ViewBag.ContentTypeName</h1>
+﻿
+@{ 
+    var htmlString = new HtmlString(ViewBag.Item.Text);
 
-<h2>@ViewBag.Id</h2>
+}
+<div class="container-fluid detail-header">
+    <div class="container">
+        <h1 class="title">@ViewBag.Item.Title</h1>
+        <span class="time">Published Time: @ViewBag.Item.PublishedUtc.ToString("MM-dd-yyyy")</span>
+        <span class="count">View Count: @ViewBag.Item.ViewCount</span>
+    </div>
+</div>
+<div class="container-fluid detail-container">
+    <div class="container content">
+        @htmlString
+    </div>
+    
+</div>

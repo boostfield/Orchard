@@ -359,6 +359,8 @@ body {
     .navbar.navbar-default {
         background-color: @primary-color;
         margin-bottom: 0;
+        border: none;
+        border-radius: 0;
     }
     .navbar-brand {
        
@@ -481,11 +483,12 @@ body {
                font-family:@en-font;
                word-spacing: -4px;
            }
-           button.btn-primary {
+           a.btn-primary {
                background-color: @primary-color;
                border-radius: 2px;
                padding: 1em;
                color: white;
+               border: none;
            }
         }
         .carousel-control  {
@@ -732,6 +735,31 @@ body {
             }
         }
     }
+    .detail-header {
+        background-color: #262F49;
+        padding: 2em;
+        color: white;
+        .title {
+            font-family: @en-font;
+            font-size: 2em;
+        }
+        .time, .count {
+            font-size: 0.8em;
+            font-weight: lighter;
+            
+        }
+        .count {
+            margin-left: 4em;
+        }
+    }
+    .detail-container {
+        padding: 2em 0 2em 0;
+        background-color: #FCFCFC;
+        .content {
+            background-color: white;
+        }
+    }
+
 }
 
 //院庆网站
@@ -1139,7 +1167,7 @@ only screen and (max-width: 480px) {
                 p {
                     font-size: 1.2em;
                 }
-                button.btn-primary {
+                a.btn-primary {
                     font-size: 0.5em;
                 }
             }
