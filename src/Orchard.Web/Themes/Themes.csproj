@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="OrchardBS\Content\images\anniversary\bg_picture_film.jpg" />
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_left.png" />
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_right.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_bottom.jpg" />
