@@ -778,7 +778,7 @@
 .anniversary .navbar .navbar-brand img {
   line-height: 140px;
 }
-.anniversary .navbar-default .navbar-nav > li > a {
+.anniversary .navbar-default .navbar-nav > li a {
   color: white;
   font-size: 0.9em;
   height: 140px;
@@ -795,7 +795,7 @@
   background-color: #FCFCFC;
 }
 .anniversary .top-bg {
-  height: 743px;
+  height: 721px;
   background-image: url('../Content/images/anniversary/nav-home-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -847,8 +847,12 @@
   cursor: pointer;
   background-position: center center;
 }
+.anniversary #carousel-anniversary .carousel-indicators li {
+  border: 1px solid #D0021B;
+}
 .anniversary #carousel-anniversary .carousel-indicators li.active {
   background-color: #D0021B;
+  border: none;
 }
 .anniversary #carousel-anniversary .carousel-control {
   background-image: none;
@@ -895,12 +899,16 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-.anniversary .banner1 .list-group-item .tilte-name,
-.anniversary .banner2 .list-group-item .tilte-name {
+.anniversary .banner1 .list-group-item .title-name,
+.anniversary .banner2 .list-group-item .title-name {
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.anniversary .banner1 .list-group-item .title-name a,
+.anniversary .banner2 .list-group-item .title-name a {
+  color: #333333;
 }
 .anniversary .banner1 .list-group-item .title-time,
 .anniversary .banner2 .list-group-item .title-time {
@@ -1096,8 +1104,11 @@
   opacity: 1;
 }
 .anniversary .crazy img {
+  display: inline-block;
+  margin: 0;
   width: auto;
   height: 150px;
+  line-height: 150px;
   max-width: 400px;
 }
 .anniversary .photo-gallery {
@@ -1124,6 +1135,31 @@
   width: auto;
   z-index: 5;
   cursor: pointer;
+}
+.anniversary .detail-header {
+  background-color: #FCFCFC;
+}
+.anniversary .detail-header .container {
+  background-color: white;
+}
+.anniversary .detail-header .title {
+  font-size: 1.3em;
+  color: #D0021B;
+  margin-top: 2em;
+}
+.anniversary .detail-header .author,
+.anniversary .detail-header .time,
+.anniversary .detail-header .count {
+  font-size: 0.7em;
+  color: #999999;
+}
+.anniversary .detail-container {
+  background-color: #FCFCFC;
+}
+.anniversary .detail-container .container {
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {

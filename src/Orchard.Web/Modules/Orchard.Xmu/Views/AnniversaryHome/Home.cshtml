@@ -11,25 +11,35 @@
         <div id="carousel-anniversary" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-anniversary" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-anniversary" data-slide-to="1"></li>
-                <li data-target="#carousel-anniversary" data-slide-to="2"></li>
+                
+                @for (var i = 0; i < ViewBag.banners.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#carousel-anniversary" data-slide-to="0" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#carousel-anniversary" data-slide-to="@i"></li>
+                    }
+                }
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                    
-                </div>
-                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                    
-                </div>
-                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                    
-                </div>
+                @for (var i = 0; i < ViewBag.banners.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                            <div class="item active" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="location.href = '@ViewBag.banners[i].LinkAddress';">
+                            </div>
+                    }
+                    else
+                    {
+                                <div class="item" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="location.href = '@ViewBag.banners[i].LinkAddress';">
+                                </div>
+                      }
+                  }
             </div>
             <a class="left carousel-control" href="#carousel-anniversary" role="button" data-slide="prev">
                 <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_left.png"))"/>
@@ -38,41 +48,23 @@
                 <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_right.png"))" />
             </a>
         </div>
-        <div class="row" style="margin-top: 4em;">
+        <div class="row" style="margin-top: 2em;">
             <div class="col-md-7 col-sm-12 col-xs-12">
                 <div class="banner1">
                     <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_first.png"))"/>
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_1.png"))" />
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
                         
+                        @foreach (var notice in ViewBag.notice)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CelAnnouncement"})">@notice.Title</a></div>
+                                    <div class="col-sm-3 title-time">@notice.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                </div>
+
+                            </li>
+                        }
                     </ul>
                     <p class="more text-right"><a>查看全部></a></p>
                  </div>
@@ -88,99 +80,7 @@
                                <div class="fund">890元</div>
                                <div class="time">2016/03/19</div>
                             </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
 
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏(2016自考)</div>
-                                <div class="fund">11890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">8900元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
-
-                            <li>
-                                <div class="name">卢正敏</div>
-                                <div class="fund">890元</div>
-                                <div class="time">2016/03/19</div>
-
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -191,34 +91,18 @@
                     <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_second.png"))" />
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_2.png"))" />
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
+                        @foreach (var news in ViewBag.news)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@news.Id, contentTypeName  = "CelNews"})">@news.Title</a></div>
+                                    <div class="col-sm-3 title-time">@news.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                </div>
 
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 title-name">fsffsfsfssfsadadadaadadadadadadada</div>
-                                <div class="col-sm-3 title-time">yyyy-MM-dd</div>
-                            </div>
-
-                        </li>
+                            </li>
+                        }
+                        
+                        
                     </ul>
                     <p class="more text-right"><a>查看全部></a></p>
                 </div>
@@ -297,11 +181,11 @@
         </div>
         
 </div>
-<div class="container-fluid">
+<div class="container-fluid" >
     <div >
         <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" class="center-block" style="padding: 2em;"/>
     </div>
-    <div class="row photo-gallery center-block">
+    <div class="row photo-gallery center-block" style="margin-bottom: 4em;">
         <img class="btn-backward hidden-xs" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_left.png"))" />
         <img class="btn-forward hidden-xs" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_right.png"))" />
        

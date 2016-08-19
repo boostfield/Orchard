@@ -26,6 +26,21 @@ namespace Orchard.Xmu.Controllers
         public ActionResult Home()
         {
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
+            ViewBag.banners = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyCelBanner.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .Slice(0, 5)
+                .Select(p => p.As<BannerPart>())
+                .ToList();
+            ViewBag.notice = _contentManager.Query(VersionOptions.Latest, "CelAnnouncement")
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .Slice(0, 4)
+                .Select(p => p.As<XmContentPart>())
+                .ToList(); 
+            ViewBag.news = _contentManager.Query(VersionOptions.Latest, "CelNews")
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .Slice(0, 4)
+                .Select(p => p.As<XmContentPart>())
+                .ToList();
             var gallery = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyCelMatesOldPic.ContentTypeName)
             .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
             .List()
