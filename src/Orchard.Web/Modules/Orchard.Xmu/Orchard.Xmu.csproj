@@ -192,6 +192,7 @@
     <Content Include="Views\XmContent\ENItem.cshtml" />
     <Content Include="Views\XmContent\ANItem.cshtml" />
     <Content Include="Views\ENSectionAdmin\List.cshtml" />
+    <Content Include="Views\NinetyCelBannerAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -206,6 +207,7 @@
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
     <Compile Include="Controllers\ENBannerAdminController.cs" />
     <Compile Include="Controllers\ENSectionAdminController.cs" />
+    <Compile Include="Controllers\NinetyCelBannerAdminController.cs" />
     <Compile Include="Controllers\NinetyCelebrationDonationAdminController.cs" />
     <Compile Include="Controllers\XmContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />

@@ -37,6 +37,14 @@ namespace Orchard.Xmu
 
         };
 
+        public static readonly Permission ManageCelBanner = new Permission
+        {
+            Description = XmContentType.NinetyCelBanner.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.NinetyCelBanner.ContentTypeName)
+
+        };
+
+
         public virtual Feature Feature { get; set; }
 
 

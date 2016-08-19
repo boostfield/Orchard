@@ -1,4 +1,4 @@
-﻿    using NGM.ContentViewCounter.Models;
+﻿using NGM.ContentViewCounter.Models;
 using Orchard.Autoroute.Models;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
@@ -71,7 +71,7 @@ namespace Orchard.Xmu
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
        .WithPart(typeof(UserViewPart).Name)
-
+       .WithSetting("ListTitle",XmContentType.LectureInfo.ListTitle)
        .Creatable()
        .Draftable()
        .Securable()
@@ -89,8 +89,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
-                  .WithPart(typeof(UserViewPart).Name)
-
+           .WithPart(typeof(UserViewPart).Name)
+           .WithSetting("ListTitle",mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -112,6 +112,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(College90CelebrationPart).Name)
            .WithPart(typeof(UserViewPart).Name)
+           .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -135,6 +136,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
                 .WithPart(typeof(NinetyCelebrationDonationPart).Name)
                 .WithPart(typeof(UserViewPart).Name)
+                .WithSetting("ListTitle",XmContentType.NinetyDonation.ListTitle)
                 .Creatable()
                 .Draftable()
                 .Securable()
@@ -167,8 +169,9 @@ namespace Orchard.Xmu
               cfg => cfg
               .DisplayedAs(XmContentType.CNBanner.ContentTypeDisplayName)
               .WithPart(typeof(TitlePart).Name)
-              .WithPart(typeof(CommonPart).Name,builder=> builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor","false"))
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
               .WithPart(typeof(BannerPart).Name)
+              .WithSetting("ListTitle",XmContentType.CNBanner.ListTitle)
               .Creatable()
               .Draftable()
               .Securable()
@@ -186,6 +189,7 @@ namespace Orchard.Xmu
              .WithPart(typeof(TitlePart).Name)
              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
              .WithPart(typeof(BannerPart).Name)
+             .WithSetting("ListTitle",XmContentType.ENBanner.ListTitle)
              .Creatable()
              .Draftable()
              .Securable()
@@ -206,7 +210,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
-                  .WithPart(typeof(UserViewPart).Name)
+           .WithPart(typeof(UserViewPart).Name)
+           .WithSetting("ListTitle",mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -231,9 +236,9 @@ namespace Orchard.Xmu
                       b => b.OfType("LinkField")
                           .WithDisplayName("链接地址")
                           .WithSetting("LinkFieldSettings.Required", "true"))
-                 .WithField("orderWeight",b=>b.OfType("NumericField")
-                 .WithDisplayName("排序顺序(数字大的在前)")
-                 .WithSetting("NumericFieldSettings.Required","true"))
+                 .WithField("orderWeight", b => b.OfType("NumericField")
+                  .WithDisplayName("排序顺序(数字大的在前)")
+                  .WithSetting("NumericFieldSettings.Required", "true"))
 
           );
 
@@ -245,6 +250,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(TitlePart).Name)
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(ENSectionPart).Name)
+           .WithSetting("ListTitle",XmContentType.ENSection.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -253,6 +259,23 @@ namespace Orchard.Xmu
             return 5;
         }
 
-      
+        public int UpdateFrom5()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyCelBanner.ContentTypeName,
+
+            cfg => cfg
+            .DisplayedAs(XmContentType.NinetyCelBanner.ContentTypeDisplayName)
+            .WithPart(typeof(TitlePart).Name)
+            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+            .WithPart(typeof(BannerPart).Name)
+            .WithSetting("ListTitle",XmContentType.NinetyCelBanner.ListTitle)
+            .Creatable()
+            .Draftable()
+            .Securable()
+            );
+            return 6;
+        }
+
     }
 }
