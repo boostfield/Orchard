@@ -41,6 +41,6 @@
         first: '首页',
         last: parseInt((@total - 1) / 10),
     }).on('page', function (event, num) {
-        window.location = (location.protocol + '//' + location.host + location.pathname '/'+@contentTypeName + "?page=" + num + "&pageSize=10");
+        window.location = (location.protocol + '//' + location.host + location.pathname + '/@contentTypeName' + "?page=" + num + "&pageSize=10");
     });
 </script>

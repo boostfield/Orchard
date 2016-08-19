@@ -196,6 +196,61 @@
   height: 30px;
   background-color: white;
 }
+.home .cn-list h1 {
+  color: #2D44AA;
+  font-size: 1.2em;
+}
+.home .cn-list .list-group-item {
+  border-left: none;
+  border-right: none;
+  font-size: 0.7em;
+}
+.home .cn-list .title-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2em;
+  background-image: url(../Content/images/cn/ic_new_list_content.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.home .cn-list .title-time {
+  text-align: right;
+}
+.home .cn-list .list-group-item:nth-child(odd) {
+  background-color: #FCFCFC;
+}
+.home .cn-list .list-group-item:first-child {
+  border-radius: 0;
+  border-top: 2px solid #2D44AA;
+}
+.home .cn-list .list-group-item:last-child {
+  border-radius: 0;
+}
+#pagination .pagination > li > a,
+#pagination .pagination > li > span {
+  border: none;
+  font-size: 0.7em;
+  padding: 6px;
+  color: #333333;
+  margin: 0 3px 0 3px;
+  min-width: 28px;
+  text-align: center;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+#pagination .pagination > .active > a {
+  color: white;
+  background-color: #2D44AA;
+}
+#pagination .pagination > li.first > a,
+#pagination .pagination > li.prev > a,
+#pagination .pagination > li.last > a,
+#pagination .pagination > li.next > a {
+  color: #2D44AA;
+}
 .cn-home-columns {
   padding: 2em;
 }
@@ -260,61 +315,6 @@
   border-right: none;
   font-size: 0.7em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-.cn-list h1 {
-  color: #2D44AA;
-  font-size: 1.2em;
-}
-.cn-list .list-group-item {
-  border-left: none;
-  border-right: none;
-  font-size: 0.7em;
-}
-.cn-list .title-name {
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 2em;
-  background-image: url(../Content/images/cn/ic_new_list_content.png);
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-.cn-list .title-time {
-  text-align: right;
-}
-.cn-list .list-group-item:nth-child(odd) {
-  background-color: #FCFCFC;
-}
-.cn-list .list-group-item:first-child {
-  border-radius: 0;
-  border-top: 2px solid #2D44AA;
-}
-.cn-list .list-group-item:last-child {
-  border-radius: 0;
-}
-#pagination .pagination > li > a,
-#pagination .pagination > li > span {
-  border: none;
-  font-size: 0.7em;
-  padding: 6px;
-  color: #333333;
-  margin: 0 3px 0 3px;
-  min-width: 28px;
-  text-align: center;
-  -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
-  transition: all 0.25s;
-}
-#pagination .pagination > .active > a {
-  color: white;
-  background-color: #2D44AA;
-}
-#pagination .pagination > li.first > a,
-#pagination .pagination > li.prev > a,
-#pagination .pagination > li.last > a,
-#pagination .pagination > li.next > a {
-  color: #2D44AA;
 }
 .en-home .navbar.navbar-default {
   background-color: #2D44AA;
@@ -702,6 +702,67 @@
 .en-home .detail-container .content {
   background-color: white;
   font-size: 0.8em;
+}
+.en-home .list-header {
+  background-color: #262F49;
+  padding: 2em 0 2em 0;
+}
+.en-home .list-header h1 {
+  color: white;
+  font-family: "MinionPro-SemiboldDisp";
+  font-size: 2em;
+}
+.en-home .en-list .list-group {
+  border-radius: 0;
+}
+.en-home .en-list .list-group-item {
+  border-left: none;
+  padding-top: 1em;
+  border-right: none;
+}
+.en-home .en-list .list-group-item a {
+  text-decoration: none;
+}
+.en-home .en-list .list-group-item .title {
+  font-size: 1.5em;
+  font-family: "MinionPro-SemiboldDisp";
+  color: #2D44AA;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  line-height: 1.2em;
+  /* fallback */
+  max-height: 2.4em;
+  text-align: left;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.en-home .en-list .list-group-item .content {
+  font-size: 0.8em;
+  font-weight: lighter;
+  color: #333333;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  line-height: 1.25em;
+  /* fallback */
+  max-height: 2.5em;
+  text-align: left;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 1em;
+}
+.en-home .en-list .list-group-item .time {
+  color: #999999;
+  font-size: 0.8em;
+  font-weight: lighter;
+  line-height: 2em;
 }
 .anniversary {
   background-color: #D0021B;

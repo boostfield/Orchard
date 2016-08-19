@@ -49,7 +49,7 @@ namespace Orchard.Xmu.Controllers
                 .Slice(0, 5)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
-            ViewBag.submenu = _xmMenuService.Get2LevelMenu("EnglishMenu");
+            ViewBag.submenu = _xmMenuService.Get2LevelMenu("EnglishHomeExpandedMenu");
             ViewBag.sections = _contentManager.Query(VersionOptions.Latest, XmContentType.ENSection.ContentTypeName)
                 .Slice(0, 6)
                 .Select(p => p.As<ENSectionPart>())

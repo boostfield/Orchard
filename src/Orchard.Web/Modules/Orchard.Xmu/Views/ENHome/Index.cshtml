@@ -65,7 +65,7 @@
         <div class="col-md-7 col-sm-12 col-xs-12">
             <div class="en-column">
                 <span class="title ">News</span>
-                <a class="more pull-right">All News</a>
+                <a class="more pull-right" href="@Url.Action("ENPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CollegeENNews"})">All News</a>
             </div>
             <div class="row">
                 @foreach (var newsItem in ViewBag.news)
