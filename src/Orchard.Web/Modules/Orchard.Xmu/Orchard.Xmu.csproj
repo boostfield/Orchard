@@ -173,16 +173,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\ENHome\Index.cshtml" />
+    <Content Include="Views\ENHome\Home.cshtml" />
     <Content Include="Views\DataImporter\Index.cshtml" />
     <Content Include="Views\XmContent\Paging.cshtml" />
     <Content Include="Views\LectureInfoAdmin\List.cshtml" />
     <Content Include="Views\XmContentAdmin\List.cshtml" />
     <Content Include="Views\College90CelebrationAdmin\List.cshtml" />
-    <Content Include="Views\AnniversaryHome\Index.cshtml" />
+    <Content Include="Views\AnniversaryHome\Home.cshtml" />
     <Content Include="Views\XmContent\Item.cshtml" />
     <Content Include="Views\NinetyCelebrationDonationAdmin\List.cshtml" />
     <Content Include="Views\CNBannerAdmin\List.cshtml" />
