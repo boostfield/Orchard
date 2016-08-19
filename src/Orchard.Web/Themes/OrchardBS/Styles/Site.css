@@ -1040,9 +1040,10 @@
   padding-bottom: 3px;
 }
 .anniversary .frame {
-  height: 250px;
-  line-height: 250px;
+  height: 210px;
+  line-height: 210px;
   overflow: hidden;
+  padding: 0;
 }
 .anniversary .frame ul {
   list-style: none;
@@ -1050,13 +1051,16 @@
   padding: 0;
   height: 100%;
   font-size: 50px;
+  background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
+  background-position: center;
+  background-size: contain;
 }
 .anniversary .frame ul li {
   float: left;
-  width: 204px;
-  height: 100%;
-  margin: 0 1px 0 0;
-  padding: 0;
+  width: auto;
+  margin-right: 1em;
+  height: 210px;
+  padding: 0 0 0 0;
   color: #ddd;
   text-align: center;
   cursor: pointer;
@@ -1066,11 +1070,13 @@
 }
 .anniversary .frame ul li.active {
   color: #fff;
-  background: #a03232;
 }
 .anniversary .crazy img {
-  width: 200px;
+  display: inline-block;
+  width: auto;
   height: auto;
+  max-height: 180px;
+  max-width: 200px;
 }
 .anniversary .photo-gallery {
   position: relative;
@@ -1084,6 +1090,7 @@
   transform: translateY(-50%);
   width: auto;
   z-index: 5;
+  cursor: pointer;
 }
 .anniversary .photo-gallery .btn-backward {
   padding: 1em;
@@ -1094,6 +1101,7 @@
   transform: translateY(-50%);
   width: auto;
   z-index: 5;
+  cursor: pointer;
 }
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {

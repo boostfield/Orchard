@@ -217,7 +217,8 @@ namespace Orchard.Xmu
                     {
                         Description = "管理通知(Notice)",
                         Name = string.Format("Manage{0}","CollegeENNotice")
-                    }
+                    },
+                    ListTitle = "Notice"
                 },
 
             };

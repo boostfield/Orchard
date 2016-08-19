@@ -1092,10 +1092,11 @@ body {
         }
     }
     .frame {
-	    height: 250px;
-	    line-height: 250px;
+	    height: 210px;
+	    line-height: 210px;
 	    overflow: hidden;
         
+        padding: 0;
     }
     .frame ul {
 	    list-style: none;
@@ -1103,14 +1104,16 @@ body {
 	    padding: 0;
 	    height: 100%;
 	    font-size: 50px;
+        background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
+        background-position: center;
+        background-size:contain;
     }
     .frame ul li {
 	    float: left;
-	    width: 204px;
-	    height: 100%;
-	    margin: 0 1px 0 0;
-	    padding: 0;
-	    
+	    width: auto;
+        margin-right: 1em;
+	    height: 210px;
+	    padding: 0 0 0 0;
 	    color: #ddd;
 	    text-align: center;
 	    cursor: pointer;
@@ -1120,12 +1123,15 @@ body {
     }
     .frame ul li.active {
 	    color: #fff;
-	    background: #a03232;
+	    
     }
     .crazy {
         img {
-            width: 200px;
+            display: inline-block;
+            width: auto;
             height: auto;
+            max-height: 180px;
+            max-width: 200px;
         }
 
         
@@ -1141,6 +1147,7 @@ body {
             transform: translateY(-50%);
             width: auto;
             z-index: 5;
+            cursor: pointer;
         }
         .btn-backward {
             padding: 1em;
@@ -1151,6 +1158,7 @@ body {
            transform: translateY(-50%);
            width: auto;
            z-index: 5;
+           cursor: pointer;
         }
     }
 }
