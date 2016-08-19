@@ -649,15 +649,15 @@
 .en-home .en-footer .footer-first .contact-us {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
-.en-home .en-footer .footer-second {
+.en-home .en-footer .footer-links {
   padding: 3em 0 3em 0;
   background-color: #262F49;
 }
-.en-home .en-footer .footer-second h1 {
+.en-home .en-footer .footer-links h1 {
   font-size: 2em;
   color: white;
 }
-.en-home .en-footer .footer-second .links a {
+.en-home .en-footer .footer-links .links a {
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
@@ -665,7 +665,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-.en-home .en-footer .footer-second .links a:nth-child(n)::after {
+.en-home .en-footer .footer-links .links a:not(:last-child)::after {
   content: "\00a0\00a0\00a0\00a0 | ";
 }
 .en-home .en-footer .copyright {

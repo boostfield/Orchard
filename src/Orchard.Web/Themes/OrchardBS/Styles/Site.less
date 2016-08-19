@@ -708,7 +708,7 @@ body {
             }
         
         }
-        .footer-second {
+        .footer-links {
             padding: 3em 0 3em 0;
             background-color: #262F49;
             h1 {
@@ -724,7 +724,7 @@ body {
                 text-decoration: none;
                 cursor: pointer;
             }
-            .links a:nth-child(n)::after {
+            .links a:not(:last-child)::after {
                 content: "\00a0\00a0\00a0\00a0 | ";
             }
         }

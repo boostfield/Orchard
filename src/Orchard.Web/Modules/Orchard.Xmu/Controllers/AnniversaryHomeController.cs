@@ -18,10 +18,14 @@ namespace Orchard.Xmu.Controllers
         }
 
         // GET: AnniversaryHome
-        public ActionResult Index()
+        public ActionResult Home()
         {
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
             return View();
+        }
+        public ActionResult Index()
+        {
+            return RedirectToAction("Home");
         }
     }
 }

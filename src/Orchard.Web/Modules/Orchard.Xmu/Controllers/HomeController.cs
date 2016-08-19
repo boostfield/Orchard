@@ -42,8 +42,13 @@ namespace Orchard.Xmu.Controllers
             _xmMenuService = xmMenuService;
          }
 
-        // GET: Home
         public ActionResult Index()
+        {
+            return RedirectToAction("Home");
+        }
+
+        // GET: Home
+        public ActionResult Home()
         {
             
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;

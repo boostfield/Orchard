@@ -29,8 +29,13 @@ namespace Orchard.Xmu.Controllers
             _contentManager = contentManager;
         }
 
-        // GET: ENHome
         public ActionResult Index()
+        {
+            return RedirectToAction("Home");
+        }
+
+        // GET: ENHome
+        public ActionResult Home()
         {
             
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
