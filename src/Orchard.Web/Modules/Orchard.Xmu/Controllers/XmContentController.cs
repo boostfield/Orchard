@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Settings;
 using Orchard.Themes;
@@ -21,10 +22,12 @@ namespace Orchard.Xmu.Controllers
         private readonly IFrontEndService _frontEndService;
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
+        private readonly IContentDefinitionManager _contentDefinitionManager;
 
         public XmContentController(IOrchardServices service,
              IFrontEndService frontEndService,
              IContentManager contentManager,
+             IContentDefinitionManager contentDefinitionManager,
             ISiteService siteService)
         {
 
@@ -32,60 +35,39 @@ namespace Orchard.Xmu.Controllers
             _frontEndService = frontEndService;
             _contentManager = contentManager;
             _siteService = siteService;
+            _contentDefinitionManager = contentDefinitionManager;
         }
 
 
         // GET: ContentDetail
         public ActionResult Item(string contentTypeName, int Id)
         {
-            var item = _contentManager.Get(Id, VersionOptions.Latest);
-            if(item==null)
-            {
-                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
-                return View();
-            }
-            ViewBag.ContentTypeName = contentTypeName;
-            ViewBag.Id = Id;
-            if (contentTypeName.Equals("LectureInfo"))
-            {
-                ViewBag.Item = LectureVM.FromLecturePart(item.As<LectureInfoPart>());
-            } else
-            {
-                ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
 
-            }
+            GetItem(contentTypeName, Id);
 
             return View();
         }
         public ActionResult ENItem(string contentTypeName, int Id)
         {
-            var item = _contentManager.Get(Id, VersionOptions.Latest);
-            if (item == null)
-            {
-                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
-                return View();
-            }
-            ViewBag.ContentTypeName = contentTypeName;
-            ViewBag.Id = Id;
-            if (contentTypeName.Equals("LectureInfo"))
-            {
-                ViewBag.Item = LectureVM.FromLecturePart(item.As<LectureInfoPart>());
-            }
-            else
-            {
-                ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
 
-            }
+            GetItem(contentTypeName, Id);
+
 
             return View();
         }
         public ActionResult ANItem(string contentTypeName, int Id)
         {
+            GetItem(contentTypeName, Id);
+            return View();
+        }
+
+       private void GetItem(string contentTypeName, int Id)
+        {
             var item = _contentManager.Get(Id, VersionOptions.Latest);
             if (item == null)
             {
                 ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
-                return View();
+                return;
             }
             ViewBag.ContentTypeName = contentTypeName;
             ViewBag.Id = Id;
@@ -99,22 +81,15 @@ namespace Orchard.Xmu.Controllers
 
             }
 
-            return View();
         }
 
-        
+
 
         public ActionResult ENPaging(string contentTypeName, PagerParameters pagerParameters)
         {
 
 
-            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
-
-            ViewBag.total = pagingResult.Item1;
-            ViewBag.page = pagingResult.Item3.Page;
-            ViewBag.pageSize = pagingResult.Item3.PageSize;
-            ViewBag.items = pagingResult.Item2;
-            ViewBag.ContentTypeName = contentTypeName;
+            GetPagingResult(contentTypeName, pagerParameters);
 
             return View();
 
@@ -124,13 +99,8 @@ namespace Orchard.Xmu.Controllers
         public ActionResult ANPaging(string contentTypeName, PagerParameters pagerParameters)
         {
 
-            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
+            GetPagingResult(contentTypeName, pagerParameters);
 
-            ViewBag.total = pagingResult.Item1;
-            ViewBag.page = pagingResult.Item3.Page;
-            ViewBag.pageSize = pagingResult.Item3.PageSize;
-            ViewBag.items = pagingResult.Item2;
-            ViewBag.ContentTypeName = contentTypeName;
 
             return View();
 
@@ -142,19 +112,14 @@ namespace Orchard.Xmu.Controllers
         public ActionResult Paging(string contentTypeName,PagerParameters pagerParameters)
         {
 
-            var pagingResult = GetPagingResult(contentTypeName, pagerParameters);
+           GetPagingResult(contentTypeName, pagerParameters);
 
-            ViewBag.total = pagingResult.Item1;
-            ViewBag.page = pagingResult.Item3.Page;
-            ViewBag.pageSize = pagingResult.Item3.PageSize;
-            ViewBag.items = pagingResult.Item2;
-            ViewBag.ContentTypeName = contentTypeName;
 
             return View();
 
         }
 
-        private Tuple<int, IList<XmContentVM>, Pager> GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
+        private void GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
         {
             if (pagerParameters == null)
             {
@@ -182,7 +147,24 @@ namespace Orchard.Xmu.Controllers
                 .Select(p => XmContentVM.FromXmContentPart(p.As<XmContentPart>())).ToList();
 
             }
-            return new Tuple<int, IList<XmContentVM>, Pager>(total, items, pager);
+            var listTitle = string.Empty;
+            var contentType = _contentDefinitionManager.GetTypeDefinition(contentTypeName);
+            if(contentType!=null)
+            {
+                contentType.Settings.TryGetValue("ListTitle", out listTitle); 
+                if(string.IsNullOrEmpty(listTitle))
+                {
+                    listTitle = contentType.DisplayName;
+                }
+
+            }
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.items = items;
+            ViewBag.ContentTypeName = contentTypeName;
+            ViewBag.ListTitle = listTitle;
         }
 
 
