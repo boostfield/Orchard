@@ -1043,6 +1043,10 @@
   height: 210px;
   line-height: 210px;
   overflow: hidden;
+  background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 0;
 }
 .anniversary .frame ul {
@@ -1051,9 +1055,6 @@
   padding: 0;
   height: 100%;
   font-size: 50px;
-  background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
-  background-position: center;
-  background-size: contain;
 }
 .anniversary .frame ul li {
   float: left;
@@ -1064,19 +1065,40 @@
   color: #ddd;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
-.anniversary .frame ul li:hover {
-  background-color: black;
+.anniversary .frame ul li a.text-content {
+  width: 100%;
+  max-width: 400px;
+  right: 0;
+  top: 37px;
+  bottom: 10px;
+  left: 0;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  height: 150px;
+  max-height: 150px;
+  position: absolute;
+  background: rgba(208, 1, 27, 0.8);
+  font-size: 0.4em;
+  opacity: 0;
+  text-wrap: normal;
+  font-family: "STSongti-SC";
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
 }
-.anniversary .frame ul li.active {
-  color: #fff;
+.anniversary .frame ul li:hover a.text-content {
+  opacity: 1;
 }
 .anniversary .crazy img {
-  display: inline-block;
   width: auto;
-  height: auto;
-  max-height: 180px;
-  max-width: 200px;
+  height: 150px;
+  max-width: 400px;
 }
 .anniversary .photo-gallery {
   position: relative;

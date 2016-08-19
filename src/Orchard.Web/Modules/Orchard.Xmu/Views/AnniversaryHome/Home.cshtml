@@ -307,18 +307,16 @@
        
             <div class="frame crazy center-block" id="crazy">
                 
-                <ul class="clearfix">
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/ic_banner_left.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_donation_pattern_bottom_1.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_first.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/nav-bg.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_picture_title.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/nav-logo.png"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/qr_code.jpg"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/qr_code.jpg"))" /></li>
-                    <li><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/qr_code.jpg"))" /></li>
+                <ul>
+                    @foreach (var photo in ViewBag.gallery)
+                    {
+                        <li>
+                            <img src="@photo.ImageAddress" />
+                            <a class="text-content" href="@photo.LinkAddress">@photo.Title</a>
+                        </li>
+                    }
+
+
                 </ul>
             </div>
         
