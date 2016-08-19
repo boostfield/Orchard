@@ -44,6 +44,13 @@ namespace Orchard.Xmu
 
         };
 
+        public static readonly Permission ManageCelMatesPic = new Permission
+        {
+            Description = XmContentType.NinetyCelMatesOldPic.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.NinetyCelMatesOldPic.ContentTypeName)
+
+        };
+
 
         public virtual Feature Feature { get; set; }
 

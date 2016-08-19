@@ -51,6 +51,10 @@ namespace Orchard.Xmu
             menu.Add(T(XmContentType.NinetyCelBanner.ContentTypeDisplayName), "2", item => item.Action("List", "NinetyCelBannerAdmin", new { area = "Orchard.Xmu" })
             .Permission(Permissions.ManageCelBanner));
 
+            menu.LinkToFirstChild(false);
+            menu.Add(T(XmContentType.NinetyCelMatesOldPic.ContentTypeDisplayName), "2", item => item.Action("List", "CelMatesPicAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageCelMatesPic));
+
             foreach (var mapping in XmContentType.NinetyMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",
