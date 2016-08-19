@@ -204,7 +204,8 @@ namespace Orchard.Xmu
                     {
                         Description = "管理新闻(News)",
                         Name = string.Format("Manage{0}","CollegeENNews")
-                    }
+                    },
+                    ListTitle = "News"
                 },
                 new XmENCMSContentMapping
                 {
@@ -766,6 +767,7 @@ namespace Orchard.Xmu
         public string ContentTypeDisplayName { get; set; }
         public string PermissionDesc { get; set; }
         public string ContentTypePartName { get; set; }
+        public string ListTitle { get; set; }
 
     }
 
