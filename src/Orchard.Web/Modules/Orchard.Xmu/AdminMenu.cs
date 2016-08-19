@@ -48,6 +48,8 @@ namespace Orchard.Xmu
         private void BuildCelCmsMenu(NavigationItemBuilder menu)
         {
             menu.LinkToFirstChild(false);
+            menu.Add(T(XmContentType.NinetyCelBanner.ContentTypeDisplayName), "2", item => item.Action("List", "NinetyCelBannerAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageCelBanner));
 
             foreach (var mapping in XmContentType.NinetyMappings)
             {

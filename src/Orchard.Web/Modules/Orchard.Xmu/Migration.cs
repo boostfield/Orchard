@@ -1,4 +1,4 @@
-﻿    using NGM.ContentViewCounter.Models;
+﻿using NGM.ContentViewCounter.Models;
 using Orchard.Autoroute.Models;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
@@ -167,7 +167,7 @@ namespace Orchard.Xmu
               cfg => cfg
               .DisplayedAs(XmContentType.CNBanner.ContentTypeDisplayName)
               .WithPart(typeof(TitlePart).Name)
-              .WithPart(typeof(CommonPart).Name,builder=> builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor","false"))
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
               .WithPart(typeof(BannerPart).Name)
               .Creatable()
               .Draftable()
@@ -231,9 +231,9 @@ namespace Orchard.Xmu
                       b => b.OfType("LinkField")
                           .WithDisplayName("链接地址")
                           .WithSetting("LinkFieldSettings.Required", "true"))
-                 .WithField("orderWeight",b=>b.OfType("NumericField")
-                 .WithDisplayName("排序顺序(数字大的在前)")
-                 .WithSetting("NumericFieldSettings.Required","true"))
+                 .WithField("orderWeight", b => b.OfType("NumericField")
+                  .WithDisplayName("排序顺序(数字大的在前)")
+                  .WithSetting("NumericFieldSettings.Required", "true"))
 
           );
 
@@ -253,6 +253,22 @@ namespace Orchard.Xmu
             return 5;
         }
 
-      
+        public int UpdateFrom5()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyCelBanner.ContentTypeName,
+
+            cfg => cfg
+            .DisplayedAs(XmContentType.NinetyCelBanner.ContentTypeDisplayName)
+            .WithPart(typeof(TitlePart).Name)
+            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+            .WithPart(typeof(BannerPart).Name)
+            .Creatable()
+            .Draftable()
+            .Securable()
+            );
+            return 6;
+        }
+
     }
 }
