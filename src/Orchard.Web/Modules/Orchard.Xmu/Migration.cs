@@ -277,5 +277,40 @@ namespace Orchard.Xmu
             return 6;
         }
 
+        public int UpdateFrom6()
+        {
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(CelMatesPicPart).Name,
+             cfg =>
+             cfg.WithField("image",
+                      b => b.OfType("MediaLibraryPickerField")
+                          .WithDisplayName("选择图片")
+                          .WithSetting("MediaLibraryPickerFieldSettings.Required", "true"))
+                .WithField("linkAddress",
+                     b => b.OfType("LinkField")
+                         .WithDisplayName("链接地址")
+                         .WithSetting("LinkFieldSettings.Required", "true"))
+                .WithField("orderWeight", b => b.OfType("NumericField")
+                 .WithDisplayName("排序顺序(数字大的在前)")
+                 .WithSetting("NumericFieldSettings.Required", "true"))
+
+         );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyCelMatesOldPic.ContentTypeName,
+
+           cfg => cfg
+           .DisplayedAs(XmContentType.NinetyCelMatesOldPic.ContentTypeDisplayName)
+           .WithPart(typeof(TitlePart).Name)
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+           .WithPart(typeof(CelMatesPicPart).Name)
+           .WithSetting("ListTitle", XmContentType.NinetyCelMatesOldPic.ListTitle)
+           .Creatable()
+           .Draftable()
+           .Securable()
+           );
+            return 7;
+        }
+
     }
 }

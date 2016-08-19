@@ -49,14 +49,7 @@ namespace Orchard.Xmu
 
 
 
-        public static XmContentDefinition NinetyCelBanner = new XmContentDefinition
-        {
-            ContentTypeDisplayName = "院庆首页Banner",
-            PermissionDesc = "管理院庆CMS首页Banner",
-            ContentTypeName = "CelBanner",
-            ContentTypePartName = "CelBannerPart"
-        };
-
+  
 
 
         //------------- Content Mapping..
@@ -77,6 +70,23 @@ namespace Orchard.Xmu
                 Name = string.Format("Manage{0}", "CelDonation")
             },
         };
+
+        public static XmContentDefinition NinetyCelMatesOldPic = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "院庆首页院友老照片",
+            PermissionDesc = "管理院庆首页院友老照片",
+            ContentTypeName = "CelOldMatesPic",
+            ContentTypePartName = "CelOldMatesPicPart"
+        };
+
+        public static XmContentDefinition NinetyCelBanner = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "院庆首页Banner",
+            PermissionDesc = "管理院庆CMS首页Banner",
+            ContentTypeName = "CelBanner",
+            ContentTypePartName = "CelBannerPart"
+        };
+
 
 
         public static NinetyCMSContentMapping[] NinetyMappings =

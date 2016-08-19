@@ -193,6 +193,7 @@
     <Content Include="Views\XmContent\ANItem.cshtml" />
     <Content Include="Views\ENSectionAdmin\List.cshtml" />
     <Content Include="Views\NinetyCelBannerAdmin\List.cshtml" />
+    <Content Include="Views\CelMatesPicAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="Controllers\CelMatesPicAdminController.cs" />
     <Compile Include="Controllers\CNBannerAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Controllers\LectureInfoAdminController.cs" />
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\BannerPartDriver.cs" />
+    <Compile Include="Drivers\CelMatesPicPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
@@ -223,6 +226,7 @@
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
+    <Compile Include="Models\CelMatesPicPart.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />

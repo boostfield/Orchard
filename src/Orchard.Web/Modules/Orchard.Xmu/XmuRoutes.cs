@@ -213,6 +213,22 @@ namespace Orchard.Xmu
                                         new MvcRouteHandler())
                              },
 
+                                             new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/CelMatesPic",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "CelMatesPicAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
                                      new RouteDescriptor {
                                     Priority = 20,
                                     Route = new Route(
