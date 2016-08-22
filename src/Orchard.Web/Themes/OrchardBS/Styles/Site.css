@@ -3,6 +3,9 @@
   font-size: 20px;
   color: black;
 }
+#content {
+  min-height: 500px;
+}
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
@@ -18,6 +21,10 @@
   margin-left: 0;
   margin-right: 0;
 }
+.home-search {
+  height: 46px;
+  background-color: black;
+}
 .home-search .btn-default.active.focus,
 .home-search .btn-default.active:focus,
 .home-search .btn-default.active:hover,
@@ -30,10 +37,6 @@
   background-color: transparent;
   color: white;
 }
-.home-search {
-  height: 46px;
-  background-color: black;
-}
 .home-search .btn-group .btn {
   line-height: 46px;
   padding: 0 1em 0 1em;
@@ -44,7 +47,7 @@
   border: none;
 }
 .home-search .input-group input,
-.home-search .input-group button {
+.home-search .home-search .input-group button {
   padding: 0 1.5em 0 1.5em;
   height: 46px;
   border-radius: 0;
@@ -793,6 +796,7 @@
 .anniversary .content {
   margin-top: -140px;
   background-color: #FCFCFC;
+  min-height: 640px;
 }
 .anniversary .top-bg {
   height: 721px;
@@ -1290,11 +1294,22 @@
     color: black;
     border-radius: 0;
   }
+  .en-home .navbar-default .navbar-nav > .active > a {
+    border: none;
+  }
+  .en-home .navbar-nav {
+    margin: 0;
+  }
+  .en-home .navbar-form {
+    padding: 0;
+    margin: 0;
+  }
   .en-home #carousel-en .carousel-inner .item {
     height: 300px;
   }
   .en-home #carousel-en .carousel-caption {
-    margin-left: 1em;
+    margin-left: 0;
+    width: 80%;
   }
   .en-home #carousel-en .carousel-caption p {
     font-size: 1.2em;

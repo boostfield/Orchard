@@ -20,10 +20,15 @@ body {
     font-size: 20px;
     color: black;
 }
+//内容区域设置最小高度，避免内容过少导致footer上移
+#content {
+    min-height: 500px;
+}
 .container-fluid {
         padding-left: 0px;
         padding-right: 0px;
 }
+//取消row两侧的margin
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -34,40 +39,40 @@ body {
 }
 //中文
 .home-search {
+    height: 46px;
+    background-color: black;
     .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
         background-color: transparent;
         color: white;
    }
+    .btn-group .btn{
+        line-height: 46px;
+        padding: 0 1em 0 1em;
+        border-radius: 0;
+        background-color: transparent;
+        color: white;
+        margin-right: 1em;
+        border: none;
+    }
+    .input-group input, .home-search .input-group button {
+        padding: 0 1.5em 0 1.5em;
+        height: 46px;
+        border-radius: 0;
+        background-color: #303030;
+        color: white;
+        border: none;
+    }
+    .input-group button {
+        background-repeat: no-repeat;
+        background-image: url("../Content/images/ic_nav_search.png");
+        background-position: center;
+        background-size: 20px 20px;
+        border-left: 1px solid rgba(255,255,255,0.2);
+    }
 }
 
-.home-search {
-    height: 46px;
-    background-color: black;
-}
-.home-search .btn-group .btn{
-    line-height: 46px;
-    padding: 0 1em 0 1em;
-    border-radius: 0;
-    background-color: transparent;
-    color: white;
-    margin-right: 1em;
-    border: none;
-}
-.home-search .input-group input, .home-search .input-group button {
-    padding: 0 1.5em 0 1.5em;
-    height: 46px;
-    border-radius: 0;
-    background-color: #303030;
-    color: white;
-    border: none;
-}
-.home-search .input-group button {
-    background-repeat: no-repeat;
-    background-image: url("../Content/images/ic_nav_search.png");
-    background-position: center;
-    background-size: 20px 20px;
-    border-left: 1px solid rgba(255,255,255,0.2);
-}
+
+//中文网站
 .home  {
     .navbar.navbar-default {
         background-color: @primary-nav-color;
@@ -168,59 +173,62 @@ body {
             font-size: 0.9em;
         }
     }
+    //首页头部轮播
     #carousel-home {
         width: 100%;
         .carousel-inner .item {
-        width: 100%;
-        height: 60700/1920vw;
-        vertical-align: middle;
-	    -webkit-background-size: cover;
-	    -moz-background-size: cover;
-	    -o-background-size: cover;
-	    background-size: cover;
-        cursor: pointer;
-        background-position: center center;
+            width: 100%;
+            height: 60700/1920vw;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+        }
+        .carousel-caption {
+            background-color: @carousel-caption-color;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 1.2em;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            text-shadow: none;
+        }
+    
+        .carousel-indicators {
+            left: 90%;
+            right: 10%;
+            width: auto;
+            bottom: 10px;
+        }
+        .carousel-indicators-numbers {
+            li {
+              text-indent: 0;
+              margin: 0 2px;
+              width: 30px;
+              height: 30px;
+              border: 1px solid white;
+              border-radius: 0;
+              line-height: 30px;
+              color: #fff;
+              background-color: transparent;
+              transition: all 0.25s ease;
+              &.active, &:hover {
+                color: @primary-color;
+                margin: 0 2px;
+                width: 30px;
+                height: 30px;
+                background-color: white;        
+              }
+        }
     }
 
-    .carousel-caption {
-        background-color: @carousel-caption-color;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        font-size: 1.2em;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        text-shadow: none;
+
     }
-    
-    .carousel-indicators {
-        left: 90%;
-        right: 10%;
-        width: auto;
-        bottom: 10px;
-    }
-    .carousel-indicators-numbers {
-        li {
-          text-indent: 0;
-          margin: 0 2px;
-          width: 30px;
-          height: 30px;
-          border: 1px solid white;
-          border-radius: 0;
-          line-height: 30px;
-          color: #fff;
-          background-color: transparent;
-          transition: all 0.25s ease;
-          &.active, &:hover {
-            color: @primary-color;
-            margin: 0 2px;
-            width: 30px;
-            height: 30px;
-            background-color: white;        
-          }
-        }
-     }
-    }
+    //列表页
     .cn-list {
         h1 {
             color: @primary-color;
@@ -286,74 +294,70 @@ body {
 
 .cn-home-columns {
     padding: 2em;
-}
-.cn-home-columns ul.nav.nav-pills {
-    border-bottom: 2px solid  @column-line-color;
-}
-.cn-home-columns ul.nav.nav-pills li {
-    text-align: center;
-    width: 33.333%;
-    margin: 0;
-}
-.cn-home-columns .nav-pills a {
-    font-size: 0.9em;
-    color: black;
-    border-radius: 0;
-    margin: 0;
-}
-.cn-home-columns .nav-pills>li.active>a, .cn-home-columns .nav-pills>li.active>a:focus, .cn-home-columns .nav-pills>li.active>a:hover {
-    color: @primary-color;
-    background-color: transparent;
-    border-bottom: 2px solid @primary-color;
-    font-weight: bold;
-}
-.cn-home-columns .column .list-group {
+    ul.nav.nav-pills {
+        border-bottom: 2px solid  @column-line-color;
+    }
+    ul.nav.nav-pills li {
+        text-align: center;
+        width: 33.333%;
+        margin: 0;
+    }
+    .nav-pills a {
+        font-size: 0.9em;
+        color: black;
+        border-radius: 0;
+        margin: 0;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+        color: @primary-color;
+        background-color: transparent;
+        border-bottom: 2px solid @primary-color;
+        font-weight: bold;
+    }
+    .column .list-group-item {
+        border-left: none;
+        border-right: none;
+        font-size: 0.7em;
+        border-top: 1px solid @divider-color;
+        background-image: url(../Content/images/cn/ic_new_list_content.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    .title-name {
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .title-time {
+        text-align: right;
+        color: @text-second-color;
+    }
+    .side-column {
+        padding-top: 0.5em;
+        padding-left: 1.5em;
+    }
+
+    .column-header .column-title {
+        font-size: 0.9em;
+        text-align: left;
+        background-image: url(../Content/images/cn/img_title_dot.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    .column-header .column-more {
+        font-size: 0.7em;
+        text-align: right;
+    }
+    .side-column .list-group-item {
+        border-left: none;
+        border-right: none;
+        font-size: 0.7em;
+        border-top: 1px solid @divider-color;
     
+    }
 }
-.cn-home-columns .column .list-group-item {
-    border-left: none;
-    border-right: none;
-    font-size: 0.7em;
-    border-top: 1px solid @divider-color;
-    background-image: url(../Content/images/cn/ic_new_list_content.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.cn-home-columns .title-name {
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.cn-home-columns .title-time {
-    text-align: right;
-    color: @text-second-color;
-}
-.cn-home-columns .side-column {
-    padding-top: 0.5em;
-    padding-left: 1.5em;
-}
-.cn-home-columns .column-header {
-    
-}
-.cn-home-columns .column-header .column-title {
-    font-size: 0.9em;
-    text-align: left;
-    background-image: url(../Content/images/cn/img_title_dot.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.cn-home-columns .column-header .column-more {
-    font-size: 0.7em;
-    text-align: right;
-}
-.cn-home-columns .side-column .list-group-item {
-    border-left: none;
-    border-right: none;
-    font-size: 0.7em;
-    border-top: 1px solid @divider-color;
-    
-}
+
 
 
 //英文网站
@@ -857,6 +861,7 @@ body {
     .content {
         margin-top: -140px;
         background-color: #FCFCFC;
+        min-height: 640px;
     }
     .top-bg {
         height: 721px;
@@ -1052,9 +1057,11 @@ body {
         box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
         margin-top: 4em;
         margin-left: 1em;
+        
         .img-cover {
             margin-top: -1em;
             margin-left: -1em;
+            
         }
         .img-title {
            margin-top: 2.5em;
@@ -1063,6 +1070,7 @@ body {
         .img-number {
             margin-top: -2em;
             margin-right: 0.5em;
+            
         }
         .list-group {
            display: block;
@@ -1367,12 +1375,23 @@ only screen and (max-width: 480px) {
     }
     //英文
     .en-home {
+        .navbar-default .navbar-nav > .active > a {
+            border: none;
+        }
+        .navbar-nav {
+            margin: 0;
+        }
+        .navbar-form {
+            padding: 0;
+            margin: 0;
+        }
         #carousel-en {
             .carousel-inner .item {
                 height: 300px;
             }
             .carousel-caption {
-                margin-left: 1em;
+                margin-left: 0;
+                width: 80%;
                 p {
                     font-size: 1.2em;
                 }
