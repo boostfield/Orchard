@@ -312,5 +312,15 @@ namespace Orchard.Xmu
             return 7;
         }
 
+
+        public int UpdateFrom7()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyDonation.ContentTypeName,
+                cfg => cfg
+                .WithPart(typeof(BodyPart).Name)
+            );
+            return 8;
+        }
     }
 }
