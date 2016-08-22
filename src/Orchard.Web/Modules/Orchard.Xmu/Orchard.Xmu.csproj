@@ -225,6 +225,8 @@
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Migration.cs" />
+    <Compile Include="Models\AcademicPaperRecord.cs" />
+    <Compile Include="Models\AcademicWorksRecord.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
@@ -238,10 +240,14 @@
     <Compile Include="Service\DataImport\DataImporter.cs" />
     <Compile Include="Service\DataImport\IDataImporter.cs" />
     <Compile Include="Service\DataImport\Model\NewOldID.cs" />
+    <Compile Include="Service\DataImport\Model\OldAcademicReport.cs" />
     <Compile Include="Service\DataImport\Model\OldCategory.cs" />
     <Compile Include="Service\DataImport\Model\OldLecture.cs" />
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
+    <Compile Include="Service\DataImport\Model\OldPaper.cs" />
+    <Compile Include="Service\DataImport\Model\OldTeacherInfo.cs" />
+    <Compile Include="Service\DataImport\Model\OldWorks.cs" />
     <Compile Include="Service\FrontEndService.cs" />
     <Compile Include="Service\IFrontEndService.cs" />
     <Compile Include="Service\IInfoService.cs" />
