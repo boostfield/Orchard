@@ -232,6 +232,7 @@
     <Compile Include="Models\ENSectionPart.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
+    <Compile Include="Models\TeacherRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
