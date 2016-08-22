@@ -921,10 +921,12 @@ body {
         .carousel-control  {
             background-image: none;
             width: 5%;
-             opacity: 1;
+            opacity: 1;
         }
+        
         .carousel-control img {
             top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
@@ -1075,12 +1077,18 @@ body {
             background-image: url(../Content/images/anniversary/img_list_dot.png);
             background-repeat: no-repeat;
             background-position: left center;
-            .tilte-name {
+            .title-name {
+                
                 text-align: left;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                a {
+                    color: @text-color;
+
+                }
             }
+            
             .title-time {
                 text-align: right;
                 color: @text-second-color;
@@ -1226,6 +1234,68 @@ body {
                 padding-bottom: 2em;
             }
         }
+        .anniversary-list {
+            h1 {
+                color: @anniversary-primary-color;
+                font-size: 1.2em;
+            }
+
+            .list-group-item {
+                border-left: none;
+                border-right: none;
+                font-size: 0.7em;
+                .title-name {
+                    text-align: left;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    padding-left: 2em;
+                    background-image: url(../Content/images/anniversary/img_list_dot.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                   
+                }
+                a .title-name {
+                    color: @text-color;
+                }
+                a .title-time {
+                    color: @text-second-color;
+                }
+                .title-time {
+                    text-align: right;
+                }
+            }
+            
+            .list-group-item:nth-child(odd) {
+                background-color: #FCFCFC;
+            }
+            .list-group-item:first-child {
+                border-radius: 0;
+                border-top: 2px solid @anniversary-primary-color;
+            }
+            .list-group-item:last-child {
+                border-radius: 0;
+            }
+            #pagination  {
+               .pagination>li>a , .pagination>li>span {
+                   border: none;
+                   font-size: 0.7em;
+                   padding: 6px;
+                   color: @text-color;
+                   margin: 0 3px 0 3px;
+                   min-width: 28px;
+                   text-align: center;
+                   .transition-all;
+               }
+               .pagination>.active>a {
+                   color: white;
+                   background-color: @anniversary-primary-color;
+               }
+               .pagination>li.first>a, .pagination>li.prev>a,.pagination>li.last>a, .pagination>li.next>a {
+                   color: @anniversary-primary-color;
+               }
+            }
+        }
 }
 //移动端适配
 @media only screen
@@ -1329,9 +1399,13 @@ only screen and (max-width: 480px) {
     }
     //院庆
     .anniversary {
-        .navbar-brand img{
+        .navbar .navbar-brand img{
             width: 193px;
             height: 48px;
+            
+        }
+        .navbar-brand {
+            padding: 0;
         }
         .top-bg {
             height: 400px;

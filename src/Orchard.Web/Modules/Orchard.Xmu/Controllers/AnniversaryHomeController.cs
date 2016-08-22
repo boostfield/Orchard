@@ -41,6 +41,21 @@ namespace Orchard.Xmu.Controllers
                 .Slice(0, 4)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
+            ViewBag.donation = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .List()
+                .Select(p => p.As<NinetyCelebrationDonationPart>())
+                .ToList();
+            ViewBag.articles = _contentManager.Query(VersionOptions.Latest, "CelMatesArticle")
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .Slice(0, 3)
+                .Select(p => p.As<XmContentPart>())
+                .ToList();
+            ViewBag.shows = _contentManager.Query(VersionOptions.Latest, "CelMatesShows")
+                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .Slice(0, 3)
+                .Select(p => p.As<XmContentPart>())
+                .ToList();
             var gallery = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyCelMatesOldPic.ContentTypeName)
             .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
             .List()

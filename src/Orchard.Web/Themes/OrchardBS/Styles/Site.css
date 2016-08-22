@@ -861,6 +861,7 @@
 }
 .anniversary #carousel-anniversary .carousel-control img {
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
@@ -1019,12 +1020,16 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-.anniversary .banner3 .list-group-item .tilte-name,
-.anniversary .banner4 .list-group-item .tilte-name {
+.anniversary .banner3 .list-group-item .title-name,
+.anniversary .banner4 .list-group-item .title-name {
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.anniversary .banner3 .list-group-item .title-name a,
+.anniversary .banner4 .list-group-item .title-name a {
+  color: #333333;
 }
 .anniversary .banner3 .list-group-item .title-time,
 .anniversary .banner4 .list-group-item .title-time {
@@ -1161,6 +1166,67 @@
   padding-top: 2em;
   padding-bottom: 2em;
 }
+.anniversary .anniversary-list h1 {
+  color: #D0021B;
+  font-size: 1.2em;
+}
+.anniversary .anniversary-list .list-group-item {
+  border-left: none;
+  border-right: none;
+  font-size: 0.7em;
+}
+.anniversary .anniversary-list .list-group-item .title-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2em;
+  background-image: url(../Content/images/anniversary/img_list_dot.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.anniversary .anniversary-list .list-group-item a .title-name {
+  color: #333333;
+}
+.anniversary .anniversary-list .list-group-item a .title-time {
+  color: #999999;
+}
+.anniversary .anniversary-list .list-group-item .title-time {
+  text-align: right;
+}
+.anniversary .anniversary-list .list-group-item:nth-child(odd) {
+  background-color: #FCFCFC;
+}
+.anniversary .anniversary-list .list-group-item:first-child {
+  border-radius: 0;
+  border-top: 2px solid #D0021B;
+}
+.anniversary .anniversary-list .list-group-item:last-child {
+  border-radius: 0;
+}
+.anniversary .anniversary-list #pagination .pagination > li > a,
+.anniversary .anniversary-list #pagination .pagination > li > span {
+  border: none;
+  font-size: 0.7em;
+  padding: 6px;
+  color: #333333;
+  margin: 0 3px 0 3px;
+  min-width: 28px;
+  text-align: center;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.anniversary .anniversary-list #pagination .pagination > .active > a {
+  color: white;
+  background-color: #D0021B;
+}
+.anniversary .anniversary-list #pagination .pagination > li.first > a,
+.anniversary .anniversary-list #pagination .pagination > li.prev > a,
+.anniversary .anniversary-list #pagination .pagination > li.last > a,
+.anniversary .anniversary-list #pagination .pagination > li.next > a {
+  color: #D0021B;
+}
 @media only screen and (max-device-width: 768px) {
   .cn-home-columns .nav-pills a {
     font-size: 0.9em;
@@ -1246,9 +1312,12 @@
     width: 98px;
     height: 117.5px;
   }
-  .anniversary .navbar-brand img {
+  .anniversary .navbar .navbar-brand img {
     width: 193px;
     height: 48px;
+  }
+  .anniversary .navbar-brand {
+    padding: 0;
   }
   .anniversary .top-bg {
     height: 400px;
