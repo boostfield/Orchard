@@ -227,11 +227,13 @@
     <Compile Include="Migration.cs" />
     <Compile Include="Models\AcademicPaperRecord.cs" />
     <Compile Include="Models\AcademicWorksRecord.cs" />
+    <Compile Include="Models\AwardsRecord.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
+    <Compile Include="Models\ProjectRecord.cs" />
     <Compile Include="Models\TeacherRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
@@ -247,6 +249,8 @@
     <Compile Include="Service\DataImport\Model\OldNews.cs" />
     <Compile Include="Service\DataImport\Model\OldContent.cs" />
     <Compile Include="Service\DataImport\Model\OldPaper.cs" />
+    <Compile Include="Service\DataImport\Model\OldProject.cs" />
+    <Compile Include="Service\DataImport\Model\OldReward.cs" />
     <Compile Include="Service\DataImport\Model\OldTeacherInfo.cs" />
     <Compile Include="Service\DataImport\Model\OldWorks.cs" />
     <Compile Include="Service\FrontEndService.cs" />

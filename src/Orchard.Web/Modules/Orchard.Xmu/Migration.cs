@@ -427,10 +427,78 @@ namespace Orchard.Xmu
             .Column<string>("Project", c => c.Unlimited())
             .Column<string>("Contact")
             .Column<bool>("IsShow")
-
-
-
             );
+
+
+            SchemaBuilder.CreateTable(typeof(AwardsRecord).Name,table=>
+            table.ContentPartRecord()
+            .Column<string>("Tid")
+            .Column<string>("WinnerName")
+            .Column<string>("AwardName")
+            .Column<string>("Year")
+            .Column<string>("BelongDepartment")
+            .Column<string>("AwardDepartment")
+            .Column<DateTime>("AwardDate")
+            .Column<string>("AwardRank")
+            .Column<string>("AwardLevel")
+            .Column<string>("ResultProject")
+            .Column<string>("ResultForm")
+            .Column<string>("Author")
+            .Column<string>("Collaborator")
+            .Column<string>("Codes")
+            .Column<string>("Remarks",c=>c.Unlimited())
+            .Column<DateTime>("InputDate")
+            .Column<int>("Clicknumber")
+            .Column<DateTime>("RefreshDate")
+            .Column<string>("ResultType")
+            );
+
+
+            SchemaBuilder.CreateTable(typeof(ProjectRecord).Name,table 
+                =>table.ContentPartRecord()
+                .Column<string>("Tid")
+                .Column<string>("ProjectTitle")
+                .Column<string>("Host")
+                .Column<string>("Year")
+                .Column<string>("Department")
+                .Column<string>("Source")
+                .Column<string>("Level")
+                .Column<string>("SerialNumber")
+                .Column<string>("Aidfunds")
+                .Column<string>("Group")
+                .Column<string>("Aidhost")
+                .Column<DateTime>("StartDate")
+                .Column<DateTime>("EndDate")
+                .Column<DateTime>("FinishDate")
+                .Column<string>("AidSituation")
+                .Column<string>("Remarks",c=>c.Unlimited())
+                .Column<DateTime>("Inputdate")
+                .Column<int>("Clicknumber")
+                .Column<DateTime>("RefreshDate")
+                .Column<string>("ResultType")
+                .Column<string>("Member1")
+                .Column<string>("Funds1")
+                .Column<string>("Member2")
+                .Column<string>("Funds2")
+                .Column<string>("Member3")
+                .Column<string>("Funds3")
+                .Column<string>("Member4")
+                .Column<string>("Funds4")
+                .Column<string>("Member5")
+                .Column<string>("Funds5")
+                .Column<string>("Member6")
+                .Column<string>("Funds6")
+                .Column<string>("Member7")
+                .Column<string>("Funds7")
+                .Column<string>("Member8")
+                .Column<string>("Funds8")
+                .Column<string>("Member9")
+                .Column<string>("Funds9")
+                .Column<string>("Member10")
+                .Column<string>("Funds10")
+    
+
+                );
 
 
             return 8;
