@@ -1,7 +1,7 @@
 ﻿@primary-color: #2D44AA;
-@primary-nav-color: #252F4A;
+@primary-nav-color: white;
 @top-bar-color: black;
-@carousel-caption-color: rgba(45, 68, 170, 0.8);
+@carousel-caption-color: rgba(0, 0, 0, 0.6);
 @column-line-color: #DCDCDC;
 @divider-color: rgba(0, 0, 0, 0.1);
 @text-color: #333333;
@@ -37,92 +37,94 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
-//中文
-.home-search {
-    height: 46px;
-    background-color: black;
-    .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
-        background-color: transparent;
-        color: white;
-   }
-    .btn-group .btn{
-        line-height: 46px;
-        padding: 0 1em 0 1em;
-        border-radius: 0;
-        background-color: transparent;
-        color: white;
-        margin-right: 1em;
-        border: none;
-    }
-    .input-group input, .home-search .input-group button {
-        padding: 0 1.5em 0 1.5em;
-        height: 46px;
-        border-radius: 0;
-        background-color: #303030;
-        color: white;
-        border: none;
-    }
-    .input-group button {
-        background-repeat: no-repeat;
-        background-image: url("../Content/images/ic_nav_search.png");
-        background-position: center;
-        background-size: 20px 20px;
-        border-left: 1px solid rgba(255,255,255,0.2);
-    }
-}
-
 
 //中文网站
 .home  {
+    .top-bg {
+        padding-top: 1em;
+        padding-right: 1em;
+        height: 190px;
+        width: 100%;
+        background-image:  url(../Content/images/cn/img_logo_top.png), url(../Content/images/cn/bg_ch_top.jpg);
+        background-position: center 70%, center;
+        background-size: auto cover;
+        background-repeat: no-repeat, no-repeat;
+        a {
+            color: white;
+            font-size: 0.8em;
+        }
+        .input-group {
+            input {
+                border-top-left-radius: 17px;
+                border-bottom-left-radius: 17px;
+                background-color: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+            }
+            button {
+                border-top-right-radius: 17px;
+                border-bottom-right-radius: 17px;
+                background-color: rgba(255,255,255,0.2);
+                border: none;
+                height: 34px;
+                color: white;
+                top: 0;
+            }
+        }
+    }
+    .navbar-default {
+        border: none;
+    }
     .navbar.navbar-default {
         background-color: @primary-nav-color;
         margin-bottom: 0;
+        
     }
 
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-        color: white;
+        color: @text-color;
         background-color: @primary-nav-color;
     }
 
     .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-        color: white;
-        font-size: 1em;
+        color: @primary-color;
+        font-size: 0.9em;
     }
 
     .navbar-default .navbar-nav > li > a {
-        color: white;
-        font-size: 1em;
+        color: @text-color;
+        font-size: 0.9em;
+        line-height: 60px;
+        padding-top: 0;
+        
+        height: 60px;
+        
     }
+
+     .navbar-default .navbar-nav > li:not(:last-child) {
+         
+        background-image: url(../Content/images/cn/img_nav_line.png);
+        background-position: center right;
+        background-size: 1px 18px;
+        background-repeat: no-repeat;
+     }
 
     .navbar.center .navbar-inner {
         text-align: center;
+        height: 60px;
     }
 
     .navbar.center .navbar-inner .nav {
         display: inline-block;
         float: none;
+        
     }
 
     .navbar-default .navbar-nav > li {
-        margin: auto 0.25em auto 0.25em;
+        margin: 0;
+        padding-right: 0.2em;
     }
-    .cn-home{
-        .top-bg {
-            width: 100%;
-            height: 190px;
-            background-image: url("../Content/images/cn/top-bg.png");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .top-bg .img-container {
-            line-height: 190px;
-        }
-        .top-bg img {
-            width: 661px;
-            height: 103px;
-        }
-    }
+    
     .footer {
         padding: 2em 2em 1em 2em;
         width: 100%;
@@ -178,7 +180,7 @@ body {
         width: 100%;
         .carousel-inner .item {
             width: 100%;
-            height: 60700/1920vw;
+            height: 56000/1920vw;
             vertical-align: middle;
 	        -webkit-background-size: cover;
 	        -moz-background-size: cover;
@@ -192,10 +194,11 @@ body {
             left: 0;
             right: 0;
             bottom: 0;
-            font-size: 1.2em;
+            font-size: 1em;
             padding-top: 18px;
             padding-bottom: 18px;
             text-shadow: none;
+            text-align: left;
         }
     
         .carousel-indicators {
@@ -206,21 +209,21 @@ body {
         }
         .carousel-indicators-numbers {
             li {
+                font-size: 0.8em;
               text-indent: 0;
-              margin: 0 2px;
-              width: 30px;
-              height: 30px;
+              margin: 4px 0 0 0;
+              width: 26px;
+              height: 26px;
               border: 1px solid white;
               border-radius: 0;
-              line-height: 30px;
+              line-height: 26px;
               color: #fff;
               background-color: transparent;
               transition: all 0.25s ease;
               &.active, &:hover {
-                color: @primary-color;
-                margin: 0 2px;
-                width: 30px;
-                height: 30px;
+                color: @text-color;
+                
+                
                 background-color: white;        
               }
         }
@@ -1337,42 +1340,58 @@ only screen and (max-width: 480px) {
         background-color: transparent;
     }
     //中文
-    .top-bg {
-        height: 95px;
+    .home {
+        .navbar-default {
+            border: none;
+            z-index: 999 !important;
+        }
+        .navbar.navbar-default {
+            background-color: @primary-color;
+            margin-bottom: 0;
+        
+        }
+        .navbar-brand {
+            padding: 0;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+        }
+        .navbar-default .navbar-collapse {
+            background-color: @primary-color;
+            
+        }
+        .navbar.center .navbar-inner {
+            text-align: left;
+            height: 40px;
+        }
+
+        .navbar.center .navbar-inner .nav {
+            display: block;
+            float: none;
+        }
+        .footer img {
+            width: 182px;
+            height: 29px;
+        }
+        #carousel-home {
+            .carousel-inner .item {
+                height: 300px;
+            }
+            .carousel-caption {
+                font-size: 1em;
+                text-align: left;
+            }
+            .carousel-indicators {
+                left: 90%;
+                right: 10%;
+                width: auto;
+                bottom: 0px;
+            }
+        }
+        
     }
-    .top-bg .img-container {
-        line-height: 95px;
-    }
-    .top-bg img {
-        width: 330px;
-        height: 51px;
-    }
-    .footer img {
-        width: 182px;
-        height: 29px;
-    }
-    .carousel-inner .item {
-        height: 250px;
-    }
-    #carousel-home .carousel-caption {
-        font-size: 1em;
-        text-align: left;
-    }
-    #carousel-home .carousel-indicators {
-        left: 90%;
-        right: 10%;
-        width: auto;
-        bottom: 0px;
-    }
-    .cn-home-columns {
-        padding: 1em;
-    }
-    .cn-home-columns .nav-pills a {
-        font-size: 0.9em;
-        color: black;
-        border-radius: 0;
-       
-    }
+    
+
     //英文
     .en-home {
         .navbar-default .navbar-nav > .active > a {
