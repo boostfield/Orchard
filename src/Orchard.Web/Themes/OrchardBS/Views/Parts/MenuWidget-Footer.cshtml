@@ -1,14 +1,26 @@
 ﻿
 <div class="footer-links">
     <div class="container">
-        <h1>Related Links</h1>
+        @{
+            string requestUrl = Request.Path.ToUpperInvariant();
+
+        }
+        @if (requestUrl.Contains("EN/"))
+        {
+            <h1>Related Links</h1>
+        }
+        else
+        {
+            <h1>友情链接</h1>
+        }
+
         <div class="links">
             @foreach (var menu in Model.Menu.Items)
             {
                 <a href="@menu.Href">@menu.Text</a>
             }
-            
-            
+
+
         </div>
     </div>
 </div>
