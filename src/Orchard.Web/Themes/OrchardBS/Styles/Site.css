@@ -28,7 +28,7 @@
   width: 100%;
   background-image: url(../Content/images/cn/img_logo_top.png), url(../Content/images/cn/bg_ch_top.jpg);
   background-position: center 70%, center;
-  background-size: auto cover;
+  background-size: auto, cover;
   background-repeat: no-repeat, no-repeat;
 }
 .home .top-bg a {
@@ -79,7 +79,7 @@
 .home .navbar-default .navbar-nav > li:not(:last-child) {
   background-image: url(../Content/images/cn/img_nav_line.png);
   background-position: center right;
-  background-size: 1px 18px;
+  background-size: 1.5px 16px;
   background-repeat: no-repeat;
 }
 .home .navbar.center .navbar-inner {
@@ -95,47 +95,54 @@
   padding-right: 0.2em;
 }
 .home .footer {
-  padding: 2em 2em 1em 2em;
-  width: 100%;
-  background-image: url("../Content/images/cn/footer-bg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   color: white;
-}
-.home .footer img {
-  margin-bottom: 2em;
-}
-.home .footer a.main-link {
-  font-size: 0.9em;
-  color: white;
-  margin: auto 1em auto 1em;
-  cursor: pointer;
-  text-decoration: none;
-}
-.home .footer p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 1.5em;
-  font-size: 0.7em;
-  line-height: 1.75em;
 }
 .home .footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.home .footer .copyright {
-  font-size: 0.7em;
-  color: rgba(255, 255, 255, 0.3);
+.home .footer .footer-entry {
+  width: 100%;
+  background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 4em;
+  padding-bottom: 4em;
 }
-.home .footer #footer li {
-  display: inline;
+.home .footer .footer-entry .main-link {
   margin-right: 1em;
-  font-size: 0.7em;
-}
-.home .footer #footer li > a {
-  color: rgba(255, 255, 255, 0.3);
-}
-.home .footer #footer h3 {
+  color: white;
   font-size: 0.9em;
+  margin-bottom: 2em;
+  display: inline-block;
+}
+.home .footer .footer-entry p {
+  font-size: 0.7em;
+  font-weight: lighter;
+  margin-top: 1em;
+}
+.home .footer .footer-entry p > a {
+  font-size: 0.7em;
+  font-weight: normal;
+  color: white;
+}
+.home .footer .footer-links {
+  background: #262F49;
+  padding: 1em 0 0 1em;
+}
+.home .footer .footer-links h1 {
+  font-size: 0.9em;
+}
+.home .footer .footer-links a {
+  font-size: 0.6em;
+  font-weight: lighter;
+  color: white;
+}
+.home .footer .copyright {
+  background: #262F49;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6em;
+  padding-bottom: 1em;
 }
 .home #carousel-home {
   width: 100%;
@@ -163,8 +170,8 @@
   text-align: left;
 }
 .home #carousel-home .carousel-indicators {
-  left: 90%;
-  right: 10%;
+  left: 80%;
+  right: 12%;
   width: auto;
   bottom: 10px;
 }

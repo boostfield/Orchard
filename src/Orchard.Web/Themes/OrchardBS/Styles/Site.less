@@ -47,7 +47,7 @@ body {
         width: 100%;
         background-image:  url(../Content/images/cn/img_logo_top.png), url(../Content/images/cn/bg_ch_top.jpg);
         background-position: center 70%, center;
-        background-size: auto cover;
+        background-size: auto, cover;
         background-repeat: no-repeat, no-repeat;
         a {
             color: white;
@@ -105,7 +105,7 @@ body {
          
         background-image: url(../Content/images/cn/img_nav_line.png);
         background-position: center right;
-        background-size: 1px 18px;
+        background-size: 1.5px 16px;
         background-repeat: no-repeat;
      }
 
@@ -126,53 +126,55 @@ body {
     }
     
     .footer {
-        padding: 2em 2em 1em 2em;
-        width: 100%;
-        background-image: url("../Content/images/cn/footer-bg.png");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        
         color: white;
-
-        img {
-            margin-bottom: 2em;
-        }
-
-        a.main-link {
-            font-size: 0.9em;
-            color: white;
-            margin: auto 1em auto 1em;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        p {
-            color: rgba(255,255,255,0.7);
-            margin-top: 1.5em;
-            font-size: 0.7em;
-            line-height: 1.75em;
-        }
-
         hr {
             border-top: 1px solid rgba(255,255,255,0.1);
         }
+        .footer-entry {
+            width: 100%;
+            background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-top: 4em;
+            padding-bottom: 4em;
+            .main-link {
+                margin-right: 1em;
+                color: white;
+                font-size: 0.9em;
+                margin-bottom: 2em;
+                display: inline-block;
+            }
+            p {
+                font-size: 0.7em;
+                font-weight: lighter;
+                margin-top: 1em;
+            }
+            p>a {
+                font-size: 0.7em;
+                font-weight: normal;
+                color: white;
+            }
 
+        }
+        .footer-links {
+            background: #262F49;
+            padding: 1em 0 0 1em;
+            h1 {
+                font-size: 0.9em;
+            }
+            a {
+                font-size: 0.6em;
+                font-weight: lighter;
+                color: white;
+            }
+        }
         .copyright {
-            font-size: 0.7em;
-            color: rgba(255,255,255,0.3);
-        }
-
-        #footer li {
-            display: inline;
-           margin-right: 1em;
-            font-size: 0.7em;
-        }
-        #footer li>a {
-             color: rgba(255,255,255,0.3);
-        }
-
-        #footer h3 {
-            font-size: 0.9em;
+            background: #262F49;
+            color: rgba(255,255,255, 0.4);
+            font-size: 0.6em;
+            padding-bottom: 1em;
         }
     }
     //首页头部轮播
@@ -202,8 +204,8 @@ body {
         }
     
         .carousel-indicators {
-            left: 90%;
-            right: 10%;
+            left: 80%;
+            right: 12%;
             width: auto;
             bottom: 10px;
         }
