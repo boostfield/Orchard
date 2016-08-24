@@ -269,7 +269,30 @@ body {
             border-radius: 0;
         }
     }
-    
+    .detail-header {
+            background-color: #FCFCFC;
+            
+            .container {
+                background-color: white;
+            }
+            .title {
+                font-size: 1.3em;
+                color: @primary-color;
+                margin-top: 2em;
+            }
+            .author, .time, .count {
+                font-size: 0.7em;
+                color: @text-second-color;
+            }
+        }
+        .detail-container {
+            background-color: #FCFCFC;
+            .container {
+                background-color: white;
+                padding-top: 2em;
+                padding-bottom: 2em;
+            }
+        }
 } 
 
 //分页控件
@@ -1439,6 +1462,10 @@ only screen and (max-width: 480px) {
     }
     //院庆
     .anniversary {
+        .top-nav-bg {
+            background-image: none;
+            background: @anniversary-primary-color;
+        }
         .navbar .navbar-brand img{
             width: 193px;
             height: 48px;
@@ -1447,6 +1474,7 @@ only screen and (max-width: 480px) {
         .navbar-brand {
             padding: 0;
         }
+
         .top-bg {
             height: 400px;
         }

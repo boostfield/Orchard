@@ -225,6 +225,31 @@
 .home .cn-list .list-group-item:last-child {
   border-radius: 0;
 }
+.home .detail-header {
+  background-color: #FCFCFC;
+}
+.home .detail-header .container {
+  background-color: white;
+}
+.home .detail-header .title {
+  font-size: 1.3em;
+  color: #2D44AA;
+  margin-top: 2em;
+}
+.home .detail-header .author,
+.home .detail-header .time,
+.home .detail-header .count {
+  font-size: 0.7em;
+  color: #999999;
+}
+.home .detail-container {
+  background-color: #FCFCFC;
+}
+.home .detail-container .container {
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
 #pagination .pagination > li > a,
 #pagination .pagination > li > span {
   border: none;
@@ -1327,6 +1352,10 @@
   .en-footer .footer-first img {
     width: 98px;
     height: 117.5px;
+  }
+  .anniversary .top-nav-bg {
+    background-image: none;
+    background: #D0021B;
   }
   .anniversary .navbar .navbar-brand img {
     width: 193px;

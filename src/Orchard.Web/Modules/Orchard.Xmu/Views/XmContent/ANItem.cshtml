@@ -5,17 +5,20 @@
 <div class="top-nav-bg">
 
 </div>
-<div class="container-fluid detail-header">
-    <div class="container text-center">
-        <h1 class="title">@ViewBag.Item.Title</h1>
-        <span class="author">发布人: @ViewBag.Item.Author | </span>
-        <span class="time">发布时间: @ViewBag.Item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
-        <span class="count">阅读数: @ViewBag.Item.ViewCount</span>
+<article>
+    <div class="container-fluid detail-header">
+        <div class="container text-center">
+            <h1 class="title">@ViewBag.Item.Title</h1>
+            <span class="author">发布人: @ViewBag.Item.Author | </span>
+            <span class="time"> 发布时间: @ViewBag.Item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
+            <span class="count"> 阅读数: @ViewBag.Item.ViewCount</span>
+            <hr />
+        </div>
     </div>
-</div>
-<div class="container-fluid detail-container">
-    <div class="container">
-        @htmlString
-    </div>
+    <div class="container-fluid detail-container">
+        <div class="container">
+            @htmlString
+        </div>
 
-</div>
+    </div>
+</article>
