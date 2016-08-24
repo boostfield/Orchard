@@ -74,6 +74,7 @@ body {
     }
     .navbar-default {
         border: none;
+        border-bottom: 1px solid @divider-color;
     }
     .navbar.navbar-default {
         background-color: @primary-nav-color;
@@ -124,7 +125,27 @@ body {
         margin: 0;
         padding-right: 0.2em;
     }
-    
+
+    .navbar-nav>li>.dropdown-menu {
+        background-color: @primary-color;
+        min-width: 0px;
+        margin-top: -1px;
+    }
+    .dropdown-menu>li>a {
+        color: white;
+    }
+    .dropdown-menu > li:hover {
+        background-color: @primary-color;
+        color: white;
+    }
+    .dropdown-menu > li>a:hover {
+        background-color: @primary-color;
+        color: white;
+    }
+    .navbar-default .navbar-nav > li.dropdown > a:focus, .navbar-default .navbar-nav > li.dropdown > a:hover {
+        color: white;
+        background-color: @primary-color;
+    }
     .footer {
         
         color: white;
@@ -422,15 +443,28 @@ body {
     .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
         background-color: transparent;
     }
+    .dropdown-menu {
+        min-width: 0px;
+        background-color: @primary-color;
+    }
     .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-        color: @text-color;
-        background-color: #f5f5f5;
+        color: white;
+        background-color: @primary-color;
+    }
+    .dropdown-menu>li>a {
+        color: white;
+    }
+    .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+        color: white;
+        background-color: @primary-color;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
     }
     .navbar-default .navbar-nav > li > a {
         color: white;
         font-size: 0.8em;
         height: 60px;
-        
         line-height: 60px;
         padding-top: 0;
     }
@@ -1394,6 +1428,9 @@ only screen and (max-width: 480px) {
             display: block;
             float: none;
         }
+        .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+            color: white;
+        }
         .footer img {
             width: 182px;
             height: 29px;
@@ -1462,6 +1499,11 @@ only screen and (max-width: 480px) {
     }
     //院庆
     .anniversary {
+        .top-bg {
+            height: 250px;
+            background-image: none;
+            background: @anniversary-primary-color;
+        }
         .top-nav-bg {
             background-image: none;
             background: @anniversary-primary-color;
@@ -1475,9 +1517,7 @@ only screen and (max-width: 480px) {
             padding: 0;
         }
 
-        .top-bg {
-            height: 400px;
-        }
+        
         #carousel-anniversary {
             margin-top: -100px;
             .carousel-inner .item {

@@ -53,6 +53,7 @@
 }
 .home .navbar-default {
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .home .navbar.navbar-default {
   background-color: white;
@@ -93,6 +94,27 @@
 .home .navbar-default .navbar-nav > li {
   margin: 0;
   padding-right: 0.2em;
+}
+.home .navbar-nav > li > .dropdown-menu {
+  background-color: #2D44AA;
+  min-width: 0px;
+  margin-top: -1px;
+}
+.home .dropdown-menu > li > a {
+  color: white;
+}
+.home .dropdown-menu > li:hover {
+  background-color: #2D44AA;
+  color: white;
+}
+.home .dropdown-menu > li > a:hover {
+  background-color: #2D44AA;
+  color: white;
+}
+.home .navbar-default .navbar-nav > li.dropdown > a:focus,
+.home .navbar-default .navbar-nav > li.dropdown > a:hover {
+  color: white;
+  background-color: #2D44AA;
 }
 .home .footer {
   color: white;
@@ -372,11 +394,26 @@
 .en-home .navbar-default .navbar-nav > .open > a:hover {
   background-color: transparent;
 }
+.en-home .dropdown-menu {
+  min-width: 0px;
+  background-color: #2D44AA;
+}
 .en-home .dropdown-menu > .active > a,
 .en-home .dropdown-menu > .active > a:focus,
 .en-home .dropdown-menu > .active > a:hover {
-  color: #333333;
-  background-color: #f5f5f5;
+  color: white;
+  background-color: #2D44AA;
+}
+.en-home .dropdown-menu > li > a {
+  color: white;
+}
+.en-home .dropdown-menu > li > a:focus,
+.en-home .dropdown-menu > li > a:hover {
+  color: white;
+  background-color: #2D44AA;
+}
+.en-home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: white;
 }
 .en-home .navbar-default .navbar-nav > li > a {
   color: white;
@@ -1303,6 +1340,9 @@
     display: block;
     float: none;
   }
+  .home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+  }
   .home .footer img {
     width: 182px;
     height: 29px;
@@ -1353,6 +1393,11 @@
     width: 98px;
     height: 117.5px;
   }
+  .anniversary .top-bg {
+    height: 250px;
+    background-image: none;
+    background: #D0021B;
+  }
   .anniversary .top-nav-bg {
     background-image: none;
     background: #D0021B;
@@ -1363,9 +1408,6 @@
   }
   .anniversary .navbar-brand {
     padding: 0;
-  }
-  .anniversary .top-bg {
-    height: 400px;
   }
   .anniversary #carousel-anniversary {
     margin-top: -100px;
