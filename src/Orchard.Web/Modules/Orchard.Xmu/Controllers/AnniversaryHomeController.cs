@@ -45,7 +45,7 @@ namespace Orchard.Xmu.Controllers
                 .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
                 .List()
                 .Select(p => p.As<NinetyCelebrationDonationPart>())
-                .ToList();
+                .OrderByDescending(i => i.DonationTime).ToList();
             ViewBag.articles = _contentManager.Query(VersionOptions.Latest, "CelMatesArticle")
                 .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
                 .Slice(0, 3)

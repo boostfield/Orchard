@@ -150,6 +150,10 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="TheAdmin\Styles\site-admin.css">
+      <DependentUpon>site-admin.less</DependentUpon>
+    </Content>
+    <Content Include="TheAdmin\Styles\site-admin.less" />
     <None Include="OrchardBS\Styles\Site.less" />
     <Content Include="OrchardBS\Styles\Site.css">
       <DependentUpon>Site.less</DependentUpon>
@@ -165,6 +169,7 @@
     <Content Include="TheAdmin\Styles\ie8.css" />
     <Content Include="TheAdmin\Styles\images\adminNavBackground.gif" />
     <Content Include="TheAdmin\Styles\images\error.gif" />
+    <Content Include="TheAdmin\Styles\images\favicon.ico" />
     <Content Include="TheAdmin\Styles\images\icon-advisory.png" />
     <Content Include="TheAdmin\Styles\images\icon-contribute.png" />
     <Content Include="TheAdmin\Styles\images\icon-docs.png" />
@@ -182,6 +187,9 @@
     <Content Include="TheAdmin\Styles\images\menuOpenHover.gif" />
     <Content Include="TheAdmin\Styles\images\vinesBackgroundBottom.gif" />
     <Content Include="TheAdmin\Styles\images\menu-filter.png" />
+    <Content Include="TheAdmin\Styles\site-admin.min.css">
+      <DependentUpon>site-admin.css</DependentUpon>
+    </Content>
     <Content Include="TheThemeMachine\Styles\default-grid.css" />
     <Content Include="TheThemeMachine\Styles\Site.css" />
     <Content Include="TheThemeMachine\Theme.png" />

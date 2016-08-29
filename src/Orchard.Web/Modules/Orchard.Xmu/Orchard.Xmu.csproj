@@ -250,6 +250,7 @@
     <Compile Include="Service\AdminPagingService.cs" />
     <Compile Include="Service\IXmMenuService.cs" />
     <Compile Include="Service\XmMenuService.cs" />
+    <Compile Include="ViewModels\DonationVM.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\LectureVM.cs" />
     <Compile Include="ViewModels\XmContentVM.cs" />
