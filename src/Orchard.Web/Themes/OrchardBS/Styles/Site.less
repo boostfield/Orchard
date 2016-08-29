@@ -37,7 +37,6 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
-
 //中文网站
 .home  {
     .top-bg {
@@ -926,6 +925,9 @@ body {
         background-color: transparent;
         border: none;
         margin-bottom: 0;
+        background-image: url(../Content/images/anniversary/nav-logo.png);
+        background-position: 4% center;
+        background-repeat: no-repeat;
     }
     .navbar .navbar-brand {
         height: 140px;
@@ -945,13 +947,14 @@ body {
         background-color: transparent;
 
     }
+    
     .content {
         margin-top: -140px;
         background-color: #FCFCFC;
         min-height: 640px;
     }
     .top-bg {
-        height: 721px;
+        height: 633px;
         background-image: url('../Content/images/anniversary/nav-home-bg.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -1012,11 +1015,13 @@ body {
         }
         .carousel-control  {
             background-image: none;
-            width: 5%;
+            width: 4.8%;
             opacity: 1;
         }
         
         .carousel-control img {
+            text-overflow: clip;
+            overflow: hidden;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -1101,8 +1106,6 @@ body {
         #news-ticker {
             padding-left: 8px;
             
-            list-style-type: none;
-            list-style: none;
         }
         #news-ticker li {
             font-size: 0.8em;
@@ -1537,16 +1540,25 @@ only screen and (max-width: 480px) {
             background-image: none;
             background: @anniversary-primary-color;
         }
-        .navbar .navbar-brand img{
-            width: 193px;
-            height: 48px;
+        .navbar .navbar-brand {
+            padding: 4px;
+            img {
+                width: 193px;
+            height: 47px;
+            }
+            
             
         }
-        .navbar-brand {
-            padding: 0;
+        .navbar {
+            background-image: none;
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
         }
-
-        
+        .navbar-collapse {
+            background-color: @anniversary-primary-color;
+        }
         #carousel-anniversary {
             margin-top: -100px;
             .carousel-inner .item {

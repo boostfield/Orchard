@@ -851,6 +851,9 @@
   background-color: transparent;
   border: none;
   margin-bottom: 0;
+  background-image: url(../Content/images/anniversary/nav-logo.png);
+  background-position: 4% center;
+  background-repeat: no-repeat;
 }
 .anniversary .navbar .navbar-brand {
   height: 140px;
@@ -876,7 +879,7 @@
   min-height: 640px;
 }
 .anniversary .top-bg {
-  height: 721px;
+  height: 633px;
   background-image: url('../Content/images/anniversary/nav-home-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -937,10 +940,12 @@
 }
 .anniversary #carousel-anniversary .carousel-control {
   background-image: none;
-  width: 5%;
+  width: 4.8%;
   opacity: 1;
 }
 .anniversary #carousel-anniversary .carousel-control img {
+  text-overflow: clip;
+  overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1030,8 +1035,6 @@
 }
 .anniversary .donation #news-ticker {
   padding-left: 8px;
-  list-style-type: none;
-  list-style: none;
 }
 .anniversary .donation #news-ticker li {
   font-size: 0.8em;
@@ -1427,12 +1430,22 @@
     background-image: none;
     background: #D0021B;
   }
+  .anniversary .navbar .navbar-brand {
+    padding: 4px;
+  }
   .anniversary .navbar .navbar-brand img {
     width: 193px;
-    height: 48px;
+    height: 47px;
   }
-  .anniversary .navbar-brand {
-    padding: 0;
+  .anniversary .navbar {
+    background-image: none;
+  }
+  .anniversary .navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .anniversary .navbar-collapse {
+    background-color: #D0021B;
   }
   .anniversary #carousel-anniversary {
     margin-top: -100px;
