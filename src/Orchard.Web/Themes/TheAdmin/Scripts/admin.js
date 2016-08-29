@@ -9,7 +9,7 @@
             var settings = $.extend({
                 path: "/",
                 key: _this.selector,
-                collapse: true,
+                collapse: false,
                 remember: true
             }, options);
             _this.each(function (index, element) {

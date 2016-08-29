@@ -986,6 +986,7 @@ body {
         }
         .copyright a {
             color: white;
+            font-size: 1em;
         }
         hr {
             border-top: 1px solid rgba(255,255,255,0.3);
@@ -1093,7 +1094,7 @@ body {
         margin-top: 4em;
     }
     .donation {
-        padding: 2em 2em 3em 2em;
+        padding: 2em 2em 2em 2em;
         margin-left: 1em;
         background-color: white;
         color: @anniversary-primary-color;
@@ -1105,11 +1106,11 @@ body {
         font-weight: bold;
         #news-ticker {
             padding-left: 8px;
-            
+            list-style:circle;
         }
         #news-ticker li {
             font-size: 0.8em;
-            
+            list-style:circle;
         }
         .title {
             margin: 1em;
@@ -1140,6 +1141,18 @@ body {
             width: 20%;
             white-space: nowrap;
         
+        }
+        a.more {
+            font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            text-decoration: none;
+            margin: 0 0 1em 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 2px solid @anniversary-primary-color;
+            padding-bottom: 3px;
         }
     }
     .banner3, .banner4 {
@@ -1239,35 +1252,41 @@ body {
 	        cursor: pointer;
             position: relative;
         
-            a.text-content {
+            .text-content {
               width: 100%;
-          
               max-width: 400px;
               right: 0;
-              top: 37px;
+              top: 35px;
               bottom: 10px;
               left: 0;
-              color: white;
               cursor: pointer;
               text-decoration: none;
-              height: 150px;
-              max-height: 150px;
+              height: 151px;
+              max-height: 151px;
               position: absolute;
               background: rgba(208,1,27,0.80);
-              font-size: 0.4em;
               opacity: 0;
-              text-wrap: normal;
-              font-family: @anniversary-font;
-              font-weight: bold;
-          
-              letter-spacing: 0px;
-              text-shadow: 0px 2px 3px rgba(0,0,0,0.40);
               .transition-all;
+              a {
+                  font-size: 0.4em;
+                  color: white;
+                  display: block;
+                  line-height: 20px;
+                  text-decoration: none;
+                  font-family: @anniversary-font;
+                  font-weight: bold;
+                  letter-spacing: 0px;
+                  text-shadow: 0px 2px 3px rgba(0,0,0,0.40);
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+              }
             }
 
     
         }
-        .frame ul li:hover a.text-content {
+        .frame ul li:hover .text-content {
               opacity: 1;
         }
 
@@ -1402,11 +1421,49 @@ body {
 //移动端适配
 @media only screen
 and (max-device-width: 768px) {
-    .cn-home-columns .nav-pills a {
-        font-size: 0.9em;
-        color: black;
-        border-radius: 0;
-       
+     .navbar button.navbar-toggle {
+            background-color: transparent;
+            border: none;
+        }
+    .navbar-default .navbar-toggle .icon-bar {
+            background-color: white;
+    }
+    .navbar .collapse, .navbar .collapsing {
+            float: none !important;
+            border: none;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border: none;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .anniversary {
+        .navbar .navbar-brand {
+            padding: 4px;
+            img {
+                width: 193px;
+            height: 47px;
+            }
+        }
+        .navbar {
+            background-image: none;
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .navbar-header {
+            height: 50px;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+            font-size: 1em;
+            height: 50px;
+            line-height: 50px;
+            padding-top: 0;
+            
+        }
     }
 }
 @media only screen

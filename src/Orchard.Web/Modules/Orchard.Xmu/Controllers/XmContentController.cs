@@ -141,6 +141,7 @@ namespace Orchard.Xmu.Controllers
                 items = q.Slice(pager.GetStartIndex(), pager.PageSize)
                 .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
             }
+            
             else
             {
                 items = q.Slice(pager.GetStartIndex(), pager.PageSize)

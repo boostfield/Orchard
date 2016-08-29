@@ -912,6 +912,7 @@
 }
 .anniversary .anniversary-footer .copyright a {
   color: white;
+  font-size: 1em;
 }
 .anniversary .anniversary-footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -1022,7 +1023,7 @@
   margin-top: 4em;
 }
 .anniversary .donation {
-  padding: 2em 2em 3em 2em;
+  padding: 2em 2em 2em 2em;
   margin-left: 1em;
   background-color: white;
   color: #D0021B;
@@ -1035,9 +1036,11 @@
 }
 .anniversary .donation #news-ticker {
   padding-left: 8px;
+  list-style: circle;
 }
 .anniversary .donation #news-ticker li {
   font-size: 0.8em;
+  list-style: circle;
 }
 .anniversary .donation .title {
   margin: 1em;
@@ -1065,6 +1068,18 @@
   text-align: right;
   width: 20%;
   white-space: nowrap;
+}
+.anniversary .donation a.more {
+  font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
+  color: #D0021B;
+  font-size: 0.8em;
+  text-decoration: none;
+  margin: 0 0 1em 0;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 2px solid #D0021B;
+  padding-bottom: 3px;
 }
 .anniversary .banner3,
 .anniversary .banner4 {
@@ -1164,32 +1179,40 @@
   cursor: pointer;
   position: relative;
 }
-.anniversary .frame ul li a.text-content {
+.anniversary .frame ul li .text-content {
   width: 100%;
   max-width: 400px;
   right: 0;
-  top: 37px;
+  top: 35px;
   bottom: 10px;
   left: 0;
-  color: white;
   cursor: pointer;
   text-decoration: none;
-  height: 150px;
-  max-height: 150px;
+  height: 151px;
+  max-height: 151px;
   position: absolute;
   background: rgba(208, 1, 27, 0.8);
-  font-size: 0.4em;
   opacity: 0;
-  text-wrap: normal;
-  font-family: "STSongti-SC";
-  font-weight: bold;
-  letter-spacing: 0px;
-  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
   -webkit-transition: all 0.25s;
   -moz-transition: all 0.25s;
   transition: all 0.25s;
 }
-.anniversary .frame ul li:hover a.text-content {
+.anniversary .frame ul li .text-content a {
+  font-size: 0.4em;
+  color: white;
+  display: block;
+  line-height: 20px;
+  text-decoration: none;
+  font-family: "STSongti-SC";
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.anniversary .frame ul li:hover .text-content {
   opacity: 1;
 }
 .anniversary .crazy img {
@@ -1316,10 +1339,49 @@
   color: #D0021B;
 }
 @media only screen and (max-device-width: 768px) {
-  .cn-home-columns .nav-pills a {
-    font-size: 0.9em;
-    color: black;
-    border-radius: 0;
+  .navbar button.navbar-toggle {
+    background-color: transparent;
+    border: none;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .navbar .collapse,
+  .navbar .collapsing {
+    float: none !important;
+    border: none;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+  }
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+  }
+  .anniversary .navbar .navbar-brand {
+    padding: 4px;
+  }
+  .anniversary .navbar .navbar-brand img {
+    width: 193px;
+    height: 47px;
+  }
+  .anniversary .navbar {
+    background-image: none;
+  }
+  .anniversary .navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .anniversary .navbar-header {
+    height: 50px;
+  }
+  .anniversary .navbar-default .navbar-nav > li > a {
+    color: white;
+    font-size: 1em;
+    height: 50px;
+    line-height: 50px;
+    padding-top: 0;
   }
 }
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) {
