@@ -1,7 +1,7 @@
 ﻿body {
   font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
   font-size: 20px;
-  color: black;
+  color: #333333;
 }
 #content {
   min-height: 500px;
