@@ -160,11 +160,23 @@
   font-weight: lighter;
   color: white;
 }
+.home .footer .footer-links hr {
+  margin-bottom: 0;
+}
 .home .footer .copyright {
   background: #262F49;
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.6em;
+  padding-top: 1em;
   padding-bottom: 1em;
+}
+.home .logreg label {
+  font-size: 0.7em;
+}
+.home .logreg .btn-primary {
+  background-color: #2D44AA;
+  border: none;
+  border-radius: 0;
 }
 .home #carousel-home {
   width: 100%;
