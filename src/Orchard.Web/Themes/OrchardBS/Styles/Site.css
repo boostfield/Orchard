@@ -21,6 +21,19 @@
   margin-left: 0;
   margin-right: 0;
 }
+.dropdown .dropdown-menu {
+  display: block;
+  opacity: 0;
+  -moz-transition: all 1000ms ease;
+  -webkit-transition: all 1000ms ease;
+  -o-transition: all 1000ms ease;
+  -ms-transition: all 1000ms ease;
+  transition: all 1000ms ease;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
 .home .top-bg {
   padding-top: 1em;
   padding-right: 1em;
@@ -104,17 +117,12 @@
   color: white;
 }
 .home .dropdown-menu > li:hover {
-  background-color: #2D44AA;
+  background-color: white;
   color: white;
 }
 .home .dropdown-menu > li > a:hover {
   background-color: #2D44AA;
   color: white;
-}
-.home .navbar-default .navbar-nav > li.dropdown > a:focus,
-.home .navbar-default .navbar-nav > li.dropdown > a:hover {
-  color: white;
-  background-color: #2D44AA;
 }
 .home .footer {
   color: white;

@@ -37,6 +37,20 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+.dropdown .dropdown-menu{
+    display: block;
+    opacity: 0;
+
+    -moz-transition:    all 1000ms ease;
+    -webkit-transition: all 1000ms ease;
+    -o-transition:      all 1000ms ease;
+    -ms-transition:     all 1000ms ease;
+    transition:         all 1000ms ease;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
 //中文网站
 .home  {
     .top-bg {
@@ -134,17 +148,14 @@ body {
         color: white;
     }
     .dropdown-menu > li:hover {
-        background-color: @primary-color;
+        background-color: white;
         color: white;
     }
     .dropdown-menu > li>a:hover {
         background-color: @primary-color;
         color: white;
     }
-    .navbar-default .navbar-nav > li.dropdown > a:focus, .navbar-default .navbar-nav > li.dropdown > a:hover {
-        color: white;
-        background-color: @primary-color;
-    }
+
     .footer {
         
         color: white;
