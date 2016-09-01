@@ -78,6 +78,10 @@
       <Name>Orchard.Core</Name>
       <Private>false</Private>
     </ProjectReference>
+    <ProjectReference Include="..\NGM.ContentViewCounter\NGM.ContentViewCounter.csproj">
+      <Project>{29e9743a-b6e4-40fb-abba-569034abfe88}</Project>
+      <Name>NGM.ContentViewCounter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Autoroute\Orchard.Autoroute.csproj">
       <Project>{66fccd76-2761-47e3-8d11-b45d0001ddaa}</Project>
       <Name>Orchard.Autoroute</Name>
