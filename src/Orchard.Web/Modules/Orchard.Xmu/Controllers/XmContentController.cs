@@ -1,4 +1,5 @@
-﻿using Orchard.ContentManagement;
+﻿using NGM.ContentViewCounter.Events;
+using Orchard.ContentManagement;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Settings;
@@ -23,17 +24,20 @@ namespace Orchard.Xmu.Controllers
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
         private readonly IContentDefinitionManager _contentDefinitionManager;
+        private readonly IItemViewedEventHandler _itemViewedEventHandler;
 
         public XmContentController(IOrchardServices service,
              IFrontEndService frontEndService,
              IContentManager contentManager,
              IContentDefinitionManager contentDefinitionManager,
+             IItemViewedEventHandler itemViewedEventHandler,
             ISiteService siteService)
         {
 
             _service = service;
             _frontEndService = frontEndService;
             _contentManager = contentManager;
+            _itemViewedEventHandler = itemViewedEventHandler;
             _siteService = siteService;
             _contentDefinitionManager = contentDefinitionManager;
         }
@@ -80,6 +84,8 @@ namespace Orchard.Xmu.Controllers
                 ViewBag.Item = XmContentVM.FromXmContentPart(item.As<XmContentPart>());
 
             }
+
+            _itemViewedEventHandler.ContentItemViewed(item);
 
         }
 

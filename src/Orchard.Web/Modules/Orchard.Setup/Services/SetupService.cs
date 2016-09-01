@@ -206,10 +206,11 @@ namespace Orchard.Setup.Services {
             siteSettings.SiteSalt = Guid.NewGuid().ToString("N");
             siteSettings.SiteName = context.SiteName;
             siteSettings.SuperUser = context.AdminUsername;
-            siteSettings.SiteCulture = "en-US";
-
+            //siteSettings.SiteCulture = "en-US";
+            siteSettings.SiteCulture = "zh-CN";
             // Add default culture.
             var cultureManager = environment.Resolve<ICultureManager>();
+            cultureManager.AddCulture("zh-CN");
             cultureManager.AddCulture("en-US");
 
             var recipeManager = environment.Resolve<IRecipeManager>();
