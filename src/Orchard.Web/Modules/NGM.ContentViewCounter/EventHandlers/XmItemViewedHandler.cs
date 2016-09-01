@@ -1,48 +1,52 @@
-﻿using System;
+﻿using NGM.ContentViewCounter.Events;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using Orchard.ContentManagement;
 using Contrib.Voting.Services;
+using Orchard;
 using NGM.ContentViewCounter.Models;
 using NGM.ContentViewCounter.Settings;
-using Orchard;
-using Orchard.ContentManagement.Handlers;
 
-namespace NGM.ContentViewCounter.Handlers {
-    public class UserViewPartHandler : ContentHandler {
+namespace NGM.ContentViewCounter.EventHandlers
+{
+    public class XmItemViewedHandler : IItemViewedEventHandler
+    {
         private readonly IVotingService _votingService;
         private readonly IOrchardServices _orchardServices;
-
-        public UserViewPartHandler(
-            IVotingService votingService,
-            IOrchardServices orchardServices) {
+        public XmItemViewedHandler(IVotingService votingService,
+            IOrchardServices orchardServices)
+        {
             _votingService = votingService;
             _orchardServices = orchardServices;
-
-            OnGetDisplayShape<UserViewPart>((context, part) => {
-                var settings = part.Settings.GetModel<UserViewTypePartSettings>();
-                if (!context.DisplayType.Equals(settings.DisplayType, StringComparison.InvariantCultureIgnoreCase))
-                    return;
-
-                RecordView(part, settings);
-            });
-
-            OnLoading<UserViewPart>((context, UserView)=>
-            {
-                UserView.TotalViewField.Loader(
-                    () =>
-                    {
-                        var resultRecord = _votingService.GetResult(UserView.ContentItem.Id, "sum", Constants.Dimension);
-                        return resultRecord == null ? 0 : (int)resultRecord.Value;
-                    });
-             });
-
         }
 
-        private void RecordView(UserViewPart part, UserViewTypePartSettings settings) {
+        public void ContentItemViewed(ContentItem item)
+        {
+            System.Diagnostics.Debug.WriteLine("ContentItemViewed:" + item.ContentType);
+            var part = item.As<UserViewPart>();
+            if(part!=null)
+            {
+                var settings = part.Settings.GetModel<UserViewTypePartSettings>();
+                RecordView(part, settings);
+
+            }
+        }
+
+
+
+
+        private void RecordView(UserViewPart part, UserViewTypePartSettings settings)
+        {
             var currentUser = _orchardServices.WorkContext.CurrentUser;
 
-            if (currentUser != null) {
+            if (currentUser != null)
+            {
                 Vote(currentUser.UserName, part, settings);
-            } else if (settings.AllowAnonymousViews) {
+            }
+            else if (settings.AllowAnonymousViews)
+            {
                 var anonHostname = _orchardServices.WorkContext.HttpContext.Request.UserHostAddress;
                 if (!string.IsNullOrWhiteSpace(_orchardServices.WorkContext.HttpContext.Request.Headers["X-Forwarded-For"]))
                     anonHostname += "-" + _orchardServices.WorkContext.HttpContext.Request.Headers["X-Forwarded-For"];
@@ -51,10 +55,11 @@ namespace NGM.ContentViewCounter.Handlers {
             }
         }
 
-        private void Vote(string userName, UserViewPart part, UserViewTypePartSettings settings) {
-            var currentVote = _votingService.Get(vote => 
-                vote.ContentItemRecord == part.ContentItem.Record && 
-                vote.Username == userName && 
+        private void Vote(string userName, UserViewPart part, UserViewTypePartSettings settings)
+        {
+            var currentVote = _votingService.Get(vote =>
+                vote.ContentItemRecord == part.ContentItem.Record &&
+                vote.Username == userName &&
                 vote.Dimension == Constants.Dimension).FirstOrDefault();
 
             if (currentVote != null && settings.AllowMultipleViewsFromSameUserToCount)
