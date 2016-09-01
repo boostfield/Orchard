@@ -312,9 +312,14 @@ namespace Orchard.Xmu
             return 7;
         }
 
+
         public int UpdateFrom7()
         {
 
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyDonation.ContentTypeName,
+                cfg => cfg
+                .WithPart(typeof(BodyPart).Name)
+            );
             foreach (var mapping in XmContentType.NinetyMappings)
             {
 
@@ -324,7 +329,6 @@ namespace Orchard.Xmu
            );
 
             }
-
             return 8;
         }
 
