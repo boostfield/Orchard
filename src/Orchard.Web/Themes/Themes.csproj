@@ -49,6 +49,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -220,6 +221,8 @@
     <Content Include="OrchardBS\Views\Layout-url-anniversary.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryFooter.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryBadgeOfHonor.cshtml" />
+    <Content Include="OrchardBS\Views\Content-url-en-page.cshtml" />
+    <Content Include="OrchardBS\Views\Content-url-anniversary-page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Styles\images\icons.png" />
@@ -276,6 +279,10 @@
       <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
       <Name>Orchard.Framework</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\NGM.ContentViewCounter\NGM.ContentViewCounter.csproj">
+      <Project>{29e9743a-b6e4-40fb-abba-569034abfe88}</Project>
+      <Name>NGM.ContentViewCounter</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\Orchard.Layouts\Orchard.Layouts.csproj">
       <Project>{6bd8b2fa-f2e3-4ac8-a4c3-2925a653889a}</Project>

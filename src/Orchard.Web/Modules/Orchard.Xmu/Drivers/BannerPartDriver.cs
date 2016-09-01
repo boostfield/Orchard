@@ -1,4 +1,5 @@
-﻿using Orchard.ContentManagement.Drivers;
+﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.Drivers;
 using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
@@ -9,5 +10,6 @@ namespace Orchard.Xmu.Drivers
 {
     public class BannerPartDriver: ContentPartDriver<BannerPart>
     {
+        
     }
 }
