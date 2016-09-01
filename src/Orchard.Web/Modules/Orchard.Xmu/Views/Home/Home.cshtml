@@ -4,44 +4,6 @@
 }
 
 
-<div >
-    <h3>@ViewBag.hello</h3>
-    <h3>@ViewBag.taxonomyName</h3>
-    <h4>Count:@ViewBag.items.Count</h4>
-    @foreach (var titlePart in ViewBag.items)
-    {
-        <h2>@titlePart.Title</h2>
-        <h4>@titlePart.Text</h4>
-    }
-
-    <h1>Banners!!!</h1>
-    @foreach(var b in ViewBag.banners)
-    {
-        <h3>@b.Title</h3>
-        <h3>@b.ImageAddress</h3>
-        <h3>@b.LinkAddress</h3>
-    }
-
-    <h1>Menus</h1>
-    @foreach(var m in ViewBag.menus)
-    {
-        <label>Position:</label>
-        <h3>@m.Position</h3>
-
-        foreach(var menus in m.List)
-        {
-            <h5>@menus.Text</h5>
-            <h5>@menus.Url</h5>
-            <h5>@menus.Position</h5>
-
-        }
-
-
-
-    }
-
-</div>
-
 <div id="carousel-home" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators carousel-indicators-numbers">
@@ -55,27 +17,27 @@
         <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
             
             <div class="carousel-caption">
-                <div class="row">
+                <div class="container">
                     
-                    <div class="col-md-6 col-md-offset-1">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                    <div class="col-md-8">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
                 </div>
             </div>
         </div>
         <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
            
             <div class="carousel-caption" >
-                <div class="row">
+                <div class="container">
                     
-                    <div class="col-md-6 col-md-offset-1">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                    <div class="col-md-8">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
                 </div>
             </div>
         </div>
         <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
             
             <div class="carousel-caption">
-                <div class="row">
+                <div class="container">
                     
-                    <div class="col-md-6 col-md-offset-1">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+                    <div class="col-md-8">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
                 </div>
             </div>
         </div>

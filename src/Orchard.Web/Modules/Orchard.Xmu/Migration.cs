@@ -320,7 +320,17 @@ namespace Orchard.Xmu
                 cfg => cfg
                 .WithPart(typeof(BodyPart).Name)
             );
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .WithPart(typeof(XmContentPart).Name)
+           );
+
+            }
             return 8;
         }
+
     }
 }

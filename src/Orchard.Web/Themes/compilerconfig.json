@@ -2,5 +2,9 @@
   {
     "outputFile": "OrchardBS/Styles/Site.css",
     "inputFile": "OrchardBS/Styles/Site.less"
+  },
+  {
+    "outputFile": "TheAdmin/Styles/site-admin.css",
+    "inputFile": "TheAdmin/Styles/site-admin.less"
   }
 ]

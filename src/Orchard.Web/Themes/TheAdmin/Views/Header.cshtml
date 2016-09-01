@@ -6,6 +6,6 @@
     var appLinkText = !string.IsNullOrWhiteSpace(siteName) ? siteName : T("Project Orchard").Text;
 }
 <div id="branding">
-<div id="app">@Html.Link(appLinkText, Href("~/"))</div>
-<div id="site">@Html.Link(siteLinkText, Href("~/"))</div>
+<div id="app">@Html.Link("法学院后台管理系统", Href("~/Admin"))</div>
+<div id="site">@Html.Link("法学院后台管理系统", Href("~/Admin"))</div>
 </div>

@@ -53,10 +53,10 @@
 
 
     </div>
-    <a class="left carousel-control" href="#carousel-en" role="button" data-slide="prev">
+    <a class="left carousel-control hidden-xs" href="#carousel-en" role="button" data-slide="prev">
         <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_left_n.png"))" />
     </a>
-    <a class="right carousel-control" href="#carousel-en" role="button" data-slide="next">
+    <a class="right carousel-control hidden-xs" href="#carousel-en" role="button" data-slide="next">
         <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_right_n.png"))" />
     </a>
 </div>
@@ -91,7 +91,7 @@
         <div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
             <div class="en-column">
                 <span class="title ">Notice</span>
-                <a class="more pull-right">All Notice</a>
+                <a class="more pull-right" href="@Url.Action("ENPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CollegeENNotice"})">All Notice</a>
             </div>
             <ul class="notice list-group">
                 @foreach (var notice in ViewBag.notice)
@@ -122,7 +122,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12 entry">
                 <a href="@sec.LinkAddress">
                     <div class="content" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%), url('@sec.ImageAddress');">
-                        <p>@sec.Title</p>
+                        <p>@sec.Title.ToUpper()</p>
                     </div>
                 </a>
             </div>

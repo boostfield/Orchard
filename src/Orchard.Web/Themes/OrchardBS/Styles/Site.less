@@ -1,7 +1,7 @@
 ﻿@primary-color: #2D44AA;
-@primary-nav-color: #252F4A;
+@primary-nav-color: white;
 @top-bar-color: black;
-@carousel-caption-color: rgba(45, 68, 170, 0.8);
+@carousel-caption-color: rgba(0, 0, 0, 0.6);
 @column-line-color: #DCDCDC;
 @divider-color: rgba(0, 0, 0, 0.1);
 @text-color: #333333;
@@ -18,12 +18,17 @@
 body {
     font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
     font-size: 20px;
-    color: black;
+    color: @text-color;
+}
+//内容区域设置最小高度，避免内容过少导致footer上移
+#content {
+    min-height: 500px;
 }
 .container-fluid {
         padding-left: 0px;
         padding-right: 0px;
 }
+//取消row两侧的margin
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -32,195 +37,250 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
-//中文
-.home-search {
-    .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
-        background-color: transparent;
-        color: white;
-   }
-}
+.dropdown .dropdown-menu{
+    display: block;
+    opacity: 0;
 
-.home-search {
-    height: 46px;
-    background-color: black;
+    -moz-transition:    all 1000ms ease;
+    -webkit-transition: all 1000ms ease;
+    -o-transition:      all 1000ms ease;
+    -ms-transition:     all 1000ms ease;
+    transition:         all 1000ms ease;
 }
-.home-search .btn-group .btn{
-    line-height: 46px;
-    padding: 0 1em 0 1em;
-    border-radius: 0;
-    background-color: transparent;
-    color: white;
-    margin-right: 1em;
-    border: none;
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
 }
-.home-search .input-group input, .home-search .input-group button {
-    padding: 0 1.5em 0 1.5em;
-    height: 46px;
-    border-radius: 0;
-    background-color: #303030;
-    color: white;
-    border: none;
-}
-.home-search .input-group button {
-    background-repeat: no-repeat;
-    background-image: url("../Content/images/ic_nav_search.png");
-    background-position: center;
-    background-size: 20px 20px;
-    border-left: 1px solid rgba(255,255,255,0.2);
-}
+//中文网站
 .home  {
+    .top-bg {
+        padding-top: 1em;
+        padding-right: 1em;
+        height: 190px;
+        width: 100%;
+        background-image:  url(../Content/images/cn/img_logo_top.png), url(../Content/images/cn/bg_ch_top.jpg);
+        background-position: center 70%, center;
+        background-size: auto, cover;
+        background-repeat: no-repeat, no-repeat;
+        a {
+            color: white;
+            font-size: 0.8em;
+        }
+        .input-group {
+            input {
+                border-top-left-radius: 17px;
+                border-bottom-left-radius: 17px;
+                background-color: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+            }
+            button {
+                border-top-right-radius: 17px;
+                border-bottom-right-radius: 17px;
+                background-color: rgba(255,255,255,0.2);
+                border: none;
+                height: 34px;
+                color: white;
+                top: 0;
+            }
+        }
+    }
+    .navbar-default {
+        border: none;
+        border-bottom: 1px solid @divider-color;
+    }
     .navbar.navbar-default {
         background-color: @primary-nav-color;
         margin-bottom: 0;
+        
     }
 
     .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-        color: white;
+        color: @text-color;
         background-color: @primary-nav-color;
     }
 
     .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-        color: white;
-        font-size: 1em;
+        color: @primary-color;
+        font-size: 0.9em;
     }
 
     .navbar-default .navbar-nav > li > a {
-        color: white;
-        font-size: 1em;
+        color: @text-color;
+        font-size: 0.9em;
+        line-height: 60px;
+        padding-top: 0;
+        
+        height: 60px;
+        
     }
+
+     .navbar-default .navbar-nav > li:not(:last-child) {
+         
+        background-image: url(../Content/images/cn/img_nav_line.png);
+        background-position: center right;
+        background-size: 1.5px 16px;
+        background-repeat: no-repeat;
+     }
 
     .navbar.center .navbar-inner {
         text-align: center;
+        height: 60px;
     }
 
     .navbar.center .navbar-inner .nav {
         display: inline-block;
         float: none;
+        
     }
 
     .navbar-default .navbar-nav > li {
-        margin: auto 0.25em auto 0.25em;
+        margin: 0;
+        padding-right: 0.2em;
     }
-    .cn-home{
-        .top-bg {
-            width: 100%;
-            height: 190px;
-            background-image: url("../Content/images/cn/top-bg.png");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .top-bg .img-container {
-            line-height: 190px;
-        }
-        .top-bg img {
-            width: 661px;
-            height: 103px;
-        }
+
+    .navbar-nav>li>.dropdown-menu {
+        background-color: @primary-color;
+        min-width: 0px;
+        margin-top: -1px;
     }
-    .footer {
-        padding: 2em 2em 1em 2em;
-        width: 100%;
-        background-image: url("../Content/images/cn/footer-bg.png");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    .dropdown-menu>li>a {
         color: white;
+    }
+    .dropdown-menu > li:hover {
+        background-color: white;
+        color: white;
+    }
+    .dropdown-menu > li>a:hover {
+        background-color: @primary-color;
+        color: white;
+    }
 
-        img {
-            margin-bottom: 2em;
-        }
-
-        a.main-link {
-            font-size: 0.9em;
-            color: white;
-            margin: auto 1em auto 1em;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        p {
-            color: rgba(255,255,255,0.7);
-            margin-top: 1.5em;
-            font-size: 0.7em;
-            line-height: 1.75em;
-        }
-
+    .footer {
+        
+        color: white;
         hr {
             border-top: 1px solid rgba(255,255,255,0.1);
         }
+        .footer-entry {
+            width: 100%;
+            background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-top: 4em;
+            padding-bottom: 4em;
+            .main-link {
+                margin-right: 1em;
+                color: white;
+                font-size: 0.9em;
+                margin-bottom: 2em;
+                display: inline-block;
+            }
+            p {
+                font-size: 0.7em;
+                font-weight: lighter;
+                margin-top: 1em;
+            }
+            p>a {
+                font-size: 0.7em;
+                font-weight: normal;
+                color: white;
+            }
 
+        }
+        .footer-links {
+            background: #262F49;
+            padding: 1em 0 0 1em;
+            h1 {
+                font-size: 0.9em;
+            }
+            a {
+                font-size: 0.6em;
+                font-weight: lighter;
+                color: white;
+            }
+            hr {
+                margin-bottom: 0;
+            }
+        }
         .copyright {
-            font-size: 0.7em;
-            color: rgba(255,255,255,0.3);
+            background: #262F49;
+            color: rgba(255,255,255, 0.4);
+            font-size: 0.6em;
+            padding-top: 1em;
+            padding-bottom: 1em;
         }
-
-        #footer li {
-            display: inline;
-           margin-right: 1em;
-            font-size: 0.7em;
-        }
-        #footer li>a {
-             color: rgba(255,255,255,0.3);
-        }
-
-        #footer h3 {
-            font-size: 0.9em;
-        }
+        
     }
+    //后台登录页面
+        .logreg {
+            label {
+                font-size: 0.7em;
+            }
+            .btn-primary {
+                background-color: @primary-color;
+                border: none;
+                border-radius: 0;
+            }
+        }
+    //首页头部轮播
     #carousel-home {
         width: 100%;
         .carousel-inner .item {
-        width: 100%;
-        height: 60700/1920vw;
-        vertical-align: middle;
-	    -webkit-background-size: cover;
-	    -moz-background-size: cover;
-	    -o-background-size: cover;
-	    background-size: cover;
-        cursor: pointer;
-        background-position: center center;
+            width: 100%;
+            height: 56000/1920vw;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+        }
+        .carousel-caption {
+            background-color: @carousel-caption-color;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 1em;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            text-shadow: none;
+            text-align: left;
+        }
+    
+        .carousel-indicators {
+            left: 80%;
+            right: 12%;
+            width: auto;
+            bottom: 10px;
+        }
+        .carousel-indicators-numbers {
+            li {
+                font-size: 0.8em;
+              text-indent: 0;
+              margin: 4px 0 0 0;
+              width: 26px;
+              height: 26px;
+              border: 1px solid white;
+              border-radius: 0;
+              line-height: 26px;
+              color: #fff;
+              background-color: transparent;
+              transition: all 0.25s ease;
+              &.active, &:hover {
+                color: @text-color;
+                
+                
+                background-color: white;        
+              }
+        }
     }
 
-    .carousel-caption {
-        background-color: @carousel-caption-color;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        font-size: 1.2em;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        text-shadow: none;
+
     }
-    
-    .carousel-indicators {
-        left: 90%;
-        right: 10%;
-        width: auto;
-        bottom: 10px;
-    }
-    .carousel-indicators-numbers {
-        li {
-          text-indent: 0;
-          margin: 0 2px;
-          width: 30px;
-          height: 30px;
-          border: 1px solid white;
-          border-radius: 0;
-          line-height: 30px;
-          color: #fff;
-          background-color: transparent;
-          transition: all 0.25s ease;
-          &.active, &:hover {
-            color: @primary-color;
-            margin: 0 2px;
-            width: 30px;
-            height: 30px;
-            background-color: white;        
-          }
-        }
-     }
-    }
+    //列表页
     .cn-list {
         h1 {
             color: @primary-color;
@@ -256,7 +316,34 @@ body {
             border-radius: 0;
         }
     }
-    
+    .detail-header {
+            background-color: #FCFCFC;
+            
+            .container {
+                background-color: white;
+            }
+            .title {
+                font-size: 1.3em;
+                color: @primary-color;
+                margin-top: 2em;
+            }
+            .author, .time, .count {
+                font-size: 0.7em;
+                color: @text-second-color;
+            }
+        }
+        .detail-container {
+            background-color: #FCFCFC;
+            .container {
+                background-color: white;
+                padding-top: 2em;
+                padding-bottom: 2em;
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+            }
+        }
 } 
 
 //分页控件
@@ -286,74 +373,70 @@ body {
 
 .cn-home-columns {
     padding: 2em;
-}
-.cn-home-columns ul.nav.nav-pills {
-    border-bottom: 2px solid  @column-line-color;
-}
-.cn-home-columns ul.nav.nav-pills li {
-    text-align: center;
-    width: 33.333%;
-    margin: 0;
-}
-.cn-home-columns .nav-pills a {
-    font-size: 0.9em;
-    color: black;
-    border-radius: 0;
-    margin: 0;
-}
-.cn-home-columns .nav-pills>li.active>a, .cn-home-columns .nav-pills>li.active>a:focus, .cn-home-columns .nav-pills>li.active>a:hover {
-    color: @primary-color;
-    background-color: transparent;
-    border-bottom: 2px solid @primary-color;
-    font-weight: bold;
-}
-.cn-home-columns .column .list-group {
+    ul.nav.nav-pills {
+        border-bottom: 2px solid  @column-line-color;
+    }
+    ul.nav.nav-pills li {
+        text-align: center;
+        width: 33.333%;
+        margin: 0;
+    }
+    .nav-pills a {
+        font-size: 0.9em;
+        color: black;
+        border-radius: 0;
+        margin: 0;
+    }
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+        color: @primary-color;
+        background-color: transparent;
+        border-bottom: 2px solid @primary-color;
+        font-weight: bold;
+    }
+    .column .list-group-item {
+        border-left: none;
+        border-right: none;
+        font-size: 0.7em;
+        border-top: 1px solid @divider-color;
+        background-image: url(../Content/images/cn/ic_new_list_content.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    .title-name {
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .title-time {
+        text-align: right;
+        color: @text-second-color;
+    }
+    .side-column {
+        padding-top: 0.5em;
+        padding-left: 1.5em;
+    }
+
+    .column-header .column-title {
+        font-size: 0.9em;
+        text-align: left;
+        background-image: url(../Content/images/cn/img_title_dot.png);
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    .column-header .column-more {
+        font-size: 0.7em;
+        text-align: right;
+    }
+    .side-column .list-group-item {
+        border-left: none;
+        border-right: none;
+        font-size: 0.7em;
+        border-top: 1px solid @divider-color;
     
+    }
 }
-.cn-home-columns .column .list-group-item {
-    border-left: none;
-    border-right: none;
-    font-size: 0.7em;
-    border-top: 1px solid @divider-color;
-    background-image: url(../Content/images/cn/ic_new_list_content.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.cn-home-columns .title-name {
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.cn-home-columns .title-time {
-    text-align: right;
-    color: @text-second-color;
-}
-.cn-home-columns .side-column {
-    padding-top: 0.5em;
-    padding-left: 1.5em;
-}
-.cn-home-columns .column-header {
-    
-}
-.cn-home-columns .column-header .column-title {
-    font-size: 0.9em;
-    text-align: left;
-    background-image: url(../Content/images/cn/img_title_dot.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-}
-.cn-home-columns .column-header .column-more {
-    font-size: 0.7em;
-    text-align: right;
-}
-.cn-home-columns .side-column .list-group-item {
-    border-left: none;
-    border-right: none;
-    font-size: 0.7em;
-    border-top: 1px solid @divider-color;
-    
-}
+
 
 
 //英文网站
@@ -390,15 +473,28 @@ body {
     .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
         background-color: transparent;
     }
+    .dropdown-menu {
+        min-width: 0px;
+        background-color: @primary-color;
+    }
     .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
-        color: @text-color;
-        background-color: #f5f5f5;
+        color: white;
+        background-color: @primary-color;
+    }
+    .dropdown-menu>li>a {
+        color: white;
+    }
+    .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+        color: white;
+        background-color: @primary-color;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
     }
     .navbar-default .navbar-nav > li > a {
         color: white;
         font-size: 0.8em;
         height: 60px;
-        
         line-height: 60px;
         padding-top: 0;
     }
@@ -651,6 +747,7 @@ body {
                  bottom: 1em;
                  position: absolute;
                  color: white;
+                 text-align: center;
              }
         }
     }
@@ -762,6 +859,10 @@ body {
         .content {
             background-color: white;
             font-size: 0.8em;
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
         }
     }
     .list-header {
@@ -835,6 +936,9 @@ body {
         background-color: transparent;
         border: none;
         margin-bottom: 0;
+        background-image: url(../Content/images/anniversary/nav-logo.png);
+        background-position: 4% center;
+        background-repeat: no-repeat;
     }
     .navbar .navbar-brand {
         height: 140px;
@@ -842,22 +946,26 @@ body {
     .navbar .navbar-brand img {
         line-height: 140px;
     }
-    .navbar-default .navbar-nav > li > a {
+    .navbar-default .navbar-nav > li a{
         color: white;
         font-size: 0.9em;
         height: 140px;
         line-height: 140px;
         padding-top: 0;
     }
+    
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
         background-color: transparent;
+
     }
+    
     .content {
         margin-top: -140px;
         background-color: #FCFCFC;
+        min-height: 640px;
     }
     .top-bg {
-        height: 743px;
+        height: 633px;
         background-image: url('../Content/images/anniversary/nav-home-bg.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -889,6 +997,7 @@ body {
         }
         .copyright a {
             color: white;
+            font-size: 1em;
         }
         hr {
             border-top: 1px solid rgba(255,255,255,0.3);
@@ -909,16 +1018,24 @@ body {
             cursor: pointer;
             background-position: center center;
         }
+        .carousel-indicators li {
+            border: 1px solid @anniversary-primary-color;
+        }
         .carousel-indicators li.active {
             background-color: @anniversary-primary-color;
+            border: none;
         }
         .carousel-control  {
             background-image: none;
-            width: 5%;
-             opacity: 1;
+            width: 4.8%;
+            opacity: 1;
         }
+        
         .carousel-control img {
+            text-overflow: clip;
+            overflow: hidden;
             top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
@@ -954,12 +1071,16 @@ body {
             background-image: url(../Content/images/anniversary/img_list_dot.png);
             background-repeat: no-repeat;
             background-position: left center;
-            .tilte-name {
+            .title-name {
                 text-align: left;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                a {
+                    color: @text-color;
+                }
             }
+            
             .title-time {
                 text-align: right;
                 color: @text-second-color;
@@ -984,7 +1105,7 @@ body {
         margin-top: 4em;
     }
     .donation {
-        padding: 2em 2em 3em 2em;
+        padding: 2em 2em 2em 2em;
         margin-left: 1em;
         background-color: white;
         color: @anniversary-primary-color;
@@ -996,13 +1117,11 @@ body {
         font-weight: bold;
         #news-ticker {
             padding-left: 8px;
-            
-            list-style-type: none;
-            list-style: none;
+            list-style:circle;
         }
         #news-ticker li {
             font-size: 0.8em;
-            
+            list-style:circle;
         }
         .title {
             margin: 1em;
@@ -1034,15 +1153,29 @@ body {
             white-space: nowrap;
         
         }
+        a.more {
+            font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
+            color: @anniversary-primary-color;
+            font-size: 0.8em;
+            text-decoration: none;
+            margin: 0 0 1em 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 2px solid @anniversary-primary-color;
+            padding-bottom: 3px;
+        }
     }
     .banner3, .banner4 {
         background: white;
         box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.03);
         margin-top: 4em;
         margin-left: 1em;
+        
         .img-cover {
             margin-top: -1em;
             margin-left: -1em;
+            
         }
         .img-title {
            margin-top: 2.5em;
@@ -1051,6 +1184,7 @@ body {
         .img-number {
             margin-top: -2em;
             margin-right: 0.5em;
+            
         }
         .list-group {
            display: block;
@@ -1065,12 +1199,18 @@ body {
             background-image: url(../Content/images/anniversary/img_list_dot.png);
             background-repeat: no-repeat;
             background-position: left center;
-            .tilte-name {
+            .title-name {
+                
                 text-align: left;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                a {
+                    color: @text-color;
+
+                }
             }
+            
             .title-time {
                 text-align: right;
                 color: @text-second-color;
@@ -1090,78 +1230,251 @@ body {
             border-bottom: 2px solid @anniversary-primary-color;
             padding-bottom: 3px;
         }
-    }
-    .frame {
-	    height: 250px;
-	    line-height: 250px;
-	    overflow: hidden;
-        
-    }
-    .frame ul {
-	    list-style: none;
-	    margin: 0;
-	    padding: 0;
-	    height: 100%;
-	    font-size: 50px;
-    }
-    .frame ul li {
-	    float: left;
-	    width: 204px;
-	    height: 100%;
-	    margin: 0 1px 0 0;
-	    padding: 0;
-	    
-	    color: #ddd;
-	    text-align: center;
-	    cursor: pointer;
-    }
-    .frame ul li:hover {
-        background-color: black;
-    }
-    .frame ul li.active {
-	    color: #fff;
-	    background: #a03232;
-    }
-    .crazy {
-        img {
-            width: 200px;
-            height: auto;
-        }
 
         
     }
-    .photo-gallery {
-        position: relative;
-        .btn-forward {
-            padding: 1em;
-            background-color: @anniversary-primary-color;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: auto;
-            z-index: 5;
+    .frame {
+	        height: 210px;
+	        line-height: 210px;
+	        overflow: hidden;
+            background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
+            background-position: center;
+            background-size:cover;
+            background-repeat: no-repeat;
+            padding: 0;
+        
         }
-        .btn-backward {
-            padding: 1em;
-            background-color: @anniversary-primary-color;
-            position: absolute;
-            left: 0;
-            top: 50%;
-           transform: translateY(-50%);
-           width: auto;
-           z-index: 5;
+        .frame ul {
+	        list-style: none;
+	        margin: 0;
+	        padding: 0;
+	        height: 100%;
+	        font-size: 50px;
+        
         }
-    }
+        .frame ul li {
+	        float: left;
+	        width: auto;
+            margin-right: 1em;
+	        height: 210px;
+	        padding: 0 0 0 0;
+	        color: #ddd;
+	        text-align: center;
+	        cursor: pointer;
+            position: relative;
+        
+            .text-content {
+              width: 100%;
+              max-width: 400px;
+              right: 0;
+              top: 35px;
+              bottom: 10px;
+              left: 0;
+              cursor: pointer;
+              text-decoration: none;
+              height: 151px;
+              max-height: 151px;
+              position: absolute;
+              background: rgba(208,1,27,0.80);
+              opacity: 0;
+              .transition-all;
+              a {
+                  font-size: 0.4em;
+                  color: white;
+                  display: block;
+                  line-height: 20px;
+                  text-decoration: none;
+                  font-family: @anniversary-font;
+                  font-weight: bold;
+                  letter-spacing: 0px;
+                  text-shadow: 0px 2px 3px rgba(0,0,0,0.40);
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+              }
+            }
+
+    
+        }
+        .frame ul li:hover .text-content {
+              opacity: 1;
+        }
+
+        .crazy {
+            img {
+                display: inline-block;
+                margin: 0;
+                width: auto;
+                height: 150px;
+                line-height: 150px;
+                max-width: 400px;
+            }
+        
+        
+        }
+        .photo-gallery {
+            position: relative;
+            .btn-forward {
+                padding: 1em;
+                background-color: @anniversary-primary-color;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: auto;
+                z-index: 5;
+                cursor: pointer;
+            }
+            .btn-backward {
+                padding: 1em;
+                background-color: @anniversary-primary-color;
+                position: absolute;
+                left: 0;
+                top: 50%;
+               transform: translateY(-50%);
+               width: auto;
+               z-index: 5;
+               cursor: pointer;
+            }
+        }
+        .detail-header {
+            background-color: #FCFCFC;
+            
+            .container {
+                background-color: white;
+            }
+            .title {
+                font-size: 1.3em;
+                color: @anniversary-primary-color;
+                margin-top: 2em;
+            }
+            .author, .time, .count {
+                font-size: 0.7em;
+                color: @text-second-color;
+            }
+        }
+        .detail-container {
+            background-color: #FCFCFC;
+            .container {
+                background-color: white;
+                padding-top: 2em;
+                padding-bottom: 2em;
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+            }
+        }
+        .anniversary-list {
+            h1 {
+                color: @anniversary-primary-color;
+                font-size: 1.2em;
+            }
+
+            .list-group-item {
+                border-left: none;
+                border-right: none;
+                font-size: 0.7em;
+                .title-name {
+                    text-align: left;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    padding-left: 2em;
+                    background-image: url(../Content/images/anniversary/img_list_dot.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                   
+                }
+                a .title-name {
+                    color: @text-color;
+                }
+                a .title-time {
+                    color: @text-second-color;
+                }
+                .title-time {
+                    text-align: right;
+                }
+            }
+            
+            .list-group-item:nth-child(odd) {
+                background-color: #FCFCFC;
+            }
+            .list-group-item:first-child {
+                border-radius: 0;
+                border-top: 2px solid @anniversary-primary-color;
+            }
+            .list-group-item:last-child {
+                border-radius: 0;
+            }
+            #pagination  {
+               .pagination>li>a , .pagination>li>span {
+                   border: none;
+                   font-size: 0.7em;
+                   padding: 6px;
+                   color: @text-color;
+                   margin: 0 3px 0 3px;
+                   min-width: 28px;
+                   text-align: center;
+                   .transition-all;
+               }
+               .pagination>.active>a {
+                   color: white;
+                   background-color: @anniversary-primary-color;
+               }
+               .pagination>li.first>a, .pagination>li.prev>a,.pagination>li.last>a, .pagination>li.next>a {
+                   color: @anniversary-primary-color;
+               }
+            }
+        }
 }
 //移动端适配
 @media only screen
 and (max-device-width: 768px) {
-    .cn-home-columns .nav-pills a {
-        font-size: 0.9em;
-        color: black;
-        border-radius: 0;
-       
+     .navbar button.navbar-toggle {
+            background-color: transparent;
+            border: none;
+        }
+    .navbar-default .navbar-toggle .icon-bar {
+            background-color: white;
+    }
+    .navbar .collapse, .navbar .collapsing {
+            float: none !important;
+            border: none;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border: none;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .anniversary {
+        .navbar .navbar-brand {
+            padding: 4px;
+            img {
+                width: 193px;
+            height: 47px;
+            }
+        }
+        .navbar {
+            background-image: none;
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .navbar-header {
+            height: 50px;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+            font-size: 1em;
+            height: 50px;
+            line-height: 50px;
+            padding-top: 0;
+            
+        }
     }
 }
 @media only screen
@@ -1186,50 +1499,80 @@ only screen and (max-width: 480px) {
         background-color: transparent;
     }
     //中文
-    .top-bg {
-        height: 95px;
+    .home {
+        .navbar-default {
+            border: none;
+            z-index: 999 !important;
+        }
+        .navbar.navbar-default {
+            background-color: @primary-color;
+            margin-bottom: 0;
+        
+        }
+        .navbar-brand {
+            padding: 0;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: white;
+        }
+        .navbar-default .navbar-collapse {
+            background-color: @primary-color;
+            
+        }
+        .navbar.center .navbar-inner {
+            text-align: left;
+            height: 40px;
+        }
+
+        .navbar.center .navbar-inner .nav {
+            display: block;
+            float: none;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+            color: white;
+        }
+        .footer img {
+            width: 182px;
+            height: 29px;
+        }
+        #carousel-home {
+            .carousel-inner .item {
+                height: 300px;
+            }
+            .carousel-caption {
+                font-size: 1em;
+                text-align: left;
+            }
+            .carousel-indicators {
+                left: 90%;
+                right: 10%;
+                width: auto;
+                bottom: 0px;
+            }
+        }
+        
     }
-    .top-bg .img-container {
-        line-height: 95px;
-    }
-    .top-bg img {
-        width: 330px;
-        height: 51px;
-    }
-    .footer img {
-        width: 182px;
-        height: 29px;
-    }
-    .carousel-inner .item {
-        height: 250px;
-    }
-    #carousel-home .carousel-caption {
-        font-size: 1em;
-        text-align: left;
-    }
-    #carousel-home .carousel-indicators {
-        left: 90%;
-        right: 10%;
-        width: auto;
-        bottom: 0px;
-    }
-    .cn-home-columns {
-        padding: 1em;
-    }
-    .cn-home-columns .nav-pills a {
-        font-size: 0.9em;
-        color: black;
-        border-radius: 0;
-       
-    }
+    
+
     //英文
     .en-home {
+        .navbar-default .navbar-nav > .active > a {
+            border: none;
+        }
+        .navbar-nav {
+            margin: 0;
+        }
+        .navbar-form {
+            padding: 0;
+            margin: 0;
+        }
         #carousel-en {
             .carousel-inner .item {
                 height: 300px;
             }
             .carousel-caption {
-                margin-left: 1em;
+                margin-left: 0;
+                width: 80%;
                 p {
                     font-size: 1.2em;
                 }
@@ -1256,12 +1599,33 @@ only screen and (max-width: 480px) {
     }
     //院庆
     .anniversary {
-        .navbar-brand img{
-            width: 193px;
-            height: 48px;
-        }
         .top-bg {
-            height: 400px;
+            height: 250px;
+            background-image: none;
+            background: @anniversary-primary-color;
+        }
+        .top-nav-bg {
+            background-image: none;
+            background: @anniversary-primary-color;
+        }
+        .navbar .navbar-brand {
+            padding: 4px;
+            img {
+                width: 193px;
+            height: 47px;
+            }
+            
+            
+        }
+        .navbar {
+            background-image: none;
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .navbar-collapse {
+            background-color: @anniversary-primary-color;
         }
         #carousel-anniversary {
             margin-top: -100px;

@@ -1,7 +1,10 @@
 ﻿body {
   font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
   font-size: 20px;
-  color: black;
+  color: #333333;
+}
+#content {
+  min-height: 500px;
 }
 .container-fluid {
   padding-left: 0px;
@@ -18,140 +21,177 @@
   margin-left: 0;
   margin-right: 0;
 }
-.home-search .btn-default.active.focus,
-.home-search .btn-default.active:focus,
-.home-search .btn-default.active:hover,
-.home-search .btn-default:active.focus,
-.home-search .btn-default:active:focus,
-.home-search .btn-default:active:hover,
-.home-search .open > .dropdown-toggle.btn-default.focus,
-.home-search .open > .dropdown-toggle.btn-default:focus,
-.home-search .open > .dropdown-toggle.btn-default:hover {
-  background-color: transparent;
-  color: white;
+.dropdown .dropdown-menu {
+  display: block;
+  opacity: 0;
+  -moz-transition: all 1000ms ease;
+  -webkit-transition: all 1000ms ease;
+  -o-transition: all 1000ms ease;
+  -ms-transition: all 1000ms ease;
+  transition: all 1000ms ease;
 }
-.home-search {
-  height: 46px;
-  background-color: black;
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
 }
-.home-search .btn-group .btn {
-  line-height: 46px;
-  padding: 0 1em 0 1em;
-  border-radius: 0;
-  background-color: transparent;
+.home .top-bg {
+  padding-top: 1em;
+  padding-right: 1em;
+  height: 190px;
+  width: 100%;
+  background-image: url(../Content/images/cn/img_logo_top.png), url(../Content/images/cn/bg_ch_top.jpg);
+  background-position: center 70%, center;
+  background-size: auto, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+.home .top-bg a {
   color: white;
-  margin-right: 1em;
+  font-size: 0.8em;
+}
+.home .top-bg .input-group input {
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  background-color: rgba(255, 255, 255, 0.2);
   border: none;
-}
-.home-search .input-group input,
-.home-search .input-group button {
-  padding: 0 1.5em 0 1.5em;
-  height: 46px;
-  border-radius: 0;
-  background-color: #303030;
   color: white;
-  border: none;
 }
-.home-search .input-group button {
-  background-repeat: no-repeat;
-  background-image: url("../Content/images/ic_nav_search.png");
-  background-position: center;
-  background-size: 20px 20px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+.home .top-bg .input-group button {
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  height: 34px;
+  color: white;
+  top: 0;
+}
+.home .navbar-default {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .home .navbar.navbar-default {
-  background-color: #252F4A;
+  background-color: white;
   margin-bottom: 0;
 }
 .home .navbar-default .navbar-nav > .active > a,
 .home .navbar-default .navbar-nav > .active > a:focus,
 .home .navbar-default .navbar-nav > .active > a:hover {
-  color: white;
-  background-color: #252F4A;
+  color: #333333;
+  background-color: white;
 }
 .home .navbar-default .navbar-nav > li > a:focus,
 .home .navbar-default .navbar-nav > li > a:hover {
-  color: white;
-  font-size: 1em;
+  color: #2D44AA;
+  font-size: 0.9em;
 }
 .home .navbar-default .navbar-nav > li > a {
-  color: white;
-  font-size: 1em;
+  color: #333333;
+  font-size: 0.9em;
+  line-height: 60px;
+  padding-top: 0;
+  height: 60px;
+}
+.home .navbar-default .navbar-nav > li:not(:last-child) {
+  background-image: url(../Content/images/cn/img_nav_line.png);
+  background-position: center right;
+  background-size: 1.5px 16px;
+  background-repeat: no-repeat;
 }
 .home .navbar.center .navbar-inner {
   text-align: center;
+  height: 60px;
 }
 .home .navbar.center .navbar-inner .nav {
   display: inline-block;
   float: none;
 }
 .home .navbar-default .navbar-nav > li {
-  margin: auto 0.25em auto 0.25em;
+  margin: 0;
+  padding-right: 0.2em;
 }
-.home .cn-home .top-bg {
-  width: 100%;
-  height: 190px;
-  background-image: url("../Content/images/cn/top-bg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.home .navbar-nav > li > .dropdown-menu {
+  background-color: #2D44AA;
+  min-width: 0px;
+  margin-top: -1px;
 }
-.home .cn-home .top-bg .img-container {
-  line-height: 190px;
+.home .dropdown-menu > li > a {
+  color: white;
 }
-.home .cn-home .top-bg img {
-  width: 661px;
-  height: 103px;
+.home .dropdown-menu > li:hover {
+  background-color: white;
+  color: white;
+}
+.home .dropdown-menu > li > a:hover {
+  background-color: #2D44AA;
+  color: white;
 }
 .home .footer {
-  padding: 2em 2em 1em 2em;
-  width: 100%;
-  background-image: url("../Content/images/cn/footer-bg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   color: white;
-}
-.home .footer img {
-  margin-bottom: 2em;
-}
-.home .footer a.main-link {
-  font-size: 0.9em;
-  color: white;
-  margin: auto 1em auto 1em;
-  cursor: pointer;
-  text-decoration: none;
-}
-.home .footer p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 1.5em;
-  font-size: 0.7em;
-  line-height: 1.75em;
 }
 .home .footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.home .footer .copyright {
-  font-size: 0.7em;
-  color: rgba(255, 255, 255, 0.3);
+.home .footer .footer-entry {
+  width: 100%;
+  background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 4em;
+  padding-bottom: 4em;
 }
-.home .footer #footer li {
-  display: inline;
+.home .footer .footer-entry .main-link {
   margin-right: 1em;
+  color: white;
+  font-size: 0.9em;
+  margin-bottom: 2em;
+  display: inline-block;
+}
+.home .footer .footer-entry p {
+  font-size: 0.7em;
+  font-weight: lighter;
+  margin-top: 1em;
+}
+.home .footer .footer-entry p > a {
+  font-size: 0.7em;
+  font-weight: normal;
+  color: white;
+}
+.home .footer .footer-links {
+  background: #262F49;
+  padding: 1em 0 0 1em;
+}
+.home .footer .footer-links h1 {
+  font-size: 0.9em;
+}
+.home .footer .footer-links a {
+  font-size: 0.6em;
+  font-weight: lighter;
+  color: white;
+}
+.home .footer .footer-links hr {
+  margin-bottom: 0;
+}
+.home .footer .copyright {
+  background: #262F49;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.home .logreg label {
   font-size: 0.7em;
 }
-.home .footer #footer li > a {
-  color: rgba(255, 255, 255, 0.3);
-}
-.home .footer #footer h3 {
-  font-size: 0.9em;
+.home .logreg .btn-primary {
+  background-color: #2D44AA;
+  border: none;
+  border-radius: 0;
 }
 .home #carousel-home {
   width: 100%;
 }
 .home #carousel-home .carousel-inner .item {
   width: 100%;
-  height: 31.61458333vw;
+  height: 29.16666667vw;
   vertical-align: middle;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -161,39 +201,38 @@
   background-position: center center;
 }
 .home #carousel-home .carousel-caption {
-  background-color: rgba(45, 68, 170, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   left: 0;
   right: 0;
   bottom: 0;
-  font-size: 1.2em;
+  font-size: 1em;
   padding-top: 18px;
   padding-bottom: 18px;
   text-shadow: none;
+  text-align: left;
 }
 .home #carousel-home .carousel-indicators {
-  left: 90%;
-  right: 10%;
+  left: 80%;
+  right: 12%;
   width: auto;
   bottom: 10px;
 }
 .home #carousel-home .carousel-indicators-numbers li {
+  font-size: 0.8em;
   text-indent: 0;
-  margin: 0 2px;
-  width: 30px;
-  height: 30px;
+  margin: 4px 0 0 0;
+  width: 26px;
+  height: 26px;
   border: 1px solid white;
   border-radius: 0;
-  line-height: 30px;
+  line-height: 26px;
   color: #fff;
   background-color: transparent;
   transition: all 0.25s ease;
 }
 .home #carousel-home .carousel-indicators-numbers li.active,
 .home #carousel-home .carousel-indicators-numbers li:hover {
-  color: #2D44AA;
-  margin: 0 2px;
-  width: 30px;
-  height: 30px;
+  color: #333333;
   background-color: white;
 }
 .home .cn-list h1 {
@@ -227,6 +266,35 @@
 }
 .home .cn-list .list-group-item:last-child {
   border-radius: 0;
+}
+.home .detail-header {
+  background-color: #FCFCFC;
+}
+.home .detail-header .container {
+  background-color: white;
+}
+.home .detail-header .title {
+  font-size: 1.3em;
+  color: #2D44AA;
+  margin-top: 2em;
+}
+.home .detail-header .author,
+.home .detail-header .time,
+.home .detail-header .count {
+  font-size: 0.7em;
+  color: #999999;
+}
+.home .detail-container {
+  background-color: #FCFCFC;
+}
+.home .detail-container .container {
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.home .detail-container .container img {
+  max-width: 100% !important;
+  height: auto !important;
 }
 #pagination .pagination > li > a,
 #pagination .pagination > li > span {
@@ -350,11 +418,26 @@
 .en-home .navbar-default .navbar-nav > .open > a:hover {
   background-color: transparent;
 }
+.en-home .dropdown-menu {
+  min-width: 0px;
+  background-color: #2D44AA;
+}
 .en-home .dropdown-menu > .active > a,
 .en-home .dropdown-menu > .active > a:focus,
 .en-home .dropdown-menu > .active > a:hover {
-  color: #333333;
-  background-color: #f5f5f5;
+  color: white;
+  background-color: #2D44AA;
+}
+.en-home .dropdown-menu > li > a {
+  color: white;
+}
+.en-home .dropdown-menu > li > a:focus,
+.en-home .dropdown-menu > li > a:hover {
+  color: white;
+  background-color: #2D44AA;
+}
+.en-home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: white;
 }
 .en-home .navbar-default .navbar-nav > li > a {
   color: white;
@@ -596,6 +679,7 @@
   bottom: 1em;
   position: absolute;
   color: white;
+  text-align: center;
 }
 .en-home .expand-menu {
   margin-top: 4em;
@@ -703,6 +787,10 @@
   background-color: white;
   font-size: 0.8em;
 }
+.en-home .detail-container .content img {
+  max-width: 100% !important;
+  height: auto !important;
+}
 .en-home .list-header {
   background-color: #262F49;
   padding: 2em 0 2em 0;
@@ -771,6 +859,9 @@
   background-color: transparent;
   border: none;
   margin-bottom: 0;
+  background-image: url(../Content/images/anniversary/nav-logo.png);
+  background-position: 4% center;
+  background-repeat: no-repeat;
 }
 .anniversary .navbar .navbar-brand {
   height: 140px;
@@ -778,7 +869,7 @@
 .anniversary .navbar .navbar-brand img {
   line-height: 140px;
 }
-.anniversary .navbar-default .navbar-nav > li > a {
+.anniversary .navbar-default .navbar-nav > li a {
   color: white;
   font-size: 0.9em;
   height: 140px;
@@ -793,9 +884,10 @@
 .anniversary .content {
   margin-top: -140px;
   background-color: #FCFCFC;
+  min-height: 640px;
 }
 .anniversary .top-bg {
-  height: 743px;
+  height: 633px;
   background-image: url('../Content/images/anniversary/nav-home-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -828,6 +920,7 @@
 }
 .anniversary .anniversary-footer .copyright a {
   color: white;
+  font-size: 1em;
 }
 .anniversary .anniversary-footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -847,16 +940,23 @@
   cursor: pointer;
   background-position: center center;
 }
+.anniversary #carousel-anniversary .carousel-indicators li {
+  border: 1px solid #D0021B;
+}
 .anniversary #carousel-anniversary .carousel-indicators li.active {
   background-color: #D0021B;
+  border: none;
 }
 .anniversary #carousel-anniversary .carousel-control {
   background-image: none;
-  width: 5%;
+  width: 4.8%;
   opacity: 1;
 }
 .anniversary #carousel-anniversary .carousel-control img {
+  text-overflow: clip;
+  overflow: hidden;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
@@ -895,12 +995,16 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-.anniversary .banner1 .list-group-item .tilte-name,
-.anniversary .banner2 .list-group-item .tilte-name {
+.anniversary .banner1 .list-group-item .title-name,
+.anniversary .banner2 .list-group-item .title-name {
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.anniversary .banner1 .list-group-item .title-name a,
+.anniversary .banner2 .list-group-item .title-name a {
+  color: #333333;
 }
 .anniversary .banner1 .list-group-item .title-time,
 .anniversary .banner2 .list-group-item .title-time {
@@ -927,7 +1031,7 @@
   margin-top: 4em;
 }
 .anniversary .donation {
-  padding: 2em 2em 3em 2em;
+  padding: 2em 2em 2em 2em;
   margin-left: 1em;
   background-color: white;
   color: #D0021B;
@@ -940,11 +1044,11 @@
 }
 .anniversary .donation #news-ticker {
   padding-left: 8px;
-  list-style-type: none;
-  list-style: none;
+  list-style: circle;
 }
 .anniversary .donation #news-ticker li {
   font-size: 0.8em;
+  list-style: circle;
 }
 .anniversary .donation .title {
   margin: 1em;
@@ -972,6 +1076,18 @@
   text-align: right;
   width: 20%;
   white-space: nowrap;
+}
+.anniversary .donation a.more {
+  font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
+  color: #D0021B;
+  font-size: 0.8em;
+  text-decoration: none;
+  margin: 0 0 1em 0;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 2px solid #D0021B;
+  padding-bottom: 3px;
 }
 .anniversary .banner3,
 .anniversary .banner4 {
@@ -1011,12 +1127,16 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-.anniversary .banner3 .list-group-item .tilte-name,
-.anniversary .banner4 .list-group-item .tilte-name {
+.anniversary .banner3 .list-group-item .title-name,
+.anniversary .banner4 .list-group-item .title-name {
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.anniversary .banner3 .list-group-item .title-name a,
+.anniversary .banner4 .list-group-item .title-name a {
+  color: #333333;
 }
 .anniversary .banner3 .list-group-item .title-time,
 .anniversary .banner4 .list-group-item .title-time {
@@ -1040,9 +1160,14 @@
   padding-bottom: 3px;
 }
 .anniversary .frame {
-  height: 250px;
-  line-height: 250px;
+  height: 210px;
+  line-height: 210px;
   overflow: hidden;
+  background-image: url(../Content/images/anniversary/bg_picture_film.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
 }
 .anniversary .frame ul {
   list-style: none;
@@ -1053,24 +1178,58 @@
 }
 .anniversary .frame ul li {
   float: left;
-  width: 204px;
-  height: 100%;
-  margin: 0 1px 0 0;
-  padding: 0;
+  width: auto;
+  margin-right: 1em;
+  height: 210px;
+  padding: 0 0 0 0;
   color: #ddd;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
-.anniversary .frame ul li:hover {
-  background-color: black;
+.anniversary .frame ul li .text-content {
+  width: 100%;
+  max-width: 400px;
+  right: 0;
+  top: 35px;
+  bottom: 10px;
+  left: 0;
+  cursor: pointer;
+  text-decoration: none;
+  height: 151px;
+  max-height: 151px;
+  position: absolute;
+  background: rgba(208, 1, 27, 0.8);
+  opacity: 0;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
 }
-.anniversary .frame ul li.active {
-  color: #fff;
-  background: #a03232;
+.anniversary .frame ul li .text-content a {
+  font-size: 0.4em;
+  color: white;
+  display: block;
+  line-height: 20px;
+  text-decoration: none;
+  font-family: "STSongti-SC";
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.anniversary .frame ul li:hover .text-content {
+  opacity: 1;
 }
 .anniversary .crazy img {
-  width: 200px;
-  height: auto;
+  display: inline-block;
+  margin: 0;
+  width: auto;
+  height: 150px;
+  line-height: 150px;
+  max-width: 400px;
 }
 .anniversary .photo-gallery {
   position: relative;
@@ -1084,6 +1243,7 @@
   transform: translateY(-50%);
   width: auto;
   z-index: 5;
+  cursor: pointer;
 }
 .anniversary .photo-gallery .btn-backward {
   padding: 1em;
@@ -1094,12 +1254,142 @@
   transform: translateY(-50%);
   width: auto;
   z-index: 5;
+  cursor: pointer;
+}
+.anniversary .detail-header {
+  background-color: #FCFCFC;
+}
+.anniversary .detail-header .container {
+  background-color: white;
+}
+.anniversary .detail-header .title {
+  font-size: 1.3em;
+  color: #D0021B;
+  margin-top: 2em;
+}
+.anniversary .detail-header .author,
+.anniversary .detail-header .time,
+.anniversary .detail-header .count {
+  font-size: 0.7em;
+  color: #999999;
+}
+.anniversary .detail-container {
+  background-color: #FCFCFC;
+}
+.anniversary .detail-container .container {
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.anniversary .detail-container .container img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.anniversary .anniversary-list h1 {
+  color: #D0021B;
+  font-size: 1.2em;
+}
+.anniversary .anniversary-list .list-group-item {
+  border-left: none;
+  border-right: none;
+  font-size: 0.7em;
+}
+.anniversary .anniversary-list .list-group-item .title-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2em;
+  background-image: url(../Content/images/anniversary/img_list_dot.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.anniversary .anniversary-list .list-group-item a .title-name {
+  color: #333333;
+}
+.anniversary .anniversary-list .list-group-item a .title-time {
+  color: #999999;
+}
+.anniversary .anniversary-list .list-group-item .title-time {
+  text-align: right;
+}
+.anniversary .anniversary-list .list-group-item:nth-child(odd) {
+  background-color: #FCFCFC;
+}
+.anniversary .anniversary-list .list-group-item:first-child {
+  border-radius: 0;
+  border-top: 2px solid #D0021B;
+}
+.anniversary .anniversary-list .list-group-item:last-child {
+  border-radius: 0;
+}
+.anniversary .anniversary-list #pagination .pagination > li > a,
+.anniversary .anniversary-list #pagination .pagination > li > span {
+  border: none;
+  font-size: 0.7em;
+  padding: 6px;
+  color: #333333;
+  margin: 0 3px 0 3px;
+  min-width: 28px;
+  text-align: center;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.anniversary .anniversary-list #pagination .pagination > .active > a {
+  color: white;
+  background-color: #D0021B;
+}
+.anniversary .anniversary-list #pagination .pagination > li.first > a,
+.anniversary .anniversary-list #pagination .pagination > li.prev > a,
+.anniversary .anniversary-list #pagination .pagination > li.last > a,
+.anniversary .anniversary-list #pagination .pagination > li.next > a {
+  color: #D0021B;
 }
 @media only screen and (max-device-width: 768px) {
-  .cn-home-columns .nav-pills a {
-    font-size: 0.9em;
-    color: black;
-    border-radius: 0;
+  .navbar button.navbar-toggle {
+    background-color: transparent;
+    border: none;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .navbar .collapse,
+  .navbar .collapsing {
+    float: none !important;
+    border: none;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border: none;
+  }
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+  }
+  .anniversary .navbar .navbar-brand {
+    padding: 4px;
+  }
+  .anniversary .navbar .navbar-brand img {
+    width: 193px;
+    height: 47px;
+  }
+  .anniversary .navbar {
+    background-image: none;
+  }
+  .anniversary .navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .anniversary .navbar-header {
+    height: 50px;
+  }
+  .anniversary .navbar-default .navbar-nav > li > a {
+    color: white;
+    font-size: 1em;
+    height: 50px;
+    line-height: 50px;
+    padding-top: 0;
   }
 }
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) {
@@ -1123,46 +1413,67 @@
   .navbar-default .navbar-toggle:hover {
     background-color: transparent;
   }
-  .top-bg {
-    height: 95px;
+  .home .navbar-default {
+    border: none;
+    z-index: 999 !important;
   }
-  .top-bg .img-container {
-    line-height: 95px;
+  .home .navbar.navbar-default {
+    background-color: #2D44AA;
+    margin-bottom: 0;
   }
-  .top-bg img {
-    width: 330px;
-    height: 51px;
+  .home .navbar-brand {
+    padding: 0;
   }
-  .footer img {
+  .home .navbar-default .navbar-nav > li > a {
+    color: white;
+  }
+  .home .navbar-default .navbar-collapse {
+    background-color: #2D44AA;
+  }
+  .home .navbar.center .navbar-inner {
+    text-align: left;
+    height: 40px;
+  }
+  .home .navbar.center .navbar-inner .nav {
+    display: block;
+    float: none;
+  }
+  .home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+  }
+  .home .footer img {
     width: 182px;
     height: 29px;
   }
-  .carousel-inner .item {
-    height: 250px;
+  .home #carousel-home .carousel-inner .item {
+    height: 300px;
   }
-  #carousel-home .carousel-caption {
+  .home #carousel-home .carousel-caption {
     font-size: 1em;
     text-align: left;
   }
-  #carousel-home .carousel-indicators {
+  .home #carousel-home .carousel-indicators {
     left: 90%;
     right: 10%;
     width: auto;
     bottom: 0px;
   }
-  .cn-home-columns {
-    padding: 1em;
+  .en-home .navbar-default .navbar-nav > .active > a {
+    border: none;
   }
-  .cn-home-columns .nav-pills a {
-    font-size: 0.9em;
-    color: black;
-    border-radius: 0;
+  .en-home .navbar-nav {
+    margin: 0;
+  }
+  .en-home .navbar-form {
+    padding: 0;
+    margin: 0;
   }
   .en-home #carousel-en .carousel-inner .item {
     height: 300px;
   }
   .en-home #carousel-en .carousel-caption {
-    margin-left: 1em;
+    margin-left: 0;
+    width: 80%;
   }
   .en-home #carousel-en .carousel-caption p {
     font-size: 1.2em;
@@ -1180,12 +1491,31 @@
     width: 98px;
     height: 117.5px;
   }
-  .anniversary .navbar-brand img {
-    width: 193px;
-    height: 48px;
-  }
   .anniversary .top-bg {
-    height: 400px;
+    height: 250px;
+    background-image: none;
+    background: #D0021B;
+  }
+  .anniversary .top-nav-bg {
+    background-image: none;
+    background: #D0021B;
+  }
+  .anniversary .navbar .navbar-brand {
+    padding: 4px;
+  }
+  .anniversary .navbar .navbar-brand img {
+    width: 193px;
+    height: 47px;
+  }
+  .anniversary .navbar {
+    background-image: none;
+  }
+  .anniversary .navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .anniversary .navbar-collapse {
+    background-color: #D0021B;
   }
   .anniversary #carousel-anniversary {
     margin-top: -100px;
