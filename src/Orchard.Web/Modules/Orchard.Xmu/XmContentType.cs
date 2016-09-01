@@ -215,7 +215,8 @@ namespace Orchard.Xmu
                         Description = "管理新闻(News)",
                         Name = string.Format("Manage{0}","CollegeENNews")
                     },
-                    ListTitle = "News"
+                    ListTitle = "News",
+                    EnablePreview = true
                 },
                 new XmENCMSContentMapping
                 {
@@ -228,7 +229,8 @@ namespace Orchard.Xmu
                         Description = "管理通知(Notice)",
                         Name = string.Format("Manage{0}","CollegeENNotice")
                     },
-                    ListTitle = "Notice"
+                    ListTitle = "Notice",
+                    EnablePreview = true
                 },
 
             };
@@ -779,6 +781,8 @@ namespace Orchard.Xmu
         public string PermissionDesc { get; set; }
         public string ContentTypePartName { get; set; }
         public string ListTitle { get; set; }
+        public bool EnablePreview { get; set; }
+
 
     }
 
