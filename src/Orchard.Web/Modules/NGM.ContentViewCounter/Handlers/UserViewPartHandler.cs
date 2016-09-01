@@ -23,16 +23,18 @@ namespace NGM.ContentViewCounter.Handlers {
                     return;
 
                 RecordView(part, settings);
+
+                part.TotalViewField.Loader(
+                   () =>
+                   {
+                       var resultRecord = _votingService.GetResult(part.ContentItem.Id, "sum", Constants.Dimension);
+                       return resultRecord == null ? 0 : (int)resultRecord.Value;
+                   });
             });
 
             OnLoading<UserViewPart>((context, UserView)=>
             {
-                UserView.TotalViewField.Loader(
-                    () =>
-                    {
-                        var resultRecord = _votingService.GetResult(UserView.ContentItem.Id, "sum", Constants.Dimension);
-                        return resultRecord == null ? 0 : (int)resultRecord.Value;
-                    });
+               
              });
 
         }
