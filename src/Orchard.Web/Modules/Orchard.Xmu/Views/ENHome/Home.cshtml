@@ -32,7 +32,7 @@
                         <p>
                             @ViewBag.banners[i].Title
                         </p>
-                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE></a>
+                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE </a>
                     </div>
                 </div>
             }
@@ -44,7 +44,7 @@
                         <p>
                             @ViewBag.banners[i].Title
                         </p>
-                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE></a>
+                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE </a>
                     </div>
                 </div>
             }
@@ -74,7 +74,10 @@
                     var body = new HtmlString(Html.Excerpt(bodyHtml, 200).ToString().Replace(Environment.NewLine, Environment.NewLine));
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="thumbnail">
-                            <img src="@newsItem.ImageAddress">
+                            <div class="img-container" style="background-image: url('@newsItem.ImageAddress'); background-size: cover;">
+                                
+                            </div>
+                            
                             <div class="caption">
                                 <p class="title">@newsItem.Title</p>
                                 <p class="time">@newsItem.PublishedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
@@ -99,7 +102,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-2">
-                                <p class="month">@notice.PublishedUtc.ToLocalTime().ToString("MMM", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="month">@notice.PublishedUtc.ToLocalTime().ToString("MMM", CultureInfo.CreateSpecificCulture("en-US")).ToUpper()</p>
                                 <p class="date">@notice.PublishedUtc.ToLocalTime().ToString("dd", CultureInfo.CreateSpecificCulture("en-US"))</p>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -116,7 +119,7 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row" style="margin-top: 2em;">
+    <div class="row en-sections" >
         @foreach (var sec in ViewBag.sections)
         {
             <div class="col-md-4 col-sm-6 col-xs-12 entry">

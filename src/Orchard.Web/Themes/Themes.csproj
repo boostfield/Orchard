@@ -121,7 +121,10 @@
     <Content Include="OrchardBS\Content\images\cn\img_nav_line.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_left_n.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_right_n.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_banner_read_more.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_news_all.png" />
     <Content Include="OrchardBS\Content\images\en\img_bottom.jpg" />
+    <Content Include="OrchardBS\Content\images\en\img_nav_title_select.png" />
     <Content Include="OrchardBS\Content\images\favicon.ico" />
     <Content Include="OrchardBS\Content\images\ic_nav_search.png" />
     <Content Include="OrchardBS\Content\images\cn\ic_new_list_content.png" />
