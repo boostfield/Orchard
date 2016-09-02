@@ -1,36 +1,37 @@
 ﻿
 <div class="footer-links">
     <div class="container">
-        @{
-            string requestUrl = Request.Path.ToUpperInvariant();
+        <div class="col-md-12">
+            @{
+                string requestUrl = Request.Path.ToUpperInvariant();
 
-        }
-        @if (requestUrl.Contains("EN/"))
-        {
-            <h1>Related Links</h1>
-            <div class="links">
-                @foreach (var menu in Model.Menu.Items)
+            }
+            @if (requestUrl.Contains("EN/"))
+            {
+                <h1>Related Links</h1>
+                <div class="links">
+                    @foreach (var menu in Model.Menu.Items)
                 {
-                    <a href="@menu.Href">@menu.Text</a>
-                }
+                        <a href="@menu.Href">@menu.Text</a>
+                    }
 
 
-            </div>
-        }
-        else
-        {
-            <h1>友情链接</h1>
-            <div class="links">
-                @foreach (var menu in Model.Menu.Items)
+                </div>
+            }
+            else
+            {
+                <h1>友情链接</h1>
+                <div class="links">
+                    @foreach (var menu in Model.Menu.Items)
                 {
-                    <a href="@menu.Href">@menu.Text</a>
-                }
+                        <a href="@menu.Href">@menu.Text</a>
+                    }
 
 
-            </div>
-            <hr />
-        }
-
+                </div>
+                <hr />
+            }
+        </div>
         
     </div>
 </div>
