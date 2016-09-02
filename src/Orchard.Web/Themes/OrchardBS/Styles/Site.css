@@ -1330,6 +1330,9 @@ dropdown-submenu {
 .anniversary .anniversary-list .list-group-item a .title-name {
   color: #333333;
 }
+.anniversary .anniversary-list .list-group-item a .title-fund {
+  color: #333333;
+}
 .anniversary .anniversary-list .list-group-item a .title-time {
   color: #999999;
 }
