@@ -177,7 +177,7 @@ dropdown-submenu {
   margin-top: 16px;
   border-top: 2px solid #2D44AA;
 }
-.home .column .title {
+.home .column .header .title {
   font-size: 0.9em;
   text-align: left;
   background-image: url(../Content/images/cn/ic_title.png);
@@ -192,6 +192,53 @@ dropdown-submenu {
   line-height: 25px;
   color: #999999;
 }
+.home .column .list-group {
+  padding-left: 0;
+  padding-right: 0;
+}
+.home .column .list-group .list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}
+.home .column .list-group .list-group-item .name {
+  font-size: 0.7em;
+  padding-left: 0;
+  padding-right: 0;
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.home .column .list-group .list-group-item .name a {
+  color: #333333;
+  padding-left: 1.5em;
+  background-image: url(../Content/images/cn/ic_new_list_content.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+}
+.home .column .list-group .list-group-item .name .topic {
+  color: #2D44AA;
+}
+.home .column .list-group .list-group-item .time {
+  font-size: 0.7em;
+  color: #999999;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: right;
+}
+.home .column .list-group .list-group-item:first-child {
+  border-top: none;
+  margin-top: -12px;
+}
+.home .column-medium {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: white;
+}
 .home .column-larger {
   margin-top: 2em;
   padding: 1em;
@@ -201,6 +248,48 @@ dropdown-submenu {
   margin-top: 2em;
   padding: 1em;
   background-color: white;
+}
+.home .column-smaller .list-group .list-group-item {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+.home .column-smaller .list-group .list-group-item .title {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  font-family: "PingFangSC-Medium", 'Microsoft YaHei';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home .column-smaller .list-group .list-group-item .title a {
+  color: #333333;
+}
+.home .column-smaller .list-group .list-group-item .author {
+  font-size: 0.75em;
+  color: white;
+  background-color: #2D44AA;
+  padding: 4px;
+}
+.home .column-smaller .list-group .list-group-item .location {
+  font-size: 0.7em;
+  background-image: url(../Content/images/cn/ic_place.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 16px 20px;
+  padding-left: 1.5em;
+  margin-left: 12px;
+}
+.home .column-smaller .list-group .list-group-item .time {
+  font-size: 0.7em;
+  background-image: url(../Content/images/cn/ic_time.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 16px 20px;
+  padding-left: 1.5em;
+  margin-left: 12px;
+}
+.home .column-smaller .list-group .list-group-item:first-child {
+  margin-top: -14px;
 }
 .home .footer {
   color: white;
@@ -318,9 +407,9 @@ dropdown-submenu {
 }
 .home .carousel-medium .carousel-indicators {
   background-color: rgba(0, 0, 0, 0.5);
-  width: auto;
+  width: 58px;
   height: auto;
-  left: initial;
+  left: auto;
   right: 10px;
   height: 15px;
   padding: 0 4px;
@@ -354,7 +443,7 @@ dropdown-submenu {
   bottom: 0;
   right: initial;
   background-color: white;
-  padding: 0;
+  padding: 4px 0 0 0 ;
   width: 100%;
 }
 .home .carousel-medium .carousel-inner .item .carousel-caption p {
@@ -365,6 +454,11 @@ dropdown-submenu {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-left: 1.5em;
+  background-image: url(../Content/images/cn/ic_new_list_content.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
 }
 .home .cn-list h1 {
   color: #2D44AA;
@@ -1538,7 +1632,9 @@ dropdown-submenu {
     margin-bottom: 0;
   }
   .home .navbar-brand {
-    padding: 0;
+    padding: 0 1em;
+    line-height: 50px;
+    color: white;
   }
   .home .navbar-default .navbar-nav > li > a {
     color: white;
@@ -1573,6 +1669,16 @@ dropdown-submenu {
     right: 10%;
     width: auto;
     bottom: 0px;
+  }
+  .home .column-larger {
+    padding: 0.5em;
+  }
+  .home .column-smaller {
+    padding: 0.5em;
+  }
+  .home .container.column {
+    padding-left: 0;
+    padding-right: 0;
   }
   .en-home .navbar-default .navbar-nav > .active > a {
     border: none;

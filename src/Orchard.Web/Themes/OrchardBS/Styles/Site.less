@@ -209,7 +209,7 @@ dropdown-submenu {
             margin-top: 16px;
             border-top: 2px solid @primary-color;
         }
-        .title {
+        .header .title {
             font-size: 0.9em;
             text-align: left;
             background-image: url(../Content/images/cn/ic_title.png);
@@ -224,6 +224,56 @@ dropdown-submenu {
             line-height: 25px;
             color: @text-second-color;
         }
+        .list-group {
+            padding-left: 0;
+            padding-right: 0;
+            
+            .list-group-item {
+                padding-left: 0;
+                padding-right: 0;
+                border-right: none;
+                border-left: none;
+                border-radius: 0;
+                .name {
+                    font-size: 0.7em;
+                    padding-left: 0;
+                    padding-right: 0;
+                    white-space: nowrap;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    
+                    a {
+                        color: @text-color;
+                        padding-left: 1.5em;
+                        background-image: url(../Content/images/cn/ic_new_list_content.png);
+                        background-position: left center;
+                        background-repeat: no-repeat;
+                        background-size: 13px 13px;
+                    }
+                    .topic {
+                        color: @primary-color;
+                    }
+                }
+                .time {
+                    font-size: 0.7em;
+                    color: @text-second-color;
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: right;
+                }
+            }
+            .list-group-item:first-child {
+                border-top: none;
+                margin-top: -12px;
+            }
+        }
+        
+    }
+    .column-medium {
+        margin-top: 2em;
+        padding: 1em;
+        background-color: white;
     }
     .column-larger {
         margin-top: 2em;
@@ -234,6 +284,51 @@ dropdown-submenu {
         margin-top: 2em;
         padding: 1em;
         background-color: white;
+        .list-group {
+            .list-group-item {
+                padding-top: 26px;
+                padding-bottom: 26px;
+                .title {
+                    font-size: 0.9em;
+                    margin-bottom: 5px;
+                    font-family: "PingFangSC-Medium", 'Microsoft YaHei';
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    a {
+                        color: @text-color;
+                    }
+                }
+                .author {
+                    
+                    font-size: 0.75em;
+                    color: white;
+                    background-color: @primary-color;
+                    padding: 4px;
+                }
+                .location {
+                    font-size: 0.7em;
+                    background-image: url(../Content/images/cn/ic_place.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    background-size: 16px 20px;
+                    padding-left: 1.5em;
+                    margin-left: 12px;
+                }
+                .time {
+                    font-size: 0.7em;
+                    background-image: url(../Content/images/cn/ic_time.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    background-size: 16px 20px;
+                    padding-left: 1.5em;
+                    margin-left: 12px;
+                }
+            }
+            .list-group-item:first-child {
+                margin-top: -14px;
+            }
+        }
     }
     .footer {
         
@@ -366,9 +461,9 @@ dropdown-submenu {
         width: 100%;
         .carousel-indicators {
             background-color: rgba(0,0,0,0.5);
-            width: auto;
+            width: 58px;
             height: auto;
-            left: initial;
+            left: auto;
             right: 10px;
             height: 15px;
             padding: 0 4px;
@@ -378,7 +473,6 @@ dropdown-submenu {
                 width: 7px;
                 height: 7px;
                 margin: 0;
-                
                 margin-bottom: 10px;
             }
             li.active {
@@ -402,7 +496,7 @@ dropdown-submenu {
                 bottom: 0;
                 right: initial;
                 background-color: white;
-                padding: 0;
+                padding: 4px 0 0 0 ;
                 width: 100%;
                 p {
                     color: @primary-color;
@@ -412,6 +506,11 @@ dropdown-submenu {
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    padding-left: 1.5em;
+                    background-image: url(../Content/images/cn/ic_new_list_content.png);
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                    background-size: 13px 13px;
                 }
             }
         }
@@ -1637,7 +1736,9 @@ only screen and (max-width: 480px) {
         
         }
         .navbar-brand {
-            padding: 0;
+            padding: 0 1em;
+            line-height: 50px;
+            color: white;
         }
         .navbar-default .navbar-nav > li > a {
             color: white;
@@ -1677,7 +1778,16 @@ only screen and (max-width: 480px) {
                 bottom: 0px;
             }
         }
-        
+        .column-larger {
+            padding: 0.5em;
+        }
+        .column-smaller {
+            padding: 0.5em;
+        }
+        .container.column {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
     
 
