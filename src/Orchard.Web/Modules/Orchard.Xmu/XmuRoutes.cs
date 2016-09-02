@@ -382,6 +382,29 @@ namespace Orchard.Xmu
 
 
 
+                  new RouteDescriptor
+                {
+                  Priority = 22,
+
+            Route = new Route(
+             "anniversary/DonationPaging",
+             new RouteValueDictionary {
+
+                 { "area", "Orchard.Xmu"},
+
+                 { "controller", "XmContent"},
+
+                 { "action", "DonationPaging"}
+
+                                       },
+
+             new RouteValueDictionary(),
+             new RouteValueDictionary {
+                                          {"area", "Orchard.Xmu"}
+                                       },
+             new MvcRouteHandler())
+                },
+
 
 
             };
