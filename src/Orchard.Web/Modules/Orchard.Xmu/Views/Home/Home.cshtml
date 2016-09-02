@@ -44,62 +44,69 @@
     </div>
 </div>
 
-<div class="container cn-home-columns" >
+<div class="container column" >
     <div class="row">
-        <div class="column col-md-8 col-sm-12 col-xs-12">
-            <ul class="nav nav-pills" role="tablist">
+        <div class="col-md-7">
+            <div class="column-larger">
+                <div class="row">
+                    <span class="title">学院新闻</span>
+                    <span class="more">更多></span>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-5" style="padding: 0;">
+                        <div id="carousel-news" class="carousel slide carousel-medium" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators carousel-indicators-numbers">
+                                <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-news" data-slide-to="1"></li>
+                                <li data-target="#carousel-news" data-slide-to="2"></li>
+                            </ol>
 
-                <li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">学院新闻</a></li>
-                <li role="presentation"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">院务通知</a></li>
-                <li role="presentation"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">科研成果</a></li>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
-            </ul>
+                                    <div class="carousel-caption">
+                                        
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active fade in " id="news">
-                    <ul class="list-group">
-                        @foreach (var item in ViewBag.items)
-                        {
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 title-name">@item.Title fsffsfsfssfsadadadaadadadadadadada</div>
-                                    <div class="col-sm-3 title-time">@item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                       
+                                    </div>
                                 </div>
+                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
-                            </li>
-                        }
-                        
+                                    <div class="carousel-caption">
+                                        
+                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
-                    </ul>
+                                    <div class="carousel-caption">
+                                        
+                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+
+                    </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade " id="notifications">
-
-                </div>
-                <div role="tabpanel" class="tab-pane fade " id="results">
-
-                </div>
-
             </div>
         </div>
-        <div class="side-column col-md-4 col-xs-12">
-            <div class="row column-header">
-                <div class="col-md-8 col-sm-8 col-xs-8 column-title">
-                    讲座会议
+        <div class="col-md-5">
+            <div class="column-smaller">
+                <div class="row">
+                    <span class="title">学院新闻</span>
+                    <span class="more">更多></span>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4 column-more">
-                    <a href="@Url.Action("Paging", "XmContent", new { contentTypeName="CollegeNews", page = 1,pageSize=10 })">查看全部</a>
-                </div>
+                <hr />
             </div>
-            <div class="row">
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    
-                </ul>
-            </div>
-            
         </div>
     </div>
     <div class="row">

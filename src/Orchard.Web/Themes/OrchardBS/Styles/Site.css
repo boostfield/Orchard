@@ -77,6 +77,9 @@ dropdown-submenu {
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
+.home #content {
+  background-color: #FCFCFC;
+}
 .home .top-bg {
   padding-top: 1em;
   padding-right: 1em;
@@ -90,6 +93,9 @@ dropdown-submenu {
 .home .top-bg a {
   color: white;
   font-size: 0.8em;
+}
+.home .top-bg .input-group {
+  display: none;
 }
 .home .top-bg .input-group input {
   border-top-left-radius: 17px;
@@ -166,6 +172,35 @@ dropdown-submenu {
 .home .dropdown-menu > li > a:hover {
   background-color: #2D44AA;
   color: white;
+}
+.home .column hr {
+  margin-top: 16px;
+  border-top: 2px solid #2D44AA;
+}
+.home .column .title {
+  font-size: 0.9em;
+  text-align: left;
+  background-image: url(../Content/images/cn/ic_title.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 19px 20px;
+  padding-left: 24px;
+}
+.home .column .more {
+  font-size: 0.6em;
+  float: right;
+  line-height: 25px;
+  color: #999999;
+}
+.home .column-larger {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: white;
+}
+.home .column-smaller {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: white;
 }
 .home .footer {
   color: white;
@@ -277,6 +312,59 @@ dropdown-submenu {
 .home #carousel-home .carousel-indicators-numbers li:hover {
   color: #333333;
   background-color: white;
+}
+.home .carousel-medium {
+  width: 100%;
+}
+.home .carousel-medium .carousel-indicators {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  left: initial;
+  right: 10px;
+  height: 15px;
+  padding: 0 4px;
+  bottom: 30px;
+  border-radius: 7.5px;
+}
+.home .carousel-medium .carousel-indicators li {
+  width: 7px;
+  height: 7px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.home .carousel-medium .carousel-indicators li.active {
+  width: 7px;
+  height: 7px;
+  margin-bottom: 10px;
+}
+.home .carousel-medium .carousel-inner .item {
+  width: 100%;
+  height: 326px;
+  vertical-align: middle;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  cursor: pointer;
+  background-position: center center;
+}
+.home .carousel-medium .carousel-inner .item .carousel-caption {
+  left: 0;
+  bottom: 0;
+  right: initial;
+  background-color: white;
+  padding: 0;
+  width: 100%;
+}
+.home .carousel-medium .carousel-inner .item .carousel-caption p {
+  color: #2D44AA;
+  font-size: 0.65em;
+  text-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .home .cn-list h1 {
   color: #2D44AA;

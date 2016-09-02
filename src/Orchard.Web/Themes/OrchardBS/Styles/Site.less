@@ -98,6 +98,9 @@ dropdown-submenu {
 
 //中文网站
 .home  {
+    #content {
+        background-color: #FCFCFC;
+    }
     .top-bg {
         padding-top: 1em;
         padding-right: 1em;
@@ -112,6 +115,7 @@ dropdown-submenu {
             font-size: 0.8em;
         }
         .input-group {
+            display: none;
             input {
                 border-top-left-radius: 17px;
                 border-bottom-left-radius: 17px;
@@ -200,11 +204,42 @@ dropdown-submenu {
         background-color: @primary-color;
         color: white;
     }
-
+    .column {
+        hr {
+            margin-top: 16px;
+            border-top: 2px solid @primary-color;
+        }
+        .title {
+            font-size: 0.9em;
+            text-align: left;
+            background-image: url(../Content/images/cn/ic_title.png);
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: 19px 20px;
+            padding-left: 24px;
+        }
+        .more {
+            font-size: 0.6em;
+            float: right;
+            line-height: 25px;
+            color: @text-second-color;
+        }
+    }
+    .column-larger {
+        margin-top: 2em;
+        padding: 1em;
+        background-color: white;
+    }
+    .column-smaller {
+        margin-top: 2em;
+        padding: 1em;
+        background-color: white;
+    }
     .footer {
         
         color: white;
         hr {
+            
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         .footer-entry {
@@ -322,8 +357,66 @@ dropdown-submenu {
               }
         }
     }
+    
 
+    }
 
+    //中等大小carousel
+    .carousel-medium {
+        width: 100%;
+        .carousel-indicators {
+            background-color: rgba(0,0,0,0.5);
+            width: auto;
+            height: auto;
+            left: initial;
+            right: 10px;
+            height: 15px;
+            padding: 0 4px;
+            bottom: 30px;
+            border-radius: 7.5px;
+            li {
+                width: 7px;
+                height: 7px;
+                margin: 0;
+                
+                margin-bottom: 10px;
+            }
+            li.active {
+                width: 7px;
+                height: 7px;
+                margin-bottom: 10px;
+            }
+        }
+        .carousel-inner .item {
+            width: 100%;
+            height: 326px;
+            vertical-align: middle;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+	        background-size: cover;
+            cursor: pointer;
+            background-position: center center;
+            .carousel-caption {
+                left: 0;
+                bottom: 0;
+                right: initial;
+                background-color: white;
+                padding: 0;
+                width: 100%;
+                p {
+                    color: @primary-color;
+                    font-size: 0.65em;
+                    text-shadow: none;
+                    text-align: left;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        
     }
     //列表页
     .cn-list {
