@@ -125,6 +125,36 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+        public ActionResult DonationPaging(PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
+                .List<NinetyCelebrationDonationPart>().OrderByDescending(i => i.DonationAmount);
+            var total = q.Count();
+            var items = q.Skip(pager.GetStartIndex()).Take(pager.PageSize);
+            var listTitle = XmContentType.NinetyDonation.ListTitle;
+
+
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.items = items;
+            ViewBag.ContentTypeName = XmContentType.NinetyDonation.ContentTypeName;
+            ViewBag.ListTitle = listTitle;
+
+            return View();
+
+        }
+
         private void GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
         {
             if (pagerParameters == null)
