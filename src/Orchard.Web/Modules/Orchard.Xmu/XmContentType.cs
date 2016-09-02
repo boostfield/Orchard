@@ -233,6 +233,20 @@ namespace Orchard.Xmu
                     ListTitle = "Notice",
                     EnablePreview = true
                 },
+                new XmENCMSContentMapping
+                {
+                    ContentTypeName = "CollegeENCourse",
+                    PermissionDesc = "管理课程(Courses)",
+                    ContentTypeDisplayName = "课程(Courses)",
+                    ContentTypePartName = "CollegeENCoursePart",
+                    Permission = new Permission
+                    {
+                        Description = "管理课程(Courses)",
+                        Name = string.Format("Manage{0}","CollegeENCourse")
+                    },
+                    ListTitle = "Courses",
+                    EnablePreview = true
+                }
 
             };
 
