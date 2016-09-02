@@ -804,12 +804,13 @@ dropdown-submenu {
   margin-left: 4em;
 }
 .en-home .detail-container {
-  padding: 2em 0 2em 0;
+  padding: 0 0 0 0;
   background-color: #FCFCFC;
 }
 .en-home .detail-container .content {
   background-color: white;
   font-size: 0.8em;
+  padding: 50px 190px;
 }
 .en-home .detail-container .content img {
   max-width: 100% !important;
@@ -1521,10 +1522,40 @@ dropdown-submenu {
   .en-home .entry .content {
     height: 39.55696203vw;
   }
-  .en-footer .footer-first {
+  .en-home .detail-header {
+    background-color: #262F49;
+    padding: 0;
+    color: white;
+  }
+  .en-home .detail-header .title {
+    font-family: "MinionPro-SemiboldDisp", Times New Roman;
+    font-size: 1em;
+  }
+  .en-home .detail-header .time,
+  .en-home .detail-header .count {
+    font-size: 0.8em;
+    font-weight: lighter;
+  }
+  .en-home .detail-header .count {
+    margin-left: 4em;
+  }
+  .en-home .detail-container {
+    padding: 0 0 0 0;
+    background-color: #FCFCFC;
+  }
+  .en-home .detail-container .content {
+    background-color: white;
+    font-size: 0.8em;
+    padding: 1em;
+  }
+  .en-home .detail-container .content img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .en-home .en-footer .footer-first {
     padding: 1em 0 1em 0;
   }
-  .en-footer .footer-first img {
+  .en-home .en-footer .footer-first img {
     width: 98px;
     height: 117.5px;
   }

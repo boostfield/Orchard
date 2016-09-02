@@ -882,11 +882,12 @@ dropdown-submenu {
         }
     }
     .detail-container {
-        padding: 2em 0 2em 0;
+        padding: 0 0 0 0;
         background-color: #FCFCFC;
         .content {
             background-color: white;
             font-size: 0.8em;
+            padding: 50px 190px;
             img {
                 max-width: 100% !important;
                 height: auto !important;
@@ -1627,17 +1628,48 @@ only screen and (max-width: 480px) {
                 height: 25000/632vw;
             }
         }
-    }
-    .en-footer {
-        .footer-first {
-            padding: 1em 0 1em 0;
-        }
-        .footer-first img {
+        .detail-header {
+            background-color: #262F49;
+            padding: 0;
+            color: white;
+            .title {
+                font-family: @en-font;
+                font-size: 1em;
+            }
+            .time, .count {
+                font-size: 0.8em;
+                font-weight: lighter;
             
-             width: 98px;
-             height: 117.5px;
+            }
+            .count {
+                margin-left: 4em;
+            }
+        }
+        .detail-container {
+            padding: 0 0 0 0;
+            background-color: #FCFCFC;
+            .content {
+                background-color: white;
+                font-size: 0.8em;
+                padding: 1em;
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+            }
+        }
+        .en-footer {
+            .footer-first {
+                padding: 1em 0 1em 0;
+            }
+            .footer-first img {
+            
+                 width: 98px;
+                 height: 117.5px;
+            }
         }
     }
+
     //院庆
     .anniversary {
         .top-bg {
