@@ -1607,8 +1607,17 @@ dropdown-submenu {
     min-height: 250px;
   }
   .anniversary .donation {
-    padding: 1em;
     margin-left: 0;
+  }
+  .anniversary .donation .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .anniversary .donation hr {
+    margin-bottom: 1em;
+  }
+  .anniversary .donation .name {
+    width: 70%;
   }
   .anniversary .navbar .navbar-brand {
     height: 50px;
