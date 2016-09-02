@@ -692,7 +692,7 @@ dropdown-submenu {
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 1em;
+  bottom: 0.25em;
   position: absolute;
   color: white;
   text-align: center;
