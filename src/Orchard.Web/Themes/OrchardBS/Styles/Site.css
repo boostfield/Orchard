@@ -1554,6 +1554,10 @@ dropdown-submenu {
   .en-home .en-footer .footer-first {
     padding: 1em 0 1em 0;
   }
+  .en-home .en-footer .footer-first .contact-us {
+    margin-top: 1em;
+    border: none;
+  }
   .en-home .en-footer .footer-first img {
     width: 98px;
     height: 117.5px;
