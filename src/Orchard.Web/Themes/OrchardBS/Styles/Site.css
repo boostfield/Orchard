@@ -376,7 +376,6 @@ dropdown-submenu {
 .en-home .navbar-brand > img {
   line-height: 60px;
   height: 43px;
-  width: 176px;
 }
 .en-home .navbar-text a {
   color: white;
@@ -1488,12 +1487,21 @@ dropdown-submenu {
   .en-home .navbar-nav {
     margin: 0;
   }
+  .en-home .navbar-brand > img {
+    line-height: 50px;
+    height: 40px;
+  }
   .en-home .navbar-form {
     padding: 0;
     margin: 0;
   }
   .en-home .navbar-default .navbar-nav > .active > a {
     background-image: none;
+  }
+  .en-home .navbar-brand {
+    padding: 4px;
+    height: 50px;
+    line-height: 50px;
   }
   .en-home #carousel-en .carousel-inner .item {
     height: 300px;
