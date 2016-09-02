@@ -69,6 +69,7 @@ namespace Orchard.Xmu
                 Description = "管理院庆捐赠",
                 Name = string.Format("Manage{0}", "CelDonation")
             },
+            ListTitle = "院庆捐赠"
         };
 
         public static XmContentDefinition NinetyCelMatesOldPic = new XmContentDefinition
