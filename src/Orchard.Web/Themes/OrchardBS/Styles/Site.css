@@ -1303,6 +1303,8 @@ dropdown-submenu {
   background-color: white;
   padding-top: 2em;
   padding-bottom: 2em;
+  padding-left: 140px;
+  padding-right: 140px;
 }
 .anniversary .detail-container .container img {
   max-width: 100% !important;
@@ -1631,6 +1633,13 @@ dropdown-submenu {
     height: 50px;
     line-height: 50px;
     padding-top: 0;
+  }
+  .anniversary .detail-container .container {
+    padding: 1em;
+  }
+  .anniversary .detail-container .container img {
+    max-width: 100% !important;
+    height: auto !important;
   }
   .anniversary .anniversary-footer .logo {
     margin-top: 1em;
