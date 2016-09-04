@@ -48,6 +48,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -57,12 +65,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,6 +89,14 @@
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
@@ -166,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Views\Parts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Placement.info">
@@ -195,6 +220,10 @@
     <Content Include="Views\NinetyCelBannerAdmin\List.cshtml" />
     <Content Include="Views\CelMatesPicAdmin\List.cshtml" />
     <Content Include="Views\XmContent\DonationPaging.cshtml" />
+    <Content Include="Views\ENTeacherAdmin\List.cshtml" />
+    <Content Include="Views\ENCourseAdmin\List.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\ENTeacherPart.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\ENCoursePart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,12 +233,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="ApiConfig.cs" />
+    <Compile Include="ApiControllers\ManagerController.cs" />
+    <Compile Include="ApiRoutes.cs" />
     <Compile Include="Controllers\CelMatesPicAdminController.cs" />
     <Compile Include="Controllers\CNBannerAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
     <Compile Include="Controllers\ENBannerAdminController.cs" />
+    <Compile Include="Controllers\ENCourseAdminController.cs" />
     <Compile Include="Controllers\ENSectionAdminController.cs" />
+    <Compile Include="Controllers\ENTeacherAdminController.cs" />
     <Compile Include="Controllers\NinetyCelBannerAdminController.cs" />
     <Compile Include="Controllers\NinetyCelebrationDonationAdminController.cs" />
     <Compile Include="Controllers\XmContentController.cs" />
@@ -221,16 +255,26 @@
     <Compile Include="Drivers\BannerPartDriver.cs" />
     <Compile Include="Drivers\CelMatesPicPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
+    <Compile Include="Drivers\ENCoursePartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
+    <Compile Include="Drivers\ENTeacherPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
+    <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
+    <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
+    <Compile Include="Mappings\Mappings.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
+    <Compile Include="Models\ENCoursesPart.cs" />
+    <Compile Include="Models\ENCoursesPartRecord.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
+    <Compile Include="Models\ENTeacherPart.cs" />
+    <Compile Include="Models\ENTeacherPartRecord.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
+    <Compile Include="Models\TeacherCourseRelationRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />
     <Compile Include="Models\LectureInfoPart.cs" />
@@ -251,6 +295,7 @@
     <Compile Include="Service\AdminPagingService.cs" />
     <Compile Include="Service\IXmMenuService.cs" />
     <Compile Include="Service\XmMenuService.cs" />
+    <Compile Include="ViewModels\ApiListResponse.cs" />
     <Compile Include="ViewModels\DonationVM.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\LectureVM.cs" />

@@ -37,6 +37,13 @@ namespace Orchard.Xmu
             menu.Add(T(XmContentType.ENSection.ContentTypeDisplayName), "2", item => item.Action("List", "ENSectionAdmin", new { area = "Orchard.Xmu" })
              .Permission(Permissions.ManageENSection));
 
+
+            menu.Add(T(XmContentType.ENTeacher.ContentTypeDisplayName), "2", item => item.Action("List", "ENTeacherAdmin", new { area = "Orchard.Xmu" })
+             .Permission(Permissions.ManageENTeacher));
+
+            menu.Add(T(XmContentType.ENCourse.ContentTypeDisplayName), "2", item => item.Action("List", "ENCourseAdmin", new { area = "Orchard.Xmu" })
+                      .Permission(Permissions.ManageENCourse));
+
             foreach (var mapping in XmContentType.ENCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

@@ -48,8 +48,22 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition ENTeacher = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "教师信息",
+            PermissionDesc = "管理老师信息",
+            ContentTypeName = "ENTeacher",
+            ContentTypePartName = "EnTeacherPart"
+        };
 
-  
+
+        public static XmContentDefinition ENCourse = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "英文课程信息",
+            PermissionDesc = "管理英文课程信息",
+            ContentTypeName = "ENCourse",
+            ContentTypePartName = "ENCoursePart"
+        };
 
 
         //------------- Content Mapping..
@@ -69,6 +83,7 @@ namespace Orchard.Xmu
                 Description = "管理院庆捐赠",
                 Name = string.Format("Manage{0}", "CelDonation")
             },
+            ListTitle = "院庆捐赠"
         };
 
         public static XmContentDefinition NinetyCelMatesOldPic = new XmContentDefinition
@@ -232,7 +247,6 @@ namespace Orchard.Xmu
                     ListTitle = "Notice",
                     EnablePreview = true
                 },
-
             };
 
 
