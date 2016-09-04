@@ -1,6 +1,13 @@
 ﻿@model Orchard.Xmu.Models.ENCoursesPart
-
+@{ 
+    Style.Require("Select2");
+    Script.Require("Select2").AtHead();
+}
 <fieldset>
     @Html.LabelFor(m=>m.CourseName)
     @Html.TextAreaFor(m => m.CourseName)
 </fieldset>
+@Html.Label("相关老师")
+<select class="teacher-in-course" style="width: 400px;" multiple="multiple" name="ENCoursesPart.TeacherIds">
+
+</select>
