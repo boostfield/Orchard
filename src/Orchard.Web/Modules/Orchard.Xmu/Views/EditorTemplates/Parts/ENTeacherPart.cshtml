@@ -1,6 +1,16 @@
 ﻿@model Orchard.Xmu.Models.ENTeacherPart
-
+@{ 
+    var courses = Model.Courses;
+}
 <fieldset>
     @Html.LabelFor(m=>m.ENName)
     @Html.TextAreaFor(m => m.ENName)
 </fieldset>
+
+<div>
+    <h5>相关课程</h5>
+    @foreach(var course in courses)
+    {
+        <span>@course.CourseName </span>
+    }
+</div>

@@ -224,6 +224,8 @@
     <Content Include="Views\ENCourseAdmin\List.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\ENTeacherPart.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\ENCoursePart.cshtml" />
+    <Content Include="Views\Content-ENTeacher.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-ENCourse.SummaryAdmin .cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
