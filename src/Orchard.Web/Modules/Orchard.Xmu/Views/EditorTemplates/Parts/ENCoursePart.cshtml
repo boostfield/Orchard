@@ -2,6 +2,7 @@
 @{ 
     Style.Require("Select2");
     Script.Require("Course").AtHead();
+    var teachers = Model.Teachers;
 }
 <fieldset>
     @Html.LabelFor(m=>m.CourseName)
@@ -9,5 +10,8 @@
 </fieldset>
 @Html.Label("相关老师")
 <select class="teacher-in-course" style="width: 400px;" multiple="multiple" name="ENCoursesPart.TeacherIds">
-
+    @foreach (var teacher in teachers)
+    {
+        @Html.SelectOption(teacher.Id, true, teacher.ENName + teacher.SN);
+    }
 </select>

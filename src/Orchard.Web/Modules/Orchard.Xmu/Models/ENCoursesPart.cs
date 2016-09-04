@@ -31,5 +31,7 @@ namespace Orchard.Xmu.Models
             set { _teachers.Value = value; }
         }
 
+
+        public IList<string> TeacherIds { get; set; }
     }
 }

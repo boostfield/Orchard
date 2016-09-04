@@ -21,7 +21,10 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        public string SN
+        {
+            get { return ""; }
+        }
         private readonly LazyField<IList<ENCoursesPart>> _courses = new LazyField<IList<ENCoursesPart>>();
         public LazyField<IList<ENCoursesPart>> CoursesField { get { return _courses; } }
         public IList<ENCoursesPart> Courses

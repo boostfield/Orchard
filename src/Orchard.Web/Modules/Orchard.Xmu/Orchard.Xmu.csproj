@@ -261,6 +261,7 @@
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
+    <Compile Include="Extension\Extensions.cs" />
     <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
     <Compile Include="Mappings\Mappings.cs" />
