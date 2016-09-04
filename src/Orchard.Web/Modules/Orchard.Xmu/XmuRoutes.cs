@@ -89,7 +89,7 @@ namespace Orchard.Xmu
                             {
                     Priority = 100,
                                     Route = new Route(
-                                        "anniversary",
+                                        "90",
 
                                         new RouteValueDictionary {
                                                                     {"area", "Orchard.Xmu"},
@@ -106,7 +106,7 @@ namespace Orchard.Xmu
                             {
                     Priority = 100,
                                     Route = new Route(
-                                        "anniversary/home",
+                                        "90/home",
                                         
                                         new RouteValueDictionary {
                                                                     {"area", "Orchard.Xmu"},
@@ -331,7 +331,7 @@ namespace Orchard.Xmu
                                 new RouteDescriptor {
                                     Priority = 22,
                                     Route = new Route(
-                                        "anniversary/Detail/{contentTypeName}/{Id}",
+                                        "90/Detail/{contentTypeName}/{Id}",
                                         new RouteValueDictionary {
                                                                     {"area", "Orchard.Xmu"},
                                                                     {"controller", "XmContent"},
@@ -396,7 +396,7 @@ namespace Orchard.Xmu
                   Priority = 22,
 
             Route = new Route(
-             "anniversary/Paging/{contentTypeName}",
+             "90/Paging/{contentTypeName}",
              new RouteValueDictionary {
 
                  { "area", "Orchard.Xmu"},
@@ -421,7 +421,7 @@ namespace Orchard.Xmu
                   Priority = 22,
 
             Route = new Route(
-             "anniversary/DonationPaging",
+             "90/DonationPaging",
              new RouteValueDictionary {
 
                  { "area", "Orchard.Xmu"},
