@@ -18,6 +18,9 @@ namespace Orchard.Xmu.Drivers
 
         protected override DriverResult Editor(ENCoursesPart part, IUpdateModel updater, dynamic shapeHelper)
         {
+
+
+
             return Editor(part, shapeHelper);
         }
 
