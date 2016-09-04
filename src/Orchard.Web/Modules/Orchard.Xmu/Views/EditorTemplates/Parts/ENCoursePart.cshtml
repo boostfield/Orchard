@@ -1,7 +1,7 @@
 ﻿@model Orchard.Xmu.Models.ENCoursesPart
 @{ 
     Style.Require("Select2");
-    Script.Require("Select2").AtHead();
+    Script.Require("Course").AtHead();
 }
 <fieldset>
     @Html.LabelFor(m=>m.CourseName)

@@ -41,7 +41,8 @@ namespace Orchard.Xmu.ApiControllers
                 .Select(p => new
                 {
                     Id = p.Id,
-                    CourseName = p.ENName
+                    ENName = p.ENName,
+                    SN = ""
                 });
 
             return Json(new ApiListResponse
