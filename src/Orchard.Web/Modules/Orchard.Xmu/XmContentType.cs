@@ -48,8 +48,22 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition ENTeacher = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "教师信息",
+            PermissionDesc = "管理老师信息",
+            ContentTypeName = "ENTeacher",
+            ContentTypePartName = "EnTeacherPart"
+        };
 
-  
+
+        public static XmContentDefinition ENCourse = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "英文课程信息",
+            PermissionDesc = "管理英文课程信息",
+            ContentTypeName = "ENCourse",
+            ContentTypePartName = "ENCoursePart"
+        };
 
 
         //------------- Content Mapping..
@@ -233,21 +247,6 @@ namespace Orchard.Xmu
                     ListTitle = "Notice",
                     EnablePreview = true
                 },
-                new XmENCMSContentMapping
-                {
-                    ContentTypeName = "CollegeENCourse",
-                    PermissionDesc = "管理课程(Courses)",
-                    ContentTypeDisplayName = "课程(Courses)",
-                    ContentTypePartName = "CollegeENCoursePart",
-                    Permission = new Permission
-                    {
-                        Description = "管理课程(Courses)",
-                        Name = string.Format("Manage{0}","CollegeENCourse")
-                    },
-                    ListTitle = "Courses",
-                    EnablePreview = true
-                }
-
             };
 
 

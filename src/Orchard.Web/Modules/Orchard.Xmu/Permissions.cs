@@ -52,6 +52,18 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageENTeacher = new Permission
+        {
+            Description = XmContentType.ENTeacher.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENTeacher.ContentTypeName)
+        };
+
+        public static readonly Permission ManageENCourse = new Permission
+        {
+            Description = XmContentType.ENCourse.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENCourse.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 

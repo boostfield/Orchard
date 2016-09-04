@@ -332,5 +332,68 @@ namespace Orchard.Xmu
             return 8;
         }
 
+
+        public int UpdateFrom8()
+        {
+
+
+            SchemaBuilder.CreateTable(typeof(TeacherCourseRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("ENTeacherPartRecord_Id")
+        .Column<int>("ENCoursesRecord_Id")
+        );
+
+
+            SchemaBuilder.CreateTable(typeof(ENCoursesPartRecord).Name,
+                table=>
+                table.ContentPartRecord()
+                .Column<string>("CourseName",col=>col.WithLength(220))
+            );
+
+
+            SchemaBuilder.CreateTable(typeof(ENTeacherPartRecord).Name, table =>
+                table.ContentPartRecord()
+                .Column<string>("ENName",col=>col.WithLength(45))
+            );
+
+
+            /*
+            ContentDefinitionManager.AlterPartDefinition(typeof(ENTeacherPart).Name,
+                 cfg =>
+                 cfg.WithField("teacherTitle", b => b.OfType("TaxonomyField").WithDisplayName("职称"))
+             );
+             */
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENTeacher.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.ENTeacher.ContentTypeDisplayName)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(ENTeacherPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.ENTeacher.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENCourse.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.ENCourse.ContentTypeDisplayName)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(ENCoursesPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.ENCourse.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+            return 9;
+        }
+
     }
 }
