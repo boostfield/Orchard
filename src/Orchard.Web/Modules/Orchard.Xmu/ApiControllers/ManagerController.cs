@@ -27,13 +27,13 @@ namespace Orchard.Xmu.ApiControllers
         }
 
         [HttpGet]
-        [ActionName("SearchCourse")]
-        public IHttpActionResult SearchCourse([FromUri] string keyword, [FromUri]PagerParameters pagerParameters)
+        [ActionName("SearchTeacher")]
+        public IHttpActionResult SearchTeacher([FromUri] string keyword, [FromUri]PagerParameters pagerParameters)
         {
             keyword = keyword.Trim();
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-            var q = _contentManager.Query<ENCoursesPart, ENCoursesPartRecord>(VersionOptions.Latest)
-                .Where<ENCoursesPartRecord>(i => i.CourseName.Contains(keyword))
+            var q = _contentManager.Query<ENTeacherPart, ENTeacherPartRecord>(VersionOptions.Latest)
+                .Where<ENTeacherPartRecord>(i => i.ENName.Contains(keyword))
                 .OrderByDescending(i => i.Id);
 
             var total = q.Count();
@@ -41,7 +41,7 @@ namespace Orchard.Xmu.ApiControllers
                 .Select(p => new
                 {
                     Id = p.Id,
-                    CourseName = p.CourseName
+                    CourseName = p.ENName
                 });
 
             return Json(new ApiListResponse
