@@ -1144,6 +1144,21 @@
   font-weight: lighter;
   line-height: 2em;
 }
+.en-home .thumbnail.teacher-list-item {
+  min-height: 200px;
+  max-height: 200px;
+  margin: 0;
+  float: left;
+  box-shadow: none;
+  margin-top: 2em;
+}
+.en-home .thumbnail.teacher-list-item img {
+  width: 150px;
+  height: 150px;
+}
+.en-home .thumbnail.teacher-list-item p {
+  text-align: center;
+}
 .anniversary {
   background-color: #D0021B;
 }

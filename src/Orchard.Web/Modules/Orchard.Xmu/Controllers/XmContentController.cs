@@ -172,7 +172,7 @@ namespace Orchard.Xmu.Controllers
 
         public ActionResult ENTeacherItem(int Id)
         {
-            var item = _contentManager.Get<ENCoursePart>(Id, VersionOptions.Latest);
+            var item = _contentManager.Get<ENTeacherPart>(Id, VersionOptions.Latest);
             if (item == null)
             {
                 ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));

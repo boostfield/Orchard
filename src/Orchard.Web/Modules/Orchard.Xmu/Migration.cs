@@ -452,6 +452,21 @@ namespace Orchard.Xmu
 
             return 12;
         }
+
+        public int UpdateFrom12()
+        {
+            ContentDefinitionManager.AlterPartDefinition(typeof(ENTeacherPart).Name,
+               cfg =>
+               cfg.WithField("avatar",
+                        b => b.OfType("MediaLibraryPickerField")
+                            .WithDisplayName("头像")
+                            )
+                            .Attachable()
+
+           );
+
+            return 13;
+        }
         
     }
 }
