@@ -26,7 +26,7 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item active" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
@@ -38,7 +38,7 @@
             }
             else
             {
-                <div class="item" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
@@ -79,7 +79,7 @@
                             </div>
                             
                             <div class="caption">
-                                <p class="title">@newsItem.Title</p>
+                                <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">@newsItem.Title</a></p>
                                 <p class="time">@newsItem.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
                                 <p class="content">@body</p>
                                 <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">Read More</a></p>

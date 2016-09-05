@@ -839,7 +839,8 @@
 .en-home .thumbnail .caption {
   padding: 1em;
 }
-.en-home .thumbnail p.title {
+.en-home .thumbnail p.title a {
+  color: #333333;
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   font-weight: bolder;
   font-size: 1em;
