@@ -226,6 +226,10 @@
     <Content Include="Views\EditorTemplates\Parts\ENCoursePart.cshtml" />
     <Content Include="Views\Content-ENTeacher.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-ENCourse.SummaryAdmin.cshtml" />
+    <Content Include="Views\XmContent\ENCoursePaging.cshtml" />
+    <Content Include="Views\XmContent\ENTeacherPaging.cshtml" />
+    <Content Include="Views\XmContent\ENCourseItem.cshtml" />
+    <Content Include="Views\XmContent\ENTeacherItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

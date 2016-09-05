@@ -53,7 +53,8 @@ namespace Orchard.Xmu
             ContentTypeDisplayName = "教师信息",
             PermissionDesc = "管理老师信息",
             ContentTypeName = "ENTeacher",
-            ContentTypePartName = "EnTeacherPart"
+            ContentTypePartName = "EnTeacherPart",
+            ListTitle = "Teachers List"
         };
 
 
@@ -62,7 +63,8 @@ namespace Orchard.Xmu
             ContentTypeDisplayName = "英文课程信息",
             PermissionDesc = "管理英文课程信息",
             ContentTypeName = "ENCourse",
-            ContentTypePartName = "ENCoursePart"
+            ContentTypePartName = "ENCoursePart",
+            ListTitle = "Courses List"
         };
 
 

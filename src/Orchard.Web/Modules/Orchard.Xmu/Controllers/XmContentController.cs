@@ -1,5 +1,6 @@
 ﻿using NGM.ContentViewCounter.Events;
 using Orchard.ContentManagement;
+using Orchard.ContentManagement.Aspects;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Settings;
@@ -65,7 +66,7 @@ namespace Orchard.Xmu.Controllers
             return View();
         }
 
-       private void GetItem(string contentTypeName, int Id)
+        private void GetItem(string contentTypeName, int Id)
         {
             var item = _contentManager.Get(Id, VersionOptions.Latest);
             if (item == null)
@@ -115,10 +116,10 @@ namespace Orchard.Xmu.Controllers
         }
 
 
-        public ActionResult Paging(string contentTypeName,PagerParameters pagerParameters)
+        public ActionResult Paging(string contentTypeName, PagerParameters pagerParameters)
         {
 
-           GetPagingResult(contentTypeName, pagerParameters);
+            GetPagingResult(contentTypeName, pagerParameters);
 
 
             return View();
@@ -154,6 +155,95 @@ namespace Orchard.Xmu.Controllers
             return View();
 
         }
+
+
+        public ActionResult ENCourseItem(int Id)
+        {
+            var item = _contentManager.Get<ENCoursePart>(Id, VersionOptions.Latest);
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
+
+            return View(item);
+        }
+
+
+        public ActionResult ENTeacherItem(int Id)
+        {
+            var item = _contentManager.Get<ENCoursePart>(Id, VersionOptions.Latest);
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
+
+            return View(item);
+        }
+
+
+        public ActionResult ENCoursePaging(PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.ENCourse.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(i => i.PublishedUtc);
+            var total = q.Count();
+            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => p.As<ENCoursePart>()); ;
+
+            var listTitle = XmContentType.ENCourse.ListTitle;
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.items = items;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.ContentTypeName = XmContentType.ENCourse.ContentTypeName;
+            ViewBag.ListTitle = listTitle;
+
+            return View();
+
+        }
+
+        public ActionResult ENTeacherPaging(PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.ENTeacher.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(i => i.PublishedUtc);
+            var total = q.Count();
+            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => p.As<ENTeacherPart>()); ;
+
+            var listTitle = XmContentType.ENTeacher.ListTitle;
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.items = items;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.ContentTypeName = XmContentType.ENTeacher.ContentTypeName;
+            ViewBag.ListTitle = listTitle;
+
+            return View();
+
+        }
+    
+
 
         private void GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
         {
