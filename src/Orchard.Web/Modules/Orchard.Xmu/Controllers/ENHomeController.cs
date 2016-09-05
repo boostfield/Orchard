@@ -50,7 +50,7 @@ namespace Orchard.Xmu.Controllers
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
             ViewBag.notice = _contentManager.Query(VersionOptions.Latest, "CollegeENNotice")
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 5)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();

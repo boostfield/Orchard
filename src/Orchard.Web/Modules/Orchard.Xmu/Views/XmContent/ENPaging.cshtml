@@ -25,7 +25,7 @@
                     <a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
                         <div class="p title">@item.Title</div>
                         <div class="p content">@body</div>
-                        <div class="p time">@item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                        <div class="p time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                     </a>
                 </div>
 

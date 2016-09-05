@@ -60,7 +60,7 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CelAnnouncement"})">@notice.Title</a></div>
-                                    <div class="col-sm-3 title-time">@notice.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    <div class="col-sm-3 title-time">@notice.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
                             </li>
@@ -103,7 +103,7 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@news.Id, contentTypeName  = "CelNews"})">@news.Title</a></div>
-                                    <div class="col-sm-3 title-time">@news.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    <div class="col-sm-3 title-time">@news.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
                             </li>
@@ -129,7 +129,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-8 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@article.Id, contentTypeName  = "CelMatesArticle"})">@article.Title</a></div>
-                                        <div class="col-sm-4 title-time">@article.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                        <div class="col-sm-4 title-time">@article.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                     </div>
                                 </li>
                             }
@@ -152,7 +152,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-8 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@show.Id, contentTypeName  = "CelMatesShows"})">@show.Title</a></div>
-                                        <div class="col-sm-4 title-time">@show.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                        <div class="col-sm-4 title-time">@show.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                     </div>
                                 </li>
                             }

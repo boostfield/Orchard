@@ -32,12 +32,12 @@ namespace Orchard.Xmu.Controllers
                 .Select(p => p.As<BannerPart>())
                 .ToList();
             ViewBag.notice = _contentManager.Query(VersionOptions.Latest, "CelAnnouncement")
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 4)
                 .Select(p => p.As<XmContentPart>())
                 .ToList(); 
             ViewBag.news = _contentManager.Query(VersionOptions.Latest, "CelNews")
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 4)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
@@ -47,12 +47,12 @@ namespace Orchard.Xmu.Controllers
                 .Select(p => p.As<NinetyCelebrationDonationPart>())
                 .OrderByDescending(i => i.DonationTime).ToList();
             ViewBag.articles = _contentManager.Query(VersionOptions.Latest, "CelMatesArticle")
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 3)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
             ViewBag.shows = _contentManager.Query(VersionOptions.Latest, "CelMatesShows")
-                .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 3)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();

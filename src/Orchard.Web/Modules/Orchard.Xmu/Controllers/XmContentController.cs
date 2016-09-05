@@ -258,7 +258,7 @@ namespace Orchard.Xmu.Controllers
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
             var q = _contentManager.Query(VersionOptions.Latest, contentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
+            .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc);
 
             var total = q.Count();
             IList<XmContentVM> items;

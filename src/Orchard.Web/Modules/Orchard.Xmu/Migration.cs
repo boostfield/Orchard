@@ -412,11 +412,11 @@ namespace Orchard.Xmu
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
              cfg => cfg
 
-           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "false")));
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true")));
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
              cfg => cfg
 
-           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "false")));
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true")));
             foreach (var mapping in XmContentType.NinetyMappings)
             {
                 ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,

@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
                                 <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CollegeENNotice"})">@notice.Title</a></p>
-                                <p class="time">@notice.PublishedUtc.ToLocalTime().ToString("HH:mm")</p>
+                                <p class="time">@notice.CreatedUtc.ToLocalTime().ToString("HH:mm")</p>
                             </div>
                         </div>
                     </li>

@@ -10,7 +10,7 @@
         <div class="container text-center">
             <h1 class="title">@ViewBag.Item.Title</h1>
             <span class="author">发布人: @ViewBag.Item.Author | </span>
-            <span class="time"> 发布时间: @ViewBag.Item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
+            <span class="time"> 发布时间: @ViewBag.Item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
             <span class="count"> 阅读数: @ViewBag.Item.ViewCount</span>
             <hr />
         </div>
