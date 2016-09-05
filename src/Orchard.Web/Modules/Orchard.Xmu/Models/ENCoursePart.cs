@@ -22,6 +22,18 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        public string CourseNO
+        {
+            get
+            {
+                return Retrieve(i => CourseNO);
+            }
+            set
+            {
+                Store(i => i.CourseNO, value);
+            }
+        }
+
 
         private readonly LazyField<IList<ENTeacherPart>> _teachers = new LazyField<IList<ENTeacherPart>>();
         public LazyField<IList<ENTeacherPart>>  TeachersField { get { return _teachers; } } 

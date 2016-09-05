@@ -23,7 +23,8 @@ namespace Orchard.Xmu.Models
 
         public string SN
         {
-            get { return ""; }
+            get { return Retrieve(i => i.SN); }
+            set { Store(i => i.SN, value); }
         }
         private readonly LazyField<IList<ENCoursePart>> _courses = new LazyField<IList<ENCoursePart>>();
         public LazyField<IList<ENCoursePart>> CoursesField { get { return _courses; } }

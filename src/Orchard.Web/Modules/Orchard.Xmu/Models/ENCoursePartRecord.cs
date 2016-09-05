@@ -10,7 +10,7 @@ namespace Orchard.Xmu.Models
     {
 
         public virtual string CourseName { get; set; }
-
+        public virtual string CourseNO { get; set; }//课程编号
 
         public virtual IList<ENTeacherPartRecord> RecordTeachers { get; set; }
 
