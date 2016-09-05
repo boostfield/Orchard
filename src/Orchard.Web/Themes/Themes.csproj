@@ -221,7 +221,7 @@
     <Content Include="OrchardBS\Views\FooterEntry.cshtml" />
     <Content Include="OrchardBS\Views\ENFooterFirst.cshtml" />
     <Content Include="OrchardBS\Views\ENBadgeOfHonor.cshtml" />
-    <Content Include="OrchardBS\Views\Layout-url-anniversary.cshtml" />
+    <Content Include="OrchardBS\Views\Layout-url-90.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryFooter.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryBadgeOfHonor.cshtml" />
     <Content Include="OrchardBS\Views\Content-url-en-page.cshtml" />
