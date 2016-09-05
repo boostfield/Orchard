@@ -6,7 +6,11 @@
 }
 <fieldset>
     @Html.LabelFor(m=>m.CourseName)
-    @Html.TextAreaFor(m => m.CourseName)
+    @Html.TextBoxFor(m => m.CourseName)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.CourseNO)
+    @Html.TextBoxFor(m => m.CourseNO)
 </fieldset>
 @Html.Label("相关老师")
 <select class="teacher-in-course" style="width: 400px;" multiple="multiple" name="ENCoursePart.TeacherIds">

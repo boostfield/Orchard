@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Orchard.Core.Common.Models;
+using System.ComponentModel;
 
 namespace Orchard.Xmu.Models
 {
     public class ENCoursePart:ContentPart<ENCoursePartRecord>
     {
+        [DisplayName("课程名称")]
         public string CourseName
         {
             get
@@ -23,6 +25,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("课程编号")]
         public string CourseNO
         {
             get
@@ -34,6 +37,8 @@ namespace Orchard.Xmu.Models
                 Store(i => i.CourseNO, value);
             }
         }
+
+        [DisplayName("课程介绍")]
         public string Text
         {
             get { return this.As<BodyPart>().Text; }

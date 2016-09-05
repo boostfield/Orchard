@@ -2,7 +2,7 @@
     $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
         $(".teacher-in-course").select2({
 
-            placeholder: "选择课程相关的老师",
+            placeholder: "教授该课程的老师",
             ajax: {
                 url: "/api/manager/searchteacher",
                 dataType: 'json',
