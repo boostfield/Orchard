@@ -6,6 +6,13 @@
 <div class="container-fluid detail-header">
     <div class="container">
         <h1 class="title">@Model.ENName</h1>
+        
+    </div>
+</div>
+<div class="container-fluid detail-container">
+    <div class="container content">
+        @htmlString
+
         <span class="time">
             Courses:
             @foreach (var course in courses)
@@ -13,11 +20,6 @@
                 <a href="@Url.Action("ENCourseItem","XmContent",new { Id=@course.Id})">@String.Format(" {0}  ", @course.CourseName)</a>
             }
         </span>
-    </div>
-</div>
-<div class="container-fluid detail-container">
-    <div class="container content">
-        @htmlString
     </div>
 
 </div>
