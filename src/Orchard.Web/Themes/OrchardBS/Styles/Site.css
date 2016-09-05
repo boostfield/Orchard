@@ -21,21 +21,23 @@
   margin-left: 0;
   margin-right: 0;
 }
-/*
-    .dropdown .dropdown-menu{
-    display: block;
-    opacity: 0;
-
-    -moz-transition:    all 1000ms ease;
-    -webkit-transition: all 1000ms ease;
-    -o-transition:      all 1000ms ease;
-    -ms-transition:     all 1000ms ease;
-    transition:         all 1000ms ease;
+.dropdown .dropdown-menu {
+  display: block;
+  opacity: 0;
+  -moz-transition: all 1000ms ease;
+  -webkit-transition: all 1000ms ease;
+  -o-transition: all 1000ms ease;
+  -ms-transition: all 1000ms ease;
+  transition: all 1000ms ease;
 }
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-}**/
+.dropdown:hover > ul.dropdown-menu {
+  display: block;
+  opacity: 1;
+}
+.dropdown-submenu:hover > ul.dropdown-menu {
+  display: block;
+  opacity: 1;
+}
 .dropdown-submenu {
   position: relative;
 }

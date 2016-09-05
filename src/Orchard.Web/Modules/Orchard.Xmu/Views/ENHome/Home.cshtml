@@ -80,7 +80,7 @@
                             
                             <div class="caption">
                                 <p class="title">@newsItem.Title</p>
-                                <p class="time">@newsItem.PublishedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="time">@newsItem.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
                                 <p class="content">@body</p>
                                 <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">Read More</a></p>
                                 

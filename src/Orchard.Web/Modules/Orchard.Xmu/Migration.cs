@@ -70,8 +70,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
-       .WithPart(typeof(UserViewPart).Name,builder=>builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
-       .WithSetting("ListTitle",XmContentType.LectureInfo.ListTitle)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.LectureInfo.ListTitle)
        .Creatable()
        .Draftable()
        .Securable()
@@ -90,7 +90,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
            .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
-           .WithSetting("ListTitle",mapping.ListTitle)
+           .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -136,7 +136,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
                 .WithPart(typeof(NinetyCelebrationDonationPart).Name)
                 .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
-                .WithSetting("ListTitle",XmContentType.NinetyDonation.ListTitle)
+                .WithSetting("ListTitle", XmContentType.NinetyDonation.ListTitle)
                 .Creatable()
                 .Draftable()
                 .Securable()
@@ -171,7 +171,7 @@ namespace Orchard.Xmu
               .WithPart(typeof(TitlePart).Name)
               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
               .WithPart(typeof(BannerPart).Name)
-              .WithSetting("ListTitle",XmContentType.CNBanner.ListTitle)
+              .WithSetting("ListTitle", XmContentType.CNBanner.ListTitle)
               .Creatable()
               .Draftable()
               .Securable()
@@ -189,7 +189,7 @@ namespace Orchard.Xmu
              .WithPart(typeof(TitlePart).Name)
              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
              .WithPart(typeof(BannerPart).Name)
-             .WithSetting("ListTitle",XmContentType.ENBanner.ListTitle)
+             .WithSetting("ListTitle", XmContentType.ENBanner.ListTitle)
              .Creatable()
              .Draftable()
              .Securable()
@@ -211,7 +211,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
            .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
-           .WithSetting("ListTitle",mapping.ListTitle)
+           .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -250,7 +250,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(TitlePart).Name)
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(ENSectionPart).Name)
-           .WithSetting("ListTitle",XmContentType.ENSection.ListTitle)
+           .WithSetting("ListTitle", XmContentType.ENSection.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -269,7 +269,7 @@ namespace Orchard.Xmu
             .WithPart(typeof(TitlePart).Name)
             .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
             .WithPart(typeof(BannerPart).Name)
-            .WithSetting("ListTitle",XmContentType.NinetyCelBanner.ListTitle)
+            .WithSetting("ListTitle", XmContentType.NinetyCelBanner.ListTitle)
             .Creatable()
             .Draftable()
             .Securable()
@@ -347,14 +347,15 @@ namespace Orchard.Xmu
 
             SchemaBuilder.CreateTable(typeof(ENCoursePartRecord).Name,
                 table=>
+ 
                 table.ContentPartRecord()
-                .Column<string>("CourseName",col=>col.WithLength(220))
+                .Column<string>("CourseName", col => col.WithLength(220))
             );
 
 
             SchemaBuilder.CreateTable(typeof(ENTeacherPartRecord).Name, table =>
                 table.ContentPartRecord()
-                .Column<string>("ENName",col=>col.WithLength(45))
+                .Column<string>("ENName", col => col.WithLength(45))
             );
 
 
@@ -394,6 +395,48 @@ namespace Orchard.Xmu
 
             return 9;
         }
+        public int UpdateFrom9()
+        {
+            foreach (var mapping in XmContentType.ENCMSMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
 
+               );
+            }
+            return 10;
+        }
+        public int UpdateFrom10()
+        {
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "false")));
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "false")));
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
+
+               );
+            }
+            foreach (var mapping in XmContentType.CNCMSMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
+
+               );
+            }
+            return 11;
+        }
+
+
+        
     }
 }
