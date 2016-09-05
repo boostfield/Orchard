@@ -45,6 +45,7 @@ namespace Orchard.Xmu.Controllers
 
 
         // GET: ContentDetail
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult Item(string contentTypeName, int Id)
         {
 
@@ -52,6 +53,8 @@ namespace Orchard.Xmu.Controllers
 
             return View();
         }
+        [OutputCache(NoStore = true, Duration = 0)]
+
         public ActionResult ENItem(string contentTypeName, int Id)
         {
 
@@ -60,12 +63,12 @@ namespace Orchard.Xmu.Controllers
 
             return View();
         }
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult ANItem(string contentTypeName, int Id)
         {
             GetItem(contentTypeName, Id);
             return View();
         }
-
         private void GetItem(string contentTypeName, int Id)
         {
             var item = _contentManager.Get(Id, VersionOptions.Latest);

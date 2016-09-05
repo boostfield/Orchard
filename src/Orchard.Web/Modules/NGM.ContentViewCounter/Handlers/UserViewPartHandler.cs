@@ -17,25 +17,19 @@ namespace NGM.ContentViewCounter.Handlers {
             _votingService = votingService;
             _orchardServices = orchardServices;
 
-            OnGetDisplayShape<UserViewPart>((context, part) => {
-                var settings = part.Settings.GetModel<UserViewTypePartSettings>();
-                if (!context.DisplayType.Equals(settings.DisplayType, StringComparison.InvariantCultureIgnoreCase))
-                    return;
+          
 
-                RecordView(part, settings);
-
+            OnLoading<UserViewPart>((context, part)=>
+            {
                 part.TotalViewField.Loader(
-                   () =>
-                   {
-                       var resultRecord = _votingService.GetResult(part.ContentItem.Id, "sum", Constants.Dimension);
-                       return resultRecord == null ? 0 : (int)resultRecord.Value;
-                   });
+                  () =>
+                  {
+                      var resultRecord = _votingService.GetResult(part.ContentItem.Id, "sum", Constants.Dimension);
+                      return resultRecord == null ? 0 : (int)resultRecord.Value;
+                  });
             });
 
-            OnLoading<UserViewPart>((context, UserView)=>
-            {
-               
-             });
+            
 
         }
 
