@@ -1067,6 +1067,9 @@
   font-size: 0.8em;
   font-weight: lighter;
 }
+.en-home .detail-header .time a {
+  color: white;
+}
 .en-home .detail-header .count {
   margin-left: 4em;
 }
