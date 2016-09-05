@@ -345,7 +345,7 @@ namespace Orchard.Xmu
         );
 
 
-            SchemaBuilder.CreateTable(typeof(ENCoursesPartRecord).Name,
+            SchemaBuilder.CreateTable(typeof(ENCoursePartRecord).Name,
                 table=>
                 table.ContentPartRecord()
                 .Column<string>("CourseName",col=>col.WithLength(220))
@@ -383,7 +383,7 @@ namespace Orchard.Xmu
        .DisplayedAs(XmContentType.ENCourse.ContentTypeDisplayName)
        .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(ENCoursesPart).Name)
+       .WithPart(typeof(ENCoursePart).Name)
        .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
        .WithSetting("ListTitle", XmContentType.ENCourse.ListTitle)
        .Creatable()

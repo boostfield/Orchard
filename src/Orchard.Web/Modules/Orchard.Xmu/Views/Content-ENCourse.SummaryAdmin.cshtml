@@ -5,7 +5,7 @@
 @{
     Script.Require("ShapesBase");
     ContentItem contentItem = Model.ContentItem;
-    var part = contentItem.As<ENCoursesPart>();
+    var part = contentItem.As<ENCoursePart>();
     var returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString();
 }
 <div class="summary" itemscope="itemscope" itemid="@contentItem.Id" itemtype="http://orchardproject.net/data/ContentItem">

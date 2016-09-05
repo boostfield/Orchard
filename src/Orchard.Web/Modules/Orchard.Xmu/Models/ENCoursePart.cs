@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class ENCoursesPart:ContentPart<ENCoursesPartRecord>
+    public class ENCoursePart:ContentPart<ENCoursePartRecord>
     {
         public string CourseName
         {

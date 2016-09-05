@@ -8,7 +8,7 @@ using Orchard.ContentManagement;
 
 namespace Orchard.Xmu.Drivers
 {
-    public class ENCoursePartDriver:ContentPartDriver<ENCoursesPart>
+    public class ENCoursePartDriver:ContentPartDriver<ENCoursePart>
     {
         private readonly IOrchardServices _orchardServices;
 
@@ -19,7 +19,7 @@ namespace Orchard.Xmu.Drivers
         }
 
 
-        protected override DriverResult Editor(ENCoursesPart part, IUpdateModel updater, dynamic shapeHelper)
+        protected override DriverResult Editor(ENCoursePart part, IUpdateModel updater, dynamic shapeHelper)
         {
             var oldTeachers = part.Record.RecordTeachers;
             updater.TryUpdateModel(part, Prefix, null, null);
@@ -47,7 +47,7 @@ namespace Orchard.Xmu.Drivers
             return Editor(part, shapeHelper);
         }
 
-        protected override DriverResult Editor(ENCoursesPart part, dynamic shapeHelper)
+        protected override DriverResult Editor(ENCoursePart part, dynamic shapeHelper)
         {
             return ContentShape("Parts_ENCoursePart_Edit",
                         () => shapeHelper.EditorTemplate(

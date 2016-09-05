@@ -33,7 +33,7 @@ namespace Orchard.Xmu.Mappings
                 .Table("Orchard_Xmu_TeacherCourseRelationRecord");
             });
 
-            defaultModel.Override<ENCoursesPartRecord>(x =>
+            defaultModel.Override<ENCoursePartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordTeachers)
                 .Cascade.All()

@@ -11,12 +11,12 @@ namespace Orchard.Xmu.Models
         
         public virtual string ENName { get; set; }
 
-        public virtual IList<ENCoursesPartRecord> RecordCourses { get; set; }
+        public virtual IList<ENCoursePartRecord> RecordCourses { get; set; }
 
 
         public ENTeacherPartRecord()
         {
-            RecordCourses = new List<ENCoursesPartRecord>();
+            RecordCourses = new List<ENCoursePartRecord>();
         }
     }
 }

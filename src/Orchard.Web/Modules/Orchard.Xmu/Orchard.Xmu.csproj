@@ -225,7 +225,7 @@
     <Content Include="Views\EditorTemplates\Parts\ENTeacherPart.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\ENCoursePart.cshtml" />
     <Content Include="Views\Content-ENTeacher.SummaryAdmin.cshtml" />
-    <Content Include="Views\Content-ENCourse.SummaryAdmin .cshtml" />
+    <Content Include="Views\Content-ENCourse.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,8 +270,8 @@
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
-    <Compile Include="Models\ENCoursesPart.cs" />
-    <Compile Include="Models\ENCoursesPartRecord.cs" />
+    <Compile Include="Models\ENCoursePart.cs" />
+    <Compile Include="Models\ENCoursePartRecord.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
     <Compile Include="Models\ENTeacherPart.cs" />
     <Compile Include="Models\ENTeacherPartRecord.cs" />

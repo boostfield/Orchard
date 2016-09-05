@@ -19,7 +19,7 @@ namespace Orchard.Xmu.Hanlders
 
             OnLoaded<ENTeacherPart>((context, teacher) => {
                 teacher.CoursesField.Loader(() => teacher.Record.RecordCourses == null ? null :
-                contentManager.GetMany<ENCoursesPart>
+                contentManager.GetMany<ENCoursePart>
                 (teacher.Record.RecordCourses.Select(i => i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
                 .ToList());
             });

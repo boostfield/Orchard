@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class ENCoursesPartRecord: ContentPartRecord
+    public class ENCoursePartRecord: ContentPartRecord
     {
 
         public virtual string CourseName { get; set; }
@@ -14,7 +14,7 @@ namespace Orchard.Xmu.Models
 
         public virtual IList<ENTeacherPartRecord> RecordTeachers { get; set; }
 
-        public ENCoursesPartRecord()
+        public ENCoursePartRecord()
         {
 
             RecordTeachers = new List<ENTeacherPartRecord>();

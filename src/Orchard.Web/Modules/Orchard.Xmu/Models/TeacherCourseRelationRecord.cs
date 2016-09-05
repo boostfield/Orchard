@@ -9,6 +9,6 @@ namespace Orchard.Xmu.Models
     {
         public virtual int Id { get; set; }
         public virtual ENTeacherPartRecord ENTeacherPartRecord { get; set; }
-        public virtual ENCoursesPartRecord ENCoursesRecord { get; set; }
+        public virtual ENCoursePartRecord ENCoursesRecord { get; set; }
     }
 }

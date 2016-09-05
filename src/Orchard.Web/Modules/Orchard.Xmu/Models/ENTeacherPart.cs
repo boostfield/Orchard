@@ -25,11 +25,11 @@ namespace Orchard.Xmu.Models
         {
             get { return ""; }
         }
-        private readonly LazyField<IList<ENCoursesPart>> _courses = new LazyField<IList<ENCoursesPart>>();
-        public LazyField<IList<ENCoursesPart>> CoursesField { get { return _courses; } }
-        public IList<ENCoursesPart> Courses
+        private readonly LazyField<IList<ENCoursePart>> _courses = new LazyField<IList<ENCoursePart>>();
+        public LazyField<IList<ENCoursePart>> CoursesField { get { return _courses; } }
+        public IList<ENCoursePart> Courses
         {
-            get { return _courses.Value ?? new List<ENCoursesPart>(); }
+            get { return _courses.Value ?? new List<ENCoursePart>(); }
             set { _courses.Value = value; }
         }
     }
