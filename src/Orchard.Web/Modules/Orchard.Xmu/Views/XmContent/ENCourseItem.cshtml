@@ -1,1 +1,18 @@
 ﻿@model Orchard.Xmu.Models.ENCoursePart
+
+@{
+    var htmlString = new HtmlString(Model.Text);
+
+}
+<div class="container-fluid detail-header">
+    <div class="container">
+        <h1 class="title">@Model.CourseName</h1>
+        
+    </div>
+</div>
+<div class="container-fluid detail-container">
+    <div class="container content">
+        @htmlString
+    </div>
+
+</div>

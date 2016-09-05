@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Orchard.Core.Common.Models;
 
 namespace Orchard.Xmu.Models
 {
@@ -26,14 +27,18 @@ namespace Orchard.Xmu.Models
         {
             get
             {
-                return Retrieve(i => CourseNO);
+                return Retrieve(i => i.CourseNO);
             }
             set
             {
                 Store(i => i.CourseNO, value);
             }
         }
-
+        public string Text
+        {
+            get { return this.As<BodyPart>().Text; }
+            set { this.As<BodyPart>().Text = value; }
+        }
 
         private readonly LazyField<IList<ENTeacherPart>> _teachers = new LazyField<IList<ENTeacherPart>>();
         public LazyField<IList<ENTeacherPart>>  TeachersField { get { return _teachers; } } 
