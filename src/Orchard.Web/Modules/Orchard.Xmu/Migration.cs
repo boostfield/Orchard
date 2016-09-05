@@ -436,7 +436,22 @@ namespace Orchard.Xmu
             return 11;
         }
 
+        public int UpdateFrom11()
+        {
 
+            SchemaBuilder.AlterTable(typeof(ENCoursePartRecord).Name,
+                table =>
+                table.AddColumn<string>("CourseNO")
+
+             );
+
+
+            SchemaBuilder.AlterTable(typeof(ENTeacherPartRecord).Name, table =>
+            table.AddColumn<string>("SN")
+             );
+
+            return 12;
+        }
         
     }
 }
