@@ -7,8 +7,8 @@
 
     Style.Include("bootstrap.min.css");
     Style.Include("Site.css");
-    Script.Require("jQuery").AtHead();
-    Script.Include("bootstrap.min.js").AtFoot();
+    Script.Include("jquery1.min.js").AtHead();
+    Script.Include("bootstrap.min.js").AtHead();
     Script.Include("jquery.bootpag.min.js").AtHead();
     
     SetMeta("renderer", "webkit");
@@ -18,6 +18,12 @@
     <head>
          <title>厦门大学法学院</title>
         <link rel="shortcut icon" href="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/favicon.ico"))" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+          <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
         @Display(Model.Head)
     </head>
     <body class="text-justify">
