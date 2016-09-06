@@ -238,6 +238,7 @@
     <Content Include="Views\XmContent\ENCourseItem.cshtml" />
     <Content Include="Views\XmContent\ENTeacherItem.cshtml" />
     <Content Include="Views\CNNotifyAdmin\List.cshtml" />
+    <Content Include="Views\CNCopAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,6 +253,7 @@
     <Compile Include="ApiRoutes.cs" />
     <Compile Include="Controllers\CelMatesPicAdminController.cs" />
     <Compile Include="Controllers\CNBannerAdminController.cs" />
+    <Compile Include="Controllers\CNCopAdminController.cs" />
     <Compile Include="Controllers\CNNotifyAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
@@ -269,6 +271,8 @@
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\BannerPartDriver.cs" />
     <Compile Include="Drivers\CelMatesPicPartDriver.cs" />
+    <Compile Include="Drivers\CNCopPartDriver.cs" />
+    <Compile Include="Drivers\CNNotifyPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\ENCoursePartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
@@ -283,6 +287,7 @@
     <Compile Include="Migration.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
+    <Compile Include="Models\CNCopPart.cs" />
     <Compile Include="Models\CNNotifyPart.cs" />
     <Compile Include="Models\ENCoursePart.cs" />
     <Compile Include="Models\ENCoursePartRecord.cs" />

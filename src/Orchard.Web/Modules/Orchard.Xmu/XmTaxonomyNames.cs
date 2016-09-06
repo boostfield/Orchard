@@ -7,6 +7,6 @@ namespace Orchard.Xmu
 {
     public class XmTaxonomyNames
     {
-        public static string CNInformation = "InfoType";
+        public static string CNNotify = "InfoType";
     }
 }

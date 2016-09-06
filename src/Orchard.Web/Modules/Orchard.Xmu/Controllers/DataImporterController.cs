@@ -33,6 +33,13 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+
+        public ActionResult BuildCNNotifyCategory()
+        {
+            _dataImporter.BuildCNNotifyCategory();
+            return View("Index");
+        }
+
         /// <summary>
         /// 学院新闻
         /// </summary>
@@ -40,6 +47,14 @@ namespace Orchard.Xmu.Controllers
         public ActionResult ImportCollegeNews()
         {
             _dataImporter.ImportCollegeNews();
+            return View("Index");
+
+        }
+
+
+        public ActionResult ImportCop()
+        {
+            _dataImporter.ImportCope();
             return View("Index");
 
         }

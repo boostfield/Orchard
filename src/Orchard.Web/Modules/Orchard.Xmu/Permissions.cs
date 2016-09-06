@@ -70,6 +70,12 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.ENCourse.ContentTypeName)
         };
 
+        public static readonly Permission ManageCNCop = new Permission
+        {
+            Description = XmContentType.CNCop.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNCop.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 
@@ -118,8 +124,8 @@ namespace Orchard.Xmu
                 ManageCelBanner,
                 ManageCelMatesPic,
                 ManageENTeacher,
-
-                ManageENCourse
+                ManageENCourse,
+                ManageCNCop
 
 
             };

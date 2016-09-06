@@ -478,6 +478,8 @@ namespace Orchard.Xmu
                cfg.WithField("istop",
                         b => b.OfType("BooleanField")
                             .WithDisplayName("置顶")
+                            
+                          
                             )
            );
 
@@ -488,13 +490,20 @@ namespace Orchard.Xmu
         {
 
 
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(CNNotifyPart).Name,
+                cfg =>
+                cfg.WithField("taxotype", b => b.OfType("TaxonomyField")
+                            .WithDisplayName("新闻分类"))
+
+            );
+
             ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNNotify.ContentTypeName,
              cfg => cfg
        .DisplayedAs(XmContentType.CNNotify.ContentTypeDisplayName)
        .WithPart(typeof(TitlePart).Name)
        .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
-       .WithPart(typeof(TagsPart).Name)
        .WithPart(typeof(XmContentPart).Name)
        .WithPart(typeof(CNNotifyPart).Name)
        .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
@@ -504,7 +513,27 @@ namespace Orchard.Xmu
        .Securable()
        );
 
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNCop.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.CNCop.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(XmContentPart).Name)
+       .WithPart(typeof(CNCopPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.CNCop.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
             return 15;
         }
+
+
     }
 }

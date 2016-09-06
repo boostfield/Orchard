@@ -262,7 +262,8 @@ namespace Orchard.Xmu
                                                                 },
                                         new MvcRouteHandler())
                              },
-                                             new RouteDescriptor {
+
+                                  new RouteDescriptor {
                                     Priority = 20,
                                     Route = new Route(
                                         "Admin/Notify",
@@ -277,6 +278,24 @@ namespace Orchard.Xmu
                                                                 },
                                         new MvcRouteHandler())
                              },
+
+
+                                  new RouteDescriptor {
+                                    Priority = 20,
+                                    Route = new Route(
+                                        "Admin/CNCop",
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                    {"controller", "CNCopAdmin"},
+                                                                    {"action", "List"}
+                                                                },
+                                        new RouteValueDictionary(),
+                                        new RouteValueDictionary {
+                                                                    {"area", "Orchard.Xmu"},
+                                                                },
+                                        new MvcRouteHandler())
+                             },
+
                                      new RouteDescriptor {
                                     Priority = 20,
                                     Route = new Route(

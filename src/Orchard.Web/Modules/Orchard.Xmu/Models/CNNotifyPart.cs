@@ -9,13 +9,6 @@ namespace Orchard.Xmu.Models
 {
     public class CNNotifyPart: XmContentPart
     {
-
-        public string Tags
-        {
-            get
-            {
-                return string.Join(",", this.As<TagsPart>().CurrentTags);
-            }
-        }
+ 
     }
 }

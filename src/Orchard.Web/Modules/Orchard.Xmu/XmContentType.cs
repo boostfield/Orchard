@@ -30,11 +30,20 @@ namespace Orchard.Xmu
 
         public static XmContentDefinition CNNotify = new XmContentDefinition
         {
-            ContentTypeDisplayName = "通知公告",
+            ContentTypeDisplayName = "中文通知公告",
             PermissionDesc = "管理通知公告",
             ContentTypeName = "CNNotify",
             ContentTypePartName = "CNNotifyPart",
             ListTitle ="通知公告"
+        };
+
+        public static XmContentDefinition CNCop = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "合作交流",
+            PermissionDesc = "管理合作交流",
+            ContentTypeName = "CNCop",
+            ContentTypePartName = "CNCopPart",
+            ListTitle = "合作交流"
         };
 
         public static XmContentDefinition ENBanner = new XmContentDefinition
@@ -449,7 +458,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=78,
@@ -499,7 +508,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                */
                 new XmCNCMSContentMapping
                 {
                     Id=87,
