@@ -702,6 +702,10 @@
 .en-home .navbar-default .navbar-nav > li {
   margin: 0 0.25em 0 0.25em;
 }
+.en-home .dropdown.last > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
 .en-home .btn-group .btn {
   line-height: 60px;
   padding: 0 1em 0 1em;
