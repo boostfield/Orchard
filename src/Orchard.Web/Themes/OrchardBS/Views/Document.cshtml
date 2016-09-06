@@ -32,9 +32,11 @@
         .AtHead()
         .UseCondition("lt ie 9");
         Script.Include("jquery1.min.js").AtHead();
-        Script.Include("bootstrap.min.js").AtHead();
-        Script.Include("jquery.bootpag.min.js").AtHead();
-
+        Script.Include("bootstrap.min.js").AtFoot();
+        Script.Include("jquery.bootpag.min.js").AtFoot();
+        Script.Include("ie-bootstrap-carousel.min.js")
+        .AtFoot()
+        .UseCondition("lt ie 9");
     }
     
 

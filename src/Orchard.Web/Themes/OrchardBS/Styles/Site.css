@@ -903,6 +903,7 @@
   padding-bottom: 4px;
   padding-left: 0;
   padding-right: 0;
+  background-color: transparent;
 }
 .en-home .notice .list-group-item .month {
   margin: auto auto 0 auto;
@@ -943,6 +944,9 @@
   border-top: none;
   margin-top: 2em;
   padding-top: 0;
+}
+.en-home .notice .list-group-item:last-child {
+  border-radius: 0;
 }
 .en-home .en-sections {
   margin-top: 120px;
