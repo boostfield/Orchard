@@ -4,14 +4,18 @@
     var siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
 
     var title = Model.Title + WorkContext.CurrentSite.PageTitleSeparator + siteName;
-
+    SetMeta("charset", "utf-8");
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    SetMeta("viewport", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no");
+    SetMeta("renderer", "webkit");
+    SetMeta("author", "Boostfield");
     Style.Include("bootstrap.min.css");
     Style.Include("Site.css");
     Script.Include("jquery1.min.js").AtHead();
     Script.Include("bootstrap.min.js").AtHead();
     Script.Include("jquery.bootpag.min.js").AtHead();
-    
-    SetMeta("renderer", "webkit");
+
+
 }
 <!DOCTYPE html>
 <html lang="@WorkContext.CurrentCulture">
