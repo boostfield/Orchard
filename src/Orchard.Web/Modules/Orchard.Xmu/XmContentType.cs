@@ -28,6 +28,15 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition CNNotify = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "通知公告",
+            PermissionDesc = "管理通知公告",
+            ContentTypeName = "CNNotify",
+            ContentTypePartName = "CNNotifyPart",
+            ListTitle ="通知公告"
+        };
+
         public static XmContentDefinition ENBanner = new XmContentDefinition
         {
             ContentTypeDisplayName = "英文首页Banner",
@@ -268,67 +277,6 @@ namespace Orchard.Xmu
                         Description = "管理学院新闻",
                         Name = string.Format("Manage{0}","CollegeNews")
                     }
-                },
-
-
-                new XmCNCMSContentMapping
-                {
-                    ContentTypePartName = "CollegeAffairsNotifyPart",
-                    PermissionDesc = "管理院务通知",
-                    ContentTypeDisplayName = "院务通知",
-                    ContentTypeName = "CollegeAffairsNotify",
-                    Permission = new Permission
-                    {
-                        Description = "管理院务通知",
-                        Name = string.Format("Manage{0}","CollegeAffairsNotify")
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-
-                    ContentTypeDisplayName = "本科生教务",
-                    PermissionDesc = "管理本科生教务",
-                    ContentTypeName = "UndergraduateAffairs",
-                    ContentTypePartName = "UndergraduateAffairsPart",
-                    Permission = new Permission
-                    {
-                        Description = "管理本科生教务",
-                        Name = string.Format("Manage{0}","UndergraduateAffairs")
-
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-
-                    ContentTypeDisplayName = "研究生教务",
-                    PermissionDesc = "管理研究生教务",
-                    ContentTypeName = "GraduateAffairs",
-                    ContentTypePartName = "GraduateAffairsPart",
-                    Permission = new Permission
-                    {
-                       Description = "管理研究生教务",
-                       Name = string.Format("Manage{0}","GraduateAffairs")
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-                     ContentTypeDisplayName = "学生资讯",
-                     PermissionDesc = "管理学生资讯",
-                     ContentTypeName = "StudentInfo",
-                     ContentTypePartName = "StudentInfoPart",
-                     Permission = new Permission
-                     {
-                         Description = "管理学生资讯",
-                         Name = string.Format("Manage{0}","StudentInfo")
-                     }
-
-
                 },
 
                 new XmCNCMSContentMapping

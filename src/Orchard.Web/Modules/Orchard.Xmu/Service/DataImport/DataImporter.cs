@@ -5,6 +5,7 @@ using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.Security;
 using Orchard.Services;
+using Orchard.Tags.Services;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Users.Models;
@@ -27,6 +28,7 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IMembershipService _memberShipService;
         private readonly IVotingService _votingService;
         private readonly IOrchardServices _orchardService;
+        private readonly ITagService _tagService;
         private readonly IClock _clock;
 
         private readonly int MAX = 300;
@@ -39,6 +41,7 @@ namespace Orchard.Xmu.Service.DataImport
             IMembershipService memberShipService,
             IVotingService votingService,
             IOrchardServices orchardService,
+            ITagService tagService,
             IClock clock
 
             )
@@ -48,6 +51,7 @@ namespace Orchard.Xmu.Service.DataImport
             _transactionManager = transactionManager;
             _memberShipService = memberShipService;
             _votingService = votingService;
+            _tagService = tagService;
             _orchardService = orchardService;
             _clock = clock;
         }
@@ -129,19 +133,41 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
-           i => GenerateImportSingleOldContent<XmContentPart, OldContent>("UndergraduateAffairs","本科生教务")(i,null),
+           i => GenerateImportSingleOldContent<XmContentPart, OldContent>("CNNotify", "本科生教务")(i, (oldcontent, part) => {
+               var contentItem = part.ContentItem;
+               _tagService.UpdateTagsForContentItem(contentItem, new string[] { "本科生教务" });
+           }),
            r => r.ID,
            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
            );
         }
 
+        /// <summary>
+        /// 院务通知
+        /// </summary>
+        public void ImportCollegeAffairsNoti()
+        {
+
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
+            i => GenerateImportSingleOldContent<XmContentPart, OldContent>("CNNotify", "院务通知")(i,(oldcontent,part)=> {
+                var contentItem = part.ContentItem;
+                _tagService.UpdateTagsForContentItem(contentItem, new string[] { "院务通知" });
+            }),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
+            );
+        }
 
 
         public void ImportGraduateAffairs()
         {
             ImportDataTemplate<OldContent>(
           () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
-          i => GenerateImportSingleOldContent<XmContentPart, OldContent>("GraduateAffairs", "研究生教务")(i,null),
+          i => GenerateImportSingleOldContent<XmContentPart, OldContent>("CNNotify", "研究生教务")(i, (oldcontent, part) => {
+              var contentItem = part.ContentItem;
+              _tagService.UpdateTagsForContentItem(contentItem, new string[] { "研究生教务" });
+          }),
           r => r.ID,
           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
           );
@@ -151,7 +177,10 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
-         i => GenerateImportSingleOldContent<XmContentPart, OldContent>("StudentInfo", "学生资讯")(i,null),
+         i => GenerateImportSingleOldContent<XmContentPart, OldContent>("CNNotify", "学生资讯")(i, (oldcontent, part) => {
+             var contentItem = part.ContentItem;
+             _tagService.UpdateTagsForContentItem(contentItem, new string[] { "学生资讯" });
+         }),
          r => r.ID,
          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
          );
@@ -193,20 +222,7 @@ namespace Orchard.Xmu.Service.DataImport
 
         }
 
-        /// <summary>
-        /// 院务通知
-        /// </summary>
-        public void ImportCollegeAffairsNoti()
-        {
-
-            ImportDataTemplate<OldContent>(
-            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => GenerateImportSingleOldContent<XmContentPart,OldContent>("CollegeAffairsNotify","院务通知")(i, null),
-            r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
-            );
-        }
-
+    
 
 
         public void ImportAcademicNews()
@@ -292,6 +308,7 @@ namespace Orchard.Xmu.Service.DataImport
                 infopart.PublishedUtc = oldContent.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : oldContent.PubTime;
                 infopart.Author = oldContent.Author;
                 infopart.Editor = oldContent.Editor;
+                infopart.CreatedUtc = infopart.PublishedUtc;
 
 
 

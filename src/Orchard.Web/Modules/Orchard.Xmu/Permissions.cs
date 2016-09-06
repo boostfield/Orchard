@@ -52,6 +52,12 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageCNNotify = new Permission
+        {
+            Description = XmContentType.CNNotify.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNNotify.ContentTypeName)
+        };
+
         public static readonly Permission ManageENTeacher = new Permission
         {
             Description = XmContentType.ENTeacher.PermissionDesc,
@@ -104,7 +110,18 @@ namespace Orchard.Xmu
         {
             var staticPermissions = new[]
             {
-                ManageLectureInfo
+                ManageLectureInfo,
+                ManageCNNotify,
+                ManageCNBanner,
+                ManageENBanner,
+                ManageENSection,
+                ManageCelBanner,
+                ManageCelMatesPic,
+                ManageENTeacher,
+
+                ManageENCourse
+
+
             };
 
 

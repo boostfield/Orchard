@@ -89,6 +89,11 @@ namespace Orchard.Xmu
           .Permission(Permissions.ManageCNBanner));
 
 
+            menu
+            .Add(T(XmContentType.CNNotify.ContentTypeDisplayName), "2", item => item.Action("List", "CNNotifyAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageCNNotify));
+
+
             foreach (var mapping in XmContentType.CNCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

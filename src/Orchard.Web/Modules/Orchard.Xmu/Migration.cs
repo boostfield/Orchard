@@ -5,6 +5,7 @@ using Orchard.Core.Common.Models;
 using Orchard.Core.Contents.Extensions;
 using Orchard.Core.Title.Models;
 using Orchard.Data.Migration;
+using Orchard.Tags.Models;
 using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
@@ -481,6 +482,29 @@ namespace Orchard.Xmu
            );
 
             return 14;
+        }
+
+        public int UpdateFrom14()
+        {
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNNotify.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.CNNotify.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(TagsPart).Name)
+       .WithPart(typeof(XmContentPart).Name)
+       .WithPart(typeof(CNNotifyPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.CNNotify.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+            return 15;
         }
     }
 }
