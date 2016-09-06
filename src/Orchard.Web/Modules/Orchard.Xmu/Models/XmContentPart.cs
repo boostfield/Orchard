@@ -25,6 +25,17 @@ namespace Orchard.Xmu.Models
             }
         }
 
+
+        public bool IsTop
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = (Boolean?)content.XmContentPart.istop.Value ?? false;
+                return v;
+            }
+        }
+
        
 
         public string Title

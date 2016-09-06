@@ -1,6 +1,7 @@
 ﻿using Orchard.ContentManagement;
 using Orchard.ContentManagement.Records;
 using Orchard.Core.Common.Models;
+using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,5 +31,23 @@ namespace Orchard.Xmu.Service
              .ToList();
               
         }
+
+
+        public IList<ContentItem> TopContentsOfType(string contentTypeName)
+        {
+            var q = _contentManager.HqlQuery()
+                .ForType(contentTypeName)
+                .ForVersion(VersionOptions.Latest)
+                .List()
+                .Cast<dynamic>()
+                .Where(i => (bool)(i.XmContentPart.istop.Value))
+                // .Select(i => i.As<XmContentPart>())
+                //.Where(i => i.IsTop)
+                .Select(i => (ContentItem)i)
+                .ToList();
+            return q;
+         }
+
+
     }
 }

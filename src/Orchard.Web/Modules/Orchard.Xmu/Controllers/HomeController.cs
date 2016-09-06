@@ -64,6 +64,10 @@ namespace Orchard.Xmu.Controllers
 
             var m = _xmMenuService.Get2LevelMenu("RelatedLinks");
             ViewBag.menus = m;
+
+            //---------------------------------------
+            ViewBag.topNews = _frontEndService.TopContentsOfType("CollegeNews");
+
             return View();
         }
 

@@ -468,5 +468,19 @@ namespace Orchard.Xmu
             return 13;
         }
         //------------------- 20160906 ----------- release 英文网站
+
+        public int UpdateFrom13()
+        {
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(XmContentPart).Name,
+               cfg =>
+               cfg.WithField("istop",
+                        b => b.OfType("BooleanField")
+                            .WithDisplayName("置顶")
+                            )
+           );
+
+            return 14;
+        }
     }
 }

@@ -9,9 +9,9 @@
         public bool? DefaultValue { get; set; } 
 
         public BooleanFieldSettings() {
-            OnLabel = "Yes";
-            OffLabel = "No";
-            SelectionMode = SelectionMode.Checkbox;
+            OnLabel = "是";
+            OffLabel = "否";
+            SelectionMode = SelectionMode.Radiobutton;
         }
     }
 
