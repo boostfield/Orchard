@@ -467,6 +467,6 @@ namespace Orchard.Xmu
 
             return 13;
         }
-        
+        //------------------- 20160906 ----------- release 英文网站
     }
 }
