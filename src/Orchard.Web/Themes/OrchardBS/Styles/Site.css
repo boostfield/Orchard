@@ -5,6 +5,7 @@
 }
 #content {
   min-height: 500px;
+  background-color: #fafafa;
 }
 .container-fluid {
   padding-left: 0px;
@@ -80,7 +81,7 @@
   border-radius: 0;
 }
 .home #content {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .home .top-bg {
   padding-top: 1em;
@@ -569,7 +570,7 @@
   text-align: right;
 }
 .home .cn-list .list-group-item:nth-child(odd) {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .home .cn-list .list-group-item:first-child {
   border-radius: 0;
@@ -579,7 +580,7 @@
   border-radius: 0;
 }
 .home .detail-header {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .home .detail-header .container {
   background-color: white;
@@ -596,7 +597,7 @@
   color: #999999;
 }
 .home .detail-container {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .home .detail-container .container {
   background-color: white;
@@ -1075,7 +1076,7 @@
 }
 .en-home .detail-container {
   padding: 0 0 0 0;
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .en-home .detail-container .content {
   background-color: white;
@@ -1193,7 +1194,7 @@
 }
 .anniversary .content {
   margin-top: -140px;
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
   min-height: 640px;
 }
 .anniversary .top-bg {
@@ -1567,7 +1568,7 @@
   cursor: pointer;
 }
 .anniversary .detail-header {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .anniversary .detail-header .container {
   background-color: white;
@@ -1584,7 +1585,7 @@
   color: #999999;
 }
 .anniversary .detail-container {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .anniversary .detail-container .container {
   background-color: white;
@@ -1629,7 +1630,7 @@
   text-align: right;
 }
 .anniversary .anniversary-list .list-group-item:nth-child(odd) {
-  background-color: #FCFCFC;
+  background-color: #FAFAFA;
 }
 .anniversary .anniversary-list .list-group-item:first-child {
   border-radius: 0;
@@ -1852,7 +1853,7 @@
   }
   .en-home .detail-container {
     padding: 0 0 0 0;
-    background-color: #FCFCFC;
+    background-color: #FAFAFA;
   }
   .en-home .detail-container .content {
     background-color: white;

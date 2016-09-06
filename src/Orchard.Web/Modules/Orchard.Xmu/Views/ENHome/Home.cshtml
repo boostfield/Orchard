@@ -26,7 +26,7 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+                <div class="item active" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
@@ -38,7 +38,7 @@
             }
             else
             {
-                <div class="item" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+                <div class="item" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
@@ -124,7 +124,7 @@
         {
             <div class="col-md-4 col-sm-6 col-xs-12 entry">
                 <a href="@sec.LinkAddress">
-                    <div class="content" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%), url('@sec.ImageAddress');">
+                    <div class="content" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_six_cover.png"))'), url('@sec.ImageAddress');">
                         <p>@sec.Title.ToUpper()</p>
                     </div>
                 </a>
