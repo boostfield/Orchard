@@ -543,6 +543,12 @@
   font-size: 0.9em;
   text-decoration: none;
 }
+.home .news-container-left {
+  padding: 0;
+}
+.home .news-container-right {
+  padding-right: 0;
+}
 .home .cn-blocks img {
   margin-bottom: 2em;
   margin-top: 2em;
@@ -1787,6 +1793,9 @@
   .home .container.column {
     padding-left: 0;
     padding-right: 0;
+  }
+  .home .news-container-right {
+    padding: 1em 0 0 0;
   }
   .en-home .navbar-default .navbar-nav > .active > a {
     border: none;
