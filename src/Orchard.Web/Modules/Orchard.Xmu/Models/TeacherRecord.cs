@@ -33,5 +33,21 @@ namespace Orchard.Xmu.Models
         public virtual string Project { get; set; }//承担项目
         public virtual string Contact { get; set; } //联系方式 
         public virtual bool IsShow { get; set; }    //显示
+
+
+        public virtual IList<AcademicPaperRecord> RecordAcademicPapers { get; set; }
+        public virtual IList<AcademicWorksRecord> RecordAcademicWorks { get; set; }
+        public virtual IList<ProjectRecord> RecordProjects { get; set; }
+        public virtual IList<AwardsRecord> RecordAwards { get; set; }
+
+
+        public TeacherRecord()
+        {
+            RecordAcademicPapers = new List<AcademicPaperRecord>();
+            RecordAcademicWorks= new List<AcademicWorksRecord>();
+            RecordProjects = new List<ProjectRecord>();
+            RecordAwards = new List<AwardsRecord>();
+
+        }
     }
 }

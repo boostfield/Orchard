@@ -575,6 +575,36 @@ namespace Orchard.Xmu
         public int UpdateFrom16()
         {
 
+
+            SchemaBuilder.CreateTable(typeof(CNTeacherAcademicPaperRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("TeacherRecord_Id")
+        .Column<int>("AcademicPaperRecord_Id")
+        );
+
+            SchemaBuilder.CreateTable(typeof(CNTeacherAcademicWorkRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("TeacherRecord_Id")
+        .Column<int>("AcademicWorksRecord_Id")
+        );
+
+            SchemaBuilder.CreateTable(typeof(CNTeacherAwardRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("TeacherRecord_Id")
+        .Column<int>("AwardsRecord_Id")
+        );
+
+            SchemaBuilder.CreateTable(typeof(CNTeacherProjectRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("TeacherRecord_Id")
+        .Column<int>("ProjectRecord_Id")
+        );
+
+
             SchemaBuilder.CreateTable(typeof(TeacherRecord).Name, table =>
             table.ContentPartRecord()
            

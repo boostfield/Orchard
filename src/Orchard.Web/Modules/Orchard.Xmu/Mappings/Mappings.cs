@@ -44,6 +44,88 @@ namespace Orchard.Xmu.Mappings
 
 
 
+            defaultModel.Override<TeacherRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordProjects)
+                .Cascade.All().Inverse()
+                .ParentKeyColumn("TeacherRecord_Id")
+                .ChildKeyColumn("EProjectRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherProjectRelationRecord");
+            });
+
+
+            defaultModel.Override<ProjectRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCNTeachers)
+                .Cascade.All()
+                .ChildKeyColumn("TeacherRecord_Id")
+                .ParentKeyColumn("EProjectRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherProjectRelationRecord");
+            });
+
+            
+            defaultModel.Override<TeacherRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordAwards)
+                .Cascade.All().Inverse()
+                .ParentKeyColumn("TeacherRecord_Id")
+                .ChildKeyColumn("AwardsRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherAwardRelationRecord");
+            });
+
+
+            defaultModel.Override<AwardsRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCNTeachers)
+                .Cascade.All()
+                .ChildKeyColumn("TeacherRecord_Id")
+                .ParentKeyColumn("AwardsRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherAwardRelationRecord");
+            });
+
+
+
+            defaultModel.Override<TeacherRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordAcademicPapers)
+                .Cascade.All().Inverse()
+                .ParentKeyColumn("TeacherRecord_Id")
+                .ChildKeyColumn("AcademicPaperRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherAcademicPaperRelationRecord");
+            });
+
+
+            defaultModel.Override<AcademicPaperRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCNTeachers)
+                .Cascade.All()
+                .ChildKeyColumn("TeacherRecord_Id")
+                .ParentKeyColumn("AcademicPaperRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherAcademicPaperRelationRecord");
+            });
+
+
+
+
+            defaultModel.Override<TeacherRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordAcademicWorks)
+                .Cascade.All().Inverse()
+                .ParentKeyColumn("TeacherRecord_Id")
+                .ChildKeyColumn("AcademicWorksRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherAcademicWorkRelationRecord");
+            });
+
+
+            defaultModel.Override<AcademicWorksRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCNTeachers)
+                .Cascade.All()
+                .ChildKeyColumn("TeacherRecord_Id")
+                .ParentKeyColumn("AcademicWorksRecord_Id_Id")
+                .Table("Orchard_Xmu_CNTeacherAcademicWorkRelationRecord");
+            });
+
         }
 
         public void Finished(global::NHibernate.Cfg.Configuration cfg)

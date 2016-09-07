@@ -27,6 +27,13 @@ namespace Orchard.Xmu.Controllers
         }
 
 
+        public ActionResult ImportCNTeacher()
+        {
+            _dataImporter.ImportTeacherInfo();
+            return View("Index");
+
+        }
+
         public ActionResult All()
         {
             _dataImporter.ImportCope();

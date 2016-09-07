@@ -56,5 +56,13 @@ namespace Orchard.Xmu.Models
         public virtual DateTime RefreshDate { get; set; } //最后更新时间 
         public virtual string ResultType { get; set; }  //成果类别
         public virtual string Picture { get; set; } //图片 
+
+        public virtual IList<TeacherRecord> RecordCNTeachers { get; set; }
+
+        public AcademicWorksRecord()
+        {
+            RecordCNTeachers = new List<TeacherRecord>();
+
+        }
     }
 }

@@ -35,5 +35,13 @@ namespace Orchard.Xmu.Models
         public virtual string ImportantJournal { get; set; }//重要期刊
         public virtual string RePrint { get; set; }//被转载
         public virtual string ResearchResult { get; set; }//何项研究成果
+
+        public virtual IList<TeacherRecord> RecordCNTeachers { get; set; }
+
+        public AcademicPaperRecord()
+        {
+            RecordCNTeachers = new List<TeacherRecord>();
+
+        }
     }
 }
