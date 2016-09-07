@@ -3,8 +3,12 @@
   font-size: 20px;
   color: #333333;
 }
+body #layout-wrapper {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
 #content {
-  min-height: 500px;
   background-color: #fafafa;
 }
 .container-fluid {
@@ -79,6 +83,10 @@
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+}
+.home {
+  background-color: #fafafa;
+  flex: 1;
 }
 .home #content {
   background-color: #FAFAFA;
@@ -319,63 +327,6 @@
 .home .column-smaller .list-group .list-group-item:first-child {
   margin-top: -14px;
 }
-.home .footer {
-  color: white;
-}
-.home .footer hr {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.home .footer .footer-entry {
-  width: 100%;
-  background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-top: 4em;
-  padding-bottom: 4em;
-}
-.home .footer .footer-entry .main-link {
-  margin-right: 1em;
-  color: white;
-  font-size: 0.9em;
-  margin-bottom: 2em;
-  display: inline-block;
-}
-.home .footer .footer-entry p {
-  font-size: 0.7em;
-  font-weight: lighter;
-  margin-top: 1em;
-}
-.home .footer .footer-entry p > a {
-  font-size: 0.7em;
-  font-weight: normal;
-  color: white;
-}
-.home .footer .footer-links {
-  background: #262F49;
-  padding: 1em 0 0 1em;
-}
-.home .footer .footer-links h1 {
-  font-size: 0.9em;
-}
-.home .footer .footer-links a {
-  font-size: 0.6em;
-  font-weight: lighter;
-  color: white;
-}
-.home .footer .footer-links hr {
-  margin-bottom: 0;
-}
-.home .footer .copyright {
-  background: #262F49;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.6em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-.home .footer .copyright a {
-  color: rgba(255, 255, 255, 0.4);
-}
 .home .logreg label {
   font-size: 0.7em;
 }
@@ -566,6 +517,7 @@
   font-size: 0.7em;
 }
 .home .cn-list .title-name {
+  color: #333333;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -576,6 +528,7 @@
   background-position: left center;
 }
 .home .cn-list .title-time {
+  color: #999999;
   text-align: right;
 }
 .home .cn-list .list-group-item:nth-child(odd) {
@@ -617,6 +570,63 @@
   max-width: 100% !important;
   height: auto !important;
 }
+.home-footer.footer {
+  color: white;
+}
+.home-footer.footer hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.home-footer.footer .footer-entry {
+  width: 100%;
+  background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.home-footer.footer .footer-entry .main-link {
+  margin-right: 1em;
+  color: white;
+  font-size: 0.9em;
+  margin-bottom: 2em;
+  display: inline-block;
+}
+.home-footer.footer .footer-entry p {
+  font-size: 0.7em;
+  font-weight: lighter;
+  margin-top: 1em;
+}
+.home-footer.footer .footer-entry p > a {
+  font-size: 0.7em;
+  font-weight: normal;
+  color: white;
+}
+.home-footer.footer .footer-links {
+  background: #262F49;
+  padding: 1em 0 0 1em;
+}
+.home-footer.footer .footer-links h1 {
+  font-size: 0.9em;
+}
+.home-footer.footer .footer-links a {
+  font-size: 0.6em;
+  font-weight: lighter;
+  color: white;
+}
+.home-footer.footer .footer-links hr {
+  margin-bottom: 0;
+}
+.home-footer.footer .copyright {
+  background: #262F49;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.home-footer.footer .copyright a {
+  color: rgba(255, 255, 255, 0.4);
+}
 #pagination .pagination > li > a,
 #pagination .pagination > li > span {
   border: none;
@@ -639,6 +649,10 @@
 #pagination .pagination > li.last > a,
 #pagination .pagination > li.next > a {
   color: #2D44AA;
+}
+.en-home {
+  background-color: #fafafa;
+  flex: 1;
 }
 .en-home .navbar.navbar-default {
   background-color: #2D44AA;
@@ -997,74 +1011,6 @@
   cursor: pointer;
   color: #333333;
 }
-.en-home .en-footer {
-  padding: 0;
-  color: black;
-}
-.en-home .en-footer .footer-first {
-  padding: 3em 0 3em 0;
-  background-image: url("../Content/images/en/img_bottom.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.en-home .en-footer .footer-first h1 {
-  font-size: 2em;
-  color: white;
-  margin-bottom: 0.7em;
-  font-family: "MinionPro-SemiboldDisp", Times New Roman;
-  font-weight: bolder;
-}
-.en-home .en-footer .footer-first p {
-  font-size: 0.7em;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.7);
-}
-.en-home .en-footer .footer-first a {
-  font-size: 0.7em;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.7);
-}
-.en-home .en-footer .footer-first .contact-us {
-  margin-top: 1em;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-.en-home .en-footer .footer-first .follow-us {
-  margin-top: 1em;
-}
-.en-home .en-footer .footer-links {
-  padding: 3em 0 3em 0;
-  background-color: #262F49;
-}
-.en-home .en-footer .footer-links h1 {
-  font-family: "MinionPro-SemiboldDisp", Times New Roman;
-  font-size: 2em;
-  color: white;
-}
-.en-home .en-footer .footer-links .links a {
-  font-size: 0.7em;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0 0.5em 0 0.5em;
-  text-decoration: none;
-  cursor: pointer;
-}
-.en-home .en-footer .footer-links .links a:not(:last-child)::after {
-  content: "\00a0\00a0\00a0\00a0 | ";
-}
-.en-home .en-footer .copyright {
-  background-color: #262F49;
-  padding: 0 2em 2em 2em;
-  font-size: 0.7em;
-  font-weight: 100;
-  color: rgba(255, 255, 255, 0.7);
-}
-.en-home .en-footer .copyright hr {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-.en-home .en-footer .copyright a {
-  color: rgba(255, 255, 255, 0.7);
-}
 .en-home .detail-header {
   background-color: #262F49;
   padding: 2em;
@@ -1174,8 +1120,77 @@
 .en-home .thumbnail.teacher-list-item p {
   text-align: center;
 }
+.en-footer {
+  padding: 0;
+  color: black;
+}
+.en-footer .footer-first {
+  padding: 3em 0 3em 0;
+  background-image: url("../Content/images/en/img_bottom.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.en-footer .footer-first h1 {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 0.7em;
+  font-family: "MinionPro-SemiboldDisp", Times New Roman;
+  font-weight: bolder;
+}
+.en-footer .footer-first p {
+  font-size: 0.7em;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
+}
+.en-footer .footer-first a {
+  font-size: 0.7em;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
+}
+.en-footer .footer-first .contact-us {
+  margin-top: 1em;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.en-footer .footer-first .follow-us {
+  margin-top: 1em;
+}
+.en-footer .footer-links {
+  padding: 3em 0 3em 0;
+  background-color: #262F49;
+}
+.en-footer .footer-links h1 {
+  font-family: "MinionPro-SemiboldDisp", Times New Roman;
+  font-size: 2em;
+  color: white;
+}
+.en-footer .footer-links .links a {
+  font-size: 0.7em;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0.5em 0 0.5em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.en-footer .footer-links .links a:not(:last-child)::after {
+  content: "\00a0\00a0\00a0\00a0 | ";
+}
+.en-footer .copyright {
+  background-color: #262F49;
+  padding: 0 2em 2em 2em;
+  font-size: 0.7em;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
+}
+.en-footer .copyright hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.en-footer .copyright a {
+  color: rgba(255, 255, 255, 0.7);
+}
 .anniversary {
-  background-color: #D0021B;
+  flex: 1;
+  background-color: #FAFAFA;
 }
 .anniversary .navbar {
   background-color: transparent;
@@ -1221,31 +1236,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-.anniversary .anniversary-footer {
-  padding: 2em 2em 1em 2em;
-  background-image: url('../Content/images/anniversary/img_bottom.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-.anniversary .anniversary-footer p {
-  font-size: 0.7em;
-}
-.anniversary .anniversary-footer a {
-  font-size: 0.7em;
-  color: white;
-}
-.anniversary .anniversary-footer .copyright {
-  font-size: 0.7em;
-}
-.anniversary .anniversary-footer .copyright a {
-  color: white;
-  font-size: 1em;
-}
-.anniversary .anniversary-footer hr {
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 .anniversary #carousel-anniversary {
   margin-top: -240px;
@@ -1672,6 +1662,31 @@
 .anniversary .anniversary-list #pagination .pagination > li.last > a,
 .anniversary .anniversary-list #pagination .pagination > li.next > a {
   color: #D0021B;
+}
+.anniversary-footer {
+  padding: 2em 2em 1em 2em;
+  background-image: url('../Content/images/anniversary/img_bottom.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.anniversary-footer p {
+  font-size: 0.7em;
+}
+.anniversary-footer a {
+  font-size: 0.7em;
+  color: white;
+}
+.anniversary-footer .copyright {
+  font-size: 0.7em;
+}
+.anniversary-footer .copyright a {
+  color: white;
+  font-size: 1em;
+}
+.anniversary-footer hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media only screen and (max-device-width: 768px) {
   .navbar button.navbar-toggle {

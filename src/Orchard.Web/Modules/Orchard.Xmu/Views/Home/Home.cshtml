@@ -9,7 +9,7 @@
     var notice = ViewBag.notice;
     var topCoop = ViewBag.topCoop;
     var coop = ViewBag.coop;
-    var shows = ViewBag.shos;
+    var shows = ViewBag.shows;
 }
 
 
@@ -409,7 +409,7 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        @for (var i = 0; i < shows.Count; i++)
+                        @for(var i = 0; i < shows.Count; i++)
                         {
                             if (i == 0)
                             {

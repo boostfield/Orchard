@@ -19,11 +19,17 @@ body {
     font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
     font-size: 20px;
     color: @text-color;
+    #layout-wrapper {
+        display: flex;
+        flex-flow: column;
+        min-height: 100vh;
+    }
 }
 //内容区域设置最小高度，避免内容过少导致footer上移
 #content {
-    min-height: 500px;
+   
     background-color: #fafafa;
+   
 }
 .container-fluid {
         padding-left: 0px;
@@ -109,6 +115,8 @@ body {
 
 //中文网站
 .home  {
+    background-color: #fafafa;
+    flex: 1;
     #content {
         background-color: #FAFAFA;
     }
@@ -371,65 +379,7 @@ body {
             }
         }
     }
-    .footer {
-        color: white;
-        hr {
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .footer-entry {
-            width: 100%;
-            background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            padding-top: 4em;
-            padding-bottom: 4em;
-            .main-link {
-                margin-right: 1em;
-                color: white;
-                font-size: 0.9em;
-                margin-bottom: 2em;
-                display: inline-block;
-            }
-            p {
-                font-size: 0.7em;
-                font-weight: lighter;
-                margin-top: 1em;
-            }
-            p>a {
-                font-size: 0.7em;
-                font-weight: normal;
-                color: white;
-            }
 
-        }
-        .footer-links {
-            background: #262F49;
-            padding: 1em 0 0 1em;
-            h1 {
-                font-size: 0.9em;
-            }
-            a {
-                font-size: 0.6em;
-                font-weight: lighter;
-                color: white;
-            }
-            hr {
-                margin-bottom: 0;
-            }
-        }
-        .copyright {
-            background: #262F49;
-            color: rgba(255,255,255, 0.4);
-            font-size: 0.6em;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            a {
-                color: rgba(255,255,255, 0.4);
-            }
-        }
-        
-    }
     //后台登录页面
         .logreg {
             label {
@@ -648,6 +598,7 @@ body {
             font-size: 0.7em;
         }
         .title-name {
+            color: @text-color;
             text-align: left;
             white-space: nowrap;
             overflow: hidden;
@@ -658,6 +609,7 @@ body {
             background-position: left center;
         }
         .title-time {
+            color: @text-second-color;
             text-align: right;
         }
         .list-group-item:nth-child(odd) {
@@ -700,6 +652,66 @@ body {
             }
         }
 }
+//中文footer
+    .home-footer.footer {
+        color: white;
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-entry {
+            width: 100%;
+            background-image: url(../Content/images/cn/bg_ch_buttom.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-top: 4em;
+            padding-bottom: 4em;
+            .main-link {
+                margin-right: 1em;
+                color: white;
+                font-size: 0.9em;
+                margin-bottom: 2em;
+                display: inline-block;
+            }
+            p {
+                font-size: 0.7em;
+                font-weight: lighter;
+                margin-top: 1em;
+            }
+            p>a {
+                font-size: 0.7em;
+                font-weight: normal;
+                color: white;
+            }
+
+        }
+        .footer-links {
+            background: #262F49;
+            padding: 1em 0 0 1em;
+            h1 {
+                font-size: 0.9em;
+            }
+            a {
+                font-size: 0.6em;
+                font-weight: lighter;
+                color: white;
+            }
+            hr {
+                margin-bottom: 0;
+            }
+        }
+        .copyright {
+            background: #262F49;
+            color: rgba(255,255,255, 0.4);
+            font-size: 0.6em;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            a {
+                color: rgba(255,255,255, 0.4);
+            }
+        }
+        
+    }
 //分页控件
 #pagination  {
        .pagination>li>a , .pagination>li>span {
@@ -722,6 +734,8 @@ body {
     }
 //英文网站
 .en-home {
+    background-color: #fafafa;
+    flex: 1;
     .navbar.navbar-default {
         background-color: @primary-color;
         margin-bottom: 0;
@@ -1100,80 +1114,6 @@ body {
         }
         
     }
-    //底部栏
-    .en-footer {
-        padding: 0;
-        
-        color: black;
-        .footer-first {
-            padding: 3em 0 3em 0;
-            background-image: url("../Content/images/en/img_bottom.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-            h1 {
-                font-size: 2em;
-                color: white;
-                margin-bottom: 0.7em;
-                font-family: @en-font;
-                font-weight: bolder;
-            }
-            p {
-                font-size: 0.7em;
-                font-weight: 100;
-                color: @text-third-color;
-            }
-            a {
-                font-size: 0.7em;
-                font-weight: 100;
-                color: @text-third-color;
-            }
-            .contact-us {
-                margin-top: 1em;
-                border-right: 1px solid rgba(255,255,255,0.2);
-                
-            }
-            .follow-us {
-                margin-top: 1em;
-            }
-        
-        }
-        .footer-links {
-            padding: 3em 0 3em 0;
-            background-color: #262F49;
-            h1 {
-                font-family: @en-font;
-                
-                font-size: 2em;
-                color: white;
-            }
-            .links a {
-                font-size: 0.7em;
-                font-weight: 100;
-                color: @text-third-color;
-                margin: 0 0.5em 0 0.5em;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            .links a:not(:last-child)::after {
-                content: "\00a0\00a0\00a0\00a0 | ";
-            }
-        }
-        .copyright {
-            background-color: #262F49;
-            padding: 0 2em 2em 2em;
-            font-size: 0.7em;
-            font-weight: 100;
-            color: @text-third-color;
-            hr {
-                border-top: 1px solid rgba(255,255,255,0.2);
-            }
-            a {
-                color: @text-third-color;
-            }
-        }
-    }
     .detail-header {
         background-color: #262F49;
         padding: 2em;
@@ -1286,9 +1226,86 @@ body {
         }
     }
 }
+//英文footer
+.en-footer {
+        padding: 0;
+        
+        color: black;
+        .footer-first {
+            padding: 3em 0 3em 0;
+            background-image: url("../Content/images/en/img_bottom.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            h1 {
+                font-size: 2em;
+                color: white;
+                margin-bottom: 0.7em;
+                font-family: @en-font;
+                font-weight: bolder;
+            }
+            p {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+            }
+            a {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+            }
+            .contact-us {
+                margin-top: 1em;
+                border-right: 1px solid rgba(255,255,255,0.2);
+                
+            }
+            .follow-us {
+                margin-top: 1em;
+            }
+        
+        }
+        .footer-links {
+            padding: 3em 0 3em 0;
+            background-color: #262F49;
+            h1 {
+                font-family: @en-font;
+                
+                font-size: 2em;
+                color: white;
+            }
+            .links a {
+                font-size: 0.7em;
+                font-weight: 100;
+                color: @text-third-color;
+                margin: 0 0.5em 0 0.5em;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .links a:not(:last-child)::after {
+                content: "\00a0\00a0\00a0\00a0 | ";
+            }
+        }
+        .copyright {
+            background-color: #262F49;
+            padding: 0 2em 2em 2em;
+            font-size: 0.7em;
+            font-weight: 100;
+            color: @text-third-color;
+            hr {
+                border-top: 1px solid rgba(255,255,255,0.2);
+            }
+            a {
+                color: @text-third-color;
+            }
+        }
+    }
+
 //院庆网站
 .anniversary {
-    background-color: @anniversary-primary-color;
+    
+    flex: 1;
+    background-color: #FAFAFA;
     .navbar {
         background-color: transparent;
         border: none;
@@ -1335,31 +1352,7 @@ body {
         background-size: cover;
         background-position: center;
     }
-    .anniversary-footer {
-        padding: 2em 2em 1em 2em;
-        background-image: url('../Content/images/anniversary/img_bottom.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        color: white;
-        p{
-            font-size: 0.7em;
-        }
-        a{
-            font-size: 0.7em;
-            color: white;
-        }
-        .copyright {
-            font-size: 0.7em;
-        }
-        .copyright a {
-            color: white;
-            font-size: 1em;
-        }
-        hr {
-            border-top: 1px solid rgba(255,255,255,0.3);
-        }
-    }
+    
     #carousel-anniversary {
         margin-top: -240px;
         
@@ -1791,6 +1784,32 @@ body {
             }
         }
 }
+//院庆footer
+.anniversary-footer {
+        padding: 2em 2em 1em 2em;
+        background-image: url('../Content/images/anniversary/img_bottom.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        p{
+            font-size: 0.7em;
+        }
+        a{
+            font-size: 0.7em;
+            color: white;
+        }
+        .copyright {
+            font-size: 0.7em;
+        }
+        .copyright a {
+            color: white;
+            font-size: 1em;
+        }
+        hr {
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+    }
 //移动端适配
 @media only screen
 and (max-device-width: 768px) {
