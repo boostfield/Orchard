@@ -288,14 +288,18 @@
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
     <Compile Include="Mappings\Mappings.cs" />
     <Compile Include="Migration.cs" />
+    <Compile Include="Models\AcademicPaperPart.cs" />
     <Compile Include="Models\AcademicPaperRecord.cs" />
+    <Compile Include="Models\AcademicWorksPart.cs" />
     <Compile Include="Models\AcademicWorksRecord.cs" />
+    <Compile Include="Models\AwardsPart.cs" />
     <Compile Include="Models\AwardsRecord.cs" />
     <Compile Include="Models\BannerPart.cs" />
     <Compile Include="Models\CelMatesPicPart.cs" />
     <Compile Include="Models\CNCollegeShowPart.cs" />
     <Compile Include="Models\CNCopPart.cs" />
     <Compile Include="Models\CNNotifyPart.cs" />
+    <Compile Include="Models\CNTeacherPart.cs" />
     <Compile Include="Models\ENCoursePart.cs" />
     <Compile Include="Models\ENCoursePartRecord.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
@@ -303,6 +307,7 @@
     <Compile Include="Models\ENTeacherPartRecord.cs" />
     <Compile Include="Models\MenuGroupResultVM.cs" />
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
+    <Compile Include="Models\ProjectPart.cs" />
     <Compile Include="Models\ProjectRecord.cs" />
     <Compile Include="Models\TeacherRecord.cs" />
     <Compile Include="Models\TeacherCourseRelationRecord.cs" />
