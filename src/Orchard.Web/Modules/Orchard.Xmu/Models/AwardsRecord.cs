@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
+
     public class AwardsRecord:ContentPartRecord
     {
         public virtual string Tid { get; set; }

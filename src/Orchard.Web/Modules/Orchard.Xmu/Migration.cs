@@ -571,98 +571,13 @@ namespace Orchard.Xmu
             return 16;
         }
 
-        /*
+
         public int UpdateFrom16()
         {
 
-
-            SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
-                      table =>
-                      table.ContentPartRecord()
-                      .Column<string>("Tid")
-                      .Column<string>("Title")
-                      .Column<string>("Author")
-                      .Column<string>("Year")
-                      .Column<string>("Department")
-                      .Column<string>("Keyword")
-                      .Column<string>("Summary", c => c.Unlimited())
-                      .Column<string>("Text", c => c.Unlimited())
-                      .Column<DateTime>("ReleaseDate")
-                      .Column<string>("Publication")
-                      .Column<string>("Pid")
-                      .Column<string>("Ptime")
-                      .Column<string>("Plevel")
-                      .Column<string>("Writertype")
-                      .Column<int>("TextNumber")
-                      .Column<string>("Remarks", c => c.Unlimited())
-                      .Column<DateTime>("InputDate")
-                      .Column<int>("ClickNumber")
-                      .Column<DateTime>("RefreshDate")
-                      .Column<bool>("IsShow")
-                      .Column<string>("Achievement", c => c.Unlimited())
-                      .Column<string>("ImportantJournal", c => c.Unlimited())
-                      .Column<string>("RePrint")
-                      .Column<string>("ResearchResult", c => c.Unlimited())
-
-                      );
-
-
-
-            SchemaBuilder.CreateTable(typeof(AcademicWorksRecord).Name,
-                table =>
-                table.ContentPartRecord()
-                .Column<string>("Tid")
-                .Column<string>("Title")
-                .Column<string>("Author")
-                .Column<string>("Year")
-                .Column<string>("Department")
-                .Column<string>("Publishunit")
-                .Column<string>("Booknumber")
-                .Column<DateTime>("Publishdate")
-                .Column<string>("Booktype")
-                .Column<string>("WriterType")
-                .Column<int>("AllTextBumber")
-                .Column<int>("FinishNumber")
-                .Column<string>("Author1")
-                .Column<int>("TextNumber1")
-                .Column<string>("Author2")
-                .Column<int>("TextNumber2")
-                .Column<string>("Author3")
-                .Column<int>("TextNumber3")
-                .Column<string>("Author4")
-                .Column<int>("TextNumber4")
-                .Column<string>("Author5")
-                .Column<int>("TextNumber5")
-                .Column<string>("Author6")
-                .Column<int>("TextNumber6")
-                .Column<string>("Author7")
-                .Column<int>("TextNumber7")
-                .Column<string>("Author8")
-                .Column<int>("TextNumber8")
-                .Column<string>("Author9")
-                .Column<int>("TextNumber9")
-                .Column<string>("Author10")
-                .Column<int>("TextNumber10")
-                .Column<int>("IsResult")
-                .Column<string>("SourceName")
-                .Column<string>("ProjectName")
-                .Column<string>("Introduce", c => c.Unlimited())
-                .Column<string>("Remarks", c => c.Unlimited())
-                .Column<string>("Keyword")
-                .Column<string>("Summary", c => c.Unlimited())
-                .Column<string>("Text", c => c.Unlimited())
-                .Column<DateTime>("InputDate")
-                .Column<int>("ClickNumber")
-                .Column<DateTime>("RefreshDate")
-                .Column<string>("ResultType")
-                .Column<string>("Picture")
-
-                );
-
-
             SchemaBuilder.CreateTable(typeof(TeacherRecord).Name, table =>
-
             table.ContentPartRecord()
+           
             .Column<string>("Number")
             .Column<string>("Name")
             .Column<string>("Rank")
@@ -691,77 +606,192 @@ namespace Orchard.Xmu
             );
 
 
-            SchemaBuilder.CreateTable(typeof(AwardsRecord).Name, table =>
-             table.ContentPartRecord()
-             .Column<string>("Tid")
-             .Column<string>("WinnerName")
-             .Column<string>("AwardName")
-             .Column<string>("Year")
-             .Column<string>("BelongDepartment")
-             .Column<string>("AwardDepartment")
-             .Column<DateTime>("AwardDate")
-             .Column<string>("AwardRank")
-             .Column<string>("AwardLevel")
-             .Column<string>("ResultProject")
-             .Column<string>("ResultForm")
-             .Column<string>("Author")
-             .Column<string>("Collaborator")
-             .Column<string>("Codes")
-             .Column<string>("Remarks", c => c.Unlimited())
-             .Column<DateTime>("InputDate")
-             .Column<int>("Clicknumber")
-             .Column<DateTime>("RefreshDate")
-             .Column<string>("ResultType")
+            ContentDefinitionManager.AlterPartDefinition(typeof(CNTeacherPart).Name,
+             cfg =>
+             cfg.WithField("image",
+             b => b.OfType("MediaLibraryPickerField")
+                 .WithDisplayName("选择相关图片"))
             );
 
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNTeacher.ContentTypeName,
 
-            SchemaBuilder.CreateTable(typeof(ProjectRecord).Name, table
-                 => table.ContentPartRecord()
-                 .Column<string>("Tid")
-                 .Column<string>("ProjectTitle")
-                 .Column<string>("Host")
-                 .Column<string>("Year")
-                 .Column<string>("Department")
-                 .Column<string>("Source")
-                 .Column<string>("Level")
-                 .Column<string>("SerialNumber")
-                 .Column<string>("Aidfunds")
-                 .Column<string>("Group")
-                 .Column<string>("Aidhost")
-                 .Column<DateTime>("StartDate")
-                 .Column<DateTime>("EndDate")
-                 .Column<DateTime>("FinishDate")
-                 .Column<string>("AidSituation")
-                 .Column<string>("Remarks", c => c.Unlimited())
-                 .Column<DateTime>("Inputdate")
-                 .Column<int>("Clicknumber")
-                 .Column<DateTime>("RefreshDate")
-                 .Column<string>("ResultType")
-                 .Column<string>("Member1")
-                 .Column<string>("Funds1")
-                 .Column<string>("Member2")
-                 .Column<string>("Funds2")
-                 .Column<string>("Member3")
-                 .Column<string>("Funds3")
-                 .Column<string>("Member4")
-                 .Column<string>("Funds4")
-                 .Column<string>("Member5")
-                 .Column<string>("Funds5")
-                 .Column<string>("Member6")
-                 .Column<string>("Funds6")
-                 .Column<string>("Member7")
-                 .Column<string>("Funds7")
-                 .Column<string>("Member8")
-                 .Column<string>("Funds8")
-                 .Column<string>("Member9")
-                 .Column<string>("Funds9")
-                 .Column<string>("Member10")
-                 .Column<string>("Funds10")
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNTeacher.ContentTypeDisplayName)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(CNTeacherPart).Name)
+              .WithPart(typeof(BodyPart).Name)
+              .WithSetting("ListTitle", XmContentType.CNTeacher.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
 
 
-                );
             return 17;
         }
-        */
+
+        /*
+     public int UpdateFrom16()
+     {
+
+
+         SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
+                   table =>
+                   table.ContentPartRecord()
+                   .Column<string>("Tid")
+                   .Column<string>("Title")
+                   .Column<string>("Author")
+                   .Column<string>("Year")
+                   .Column<string>("Department")
+                   .Column<string>("Keyword")
+                   .Column<string>("Summary", c => c.Unlimited())
+                   .Column<string>("Text", c => c.Unlimited())
+                   .Column<DateTime>("ReleaseDate")
+                   .Column<string>("Publication")
+                   .Column<string>("Pid")
+                   .Column<string>("Ptime")
+                   .Column<string>("Plevel")
+                   .Column<string>("Writertype")
+                   .Column<int>("TextNumber")
+                   .Column<string>("Remarks", c => c.Unlimited())
+                   .Column<DateTime>("InputDate")
+                   .Column<int>("ClickNumber")
+                   .Column<DateTime>("RefreshDate")
+                   .Column<bool>("IsShow")
+                   .Column<string>("Achievement", c => c.Unlimited())
+                   .Column<string>("ImportantJournal", c => c.Unlimited())
+                   .Column<string>("RePrint")
+                   .Column<string>("ResearchResult", c => c.Unlimited())
+
+                   );
+
+
+
+         SchemaBuilder.CreateTable(typeof(AcademicWorksRecord).Name,
+             table =>
+             table.ContentPartRecord()
+             .Column<string>("Tid")
+             .Column<string>("Title")
+             .Column<string>("Author")
+             .Column<string>("Year")
+             .Column<string>("Department")
+             .Column<string>("Publishunit")
+             .Column<string>("Booknumber")
+             .Column<DateTime>("Publishdate")
+             .Column<string>("Booktype")
+             .Column<string>("WriterType")
+             .Column<int>("AllTextBumber")
+             .Column<int>("FinishNumber")
+             .Column<string>("Author1")
+             .Column<int>("TextNumber1")
+             .Column<string>("Author2")
+             .Column<int>("TextNumber2")
+             .Column<string>("Author3")
+             .Column<int>("TextNumber3")
+             .Column<string>("Author4")
+             .Column<int>("TextNumber4")
+             .Column<string>("Author5")
+             .Column<int>("TextNumber5")
+             .Column<string>("Author6")
+             .Column<int>("TextNumber6")
+             .Column<string>("Author7")
+             .Column<int>("TextNumber7")
+             .Column<string>("Author8")
+             .Column<int>("TextNumber8")
+             .Column<string>("Author9")
+             .Column<int>("TextNumber9")
+             .Column<string>("Author10")
+             .Column<int>("TextNumber10")
+             .Column<int>("IsResult")
+             .Column<string>("SourceName")
+             .Column<string>("ProjectName")
+             .Column<string>("Introduce", c => c.Unlimited())
+             .Column<string>("Remarks", c => c.Unlimited())
+             .Column<string>("Keyword")
+             .Column<string>("Summary", c => c.Unlimited())
+             .Column<string>("Text", c => c.Unlimited())
+             .Column<DateTime>("InputDate")
+             .Column<int>("ClickNumber")
+             .Column<DateTime>("RefreshDate")
+             .Column<string>("ResultType")
+             .Column<string>("Picture")
+
+             );
+
+
+
+
+         SchemaBuilder.CreateTable(typeof(AwardsRecord).Name, table =>
+          table.ContentPartRecord()
+          .Column<string>("Tid")
+          .Column<string>("WinnerName")
+          .Column<string>("AwardName")
+          .Column<string>("Year")
+          .Column<string>("BelongDepartment")
+          .Column<string>("AwardDepartment")
+          .Column<DateTime>("AwardDate")
+          .Column<string>("AwardRank")
+          .Column<string>("AwardLevel")
+          .Column<string>("ResultProject")
+          .Column<string>("ResultForm")
+          .Column<string>("Author")
+          .Column<string>("Collaborator")
+          .Column<string>("Codes")
+          .Column<string>("Remarks", c => c.Unlimited())
+          .Column<DateTime>("InputDate")
+          .Column<int>("Clicknumber")
+          .Column<DateTime>("RefreshDate")
+          .Column<string>("ResultType")
+         );
+
+
+         SchemaBuilder.CreateTable(typeof(ProjectRecord).Name, table
+              => table.ContentPartRecord()
+              .Column<string>("Tid")
+              .Column<string>("ProjectTitle")
+              .Column<string>("Host")
+              .Column<string>("Year")
+              .Column<string>("Department")
+              .Column<string>("Source")
+              .Column<string>("Level")
+              .Column<string>("SerialNumber")
+              .Column<string>("Aidfunds")
+              .Column<string>("Group")
+              .Column<string>("Aidhost")
+              .Column<DateTime>("StartDate")
+              .Column<DateTime>("EndDate")
+              .Column<DateTime>("FinishDate")
+              .Column<string>("AidSituation")
+              .Column<string>("Remarks", c => c.Unlimited())
+              .Column<DateTime>("Inputdate")
+              .Column<int>("Clicknumber")
+              .Column<DateTime>("RefreshDate")
+              .Column<string>("ResultType")
+              .Column<string>("Member1")
+              .Column<string>("Funds1")
+              .Column<string>("Member2")
+              .Column<string>("Funds2")
+              .Column<string>("Member3")
+              .Column<string>("Funds3")
+              .Column<string>("Member4")
+              .Column<string>("Funds4")
+              .Column<string>("Member5")
+              .Column<string>("Funds5")
+              .Column<string>("Member6")
+              .Column<string>("Funds6")
+              .Column<string>("Member7")
+              .Column<string>("Funds7")
+              .Column<string>("Member8")
+              .Column<string>("Funds8")
+              .Column<string>("Member9")
+              .Column<string>("Funds9")
+              .Column<string>("Member10")
+              .Column<string>("Funds10")
+
+
+             );
+         return 17;
+     }
+     */
     }
 }

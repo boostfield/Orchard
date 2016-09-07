@@ -9,6 +9,7 @@ namespace Orchard.Xmu.Service.DataImport.Model
     {
         public int id { get; set; }
         public string title { get; set; }   //标题
+        public string type { get; set; } //分类 
         public string content { get; set; } //内容
         public string publishunit { get; set; } //发布单位
         public string publishdate { get; set; } //发布时间

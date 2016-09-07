@@ -296,7 +296,27 @@ namespace Orchard.Xmu.Service.DataImport
             return info.Id;
         }
 
+        public void ImportAcademicPaper()
+        {
 
+        }
+
+        public void ImportTeacherInfo()
+        {
+            ImportDataTemplate<OldTeacherInfo>(
+                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息.json"),
+                     i => ImportSingleTeacher(i),
+                     r => r.id,
+                     @"D:\法学院6个数据库\教师信息ID对照.json"
+                     );
+        }
+
+        private int ImportSingleTeacher(OldTeacherInfo info)
+        {
+
+
+            return 1;
+        }
 
         /// <summary>
         /// 导入原本为Contents的数据

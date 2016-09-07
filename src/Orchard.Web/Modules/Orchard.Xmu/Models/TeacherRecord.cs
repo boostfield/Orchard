@@ -22,7 +22,7 @@ namespace Orchard.Xmu.Models
         public virtual string Year { get; set; }   //出生年
         public virtual string Month { get; set; }   //出生月
         public virtual string Day { get; set; } //出生日
-        public virtual string Birthday { get; set; }    //出生日期
+        public virtual DateTime? Birthday { get; set; }    //出生日期
         public virtual string Avatar { get; set; }  //照片路径
         public virtual string View { get; set; }    //学术观点
         public virtual string Concept { get; set; } //研究理念

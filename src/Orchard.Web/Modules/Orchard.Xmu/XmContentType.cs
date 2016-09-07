@@ -94,6 +94,15 @@ namespace Orchard.Xmu
             ListTitle = "Courses List"
         };
 
+        public static XmContentDefinition CNTeacher = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "中文教师信息",
+            PermissionDesc = "管理中文教师信息",
+            ContentTypeName = "CNTeacher",
+            ContentTypePartName = "CNTeacherPart",
+            ListTitle = "Teachers List"
+        };
+
 
         //------------- Content Mapping..
 

@@ -25,5 +25,10 @@ namespace Orchard.Xmu.Service.DataImport
         void ImportLectureInfo(); //讲座信息
         void ImportAcademicNews(); //学术动态
         void ImportXmContent(); //导入旧数据库的Contents
+
+
+        //-------------------------------------
+        void ImportAcademicPaper();
+        void ImportTeacherInfo();
     }
 }
