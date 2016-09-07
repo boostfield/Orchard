@@ -309,7 +309,11 @@
     <Compile Include="Models\CNCollegeShowPart.cs" />
     <Compile Include="Models\CNCopPart.cs" />
     <Compile Include="Models\CNNotifyPart.cs" />
+    <Compile Include="Models\CNTeacherAcademicPaperRelationRecord.cs" />
+    <Compile Include="Models\CNTeacherAcademicWorkRelationRecord.cs" />
+    <Compile Include="Models\CNTeacherAwardRelationRecord.cs" />
     <Compile Include="Models\CNTeacherPart.cs" />
+    <Compile Include="Models\CNTeacherProjectRelationRecord.cs" />
     <Compile Include="Models\ENCoursePart.cs" />
     <Compile Include="Models\ENCoursePartRecord.cs" />
     <Compile Include="Models\ENSectionPart.cs" />
