@@ -1,4 +1,5 @@
-﻿using Orchard.ContentManagement.MetaData;
+﻿using NGM.ContentViewCounter.Models;
+using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Contents.Extensions;
 using Orchard.Data.Migration;
 
@@ -16,6 +17,10 @@ namespace Orchard.Pages {
                     .WithSetting("AutorouteSettings.AutomaticAdjustmentOnEdit", "False")
                     .WithSetting("AutorouteSettings.PatternDefinitions", "[{\"Name\":\"Title\",\"Pattern\":\"{Content.Slug}\",\"Description\":\"my-page\"}]"))
                 .WithPart("LayoutPart")
+                .WithPart("BodyPart")
+                .WithPart(typeof(UserViewPart).Name,builder=>builder
+                .WithSetting("UserViewTypePartSettings.AllowAnonymousViews","True")
+                .WithSetting("UserViewTypePartSettings.AllowMultipleViewsFromSameUserToCount","True"))
                 .Creatable()
                 .Listable()
                 .Securable());

@@ -28,6 +28,33 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition CNCollegeShow = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "学院风采",
+            PermissionDesc = "管理学院风采",
+            ContentTypeName = "CNCollegeShow",
+            ContentTypePartName = "CNCollegeShowPart",
+            ListTitle = "学院风采"
+        };
+
+        public static XmContentDefinition CNNotify = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "中文通知公告",
+            PermissionDesc = "管理通知公告",
+            ContentTypeName = "CNNotify",
+            ContentTypePartName = "CNNotifyPart",
+            ListTitle ="通知公告"
+        };
+
+        public static XmContentDefinition CNCop = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "合作交流",
+            PermissionDesc = "管理合作交流",
+            ContentTypeName = "CNCop",
+            ContentTypePartName = "CNCopPart",
+            ListTitle = "合作交流"
+        };
+
         public static XmContentDefinition ENBanner = new XmContentDefinition
         {
             ContentTypeDisplayName = "英文首页Banner",
@@ -48,8 +75,24 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition ENTeacher = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "教师信息",
+            PermissionDesc = "管理老师信息",
+            ContentTypeName = "ENTeacher",
+            ContentTypePartName = "EnTeacherPart",
+            ListTitle = "Teachers List"
+        };
 
-  
+
+        public static XmContentDefinition ENCourse = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "英文课程信息",
+            PermissionDesc = "管理英文课程信息",
+            ContentTypeName = "ENCourse",
+            ContentTypePartName = "ENCoursePart",
+            ListTitle = "Courses List"
+        };
 
 
         //------------- Content Mapping..
@@ -69,6 +112,7 @@ namespace Orchard.Xmu
                 Description = "管理院庆捐赠",
                 Name = string.Format("Manage{0}", "CelDonation")
             },
+            ListTitle = "院庆捐赠"
         };
 
         public static XmContentDefinition NinetyCelMatesOldPic = new XmContentDefinition
@@ -215,7 +259,8 @@ namespace Orchard.Xmu
                         Description = "管理新闻(News)",
                         Name = string.Format("Manage{0}","CollegeENNews")
                     },
-                    ListTitle = "News"
+                    ListTitle = "News",
+                    EnablePreview = true
                 },
                 new XmENCMSContentMapping
                 {
@@ -227,9 +272,10 @@ namespace Orchard.Xmu
                     {
                         Description = "管理通知(Notice)",
                         Name = string.Format("Manage{0}","CollegeENNotice")
-                    }
+                    },
+                    ListTitle = "Notice",
+                    EnablePreview = true
                 },
-
             };
 
 
@@ -249,67 +295,6 @@ namespace Orchard.Xmu
                         Description = "管理学院新闻",
                         Name = string.Format("Manage{0}","CollegeNews")
                     }
-                },
-
-
-                new XmCNCMSContentMapping
-                {
-                    ContentTypePartName = "CollegeAffairsNotifyPart",
-                    PermissionDesc = "管理院务通知",
-                    ContentTypeDisplayName = "院务通知",
-                    ContentTypeName = "CollegeAffairsNotify",
-                    Permission = new Permission
-                    {
-                        Description = "管理院务通知",
-                        Name = string.Format("Manage{0}","CollegeAffairsNotify")
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-
-                    ContentTypeDisplayName = "本科生教务",
-                    PermissionDesc = "管理本科生教务",
-                    ContentTypeName = "UndergraduateAffairs",
-                    ContentTypePartName = "UndergraduateAffairsPart",
-                    Permission = new Permission
-                    {
-                        Description = "管理本科生教务",
-                        Name = string.Format("Manage{0}","UndergraduateAffairs")
-
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-
-                    ContentTypeDisplayName = "研究生教务",
-                    PermissionDesc = "管理研究生教务",
-                    ContentTypeName = "GraduateAffairs",
-                    ContentTypePartName = "GraduateAffairsPart",
-                    Permission = new Permission
-                    {
-                       Description = "管理研究生教务",
-                       Name = string.Format("Manage{0}","GraduateAffairs")
-                    }
-
-                },
-
-                new XmCNCMSContentMapping
-                {
-                     ContentTypeDisplayName = "学生资讯",
-                     PermissionDesc = "管理学生资讯",
-                     ContentTypeName = "StudentInfo",
-                     ContentTypePartName = "StudentInfoPart",
-                     Permission = new Permission
-                     {
-                         Description = "管理学生资讯",
-                         Name = string.Format("Manage{0}","StudentInfo")
-                     }
-
-
                 },
 
                 new XmCNCMSContentMapping
@@ -341,20 +326,8 @@ namespace Orchard.Xmu
                     }
                 },
 
-                new XmCNCMSContentMapping
-                {
-                    ContentTypeDisplayName = "学术动态",
-                    PermissionDesc = "c",
-                    ContentTypeName = "AcademicNews",
-                    ContentTypePartName = "AcademicNewsPart",
-                    Permission = new Permission
-                    {
-                     Description= "管理学术动态",
-                     Name = string.Format("Manage{0}","AcademicNews")
-                    }
-                },
-
-
+                //用单页创建
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=28,
@@ -433,6 +406,7 @@ namespace Orchard.Xmu
                     }
 
                 },
+                */
 
                 new XmCNCMSContentMapping
                 {
@@ -467,6 +441,21 @@ namespace Orchard.Xmu
 
                 },
 
+
+
+                new XmCNCMSContentMapping
+                {
+                    ContentTypeDisplayName = "学术动态",
+                    PermissionDesc = "管理学术动",
+                    ContentTypeName = "AcademicNews",
+                    ContentTypePartName = "AcademicNewsPart",
+                    Permission = new Permission
+                    {
+                     Description= "管理学术动态",
+                     Name = string.Format("Manage{0}","AcademicNews")
+                    }
+                },
+
                 new XmCNCMSContentMapping
                 {
                     Id=75,
@@ -482,7 +471,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=78,
@@ -532,7 +521,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                */
                 new XmCNCMSContentMapping
                 {
                     Id=87,
@@ -630,6 +619,59 @@ namespace Orchard.Xmu
                     }
 
                 },
+
+                 new XmCNCMSContentMapping
+                {
+                    Id = 101,
+                    TopicName = "法学社",
+                    ContentTypeName = "LayGroup",
+                    PermissionDesc = "管理法学社",
+                    ContentTypeDisplayName = "法学社",
+                    ContentTypePartName = "LayGroup",
+                    Permission = new Permission
+                    {
+                         Description =  "管理法学社",
+
+                         Name = string.Format("Manage{0}","LayGroup")
+
+                    }
+                },
+
+                 new XmCNCMSContentMapping
+                {
+                    Id = 102,
+                    TopicName = "国辩协会",
+                    ContentTypeName = "DebatingGroup",
+                    PermissionDesc = "管理国辩协会",
+                    ContentTypeDisplayName = "国辩协会",
+                    ContentTypePartName = "DebatingGroup",
+                    Permission = new Permission
+                    {
+                         Description =  "管理国辩协会",
+
+                         Name = string.Format("Manage{0}","DebatingGroup")
+
+                    }
+                },
+
+
+                new XmCNCMSContentMapping
+                {
+                    Id = 111,
+                    TopicName = "榜样力量",
+                    ContentTypeName = "FineModel",
+                    PermissionDesc = "管理榜样力量",
+                    ContentTypeDisplayName = "榜样力量",
+                    ContentTypePartName = "FineModel",
+                    Permission = new Permission
+                    {
+                         Description =  "管理榜样力量",
+
+                         Name = string.Format("Manage{0}","FineModel")
+
+                    }
+                },
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=94,
@@ -645,7 +687,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                */
                 new XmCNCMSContentMapping
                 {
                     Id=96,
@@ -695,77 +737,6 @@ namespace Orchard.Xmu
                     }
                 },
 
-                new XmCNCMSContentMapping
-                {
-                    Id = 101,
-                    TopicName = "法学社",
-                    ContentTypeName = "LayGroup",
-                    PermissionDesc = "管理法学社",
-                    ContentTypeDisplayName = "法学社",
-                    ContentTypePartName = "LayGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理法学社",
-
-                         Name = string.Format("Manage{0}","LayGroup")
-
-                    }
-                },
-
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 102,
-                    TopicName = "国辩协会",
-                    ContentTypeName = "DebatingGroup",
-                    PermissionDesc = "管理国辩协会",
-                    ContentTypeDisplayName = "国辩协会",
-                    ContentTypePartName = "DebatingGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理国辩协会",
-
-                         Name = string.Format("Manage{0}","DebatingGroup")
-
-                    }
-                },
-
-
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 102,
-                    TopicName = "国辩协会",
-                    ContentTypeName = "DebatingGroup",
-                    PermissionDesc = "管理国辩协会",
-                    ContentTypeDisplayName = "国辩协会",
-                    ContentTypePartName = "DebatingGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理国辩协会",
-
-                         Name = string.Format("Manage{0}","DebatingGroup")
-
-                    }
-                },
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 111,
-                    TopicName = "榜样力量",
-                    ContentTypeName = "FineModel",
-                    PermissionDesc = "管理榜样力量",
-                    ContentTypeDisplayName = "榜样力量",
-                    ContentTypePartName = "FineModel",
-                    Permission = new Permission
-                    {
-                         Description =  "管理榜样力量",
-
-                         Name = string.Format("Manage{0}","FineModel")
-
-                    }
-                },
-
             };
 
     }
@@ -778,6 +749,8 @@ namespace Orchard.Xmu
         public string PermissionDesc { get; set; }
         public string ContentTypePartName { get; set; }
         public string ListTitle { get; set; }
+        public bool EnablePreview { get; set; }
+
 
     }
 

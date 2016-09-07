@@ -10,7 +10,7 @@
 
 <div class="container-fluid list-header">
     <div class="container">
-        <h1>@contentTypeName</h1>
+        <h1>@ViewBag.ListTitle</h1>
     </div>
 </div>
 <div class="container en-list">
@@ -25,7 +25,7 @@
                     <a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
                         <div class="p title">@item.Title</div>
                         <div class="p content">@body</div>
-                        <div class="p time">@item.PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                        <div class="p time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                     </a>
                 </div>
 
@@ -39,7 +39,7 @@
 </div>
 <script>
     $('#pagination').bootpag({
-        total: parseInt((@total - 1) / 10) ,
+        total: Math.ceil((@total) / 10) ,
         page:  @page,
         maxVisible: 10,
         leaps: false,
@@ -47,8 +47,8 @@
         prev: 'Prev',
         firstLastUse: true,
         first: 'First',
-        last: parseInt((@total - 1) / 10),
+        last: Math.ceil((@total) / 10),
     }).on('page', function (event, num) {
-        window.location = (location.protocol + '//' + location.host + location.pathname + '/@contentTypeName'  + "?page=" + num + "&pageSize=10");
+        window.location = (location.protocol + '//' + location.host + location.pathname +  "?page=" + num + "&pageSize=10");
     });
 </script>

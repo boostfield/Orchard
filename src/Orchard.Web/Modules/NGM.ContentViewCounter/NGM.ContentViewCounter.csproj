@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drivers\UserViewPartDriver.cs" />
+    <Compile Include="EventHandlers\XmItemViewedHandler.cs" />
+    <Compile Include="Events\IItemViewedEventHandler.cs" />
     <Compile Include="Handlers\UserViewPartHandler.cs" />
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\Constants.cs" />

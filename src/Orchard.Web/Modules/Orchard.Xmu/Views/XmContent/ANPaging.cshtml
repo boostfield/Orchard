@@ -7,8 +7,10 @@
     var contentTypeName = ViewBag.ContentTypeName;
 
 }
+<div class="top-nav-bg">
 
-<div class="container cn-list">
+</div>
+<div class="container anniversary-list">
     <h1>@ViewBag.ListTitle</h1>
     <ul class="list-group">
         @foreach (var item in items)
@@ -17,7 +19,7 @@
                 <div class="row">
                     <a href="@Url.Action("ANItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
                         <div class="col-sm-9 title-name">@item.Title</div>
-                        <div class="col-sm-3 title-time">@item.PublishedUtc.ToString("yyyy-MM-dd")</div>
+                        <div class="col-sm-3 title-time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                     </a>
                 </div>
 
@@ -30,8 +32,9 @@
     </div>
 </div>
 <script>
+   
     $('#pagination').bootpag({
-        total: parseInt((@total - 1) / 10) ,
+        total: Math.ceil((@total) / 10) ,
         page:  @page,
         maxVisible: 10,
         leaps: false,
@@ -39,8 +42,9 @@
         prev: '上一页',
         firstLastUse: true,
         first: '首页',
-        last: parseInt((@total - 1) / 10),
+        last: Math.ceil((@total) / 10),
     }).on('page', function (event, num) {
-        window.location = (location.protocol + '//' + location.host + location.pathname '/'+@contentTypeName + "?page=" + num + "&pageSize=10");
+        
+        window.location = (location.protocol + '//' + location.host + location.pathname  + "?page=" + num + "&pageSize=10");
     });
 </script>

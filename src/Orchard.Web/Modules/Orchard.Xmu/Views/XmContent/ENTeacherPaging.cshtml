@@ -1,0 +1,58 @@
+﻿@using Orchard.Xmu.Models;
+@{
+
+    var total = ViewBag.total;
+    var items = Enumerable.Cast<ENTeacherPart>((System.Collections.IEnumerable)ViewBag.items);
+    var page = ViewBag.page;
+    var pagesize = ViewBag.pageSize;
+    var contentTypeName = ViewBag.ContentTypeName;
+
+}
+
+<div class="container-fluid list-header">
+    <div class="container">
+        <h1>@ViewBag.ListTitle</h1>
+    </div>
+</div>
+<div class="container en-list" >
+
+    <ul class="list-group">
+        <div class="row">
+            @foreach (var item in items)
+            {
+                <div class="col-md-3 col-lg-2 col-sm-4 col-xs-6">
+
+                    <div class="thumbnail teacher-list-item">
+                        <a href="@Url.Action("ENTeacherItem","XmContent",new { Id=@item.Id})">
+                            <img alt="@item.ENName" src="@item.AvatarAddress">
+                            <div class="caption">
+                                <p>@item.ENName</p>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </ul>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div id="pagination"></div>
+    </div>
+</div>
+<script>
+    $('#pagination').bootpag({
+        total: Math.ceil((@total) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: 'Next',
+        prev: 'Prev',
+        firstLastUse: true,
+        first: 'First',
+        last: Math.ceil((@total) / 10),
+    }).on('page', function (event, num) {
+        window.location = (location.protocol + '//' + location.host + location.pathname  + "?page=" + num + "&pageSize=10");
+    });
+</script>

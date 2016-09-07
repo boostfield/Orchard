@@ -1,0 +1,52 @@
+﻿@using Orchard.Xmu.Models;
+@{
+
+    var total = ViewBag.total;
+    //var items = ViewBag.items;
+    var items = Enumerable.Cast<NinetyCelebrationDonationPart>((System.Collections.IEnumerable)ViewBag.items);
+    var page = ViewBag.page;
+    var pagesize = ViewBag.pageSize;
+    var contentTypeName = ViewBag.ContentTypeName;
+
+}
+
+<div class="top-nav-bg">
+
+</div>
+<div class="container anniversary-list">
+    <h1>@ViewBag.ListTitle</h1>
+    <ul class="list-group">
+        @foreach (var item in items)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-sm-3 title-name">@item.Donator</div>
+                        <div class="col-sm-3 title-fund">@String.Format("{0}元", item.DonationAmount)</div>
+                        <div class="col-sm-6 title-time">@item.DonationTime.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                    </a>
+                </div>
+
+            </li>
+        }
+    </ul>
+
+    <div class="row">
+        <div id="pagination"></div>
+    </div>
+</div>
+<script>
+    $('#pagination').bootpag({
+        total: Math.ceil((@total ) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: '下一页',
+        prev: '上一页',
+        firstLastUse: true,
+        first: '首页',
+        last: Math.ceil((@total) / 10),
+    }).on('page', function (event, num) {
+        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
+    });
+</script>

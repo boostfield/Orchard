@@ -66,7 +66,7 @@ namespace Orchard.Xmu.Models
         }
 
 
-        public string DonationTime
+        public DateTime DonationTime
         {
             get
             {

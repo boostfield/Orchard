@@ -26,25 +26,25 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item active" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
                             @ViewBag.banners[i].Title
                         </p>
-                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE></a>
+                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE </a>
                     </div>
                 </div>
             }
             else
             {
-                <div class="item" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url('@ViewBag.banners[i].ImageAddress');">
+                <div class="item" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
                             @ViewBag.banners[i].Title
                         </p>
-                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE></a>
+                        <a class="btn btn-default btn-primary" href="@ViewBag.banners[i].LinkAddress">READ MORE </a>
                     </div>
                 </div>
             }
@@ -53,10 +53,10 @@
 
 
     </div>
-    <a class="left carousel-control" href="#carousel-en" role="button" data-slide="prev">
+    <a class="left carousel-control hidden-xs" href="#carousel-en" role="button" data-slide="prev">
         <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_left_n.png"))" />
     </a>
-    <a class="right carousel-control" href="#carousel-en" role="button" data-slide="next">
+    <a class="right carousel-control hidden-xs" href="#carousel-en" role="button" data-slide="next">
         <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_banner_next_right_n.png"))" />
     </a>
 </div>
@@ -74,10 +74,13 @@
                     var body = new HtmlString(Html.Excerpt(bodyHtml, 200).ToString().Replace(Environment.NewLine, Environment.NewLine));
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="thumbnail">
-                            <img src="@newsItem.ImageAddress">
+                            <div class="img-container" style="background-image: url('@newsItem.ImageAddress'); background-size: cover;background-repeat: no-repeat;">
+                                
+                            </div>
+                            
                             <div class="caption">
-                                <p class="title">@newsItem.Title</p>
-                                <p class="time">@newsItem.PublishedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">@newsItem.Title</a></p>
+                                <p class="time">@newsItem.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
                                 <p class="content">@body</p>
                                 <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">Read More</a></p>
                                 
@@ -91,7 +94,7 @@
         <div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
             <div class="en-column">
                 <span class="title ">Notice</span>
-                <a class="more pull-right">All Notice</a>
+                <a class="more pull-right" href="@Url.Action("ENPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CollegeENNotice"})">All Notice</a>
             </div>
             <ul class="notice list-group">
                 @foreach (var notice in ViewBag.notice)
@@ -99,12 +102,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-2">
-                                <p class="month">@notice.PublishedUtc.ToLocalTime().ToString("MMM", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="month">@notice.PublishedUtc.ToLocalTime().ToString("MMM", CultureInfo.CreateSpecificCulture("en-US")).ToUpper()</p>
                                 <p class="date">@notice.PublishedUtc.ToLocalTime().ToString("dd", CultureInfo.CreateSpecificCulture("en-US"))</p>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
                                 <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CollegeENNotice"})">@notice.Title</a></p>
-                                <p class="time">@notice.PublishedUtc.ToLocalTime().ToString("HH:mm")</p>
+                                <p class="time">@notice.CreatedUtc.ToLocalTime().ToString("HH:mm")</p>
                             </div>
                         </div>
                     </li>
@@ -116,13 +119,13 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row" style="margin-top: 2em;">
+    <div class="row en-sections" >
         @foreach (var sec in ViewBag.sections)
         {
             <div class="col-md-4 col-sm-6 col-xs-12 entry">
                 <a href="@sec.LinkAddress">
-                    <div class="content" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%), url('@sec.ImageAddress');">
-                        <p>@sec.Title</p>
+                    <div class="content" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_six_cover.png"))'), url('@sec.ImageAddress');">
+                        <p>@sec.Title.ToUpper()</p>
                     </div>
                 </a>
             </div>

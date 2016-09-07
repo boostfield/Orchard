@@ -6,11 +6,33 @@
     var contentTypeName = (string)ViewBag.ContentTypeName;
 }
 
+
+@{ 
+    var pagingAction = string.Empty;
+    if(XmContentType.ENCMSMappings.Where(i=>i.EnablePreview).Any())
+    {
+        pagingAction = "ENPaging";
+    }
+
+
+}
+
 <div class="manage">
     @Html.ActionLink(string.Format("新建{0}",
     T(contentTypeDisplayName)), "Create",
     new { Area = "Contents", Controller = "Admin", Id = contentTypeName }, new { @class = "button primaryAction" })
 </div>
+
+@if (!string.IsNullOrEmpty(pagingAction))
+{
+    <div class="manage">
+        @Html.ActionLink(string.Format("预览{0}", T(contentTypeDisplayName)), pagingAction,
+        new { Area = "Orchard.xmu", Controller = "XmContent", contentTypeName = contentTypeName, page = 1, pageSize = 10 },
+        new { @class = "button primaryAction" })
+    </div>
+}
+
+
 @using (Html.BeginFormAntiForgeryPost(Url.Action("List", new { controller = "XmContentAdmin", area = "Orchard.Xmu" }), FormMethod.Get))
 {
     <label for="search-text">标题搜索</label>

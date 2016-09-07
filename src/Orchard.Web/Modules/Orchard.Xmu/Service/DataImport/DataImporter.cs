@@ -5,6 +5,7 @@ using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.Security;
 using Orchard.Services;
+using Orchard.Tags.Services;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Users.Models;
@@ -27,6 +28,7 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IMembershipService _memberShipService;
         private readonly IVotingService _votingService;
         private readonly IOrchardServices _orchardService;
+        private readonly ITagService _tagService;
         private readonly IClock _clock;
 
         private readonly int MAX = 300;
@@ -39,6 +41,7 @@ namespace Orchard.Xmu.Service.DataImport
             IMembershipService memberShipService,
             IVotingService votingService,
             IOrchardServices orchardService,
+            ITagService tagService,
             IClock clock
 
             )
@@ -48,6 +51,7 @@ namespace Orchard.Xmu.Service.DataImport
             _transactionManager = transactionManager;
             _memberShipService = memberShipService;
             _votingService = votingService;
+            _tagService = tagService;
             _orchardService = orchardService;
             _clock = clock;
         }
@@ -95,22 +99,19 @@ namespace Orchard.Xmu.Service.DataImport
         }
 
 
-
-        public void BuildCategory()
+        public void BuildCNNotifyCategory()
         {
             var artistTaxo = _contentManager.New<TaxonomyPart>("Taxonomy");
-            artistTaxo.Name = XmTaxonomyNames.CNInformation;
+            artistTaxo.Name = XmTaxonomyNames.CNNotify;
             _contentManager.Create(artistTaxo, VersionOptions.Published);
-            //string[] categories = new string[] {"学院新闻", "院务通知","科研成果" };
-            var categories = ReadDataFromJsonFile<OldCategory>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\栏目分类.txt")
-                .Select(i => i.TopicName).ToList();
-                        
-            foreach (var c in categories)
-            {
-                CreateTerm(artistTaxo, c);
-            }
+
+            CreateTerm(artistTaxo, "院务通知");
+            CreateTerm(artistTaxo, "本科生教务");
+            CreateTerm(artistTaxo, "研究生教务");
+            CreateTerm(artistTaxo, "学生资讯");
         }
 
+ 
         private TermPart CreateTerm(TaxonomyPart taxonomy, string name, TermPart parent = null)
         {
             var term = this._taxonomyService.NewTerm(taxonomy);
@@ -129,19 +130,65 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
-           i => GenerateImportSingleOldContent<XmContentPart, OldContent>("UndergraduateAffairs","本科生教务")(i,null),
+           i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "本科生教务")(i, (oldcontent, part) => {
+               var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
+               var terms = _taxonomyService.GetTerms(taxo.Id);
+               var term = terms.Where(j => j.Name.Equals("本科生教务")).FirstOrDefault();
+               if (term != null)
+               {
+                   var tmp = new List<TermPart>();
+                   tmp.Add(term);
+                   _taxonomyService.UpdateTerms(part.ContentItem, tmp, "taxotype");
+               }
+
+           }),
            r => r.ID,
            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
            );
         }
 
+        /// <summary>
+        /// 院务通知
+        /// </summary>
+        public void ImportCollegeAffairsNoti()
+        {
+
+            ImportDataTemplate<OldContent>(
+            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
+            i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "院务通知")(i, (oldcontent, part) => {
+                var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
+                var terms = _taxonomyService.GetTerms(taxo.Id);
+                var term = terms.Where(j => j.Name.Equals("院务通知")).FirstOrDefault();
+                if (term != null)
+                {
+                    var tmp = new List<TermPart>();
+                    tmp.Add(term);
+                    _taxonomyService.UpdateTerms(part.ContentItem, tmp, "taxotype");
+                }
+
+            }),
+            r => r.ID,
+            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
+            );
+        }
 
 
         public void ImportGraduateAffairs()
         {
             ImportDataTemplate<OldContent>(
           () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
-          i => GenerateImportSingleOldContent<XmContentPart, OldContent>("GraduateAffairs", "研究生教务")(i,null),
+          i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "研究生教务")(i, (oldcontent, part) => {
+              var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
+              var terms = _taxonomyService.GetTerms(taxo.Id);
+              var term = terms.Where(j => j.Name.Equals("研究生教务")).FirstOrDefault();
+              if (term != null)
+              {
+                  var tmp = new List<TermPart>();
+                  tmp.Add(term);
+                  _taxonomyService.UpdateTerms(part.ContentItem, tmp, "taxotype");
+              }
+
+          }),
           r => r.ID,
           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
           );
@@ -151,7 +198,18 @@ namespace Orchard.Xmu.Service.DataImport
         {
             ImportDataTemplate<OldContent>(
          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
-         i => GenerateImportSingleOldContent<XmContentPart, OldContent>("StudentInfo", "学生资讯")(i,null),
+         i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "学生资讯")(i, (oldcontent, part) => {
+             var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
+             var terms = _taxonomyService.GetTerms(taxo.Id);
+             var term = terms.Where(j => j.Name.Equals("学生资讯")).FirstOrDefault();
+             if (term != null)
+             {
+                 var tmp = new List<TermPart>();
+                 tmp.Add(term);
+                 _taxonomyService.UpdateTerms(part.ContentItem, tmp, "taxotype");
+             }
+
+         }),
          r => r.ID,
          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
          );
@@ -193,20 +251,7 @@ namespace Orchard.Xmu.Service.DataImport
 
         }
 
-        /// <summary>
-        /// 院务通知
-        /// </summary>
-        public void ImportCollegeAffairsNoti()
-        {
-
-            ImportDataTemplate<OldContent>(
-            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
-            i => GenerateImportSingleOldContent<XmContentPart,OldContent>("CollegeAffairsNotify","院务通知")(i, null),
-            r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
-            );
-        }
-
+    
 
 
         public void ImportAcademicNews()
@@ -220,6 +265,39 @@ namespace Orchard.Xmu.Service.DataImport
             );
 
         }
+
+
+        public void ImportCope()
+        {
+            ImportDataTemplate<OldContent>(
+                      () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\Contents.txt")
+                      .Where(i=>i.Cate==78 || i.Cate == 79 || i.Cate == 80).ToList(),
+                      i => ImportSingleCop(i),
+                      r => r.ID,
+                      @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\合作交流ID对照.txt"
+                      );
+        }
+
+        private int ImportSingleCop(OldContent content)
+        {
+            var info = _contentManager.New(XmContentType.CNCop.ContentTypeName);
+            var infopart = info.As<CNCopPart>();
+            infopart.Title = content.Title;
+            infopart.Text = content.Content;
+            infopart.PublishedUtc = content.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : content.PubTime;
+            infopart.Author = content.Author;
+            infopart.Editor = content.Editor;
+            infopart.CreatedUtc = infopart.PublishedUtc;
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNCop.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, content.Clicks);
+            return info.Id;
+        }
+
+
+
         /// <summary>
         /// 导入原本为Contents的数据
         /// </summary>
@@ -248,7 +326,7 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.PublishedUtc = content.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : content.PubTime;
             infopart.Author = content.Author;
             infopart.Editor = content.Editor;
-
+            infopart.CreatedUtc = infopart.PublishedUtc;
 
 
             _contentManager.Create(info, VersionOptions.Published);
@@ -292,6 +370,7 @@ namespace Orchard.Xmu.Service.DataImport
                 infopart.PublishedUtc = oldContent.PubTime.Equals(DateTime.MinValue) ? _clock.UtcNow : oldContent.PubTime;
                 infopart.Author = oldContent.Author;
                 infopart.Editor = oldContent.Editor;
+                infopart.CreatedUtc = infopart.PublishedUtc;
 
 
 

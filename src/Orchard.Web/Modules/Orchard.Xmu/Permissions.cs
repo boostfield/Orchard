@@ -52,6 +52,37 @@ namespace Orchard.Xmu
         };
 
 
+        public static readonly Permission ManageCNNotify = new Permission
+        {
+            Description = XmContentType.CNNotify.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNNotify.ContentTypeName)
+        };
+
+        public static readonly Permission ManageENTeacher = new Permission
+        {
+            Description = XmContentType.ENTeacher.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENTeacher.ContentTypeName)
+        };
+
+        public static readonly Permission ManageENCourse = new Permission
+        {
+            Description = XmContentType.ENCourse.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.ENCourse.ContentTypeName)
+        };
+
+        public static readonly Permission ManageCNCop = new Permission
+        {
+            Description = XmContentType.CNCop.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNCop.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageCNCollegeShow = new Permission
+        {
+            Description = XmContentType.CNCollegeShow.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNCollegeShow.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 
@@ -92,7 +123,18 @@ namespace Orchard.Xmu
         {
             var staticPermissions = new[]
             {
-                ManageLectureInfo
+                ManageLectureInfo,
+                ManageCNNotify,
+                ManageCNBanner,
+                ManageENBanner,
+                ManageENSection,
+                ManageCelBanner,
+                ManageCelMatesPic,
+                ManageENTeacher,
+                ManageENCourse,
+                ManageCNCop
+
+
             };
 
 

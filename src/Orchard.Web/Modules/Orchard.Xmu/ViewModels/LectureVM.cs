@@ -11,7 +11,7 @@ namespace Orchard.Xmu.ViewModels
         public string Lecturer { get; set; }
         public string LectureAddress { get; set; }
         public DateTime StartTime { get; set; }
-
+        public DateTime? CreatedUtc { get; set; }
 
 
 
@@ -29,7 +29,8 @@ namespace Orchard.Xmu.ViewModels
                 PublishedUtc = part.PublishedUtc,
                 Author = part.Author,
                 Editor = part.Editor,
-                ViewCount = part.ViewCount
+                ViewCount = part.ViewCount,
+                CreatedUtc = part.CreatedUtc
             };
         }
 

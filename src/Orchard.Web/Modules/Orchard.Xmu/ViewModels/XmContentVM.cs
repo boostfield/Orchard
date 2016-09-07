@@ -12,6 +12,7 @@ namespace Orchard.Xmu.ViewModels
         public string Title { get; set; }
         public string Text { get; set; }
         public DateTime? PublishedUtc { get; set; }
+        public DateTime? CreatedUtc { get; set; }
         public string Author { get; set; }
         public string Editor { get; set; }
         public int ViewCount { get; set; }
@@ -28,7 +29,8 @@ namespace Orchard.Xmu.ViewModels
                 PublishedUtc = part.PublishedUtc,
                 Author = part.Author,
                 Editor = part.Editor,
-                ViewCount = part.ViewCount
+                ViewCount = part.ViewCount,
+                CreatedUtc = part.CreatedUtc
             };
         }
     }

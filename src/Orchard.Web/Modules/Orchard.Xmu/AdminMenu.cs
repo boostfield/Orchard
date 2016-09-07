@@ -37,6 +37,13 @@ namespace Orchard.Xmu
             menu.Add(T(XmContentType.ENSection.ContentTypeDisplayName), "2", item => item.Action("List", "ENSectionAdmin", new { area = "Orchard.Xmu" })
              .Permission(Permissions.ManageENSection));
 
+
+            menu.Add(T(XmContentType.ENTeacher.ContentTypeDisplayName), "2", item => item.Action("List", "ENTeacherAdmin", new { area = "Orchard.Xmu" })
+             .Permission(Permissions.ManageENTeacher));
+
+            menu.Add(T(XmContentType.ENCourse.ContentTypeDisplayName), "2", item => item.Action("List", "ENCourseAdmin", new { area = "Orchard.Xmu" })
+                      .Permission(Permissions.ManageENCourse));
+
             foreach (var mapping in XmContentType.ENCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",
@@ -80,6 +87,20 @@ namespace Orchard.Xmu
             menu
           .Add(T(XmContentType.CNBanner.ContentTypeDisplayName), "2", item => item.Action("List", "CNBannerAdmin", new { area = "Orchard.Xmu" })
           .Permission(Permissions.ManageCNBanner));
+
+
+            menu
+            .Add(T(XmContentType.CNNotify.ContentTypeDisplayName), "2", item => item.Action("List", "CNNotifyAdmin", new { area = "Orchard.Xmu" })
+            .Permission(Permissions.ManageCNNotify));
+
+            menu
+              .Add(T(XmContentType.CNCop.ContentTypeDisplayName), "2", item => item.Action("List", "CNCopAdmin", new { area = "Orchard.Xmu" })
+              .Permission(Permissions.ManageCNCop));
+
+            menu
+           .Add(T(XmContentType.CNCollegeShow.ContentTypeDisplayName), "2", item => item.Action("List", "CNCollegeShowAdmin", new { area = "Orchard.Xmu" })
+           .Permission(Permissions.ManageCNCollegeShow));
+
 
 
             foreach (var mapping in XmContentType.CNCMSMappings)

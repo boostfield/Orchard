@@ -49,6 +49,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -90,8 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="OrchardBS\Content\images\anniversary\bg_picture_film.jpg" />
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_left.png" />
     <Content Include="OrchardBS\Content\images\anniversary\ic_banner_right.png" />
+    <Content Include="OrchardBS\Content\images\anniversary\img_banner_1.jpg" />
     <Content Include="OrchardBS\Content\images\anniversary\img_bottom.jpg" />
     <Content Include="OrchardBS\Content\images\anniversary\img_donation_90.png" />
     <Content Include="OrchardBS\Content\images\anniversary\img_donation_pattern_bottom_1.png" />
@@ -112,11 +115,23 @@
     <Content Include="OrchardBS\Content\images\anniversary\img_title_third.png" />
     <Content Include="OrchardBS\Content\images\anniversary\nav-bg.png" />
     <Content Include="OrchardBS\Content\images\anniversary\qr_code.jpg" />
+    <Content Include="OrchardBS\Content\images\cn\bg_ch_buttom.jpg" />
+    <Content Include="OrchardBS\Content\images\cn\bg_ch_top.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bottom-text.png" />
     <Content Include="OrchardBS\Content\images\cn\footer-bg.png" />
+    <Content Include="OrchardBS\Content\images\cn\ic_content_detail.png" />
+    <Content Include="OrchardBS\Content\images\cn\ic_place.png" />
+    <Content Include="OrchardBS\Content\images\cn\ic_time.png" />
+    <Content Include="OrchardBS\Content\images\cn\ic_title.png" />
+    <Content Include="OrchardBS\Content\images\cn\img_nav_line.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_left_n.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_right_n.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_banner_read_more.png" />
+    <Content Include="OrchardBS\Content\images\en\ic_news_all.png" />
+    <Content Include="OrchardBS\Content\images\en\img_banner_cover.png" />
     <Content Include="OrchardBS\Content\images\en\img_bottom.jpg" />
+    <Content Include="OrchardBS\Content\images\en\img_nav_title_select.png" />
+    <Content Include="OrchardBS\Content\images\en\img_six_cover.png" />
     <Content Include="OrchardBS\Content\images\favicon.ico" />
     <Content Include="OrchardBS\Content\images\ic_nav_search.png" />
     <Content Include="OrchardBS\Content\images\cn\ic_new_list_content.png" />
@@ -138,13 +153,22 @@
     <Content Include="OrchardBS\Content\images\cn\top_bg.png" />
     <Content Include="OrchardBS\OrchardBS.csproj" />
     <Content Include="OrchardBS\Scripts\bootstrap.min.js" />
+    <Content Include="OrchardBS\Scripts\html5shiv.min.js" />
+    <Content Include="OrchardBS\Scripts\ie-bootstrap-carousel.min.js" />
     <Content Include="OrchardBS\Scripts\jquery.bootpag.min.js" />
+    <Content Include="OrchardBS\Scripts\jquery1.min.js" />
+    <Content Include="OrchardBS\Scripts\respond.min.js" />
+    <Content Include="OrchardBS\Styles\bootstrap.css" />
     <Content Include="OrchardBS\Styles\bootstrap.min.css" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="OrchardBS\Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="TheAdmin\Styles\site-admin.css">
+      <DependentUpon>site-admin.less</DependentUpon>
+    </Content>
+    <Content Include="TheAdmin\Styles\site-admin.less" />
     <None Include="OrchardBS\Styles\Site.less" />
     <Content Include="OrchardBS\Styles\Site.css">
       <DependentUpon>Site.less</DependentUpon>
@@ -160,6 +184,7 @@
     <Content Include="TheAdmin\Styles\ie8.css" />
     <Content Include="TheAdmin\Styles\images\adminNavBackground.gif" />
     <Content Include="TheAdmin\Styles\images\error.gif" />
+    <Content Include="TheAdmin\Styles\images\favicon.ico" />
     <Content Include="TheAdmin\Styles\images\icon-advisory.png" />
     <Content Include="TheAdmin\Styles\images\icon-contribute.png" />
     <Content Include="TheAdmin\Styles\images\icon-docs.png" />
@@ -177,6 +202,9 @@
     <Content Include="TheAdmin\Styles\images\menuOpenHover.gif" />
     <Content Include="TheAdmin\Styles\images\vinesBackgroundBottom.gif" />
     <Content Include="TheAdmin\Styles\images\menu-filter.png" />
+    <Content Include="TheAdmin\Styles\site-admin.min.css">
+      <DependentUpon>site-admin.css</DependentUpon>
+    </Content>
     <Content Include="TheThemeMachine\Styles\default-grid.css" />
     <Content Include="TheThemeMachine\Styles\Site.css" />
     <Content Include="TheThemeMachine\Theme.png" />
@@ -199,11 +227,13 @@
     <Content Include="OrchardBS\Views\Parts\MenuWidget-Footer.cshtml" />
     <Content Include="OrchardBS\Views\FooterEntry.cshtml" />
     <Content Include="OrchardBS\Views\ENFooterFirst.cshtml" />
-    <Content Include="OrchardBS\Views\ENFooterSecond.cshtml" />
     <Content Include="OrchardBS\Views\ENBadgeOfHonor.cshtml" />
-    <Content Include="OrchardBS\Views\Layout-url-anniversary.cshtml" />
+    <Content Include="OrchardBS\Views\Layout-url-90.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryFooter.cshtml" />
     <Content Include="OrchardBS\Views\AnniversaryBadgeOfHonor.cshtml" />
+    <Content Include="OrchardBS\Views\Content-url-en-page.cshtml" />
+    <Content Include="OrchardBS\Views\Content-url-anniversary-page.cshtml" />
+    <Content Include="OrchardBS\Views\Content-url-page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Styles\images\icons.png" />
@@ -260,6 +290,10 @@
       <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
       <Name>Orchard.Framework</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\NGM.ContentViewCounter\NGM.ContentViewCounter.csproj">
+      <Project>{29e9743a-b6e4-40fb-abba-569034abfe88}</Project>
+      <Name>NGM.ContentViewCounter</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\Orchard.Layouts\Orchard.Layouts.csproj">
       <Project>{6bd8b2fa-f2e3-4ac8-a4c3-2925a653889a}</Project>

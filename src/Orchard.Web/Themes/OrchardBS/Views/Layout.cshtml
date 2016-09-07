@@ -10,10 +10,9 @@
     /* Global includes for the theme
     ***************************************************************/
 
-    SetMeta("charset", "utf-8");
-    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
-    SetMeta("viewport", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no");
-    SetMeta("author", "Abhishek Luv");
+   
+    SetMeta("description", "厦门大学法学院官方网站");
+    SetMeta("keywords", "厦门大学,法学院,xmu,中文,官方网站");
 
     /* Some useful shortcuts or settings
     ***************************************************************/
@@ -46,7 +45,7 @@
 
     //WorkContext.Layout.Header.Add(New.Branding(), "5"); // Site name and link to the home page
     WorkContext.Layout.Footer.Add(New.FooterEntry(), "0");
-    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "10"); // Powered by Orchard
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "15"); // Powered by Orchard
 
     //WorkContext.Layout.Navigation.Add(New.User(), "10"); // Login and dashboard links
 
@@ -57,56 +56,39 @@
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
 @tag.StartElement
-<div class="container-fluid home-search ">
-    <div class="row">
-        <div class="col-md-1 col-sm-2" style="float: right;">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    中文<span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="~/en">English</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4 hidden-xs"  style="float: right;">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="站内搜索">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"></button>
-                </span>
-            </div>
-        </div>
-        
-       
-    </div>
-    
-</div>
-<div class="cn-home  hidden-xs">
-    <div class="container top-bg">
-    <div class="container ">
-        <div class="row text-center">
-           
-            <div class="img-container">
-                <img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_logo_top.png"))" />
-            </div>
-            
-            
-        </div>
-    </div>
-</div>   
-</div>
+
+
 <div class="home">
+    
+        <div class="container-fluid top-bg hidden-xs">
+            
+                
+                <div class="col-md-12 col-lg-12 pull-right">
+                    
+                    <div class="input-group">
+                        
+                        <input type="text" class="form-control" placeholder="站内搜索">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-lg-1 pull-right text-right"><a href="~/en/home">English</a> </div>
+            
+        </div>
+   
     <div class="navbar-wrapper">
         <div class="navbar navbar-default center" role="navigation">
             <div class="navbar-inner">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                       
+                        <a class="navbar-brand visible-xs" href="~/home">厦门大学法学院</a>
                         @if (Model.Header != null)
                         {
                             @Zone(Model.Header)

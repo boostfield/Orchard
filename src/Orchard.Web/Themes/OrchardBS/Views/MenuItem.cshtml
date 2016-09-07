@@ -1,21 +1,32 @@
-﻿@{
-	// odd formatting in this file is to cause more attractive results in the output.
-	var items = Enumerable.Cast<dynamic>((System.Collections.IEnumerable)Model);
+﻿@using Orchard.UI.Navigation;
+@{
+    // odd formatting in this file is to cause more attractive results in the output.
+    var items = Enumerable.Cast<dynamic>((System.Collections.IEnumerable)Model);
+    
 }
 @{
-if (!HasText(Model.Text)) {
+    if (!HasText(Model.Text)) {
 	@DisplayChildren(Model)
-} else {
-	string requestUrl = Request.Path.ToUpperInvariant();
-	string modelUrl = Model.Href.ToUpperInvariant();
-	if (requestUrl == modelUrl || (!string.IsNullOrEmpty(modelUrl) && requestUrl.StartsWith(modelUrl + "/"))) { 
-		Model.Classes.Add("active");
-	}
+    } else {
+        string requestUrl = Request.Path.ToUpperInvariant();
+        string modelUrl = Model.Href.ToUpperInvariant();
+        if (requestUrl == modelUrl || (!string.IsNullOrEmpty(modelUrl) && requestUrl.StartsWith(modelUrl + "/"))) {
+            Model.Classes.Add("active");
+        }
 
-	if(items.Any()) {
-		Model.Classes.Add("dropdown");
-	}
-	var tag = Tag(Model, "li");
+        if(items.Any()) {
+            var menuItem = (MenuItem)Model.Item;
+            if(menuItem.Level == 2)
+            {
+                Model.Classes.Add("dropdown-submenu");
+            } else
+            {
+                Model.Classes.Add("dropdown");
+            }
+
+        }
+        var tag = Tag(Model, "li");
+
 	@tag.StartElement
 			
 	@* morphing the shape to keep Model untouched*@
@@ -23,6 +34,7 @@ if (!HasText(Model.Text)) {
 	if (items.Any()) {
 		Model.Metadata.Type = "MenuItemLinkdd";
 	}
+
 	else {
 		Model.Metadata.Type = "MenuItemLink";
 	}

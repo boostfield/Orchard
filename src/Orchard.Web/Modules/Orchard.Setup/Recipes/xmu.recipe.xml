@@ -11,12 +11,12 @@
     <IsSetupRecipe>true</IsSetupRecipe>
   </Recipe>
 
-  <Feature enable="Orchard.Blogs,Orchard.Comments,Orchard.Tags,Orchard.Alias,Orchard.Autoroute,
+  <Feature enable="Orchard.Tags,Orchard.Alias,Orchard.Autoroute,
                    TinyMce,Orchard.MediaLibrary,Orchard.ContentPicker,Orchard.PublishLater,
                    Orchard.Resources,Orchard.Widgets,Orchard.ContentTypes,
                    Orchard.Scripting,Orchard.Scripting.Lightweight,PackagingServices,Orchard.Packaging,
-                   Orchard.Projections,Orchard.Fields,Orchard.OutputCache,Orchard.Taxonomies,Orchard.Workflows,
-                   Orchard.Layouts,Orchard.Layouts.Tokens,Orchard.Xmu,UrlAlternates,WidgetAlternates,
+                   Orchard.Fields,Orchard.OutputCache,Orchard.Taxonomies,
+                   Orchard.Xmu,UrlAlternates,WidgetAlternates,
                    TheThemeMachine" />
 
   <ContentDefinition>
@@ -28,13 +28,6 @@
         <AutoroutePart />
         <MenuPart />
       </Page>
-      <BlogPost ContentTypeSettings.Draftable="True" TypeIndexing.Indexes="Search">
-        <CommentsPart />
-        <TagsPart />
-        <LocalizationPart />
-        <TitlePart/>
-        <AutoroutePart />
-      </BlogPost>
     </Types>
     <Parts>
       <BodyPart BodyPartSettings.FlavorDefault="html" />

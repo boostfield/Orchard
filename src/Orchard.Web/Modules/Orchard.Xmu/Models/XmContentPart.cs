@@ -25,6 +25,17 @@ namespace Orchard.Xmu.Models
             }
         }
 
+
+        public bool IsTop
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = (Boolean?)content.XmContentPart.istop.Value ?? false;
+                return v;
+            }
+        }
+
        
 
         public string Title
@@ -50,7 +61,11 @@ namespace Orchard.Xmu.Models
             get { return this.As<ICommonPart>().PublishedUtc; }
             set { this.As<ICommonPart>().PublishedUtc = value; }
         }
-
+        public DateTime? CreatedUtc
+        {
+            get { return this.As<ICommonPart>().CreatedUtc; }
+            set { this.As<ICommonPart>().CreatedUtc = value; }
+        }
         public string Author
         {
             get { return this.As<CommonPart>().Author; }
