@@ -56,9 +56,9 @@ namespace Orchard.Xmu.Controllers
                 .Select(p => p.As<XmContentPart>()).ToList();
 
             var b = _contentManager.Query(VersionOptions.Latest, XmContentType.CNBanner.ContentTypeName)
-        .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
-        .List()
-        .Select(p => p.As<BannerPart>()).ToList();
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+            .List()
+            .Select(p => p.As<BannerPart>()).ToList();
 
             ViewBag.banners = b;
 

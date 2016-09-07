@@ -7,44 +7,53 @@
 <div id="carousel-home" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators carousel-indicators-numbers">
-        <li data-target="#carousel-home" data-slide-to="0" class="active">1</li>
-        <li data-target="#carousel-home" data-slide-to="1">2</li>
-        <li data-target="#carousel-home" data-slide-to="2">3</li>
+        @for (var i = 0; i < ViewBag.banners.Count; i++)
+        {
+            if (i == 0)
+            {
+                <li data-target="#carousel-home" data-slide-to="0" class="active">1</li>
+            }
+            else
+            {
+                <li data-target="#carousel-home" data-slide-to="@i">@(i+1)</li>
+            }
+        }
+
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-            
-            <div class="carousel-caption">
-                <div class="container">
-                    
-                    <div class="col-md-8">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
+        @for (var i = 0; i < ViewBag.banners.Count; i++)
+        {
+            if (i == 0)
+            {
+                <div class="item active" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+
+                    <div class="carousel-caption">
+                        <div class="container">
+
+                            <div class="col-md-8">@ViewBag.banners[i].Title</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-           
-            <div class="carousel-caption" >
-                <div class="container">
-                    
-                    <div class="col-md-8">关于2017年春季项目”宣讲会通知</div>
+            }
+            else
+            {
+                <div class="item" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+
+                    <div class="carousel-caption">
+                        <div class="container">
+
+                            <div class="col-md-8">@ViewBag.banners[i].Title</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-            
-            <div class="carousel-caption">
-                <div class="container">
-                    
-                    <div class="col-md-8">关于2017年春季学期“SAF交流生项目”宣讲会通知</div>
-                </div>
-            </div>
-        </div>
+            }
+        }
     </div>
 </div>
 
-<div class="container column" >
+<div class="container column">
     <div class="row">
         <div class="col-md-7">
             <div class="column-larger">
@@ -68,32 +77,32 @@
                                 <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
                                     <div class="carousel-caption">
-                                        
 
-                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-                                       
+
+                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+
                                     </div>
                                 </div>
                                 <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
                                     <div class="carousel-caption">
-                                        
-                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-                                        
+
+                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+
                                     </div>
                                 </div>
                                 <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
 
                                     <div class="carousel-caption">
-                                        
-                                            <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-                                       
+
+                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 news-container-right" >
+                    <div class="col-md-7 news-container-right">
                         <ul class="news list-group">
                             <li class="list-group-item">
                                 <div class="row">
@@ -169,7 +178,7 @@
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="title"><a href="">国际税收中的主要问题与最新发展</a></div>
-                                
+
                             </div>
                             <div class="row text-left">
                                 <span class="author">叶永青</span>
@@ -324,7 +333,7 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    
+
                                 </div>
 
                             </li>
@@ -549,7 +558,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_public_affairs.jpg"))"/>
+            <img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_public_affairs.jpg"))" />
         </div>
         <div class="col-md-3">
             <img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_public_affairs.jpg"))" />
