@@ -128,8 +128,10 @@
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_right_n.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_read_more.png" />
     <Content Include="OrchardBS\Content\images\en\ic_news_all.png" />
+    <Content Include="OrchardBS\Content\images\en\img_banner_cover.png" />
     <Content Include="OrchardBS\Content\images\en\img_bottom.jpg" />
     <Content Include="OrchardBS\Content\images\en\img_nav_title_select.png" />
+    <Content Include="OrchardBS\Content\images\en\img_six_cover.png" />
     <Content Include="OrchardBS\Content\images\favicon.ico" />
     <Content Include="OrchardBS\Content\images\ic_nav_search.png" />
     <Content Include="OrchardBS\Content\images\cn\ic_new_list_content.png" />
@@ -151,8 +153,12 @@
     <Content Include="OrchardBS\Content\images\cn\top_bg.png" />
     <Content Include="OrchardBS\OrchardBS.csproj" />
     <Content Include="OrchardBS\Scripts\bootstrap.min.js" />
+    <Content Include="OrchardBS\Scripts\html5shiv.min.js" />
+    <Content Include="OrchardBS\Scripts\ie-bootstrap-carousel.min.js" />
     <Content Include="OrchardBS\Scripts\jquery.bootpag.min.js" />
     <Content Include="OrchardBS\Scripts\jquery1.min.js" />
+    <Content Include="OrchardBS\Scripts\respond.min.js" />
+    <Content Include="OrchardBS\Styles\bootstrap.css" />
     <Content Include="OrchardBS\Styles\bootstrap.min.css" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
