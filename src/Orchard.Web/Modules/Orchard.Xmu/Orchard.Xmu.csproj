@@ -240,6 +240,11 @@
     <Content Include="Views\CNNotifyAdmin\List.cshtml" />
     <Content Include="Views\CNCopAdmin\List.cshtml" />
     <Content Include="Views\CNCollegeShowAdmin\List.cshtml" />
+    <Content Include="Views\CNAcademicPaper\List.cshtml" />
+    <Content Include="Views\CNAcademicWorkAdmin\List.cshtml" />
+    <Content Include="Views\CNAwardAdmin\List.cshtml" />
+    <Content Include="Views\CNProjectAdmin\List.cshtml" />
+    <Content Include="Views\CNTeacherAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,10 +258,15 @@
     <Compile Include="ApiControllers\ManagerController.cs" />
     <Compile Include="ApiRoutes.cs" />
     <Compile Include="Controllers\CelMatesPicAdminController.cs" />
+    <Compile Include="Controllers\CNAcademicPaperAdminController.cs" />
+    <Compile Include="Controllers\CNAcademicWorkAdminController.cs" />
+    <Compile Include="Controllers\CNAwardAdminController.cs" />
     <Compile Include="Controllers\CNBannerAdminController.cs" />
     <Compile Include="Controllers\CNCollegeShowAdminController.cs" />
     <Compile Include="Controllers\CNCopAdminController.cs" />
     <Compile Include="Controllers\CNNotifyAdminController.cs" />
+    <Compile Include="Controllers\CNProjectAdminController.cs" />
+    <Compile Include="Controllers\CNTeacherAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
     <Compile Include="Controllers\ENBannerAdminController.cs" />

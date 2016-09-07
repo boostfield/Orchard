@@ -101,7 +101,25 @@ namespace Orchard.Xmu
            .Add(T(XmContentType.CNCollegeShow.ContentTypeDisplayName), "2", item => item.Action("List", "CNCollegeShowAdmin", new { area = "Orchard.Xmu" })
            .Permission(Permissions.ManageCNCollegeShow));
 
+            menu
+                  .Add(T(XmContentType.CNAward.ContentTypeDisplayName), "2", item => item.Action("List", "CNAwardAdmin", new { area = "Orchard.Xmu" })
+                  .Permission(Permissions.ManageCNAward));
 
+            menu
+      .Add(T(XmContentType.CNAcademicPaper.ContentTypeDisplayName), "2", item => item.Action("List", "CNAcademicPaperAdmin", new { area = "Orchard.Xmu" })
+      .Permission(Permissions.ManageCNAcademicPaper));
+
+            menu
+      .Add(T(XmContentType.CNAcademicWork.ContentTypeDisplayName), "2", item => item.Action("List", "CNAcademicWorkAdmin", new { area = "Orchard.Xmu" })
+      .Permission(Permissions.ManageCNAcademicWork));
+
+            menu
+      .Add(T(XmContentType.CNTeacher.ContentTypeDisplayName), "2", item => item.Action("List", "CNTeacherAdmin", new { area = "Orchard.Xmu" })
+      .Permission(Permissions.ManageCNTeacher));
+
+            menu
+      .Add(T(XmContentType.CNProject.ContentTypeDisplayName), "2", item => item.Action("List", "CNProjectAdmin", new { area = "Orchard.Xmu" })
+      .Permission(Permissions.ManageCNProject));
 
             foreach (var mapping in XmContentType.CNCMSMappings)
             {

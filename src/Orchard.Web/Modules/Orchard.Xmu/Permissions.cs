@@ -83,6 +83,36 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.CNCollegeShow.ContentTypeName)
         };
 
+
+        public static readonly Permission ManageCNTeacher = new Permission
+        {
+            Description = XmContentType.CNTeacher.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNTeacher.ContentTypeName)
+        };
+        public static readonly Permission ManageCNAcademicPaper = new Permission
+        {
+            Description = XmContentType.CNAcademicPaper.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNAcademicPaper.ContentTypeName)
+        };
+
+
+        public static readonly Permission ManageCNAcademicWork = new Permission
+        {
+            Description = XmContentType.CNAcademicWork.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNAcademicWork.ContentTypeName)
+        };
+
+        public static readonly Permission ManageCNAward = new Permission
+        {
+            Description = XmContentType.CNAward.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNAward.ContentTypeName)
+        };
+        public static readonly Permission ManageCNProject = new Permission
+        {
+            Description = XmContentType.CNProject.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNProject.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 
