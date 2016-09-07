@@ -12,6 +12,7 @@
             OnLabel = "是";
             OffLabel = "否";
             SelectionMode = SelectionMode.Radiobutton;
+            Optional = true;
         }
     }
 
