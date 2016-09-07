@@ -478,8 +478,8 @@ namespace Orchard.Xmu
                cfg.WithField("istop",
                         b => b.OfType("BooleanField")
                             .WithDisplayName("置顶")
-                            
-                          
+                            .WithSetting("BooleanFieldSettings.Optional","True")
+                            .WithSetting("BooleanFieldSettings.DefaultValue","False")
                             )
            );
 

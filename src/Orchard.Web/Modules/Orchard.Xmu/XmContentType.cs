@@ -326,20 +326,8 @@ namespace Orchard.Xmu
                     }
                 },
 
-                new XmCNCMSContentMapping
-                {
-                    ContentTypeDisplayName = "学术动态",
-                    PermissionDesc = "c",
-                    ContentTypeName = "AcademicNews",
-                    ContentTypePartName = "AcademicNewsPart",
-                    Permission = new Permission
-                    {
-                     Description= "管理学术动态",
-                     Name = string.Format("Manage{0}","AcademicNews")
-                    }
-                },
-
-
+                //用单页创建
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=28,
@@ -418,6 +406,7 @@ namespace Orchard.Xmu
                     }
 
                 },
+                */
 
                 new XmCNCMSContentMapping
                 {
@@ -450,6 +439,21 @@ namespace Orchard.Xmu
                         Name = string.Format("Manage{0}","ForeverMemo")
                     }
 
+                },
+
+
+
+                new XmCNCMSContentMapping
+                {
+                    ContentTypeDisplayName = "学术动态",
+                    PermissionDesc = "管理学术动",
+                    ContentTypeName = "AcademicNews",
+                    ContentTypePartName = "AcademicNewsPart",
+                    Permission = new Permission
+                    {
+                     Description= "管理学术动态",
+                     Name = string.Format("Manage{0}","AcademicNews")
+                    }
                 },
 
                 new XmCNCMSContentMapping
@@ -615,6 +619,59 @@ namespace Orchard.Xmu
                     }
 
                 },
+
+                 new XmCNCMSContentMapping
+                {
+                    Id = 101,
+                    TopicName = "法学社",
+                    ContentTypeName = "LayGroup",
+                    PermissionDesc = "管理法学社",
+                    ContentTypeDisplayName = "法学社",
+                    ContentTypePartName = "LayGroup",
+                    Permission = new Permission
+                    {
+                         Description =  "管理法学社",
+
+                         Name = string.Format("Manage{0}","LayGroup")
+
+                    }
+                },
+
+                 new XmCNCMSContentMapping
+                {
+                    Id = 102,
+                    TopicName = "国辩协会",
+                    ContentTypeName = "DebatingGroup",
+                    PermissionDesc = "管理国辩协会",
+                    ContentTypeDisplayName = "国辩协会",
+                    ContentTypePartName = "DebatingGroup",
+                    Permission = new Permission
+                    {
+                         Description =  "管理国辩协会",
+
+                         Name = string.Format("Manage{0}","DebatingGroup")
+
+                    }
+                },
+
+
+                new XmCNCMSContentMapping
+                {
+                    Id = 111,
+                    TopicName = "榜样力量",
+                    ContentTypeName = "FineModel",
+                    PermissionDesc = "管理榜样力量",
+                    ContentTypeDisplayName = "榜样力量",
+                    ContentTypePartName = "FineModel",
+                    Permission = new Permission
+                    {
+                         Description =  "管理榜样力量",
+
+                         Name = string.Format("Manage{0}","FineModel")
+
+                    }
+                },
+                /*
                 new XmCNCMSContentMapping
                 {
                     Id=94,
@@ -630,7 +687,7 @@ namespace Orchard.Xmu
                     }
 
                 },
-
+                */
                 new XmCNCMSContentMapping
                 {
                     Id=96,
@@ -676,77 +733,6 @@ namespace Orchard.Xmu
                          Description =  "管理厦大法律人",
 
                          Name = string.Format("Manage{0}","XmLawyer")
-
-                    }
-                },
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 101,
-                    TopicName = "法学社",
-                    ContentTypeName = "LayGroup",
-                    PermissionDesc = "管理法学社",
-                    ContentTypeDisplayName = "法学社",
-                    ContentTypePartName = "LayGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理法学社",
-
-                         Name = string.Format("Manage{0}","LayGroup")
-
-                    }
-                },
-
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 102,
-                    TopicName = "国辩协会",
-                    ContentTypeName = "DebatingGroup",
-                    PermissionDesc = "管理国辩协会",
-                    ContentTypeDisplayName = "国辩协会",
-                    ContentTypePartName = "DebatingGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理国辩协会",
-
-                         Name = string.Format("Manage{0}","DebatingGroup")
-
-                    }
-                },
-
-
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 102,
-                    TopicName = "国辩协会",
-                    ContentTypeName = "DebatingGroup",
-                    PermissionDesc = "管理国辩协会",
-                    ContentTypeDisplayName = "国辩协会",
-                    ContentTypePartName = "DebatingGroup",
-                    Permission = new Permission
-                    {
-                         Description =  "管理国辩协会",
-
-                         Name = string.Format("Manage{0}","DebatingGroup")
-
-                    }
-                },
-
-                new XmCNCMSContentMapping
-                {
-                    Id = 111,
-                    TopicName = "榜样力量",
-                    ContentTypeName = "FineModel",
-                    PermissionDesc = "管理榜样力量",
-                    ContentTypeDisplayName = "榜样力量",
-                    ContentTypePartName = "FineModel",
-                    Permission = new Permission
-                    {
-                         Description =  "管理榜样力量",
-
-                         Name = string.Format("Manage{0}","FineModel")
 
                     }
                 },
