@@ -5,6 +5,7 @@ using Orchard.Core.Common.Models;
 using Orchard.Core.Contents.Extensions;
 using Orchard.Core.Title.Models;
 using Orchard.Data.Migration;
+using Orchard.Tags.Models;
 using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
@@ -70,8 +71,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
        .WithPart(typeof(BodyPart).Name)
        .WithPart(typeof(LectureInfoPart).Name)
-       .WithPart(typeof(UserViewPart).Name)
-       .WithSetting("ListTitle",XmContentType.LectureInfo.ListTitle)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.LectureInfo.ListTitle)
        .Creatable()
        .Draftable()
        .Securable()
@@ -89,8 +90,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
-           .WithPart(typeof(UserViewPart).Name)
-           .WithSetting("ListTitle",mapping.ListTitle)
+           .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+           .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -111,7 +112,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(College90CelebrationPart).Name)
-           .WithPart(typeof(UserViewPart).Name)
+           .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
            .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
@@ -135,8 +136,8 @@ namespace Orchard.Xmu
                 .WithPart(typeof(TitlePart).Name)
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
                 .WithPart(typeof(NinetyCelebrationDonationPart).Name)
-                .WithPart(typeof(UserViewPart).Name)
-                .WithSetting("ListTitle",XmContentType.NinetyDonation.ListTitle)
+                .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+                .WithSetting("ListTitle", XmContentType.NinetyDonation.ListTitle)
                 .Creatable()
                 .Draftable()
                 .Securable()
@@ -171,7 +172,7 @@ namespace Orchard.Xmu
               .WithPart(typeof(TitlePart).Name)
               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
               .WithPart(typeof(BannerPart).Name)
-              .WithSetting("ListTitle",XmContentType.CNBanner.ListTitle)
+              .WithSetting("ListTitle", XmContentType.CNBanner.ListTitle)
               .Creatable()
               .Draftable()
               .Securable()
@@ -189,7 +190,7 @@ namespace Orchard.Xmu
              .WithPart(typeof(TitlePart).Name)
              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
              .WithPart(typeof(BannerPart).Name)
-             .WithSetting("ListTitle",XmContentType.ENBanner.ListTitle)
+             .WithSetting("ListTitle", XmContentType.ENBanner.ListTitle)
              .Creatable()
              .Draftable()
              .Securable()
@@ -210,8 +211,8 @@ namespace Orchard.Xmu
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(BodyPart).Name)
            .WithPart(typeof(XmContentPart).Name)
-           .WithPart(typeof(UserViewPart).Name)
-           .WithSetting("ListTitle",mapping.ListTitle)
+           .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+           .WithSetting("ListTitle", mapping.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -250,7 +251,7 @@ namespace Orchard.Xmu
            .WithPart(typeof(TitlePart).Name)
            .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
            .WithPart(typeof(ENSectionPart).Name)
-           .WithSetting("ListTitle",XmContentType.ENSection.ListTitle)
+           .WithSetting("ListTitle", XmContentType.ENSection.ListTitle)
            .Creatable()
            .Draftable()
            .Securable()
@@ -269,7 +270,7 @@ namespace Orchard.Xmu
             .WithPart(typeof(TitlePart).Name)
             .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
             .WithPart(typeof(BannerPart).Name)
-            .WithSetting("ListTitle",XmContentType.NinetyCelBanner.ListTitle)
+            .WithSetting("ListTitle", XmContentType.NinetyCelBanner.ListTitle)
             .Creatable()
             .Draftable()
             .Securable()
@@ -315,40 +316,300 @@ namespace Orchard.Xmu
 
         public int UpdateFrom7()
         {
-            SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
-                table=>
-                table.ContentPartRecord()
-                .Column<string>("Tid")
-                .Column<string>("Title")
-                .Column<string>("Author")
-                .Column<string>("Year")
-                .Column<string>("Department")
-                .Column<string>("Keyword")
-                .Column<string>("Summary",c=>c.Unlimited())
-                .Column<string>("Text",c=>c.Unlimited())
-                .Column<DateTime>("ReleaseDate")
-                .Column<string>("Publication")
-                .Column<string>("Pid")
-                .Column<string>("Ptime")
-                .Column<string>("Plevel")
-                .Column<string>("Writertype")
-                .Column<int>("TextNumber")
-                .Column<string>("Remarks",c=>c.Unlimited())
-                .Column<DateTime>("InputDate")
-                .Column<int>("ClickNumber")
-                .Column<DateTime>("RefreshDate")
-                .Column<bool>("IsShow")
-                .Column<string>("Achievement", c => c.Unlimited())
-                .Column<string>("ImportantJournal", c => c.Unlimited())
-                .Column<string>("RePrint")
-                .Column<string>("ResearchResult", c => c.Unlimited())
 
-                );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.NinetyDonation.ContentTypeName,
+                cfg => cfg
+                .WithPart(typeof(BodyPart).Name)
+            );
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+           .WithPart(typeof(XmContentPart).Name)
+           );
+
+            }
+            return 8;
+        }
+
+
+        public int UpdateFrom8()
+        {
+
+
+            SchemaBuilder.CreateTable(typeof(TeacherCourseRelationRecord).Name,
+        table => table
+        .Column<int>("Id", c => c.PrimaryKey().Identity())
+        .Column<int>("ENTeacherPartRecord_Id")
+        .Column<int>("ENCoursesRecord_Id")
+        );
+
+
+            SchemaBuilder.CreateTable(typeof(ENCoursePartRecord).Name,
+                table =>
+
+                table.ContentPartRecord()
+                .Column<string>("CourseName", col => col.WithLength(220))
+            );
+
+
+            SchemaBuilder.CreateTable(typeof(ENTeacherPartRecord).Name, table =>
+                table.ContentPartRecord()
+                .Column<string>("ENName", col => col.WithLength(45))
+            );
+
+
+            /*
+            ContentDefinitionManager.AlterPartDefinition(typeof(ENTeacherPart).Name,
+                 cfg =>
+                 cfg.WithField("teacherTitle", b => b.OfType("TaxonomyField").WithDisplayName("职称"))
+             );
+             */
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENTeacher.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.ENTeacher.ContentTypeDisplayName)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(ENTeacherPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.ENTeacher.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.ENCourse.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.ENCourse.ContentTypeDisplayName)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(ENCoursePart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.ENCourse.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+            return 9;
+        }
+        public int UpdateFrom9()
+        {
+            foreach (var mapping in XmContentType.ENCMSMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
+
+               );
+            }
+            return 10;
+        }
+        public int UpdateFrom10()
+        {
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true")));
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.LectureInfo.ContentTypeName,
+             cfg => cfg
+
+           .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true")));
+            foreach (var mapping in XmContentType.NinetyMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
+
+               );
+            }
+            foreach (var mapping in XmContentType.CNCMSMappings)
+            {
+                ContentDefinitionManager.AlterTypeDefinition(mapping.ContentTypeName,
+                 cfg => cfg
+               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("DateEditorSettings.ShowDateEditor", "true"))
+
+               );
+            }
+            return 11;
+        }
+
+        public int UpdateFrom11()
+        {
+
+            SchemaBuilder.AlterTable(typeof(ENCoursePartRecord).Name,
+                table =>
+                table.AddColumn<string>("CourseNO")
+
+             );
+
+
+            SchemaBuilder.AlterTable(typeof(ENTeacherPartRecord).Name, table =>
+            table.AddColumn<string>("SN")
+             );
+
+            return 12;
+        }
+
+        public int UpdateFrom12()
+        {
+            ContentDefinitionManager.AlterPartDefinition(typeof(ENTeacherPart).Name,
+               cfg =>
+               cfg.WithField("avatar",
+                        b => b.OfType("MediaLibraryPickerField")
+                            .WithDisplayName("头像")
+                            )
+                            .Attachable()
+
+           );
+
+            return 13;
+        }
+        //------------------- 20160906 ----------- release 英文网站
+
+        public int UpdateFrom13()
+        {
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(XmContentPart).Name,
+               cfg =>
+               cfg.WithField("istop",
+                        b => b.OfType("BooleanField")
+                            .WithDisplayName("置顶")
+                            .WithSetting("BooleanFieldSettings.DefaultValue", "False")
+                            )
+           );
+
+            return 14;
+        }
+
+        public int UpdateFrom14()
+        {
+
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(CNNotifyPart).Name,
+                cfg =>
+                cfg.WithField("taxotype", b => b.OfType("TaxonomyField")
+                            .WithDisplayName("新闻分类"))
+
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNNotify.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.CNNotify.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(XmContentPart).Name)
+       .WithPart(typeof(CNNotifyPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.CNNotify.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNCop.ContentTypeName,
+             cfg => cfg
+       .DisplayedAs(XmContentType.CNCop.ContentTypeDisplayName)
+       .WithPart(typeof(TitlePart).Name)
+       .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+       .WithPart(typeof(BodyPart).Name)
+       .WithPart(typeof(XmContentPart).Name)
+       .WithPart(typeof(CNCopPart).Name)
+       .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+       .WithSetting("ListTitle", XmContentType.CNCop.ListTitle)
+       .Creatable()
+       .Draftable()
+       .Securable()
+       );
+
+
+            return 15;
+        }
+
+
+        public int UpdateFrom15()
+        {
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(CNCollegeShowPart).Name,
+                cfg =>
+                cfg.WithField("image",
+                         b => b.OfType("MediaLibraryPickerField")
+                             .WithDisplayName("选择图片")
+                             .WithSetting("MediaLibraryPickerFieldSettings.Required", "true"))
+                   .WithField("linkAddress",
+                        b => b.OfType("LinkField")
+                            .WithDisplayName("链接地址")
+                            .WithSetting("LinkFieldSettings.Required", "true"))
+                   .WithField("subtitle", b => b.OfType("InputField")
+                            .WithDisplayName("子标题")
+                            .WithSetting("InputFieldSettings.Title", "子标题"))
+
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNCollegeShow.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNCollegeShow.ContentTypeDisplayName)
+              .WithPart(typeof(TitlePart).Name)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(CNCollegeShowPart).Name)
+              .WithSetting("ListTitle", XmContentType.CNCollegeShow.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
+
+            return 16;
+        }
+
+        /*
+        public int UpdateFrom16()
+        {
+
+
+            SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
+                      table =>
+                      table.ContentPartRecord()
+                      .Column<string>("Tid")
+                      .Column<string>("Title")
+                      .Column<string>("Author")
+                      .Column<string>("Year")
+                      .Column<string>("Department")
+                      .Column<string>("Keyword")
+                      .Column<string>("Summary", c => c.Unlimited())
+                      .Column<string>("Text", c => c.Unlimited())
+                      .Column<DateTime>("ReleaseDate")
+                      .Column<string>("Publication")
+                      .Column<string>("Pid")
+                      .Column<string>("Ptime")
+                      .Column<string>("Plevel")
+                      .Column<string>("Writertype")
+                      .Column<int>("TextNumber")
+                      .Column<string>("Remarks", c => c.Unlimited())
+                      .Column<DateTime>("InputDate")
+                      .Column<int>("ClickNumber")
+                      .Column<DateTime>("RefreshDate")
+                      .Column<bool>("IsShow")
+                      .Column<string>("Achievement", c => c.Unlimited())
+                      .Column<string>("ImportantJournal", c => c.Unlimited())
+                      .Column<string>("RePrint")
+                      .Column<string>("ResearchResult", c => c.Unlimited())
+
+                      );
 
 
 
             SchemaBuilder.CreateTable(typeof(AcademicWorksRecord).Name,
-                table=>
+                table =>
                 table.ContentPartRecord()
                 .Column<string>("Tid")
                 .Column<string>("Title")
@@ -381,11 +642,11 @@ namespace Orchard.Xmu
                 .Column<string>("Author9")
                 .Column<int>("TextNumber9")
                 .Column<string>("Author10")
-                .Column<int>("TextNumber10") 
+                .Column<int>("TextNumber10")
                 .Column<int>("IsResult")
                 .Column<string>("SourceName")
                 .Column<string>("ProjectName")
-                .Column<string>("Introduce", c=>c.Unlimited())
+                .Column<string>("Introduce", c => c.Unlimited())
                 .Column<string>("Remarks", c => c.Unlimited())
                 .Column<string>("Keyword")
                 .Column<string>("Summary", c => c.Unlimited())
@@ -405,20 +666,20 @@ namespace Orchard.Xmu
             .Column<string>("Number")
             .Column<string>("Name")
             .Column<string>("Rank")
-            .Column<string>("Education",c=>c.Unlimited())
+            .Column<string>("Education", c => c.Unlimited())
             .Column<string>("Job")
-            .Column<string>("Resfield",c=>c.Unlimited())
+            .Column<string>("Resfield", c => c.Unlimited())
             .Column<string>("Tecoffice")
             .Column<string>("Office")
             .Column<string>("Telephone")
-            .Column<string>("Introduce",c=>c.Unlimited())
+            .Column<string>("Introduce", c => c.Unlimited())
             .Column<string>("Department")
             .Column<string>("Year")
             .Column<string>("Month")
             .Column<string>("Day")
             .Column<DateTime>("Birthday")
             .Column<string>("Avatar")
-            .Column<string>("View",c=>c.Unlimited())
+            .Column<string>("View", c => c.Unlimited())
             .Column<string>("Concept", c => c.Unlimited())
             .Column<string>("Publication", c => c.Unlimited())
             .Column<string>("Dissertation", c => c.Unlimited())
@@ -430,78 +691,77 @@ namespace Orchard.Xmu
             );
 
 
-            SchemaBuilder.CreateTable(typeof(AwardsRecord).Name,table=>
-            table.ContentPartRecord()
-            .Column<string>("Tid")
-            .Column<string>("WinnerName")
-            .Column<string>("AwardName")
-            .Column<string>("Year")
-            .Column<string>("BelongDepartment")
-            .Column<string>("AwardDepartment")
-            .Column<DateTime>("AwardDate")
-            .Column<string>("AwardRank")
-            .Column<string>("AwardLevel")
-            .Column<string>("ResultProject")
-            .Column<string>("ResultForm")
-            .Column<string>("Author")
-            .Column<string>("Collaborator")
-            .Column<string>("Codes")
-            .Column<string>("Remarks",c=>c.Unlimited())
-            .Column<DateTime>("InputDate")
-            .Column<int>("Clicknumber")
-            .Column<DateTime>("RefreshDate")
-            .Column<string>("ResultType")
+            SchemaBuilder.CreateTable(typeof(AwardsRecord).Name, table =>
+             table.ContentPartRecord()
+             .Column<string>("Tid")
+             .Column<string>("WinnerName")
+             .Column<string>("AwardName")
+             .Column<string>("Year")
+             .Column<string>("BelongDepartment")
+             .Column<string>("AwardDepartment")
+             .Column<DateTime>("AwardDate")
+             .Column<string>("AwardRank")
+             .Column<string>("AwardLevel")
+             .Column<string>("ResultProject")
+             .Column<string>("ResultForm")
+             .Column<string>("Author")
+             .Column<string>("Collaborator")
+             .Column<string>("Codes")
+             .Column<string>("Remarks", c => c.Unlimited())
+             .Column<DateTime>("InputDate")
+             .Column<int>("Clicknumber")
+             .Column<DateTime>("RefreshDate")
+             .Column<string>("ResultType")
             );
 
 
-            SchemaBuilder.CreateTable(typeof(ProjectRecord).Name,table 
-                =>table.ContentPartRecord()
-                .Column<string>("Tid")
-                .Column<string>("ProjectTitle")
-                .Column<string>("Host")
-                .Column<string>("Year")
-                .Column<string>("Department")
-                .Column<string>("Source")
-                .Column<string>("Level")
-                .Column<string>("SerialNumber")
-                .Column<string>("Aidfunds")
-                .Column<string>("Group")
-                .Column<string>("Aidhost")
-                .Column<DateTime>("StartDate")
-                .Column<DateTime>("EndDate")
-                .Column<DateTime>("FinishDate")
-                .Column<string>("AidSituation")
-                .Column<string>("Remarks",c=>c.Unlimited())
-                .Column<DateTime>("Inputdate")
-                .Column<int>("Clicknumber")
-                .Column<DateTime>("RefreshDate")
-                .Column<string>("ResultType")
-                .Column<string>("Member1")
-                .Column<string>("Funds1")
-                .Column<string>("Member2")
-                .Column<string>("Funds2")
-                .Column<string>("Member3")
-                .Column<string>("Funds3")
-                .Column<string>("Member4")
-                .Column<string>("Funds4")
-                .Column<string>("Member5")
-                .Column<string>("Funds5")
-                .Column<string>("Member6")
-                .Column<string>("Funds6")
-                .Column<string>("Member7")
-                .Column<string>("Funds7")
-                .Column<string>("Member8")
-                .Column<string>("Funds8")
-                .Column<string>("Member9")
-                .Column<string>("Funds9")
-                .Column<string>("Member10")
-                .Column<string>("Funds10")
-    
+            SchemaBuilder.CreateTable(typeof(ProjectRecord).Name, table
+                 => table.ContentPartRecord()
+                 .Column<string>("Tid")
+                 .Column<string>("ProjectTitle")
+                 .Column<string>("Host")
+                 .Column<string>("Year")
+                 .Column<string>("Department")
+                 .Column<string>("Source")
+                 .Column<string>("Level")
+                 .Column<string>("SerialNumber")
+                 .Column<string>("Aidfunds")
+                 .Column<string>("Group")
+                 .Column<string>("Aidhost")
+                 .Column<DateTime>("StartDate")
+                 .Column<DateTime>("EndDate")
+                 .Column<DateTime>("FinishDate")
+                 .Column<string>("AidSituation")
+                 .Column<string>("Remarks", c => c.Unlimited())
+                 .Column<DateTime>("Inputdate")
+                 .Column<int>("Clicknumber")
+                 .Column<DateTime>("RefreshDate")
+                 .Column<string>("ResultType")
+                 .Column<string>("Member1")
+                 .Column<string>("Funds1")
+                 .Column<string>("Member2")
+                 .Column<string>("Funds2")
+                 .Column<string>("Member3")
+                 .Column<string>("Funds3")
+                 .Column<string>("Member4")
+                 .Column<string>("Funds4")
+                 .Column<string>("Member5")
+                 .Column<string>("Funds5")
+                 .Column<string>("Member6")
+                 .Column<string>("Funds6")
+                 .Column<string>("Member7")
+                 .Column<string>("Funds7")
+                 .Column<string>("Member8")
+                 .Column<string>("Funds8")
+                 .Column<string>("Member9")
+                 .Column<string>("Funds9")
+                 .Column<string>("Member10")
+                 .Column<string>("Funds10")
+
 
                 );
-
-
-            return 8;
+            return 17;
         }
+        */
     }
 }
