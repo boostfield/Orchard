@@ -66,9 +66,26 @@ namespace Orchard.Xmu.Controllers
             ViewBag.menus = m;
 
             //---------------------------------------
-            ViewBag.topNews = _frontEndService.TopContentsOfType("CollegeNews");
+            ViewBag.topNews = _frontEndService.TopContentsOfType("CollegeNews")
+                  .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();
+            ViewBag.news = _contentManager.Query(VersionOptions.Latest, "CollegeNews")
+               .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+               .Slice(0, 8)
+               .Select(p => p.As<XmContentPart>()).ToList();
+
+            ViewBag.lectures = _contentManager.Query(VersionOptions.Latest, XmContentType.LectureInfo.ContentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+            .Slice(0, 3)
+            .Select(p => p.As<LectureInfoPart>()).ToList();
+
+            ViewBag.notice = _contentManager.Query(VersionOptions.Latest, XmContentType.CNNotify.ContentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+            .Slice(0,8)
+            .Select(p => p.As<CNNotifyPart>()).ToList();
 
             return View();
+
+            
         }
 
     
