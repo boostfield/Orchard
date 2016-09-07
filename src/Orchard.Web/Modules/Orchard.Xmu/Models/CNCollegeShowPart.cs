@@ -17,13 +17,22 @@ namespace Orchard.Xmu.Models
             set { this.As<TitlePart>().Title = value; }
         }
 
+        public string SubTitle
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = content.CNCollegeShowPart.subtitle.Value;
+                return v;
+            }
+        }
 
         public string ImageAddress
         {
             get
             {
                 dynamic content = (dynamic)this.ContentItem;
-                var v = content.BannerPart.image.FirstMediaUrl;
+                var v = content.CNCollegeShowPart.image.FirstMediaUrl;
                 return v;
             }
         }
@@ -33,7 +42,7 @@ namespace Orchard.Xmu.Models
             get
             {
                 dynamic content = (dynamic)this.ContentItem;
-                var v = content.BannerPart.linkAddress.Value;
+                var v = content.CNCollegeShowPart.linkAddress.Value;
                 return v;
             }
         }
