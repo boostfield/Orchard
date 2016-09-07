@@ -14,6 +14,7 @@ using Orchard.UI.Navigation;
 using Orchard.Settings;
 using System.Globalization;
 using Orchard.Core.Navigation.ViewModels;
+using Orchard.Taxonomies.Models;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -82,6 +83,9 @@ namespace Orchard.Xmu.Controllers
             .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
             .Slice(0,8)
             .Select(p => p.As<CNNotifyPart>()).ToList();
+
+           // var notice1 = ViewBag.notice[0];
+            //var text = (notice1.Fields[0].Terms[0] as TermPart).Name;
 
             ViewBag.topCoop = _frontEndService.TopContentsOfType("CNCop")
                   .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();

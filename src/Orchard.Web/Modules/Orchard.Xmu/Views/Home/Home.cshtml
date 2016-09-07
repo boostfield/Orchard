@@ -1,5 +1,6 @@
 ﻿@using Orchard.Xmu;
 @using Orchard.Xmu.Models;
+@using Orchard.Taxonomies.Models;
 @{
     ViewBag.Title = "Index";
     var topBanners = ViewBag.banners;
@@ -187,7 +188,7 @@
                     {
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", noticeItem.ContentItem.TypeDefinition.DisplayName)</span>@noticeItem.Title</a></div>
+                                <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
                                 <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                             </div>
 
