@@ -19,8 +19,17 @@ namespace Orchard.Xmu.Controllers
         }
 
 
+
+        public ActionResult BuildCNNotifyCategory()
+        {
+            _dataImporter.BuildCNNotifyCategory();
+            return View("Index");
+        }
+
+
         public ActionResult All()
         {
+            _dataImporter.ImportCope();
             _dataImporter.ImportCollegeNews();
             _dataImporter.ImportCollegeAffairsNoti();
             _dataImporter.ImportUndergraduateAffairs();
@@ -28,17 +37,16 @@ namespace Orchard.Xmu.Controllers
             _dataImporter.ImportStudentInfo();
             _dataImporter.ImportPartyCollegeAffairs();
             _dataImporter.ImportRecruitInfo();
+            _dataImporter.ImportLectureInfo();
+            _dataImporter.ImportAcademicNews();
+            _dataImporter.ImportXmContent();
             return View("Index");
 
 
         }
 
 
-        public ActionResult BuildCNNotifyCategory()
-        {
-            _dataImporter.BuildCNNotifyCategory();
-            return View("Index");
-        }
+      
 
         /// <summary>
         /// 学院新闻
