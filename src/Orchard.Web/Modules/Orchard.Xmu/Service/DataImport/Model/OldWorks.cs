@@ -15,7 +15,8 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public string department { get; set; }  //系别
         public string publishunit { get; set; } //出版单位
         public string booknumber { get; set; }  //书号
-        public string publishdate { get; set; } //出版时间 
+        //todo
+        public DateTime publishdate { get; set; } //出版时间 
         public string booktype { get; set; }    //著作类别
         public string writetype { get; set; }   //合作者顺序
         public int alltextnumber { get; set; }//
@@ -48,9 +49,11 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public string keyword { get; set; } //关键词
         public string summary { get; set; } //摘要
         public string text { get; set; }    //正文
-        public string inputdate { get; set; }   //入库时间 
+        //todo
+        public DateTime inputdate { get; set; }   //入库时间 
         public int clicknumber { get; set; }    //点击数
-        public string refreshdate { get; set; } //最后更新时间 
+        //todo
+        public DateTime refreshdate { get; set; } //最后更新时间 
         public string resulttype { get; set; }  //成果类别
         public string picture { get; set; } //图片 
 

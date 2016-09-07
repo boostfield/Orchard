@@ -313,6 +313,46 @@ namespace Orchard.Xmu.Service.DataImport
             var info = _contentManager.New(XmContentType.CNProject.ContentTypeName);
             var infopart = info.As<ProjectPart>();
             //assign values
+            infopart.ProjectTitle = oldproject.projecttitle;
+            infopart.Host = oldproject.host;
+            infopart.Year = oldproject.year;
+            infopart.Department = oldproject.department;
+            infopart.Source = oldproject.source;
+            infopart.Level = oldproject.level;
+            infopart.SerialNumber = oldproject.serialnumber;
+            infopart.Aidfunds = oldproject.aidfunds;
+            infopart.Group = oldproject.group;
+            infopart.Aidhost = oldproject.aidhost;
+            infopart.StartDate = oldproject.startdate;
+            infopart.EndDate = oldproject.enddate;
+            infopart.FinishDate = oldproject.finishdate;
+            infopart.AidSituation = oldproject.aidsituation;
+            infopart.Remarks = oldproject.remarks;
+            infopart.Inputdate = oldproject.inputdate;
+            infopart.Clicknumber = oldproject.clicknumber;
+            infopart.RefreshDate = oldproject.refreshdate;
+            infopart.ResultType = oldproject.resulttype;
+            infopart.Member1 = oldproject.member1;
+            infopart.Member2 = oldproject.member2;
+            infopart.Member3 = oldproject.member3;
+            infopart.Member4 = oldproject.member4;
+            infopart.Member5 = oldproject.member5;
+            infopart.Member6 = oldproject.member6;
+            infopart.Member7 = oldproject.member7;
+            infopart.Member8 = oldproject.member8;
+            infopart.Member9 = oldproject.member9;
+            infopart.Member10 = oldproject.member10;
+            infopart.Funds1 = oldproject.textnumber1;
+            infopart.Funds2 = oldproject.textnumber2;
+            infopart.Funds3 = oldproject.textnumber3;
+            infopart.Funds4 = oldproject.textnumber4;
+            infopart.Funds5 = oldproject.textnumber5;
+            infopart.Funds6 = oldproject.textnumber6;
+            infopart.Funds7 = oldproject.textnumber7;
+            infopart.Funds8 = oldproject.textnumber8;
+            infopart.Funds9 = oldproject.textnumber9;
+            infopart.Funds10 = oldproject.textnumber10;
+
 
 
 
@@ -339,7 +379,24 @@ namespace Orchard.Xmu.Service.DataImport
             var info = _contentManager.New(XmContentType.CNAward.ContentTypeName);
             var infopart = info.As<AwardsPart>();
             //assign values
-
+            infopart.WinnerName = oldreward.winnername;
+            infopart.AwardName = oldreward.resultname;
+            infopart.Year = oldreward.year;
+            infopart.BelongDepartment = oldreward.belongdepartment;
+            infopart.AwardDepartment = oldreward.awarddepartment;
+            infopart.AwardDate = oldreward.windate;
+            infopart.AwardRank = oldreward.winlevel1;
+            infopart.AwardLevel = oldreward.winlevel2;
+            infopart.ResultProject = oldreward.resultproject;
+            infopart.ResultForm = oldreward.resultform;
+            infopart.Author = oldreward.author;
+            infopart.Collaborator = oldreward.collaborator;
+            infopart.Codes = oldreward.codes;
+            infopart.Remarks = oldreward.remarks;
+            infopart.InputDate = oldreward.inputdate;
+            infopart.Clicknumber = oldreward.clicknumber;
+            infopart.RefreshDate = oldreward.refreshdate;
+            infopart.ResultType = oldreward.resulttype;
 
 
             _contentManager.Create(info, VersionOptions.Published);
@@ -365,7 +422,50 @@ namespace Orchard.Xmu.Service.DataImport
             var info = _contentManager.New(XmContentType.CNAcademicWork.ContentTypeName);
             var infopart = info.As<AcademicWorksPart>();
             //assign values
-
+            infopart.Title = oldwork.title;
+            infopart.Author = oldwork.author;
+            infopart.Year = oldwork.year;
+            infopart.Department = oldwork.department;
+            infopart.Publishunit = oldwork.publishunit;
+            infopart.Booknumber = oldwork.booknumber;
+            infopart.Publishdate = oldwork.publishdate;
+            infopart.Booktype = oldwork.booktype;
+            infopart.WriterType = oldwork.writetype;
+            infopart.AllTextBumber = oldwork.alltextnumber;
+            infopart.FinishNumber = oldwork.finishnumber;
+            infopart.Author1 = oldwork.author1;
+            infopart.Author2 = oldwork.author2;
+            infopart.Author3 = oldwork.author3;
+            infopart.Author4 = oldwork.author4;
+            infopart.Author5 = oldwork.author5;
+            infopart.Author6 = oldwork.author6;
+            infopart.Author7 = oldwork.author7;
+            infopart.Author8 = oldwork.author8;
+            infopart.Author9 = oldwork.author9;
+            infopart.Author10 = oldwork.author10;
+            infopart.TextNumber1 = oldwork.textnumber1;
+            infopart.TextNumber2 = oldwork.textnumber2;
+            infopart.TextNumber3 = oldwork.textnumber3;
+            infopart.TextNumber4 = oldwork.textnumber4;
+            infopart.TextNumber5 = oldwork.textnumber5;
+            infopart.TextNumber6 = oldwork.textnumber6;
+            infopart.TextNumber7 = oldwork.textnumber7;
+            infopart.TextNumber8 = oldwork.textnumber8;
+            infopart.TextNumber9 = oldwork.textnumber9;
+            infopart.TextNumber10 = oldwork.textnumber10;
+            infopart.IsResult = oldwork.isresult;
+            infopart.SourceName = oldwork.sourcename;
+            infopart.ProjectName = oldwork.projectname;
+            infopart.Introduce = oldwork.introduce;
+            infopart.Remarks = oldwork.remarks;
+            infopart.Keyword = oldwork.keyword;
+            infopart.Summary = oldwork.summary;
+            infopart.Text = oldwork.text;
+            infopart.InputDate = oldwork.inputdate;
+            infopart.ClickNumber = oldwork.clicknumber;
+            infopart.RefreshDate = oldwork.refreshdate;
+            infopart.ResultType = oldwork.resulttype;
+            infopart.Picture = oldwork.picture;
 
 
             _contentManager.Create(info, VersionOptions.Published);
@@ -392,7 +492,29 @@ namespace Orchard.Xmu.Service.DataImport
             var info = _contentManager.New(XmContentType.CNAcademicPaper.ContentTypeName);
             var infopart = info.As<AcademicPaperPart>();
             //assign values
-        
+            infopart.Title = oldpaper.title;
+            infopart.Author = oldpaper.author;
+            infopart.Year = oldpaper.year;
+            infopart.Department = oldpaper.department;
+            infopart.Keyword = oldpaper.keyword;
+            infopart.Summary = oldpaper.summary;
+            infopart.Text = oldpaper.text;
+            infopart.ReleaseDate = oldpaper.releasedate;
+            infopart.Publication = oldpaper.publication;
+            infopart.Pid = oldpaper.pid;
+            infopart.Ptime = oldpaper.ptime;
+            infopart.Plevel = oldpaper.plevel;
+            infopart.Writertype = oldpaper.writetype;
+            infopart.TextNumber = oldpaper.textnumber;
+            infopart.Remarks = oldpaper.remarks;
+            infopart.InputDate = oldpaper.inputdate;
+            infopart.ClickNumber = oldpaper.clicknumber;
+            infopart.RefreshDate = oldpaper.refreshdate;
+            infopart.IsShow = oldpaper.isshow;
+            infopart.Achievement = oldpaper.achievement;
+            infopart.ImportantJournal = oldpaper.imptjournal;
+            infopart.RePrint = oldpaper.reprint;
+            infopart.ResearchResult = oldpaper.researchresult;
 
 
             _contentManager.Create(info, VersionOptions.Published);
