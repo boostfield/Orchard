@@ -418,8 +418,30 @@ namespace Orchard.Xmu.Service.DataImport
             var infopart = info.As<CNTeacherPart>();
 
             //assign values
+            infopart.Number = oldinfo.number;
+            infopart.Name = oldinfo.name;
+            infopart.Rank = oldinfo.rank;
+            infopart.Education = oldinfo.education;
+            infopart.Job = oldinfo.job;
+            infopart.Resfield = oldinfo.resfield;
+            infopart.Tecoffice = oldinfo.tecoffice;
+            infopart.Office = oldinfo.office;
+            infopart.Telephone = oldinfo.telephone;
+            infopart.Introduce = oldinfo.introduce;
+            infopart.Department = oldinfo.department;
+            infopart.Year = oldinfo.year;
+            infopart.Month = oldinfo.month;
+            infopart.Birthday = oldinfo.birthday;
             infopart.Avatar = oldinfo.avatar;
-
+            infopart.View = oldinfo.view;
+            infopart.Concept = oldinfo.concept;
+            infopart.Publication = oldinfo.publication;
+            infopart.Dissertation = oldinfo.dissertation;
+            infopart.Course = oldinfo.course;
+            infopart.Ptjob = oldinfo.ptjop;
+            infopart.Project = oldinfo.project;
+            infopart.Contact = oldinfo.contact;
+            infopart.IsShow = oldinfo.isshow;
 
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNTeacher.ContentTypeDisplayName, info.Id));
