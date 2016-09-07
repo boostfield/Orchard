@@ -50,7 +50,6 @@ namespace Orchard.Xmu.Service
            */
             return new List<ContentItem>();
          }
-
-
+ 
     }
 }
