@@ -296,10 +296,111 @@ namespace Orchard.Xmu.Service.DataImport
             return info.Id;
         }
 
-        public void ImportAcademicPaper()
+
+        public void ImportProjects()
         {
+            ImportDataTemplate<OldProject>(
+            () => ReadDataFromJsonFile<OldProject>(@"D:\法学院6个数据库\承担课题.json"),
+                i => ImportSingleProject(i),
+                r => r.id,
+                @"D:\法学院6个数据库\承担课题ID对照.json"
+            );
 
         }
+
+        private int ImportSingleProject(OldProject oldproject)
+        {
+            var info = _contentManager.New(XmContentType.CNProject.ContentTypeName);
+            var infopart = info.As<ProjectPart>();
+            //assign values
+
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNProject.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, oldproject.clicknumber);
+            return info.Id;
+        }
+
+
+        public void ImportAwards()
+        {
+            ImportDataTemplate<OldReward>(
+         () => ReadDataFromJsonFile<OldReward>(@"D:\法学院6个数据库\获奖成果.json"),
+         i => ImportSingleAward(i),
+         r => r.id,
+         @"D:\法学院6个数据库\获奖成果ID对照.json"
+         );
+        }
+
+
+        private int ImportSingleAward(OldReward oldreward)
+        {
+            var info = _contentManager.New(XmContentType.CNAward.ContentTypeName);
+            var infopart = info.As<AwardsPart>();
+            //assign values
+
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNAward.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, oldreward.clicknumber);
+            return info.Id;
+        }
+
+
+        public void ImportAcademicWork()
+        {
+            ImportDataTemplate<OldWorks>(
+                    () => ReadDataFromJsonFile<OldWorks>(@"D:\法学院6个数据库\著作.json"),
+                    i => ImportSingleAcademicWork(i),
+                    r => r.id,
+                    @"D:\法学院6个数据库\著作ID对照.json"
+                    );
+        }
+
+        private int ImportSingleAcademicWork(OldWorks oldwork)
+        {
+
+            var info = _contentManager.New(XmContentType.CNAcademicWork.ContentTypeName);
+            var infopart = info.As<AcademicWorksPart>();
+            //assign values
+
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNAcademicWork.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, oldwork.clicknumber);
+            return info.Id;
+        }
+
+
+        public void ImportAcademicPaper()
+        {
+            ImportDataTemplate<OldPaper>(
+                     () => ReadDataFromJsonFile<OldPaper>(@"D:\法学院6个数据库\论文.json"),
+                     i => ImportSingleAcademicPaper(i),
+                     r => r.id,
+                     @"D:\法学院6个数据库\论文ID对照.json"
+                     );
+
+        }
+
+
+        private int ImportSingleAcademicPaper(OldPaper oldpaper)
+        {
+            var info = _contentManager.New(XmContentType.CNAcademicPaper.ContentTypeName);
+            var infopart = info.As<AcademicPaperPart>();
+            //assign values
+        
+
+
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNAcademicPaper.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, oldpaper.clicknumber);
+            return info.Id;
+        }
+
 
         public void ImportTeacherInfo()
         {
@@ -311,11 +412,21 @@ namespace Orchard.Xmu.Service.DataImport
                      );
         }
 
-        private int ImportSingleTeacher(OldTeacherInfo info)
+        private int ImportSingleTeacher(OldTeacherInfo oldinfo)
         {
+            var info = _contentManager.New(XmContentType.CNTeacher.ContentTypeName);
+            var infopart = info.As<CNTeacherPart>();
+
+            //assign values
+            infopart.Avatar = oldinfo.avatar;
 
 
-            return 1;
+            _contentManager.Create(info, VersionOptions.Published);
+            System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNTeacher.ContentTypeDisplayName, info.Id));
+            DoVote(infopart.ContentItem, 0);
+
+
+            return info.Id;
         }
 
         /// <summary>

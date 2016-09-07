@@ -29,6 +29,9 @@ namespace Orchard.Xmu.Service.DataImport
 
         //-------------------------------------
         void ImportAcademicPaper();
+        void ImportAcademicWork();
+        void ImportAwards();
+        void ImportProjects();
         void ImportTeacherInfo();
     }
 }

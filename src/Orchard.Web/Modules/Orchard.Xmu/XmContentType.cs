@@ -104,6 +104,43 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition CNAcademicPaper = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "论文",
+            PermissionDesc = "管理论文",
+            ContentTypeName = "CNAcademicPaper",
+            ContentTypePartName = "CNAcademicPaperPart",
+            ListTitle = "论文列表"
+        };
+
+
+        public static XmContentDefinition CNAcademicWork = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "著作",
+            PermissionDesc = "管理著作",
+            ContentTypeName = "CNAcademicWork",
+            ContentTypePartName = "CNAcademicWorkPart",
+            ListTitle = "著作列表"
+        };
+
+        public static XmContentDefinition CNAward = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "获奖成果",
+            PermissionDesc = "管理获奖成果",
+            ContentTypeName = "CNAward",
+            ContentTypePartName = "CNAwardPart",
+            ListTitle = "获奖成果列表"
+        };
+
+        public static XmContentDefinition CNProject = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "承担课题",
+            PermissionDesc = "管理承担课题",
+            ContentTypeName = "CNProject",
+            ContentTypePartName = "CNProjectPart",
+            ListTitle = "承担课题列表"
+        };
+
         //------------- Content Mapping..
 
 

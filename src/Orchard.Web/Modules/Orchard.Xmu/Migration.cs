@@ -620,6 +620,7 @@ namespace Orchard.Xmu
               .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
               .WithPart(typeof(CNTeacherPart).Name)
               .WithPart(typeof(BodyPart).Name)
+              .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
               .WithSetting("ListTitle", XmContentType.CNTeacher.ListTitle)
               .Creatable()
               .Draftable()
