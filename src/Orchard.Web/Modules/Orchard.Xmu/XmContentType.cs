@@ -28,6 +28,15 @@ namespace Orchard.Xmu
         };
 
 
+        public static XmContentDefinition CNCollegeShow = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "学院风采",
+            PermissionDesc = "管理学院风采",
+            ContentTypeName = "CNCollegeShow",
+            ContentTypePartName = "CNCollegeShowPart",
+            ListTitle = "学院风采"
+        };
+
         public static XmContentDefinition CNNotify = new XmContentDefinition
         {
             ContentTypeDisplayName = "中文通知公告",

@@ -76,6 +76,13 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.CNCop.ContentTypeName)
         };
 
+
+        public static readonly Permission ManageCNCollegeShow = new Permission
+        {
+            Description = XmContentType.CNCollegeShow.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CNCollegeShow.ContentTypeName)
+        };
+
         public virtual Feature Feature { get; set; }
 
 

@@ -97,6 +97,12 @@ namespace Orchard.Xmu
               .Add(T(XmContentType.CNCop.ContentTypeDisplayName), "2", item => item.Action("List", "CNCopAdmin", new { area = "Orchard.Xmu" })
               .Permission(Permissions.ManageCNCop));
 
+            menu
+           .Add(T(XmContentType.CNCollegeShow.ContentTypeDisplayName), "2", item => item.Action("List", "CNCollegeShowAdmin", new { area = "Orchard.Xmu" })
+           .Permission(Permissions.ManageCNCollegeShow));
+
+
+
             foreach (var mapping in XmContentType.CNCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

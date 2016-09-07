@@ -535,5 +535,41 @@ namespace Orchard.Xmu
         }
 
 
+        public int UpdateFrom15()
+        {
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(CNCollegeShowPart).Name,
+                cfg =>
+                cfg.WithField("image",
+                         b => b.OfType("MediaLibraryPickerField")
+                             .WithDisplayName("选择图片")
+                             .WithSetting("MediaLibraryPickerFieldSettings.Required", "true"))
+                   .WithField("linkAddress",
+                        b => b.OfType("LinkField")
+                            .WithDisplayName("链接地址")
+                            .WithSetting("LinkFieldSettings.Required", "true"))
+                   .WithField("subtitle", b=>b.OfType("InputField")
+                            .WithDisplayName("子标题")
+                            .WithSetting("InputFieldSettings.Title", "子标题"))
+
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNCollegeShow.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNCollegeShow.ContentTypeDisplayName)
+              .WithPart(typeof(TitlePart).Name)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(CNCollegeShowPart).Name)
+              .WithSetting("ListTitle", XmContentType.CNCollegeShow.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
+
+            return 16;
+        }
+
     }
 }
