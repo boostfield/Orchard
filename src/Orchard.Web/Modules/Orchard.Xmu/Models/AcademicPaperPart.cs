@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class AcademicPaperPart:ContentPart<AcademicPaperRecord>
+    public class AcademicPaperPart : ContentPart<AcademicPaperRecord>
     {
         public string Tid
         {
@@ -294,6 +295,15 @@ namespace Orchard.Xmu.Models
             {
                 Store(i => i.ResearchResult, value);
             }
+        }
+
+
+        private readonly LazyField<IList<CNTeacherPart>> _teachers = new LazyField<IList<CNTeacherPart>>();
+        public  LazyField<IList<CNTeacherPart>> TeachersField { get { return _teachers; } }
+        public IList<CNTeacherPart> Teachers
+        {
+            get { return _teachers.Value ?? new List<CNTeacherPart>(); }
+            set { _teachers.Value = value; }
         }
     }
 }

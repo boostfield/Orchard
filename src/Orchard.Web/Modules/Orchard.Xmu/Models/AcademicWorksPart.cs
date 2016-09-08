@@ -546,5 +546,13 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Picture, value);
             }
         }
+
+        private readonly LazyField<IList<CNTeacherPart>> _teachers = new LazyField<IList<CNTeacherPart>>();
+        public LazyField<IList<CNTeacherPart>> TeachersField { get { return _teachers; } }
+        public IList<CNTeacherPart> Teachers
+        {
+            get { return _teachers.Value ?? new List<CNTeacherPart>(); }
+            set { _teachers.Value = value; }
+        }
     }
 }

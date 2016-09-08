@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.Utilities;
 using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
@@ -351,5 +352,43 @@ namespace Orchard.Xmu.Models
                 Store(i => i.IsShow, value);
             }
         }
+
+        private readonly LazyField<IList<AcademicPaperPart>> _papers = new LazyField<IList<AcademicPaperPart>>();
+        public LazyField<IList<AcademicPaperPart>> PapersField { get { return _papers; } }
+        public IList<AcademicPaperPart> Papers
+        {
+            get { return _papers.Value ?? new List<AcademicPaperPart>(); }
+            set { _papers.Value = value; }
+        }
+
+
+        private readonly LazyField<IList<AcademicWorksPart>> _works = new LazyField<IList<AcademicWorksPart>>();
+        public LazyField<IList<AcademicWorksPart>> WorksField { get { return _works; } }
+        public IList<AcademicWorksPart> Works
+        {
+            get { return _works.Value ?? new List<AcademicWorksPart>(); }
+            set { _works.Value = value; }
+        }
+
+
+
+        private readonly LazyField<IList<AwardsPart>> _awards = new LazyField<IList<AwardsPart>>();
+        public LazyField<IList<AwardsPart>> AwardsField { get { return _awards; } }
+        public IList<AwardsPart> Awards
+        {
+            get { return _awards.Value ?? new List<AwardsPart>(); }
+            set { _awards.Value = value; }
+        }
+
+
+        private readonly LazyField<IList<ProjectPart>> _projects = new LazyField<IList<ProjectPart>>();
+        public LazyField<IList<ProjectPart>> ProjectsField { get { return _projects; } }
+        public IList<ProjectPart> Projects
+        {
+            get { return _projects.Value ?? new List<ProjectPart>(); }
+            set { _projects.Value = value; }
+        }
+
+
     }
 }

@@ -15,6 +15,45 @@ namespace Orchard.Xmu.Hanlders
            IContentManager contentManager)
         {
             Filters.Add(StorageFilter.For(repo));
+
+            OnLoaded<CNTeacherPart>((context,part)=>
+            {
+
+                part.PapersField.Loader(
+                     () => part.Record.RecordAcademicPapers == null ? null :
+                     contentManager.GetMany<AcademicPaperPart>
+                     (part.Record.RecordAcademicPapers.Select(i => i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
+                     .ToList()
+                     );
+
+
+                part.WorksField.Loader(
+                     () => part.Record.RecordAcademicWorks == null ? null :
+                     contentManager.GetMany<AcademicWorksPart>
+                     (part.Record.RecordAcademicWorks.Select(i => i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
+                     .ToList()
+                     );
+
+
+                part.AwardsField.Loader(
+                     () => part.Record.RecordAwards == null ? null :
+                     contentManager.GetMany<AwardsPart>
+                     (part.Record.RecordAwards.Select(i => i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
+                     .ToList()
+                     );
+
+
+
+                part.ProjectsField.Loader(
+                     () => part.Record.RecordProjects == null ? null :
+                     contentManager.GetMany<ProjectPart>
+                     (part.Record.RecordProjects.Select(i => i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
+                     .ToList()
+                     );
+
+            });
+
+
         }
     }
 }
