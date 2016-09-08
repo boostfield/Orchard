@@ -321,7 +321,7 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Level = oldproject.level;
             infopart.SerialNumber = oldproject.serialnumber;
             infopart.Aidfunds = oldproject.aidfunds;
-            infopart.Group = oldproject.group;
+            infopart.Members = oldproject.group;
             infopart.Aidhost = oldproject.aidhost;
             infopart.StartDate = oldproject.startdate;
             infopart.EndDate = oldproject.enddate;

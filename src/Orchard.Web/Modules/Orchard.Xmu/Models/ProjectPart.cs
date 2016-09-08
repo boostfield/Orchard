@@ -116,15 +116,15 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public string Group
+        public string Members
         {
             get
             {
-                return Retrieve(i => i.Group);
+                return Retrieve(i => i.Members);
             }
             set
             {
-                Store(i => i.Group, value);
+                Store(i => i.Members, value);
             }
         }
 

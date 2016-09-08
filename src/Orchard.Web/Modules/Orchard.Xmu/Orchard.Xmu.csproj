@@ -292,12 +292,14 @@
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
     <Compile Include="Drivers\ENTeacherPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
+    <Compile Include="Drivers\ProjectPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Extension\Extensions.cs" />
     <Compile Include="Hanlders\CNTeacherPartHandler.cs" />
     <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
+    <Compile Include="Hanlders\ProjectPartHandler.cs" />
     <Compile Include="Mappings\Mappings.cs" />
     <Compile Include="Migration.cs" />
     <Compile Include="Models\AcademicPaperPart.cs" />

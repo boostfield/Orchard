@@ -17,7 +17,7 @@ namespace Orchard.Xmu.Models
         public virtual string Level { get; set; }//课题级别
         public virtual string SerialNumber { get; set; }//课题编号
         public virtual string Aidfunds { get; set; }//资助经费
-        public virtual string Group { get; set; }//课题组成员
+        public virtual string Members { get; set; }//课题组成员
         public virtual string Aidhost { get; set; }//主持人经费
         public virtual string StartDate { get; set; }//课题期限起期
         public virtual string EndDate { get; set; }//课题期限止期

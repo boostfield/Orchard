@@ -675,7 +675,7 @@ namespace Orchard.Xmu
           .Column<string>("Level")
           .Column<string>("SerialNumber")
           .Column<string>("Aidfunds")
-          .Column<string>("Group")
+          .Column<string>("Members")
           .Column<string>("Aidhost")
           .Column<string>("StartDate")
           .Column<string>("EndDate")
