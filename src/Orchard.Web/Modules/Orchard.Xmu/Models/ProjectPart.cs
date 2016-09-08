@@ -140,7 +140,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime StartDate
+        public string StartDate
         {
             get
             {
@@ -152,7 +152,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime EndDate
+        public string EndDate
         {
             get
             {
@@ -164,7 +164,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime FinishDate
+        public string FinishDate
         {
             get
             {
@@ -200,7 +200,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime Inputdate
+        public string Inputdate
         {
             get
             {
@@ -224,7 +224,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime RefreshDate
+        public string RefreshDate
         {
             get
             {

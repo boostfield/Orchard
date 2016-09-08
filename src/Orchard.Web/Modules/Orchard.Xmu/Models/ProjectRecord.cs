@@ -19,14 +19,14 @@ namespace Orchard.Xmu.Models
         public virtual string Aidfunds { get; set; }//资助经费
         public virtual string Group { get; set; }//课题组成员
         public virtual string Aidhost { get; set; }//主持人经费
-        public virtual DateTime StartDate { get; set; }//课题期限起期
-        public virtual DateTime EndDate { get; set; }//课题期限止期
-        public virtual DateTime FinishDate { get; set; }//结题日期"
+        public virtual string StartDate { get; set; }//课题期限起期
+        public virtual string EndDate { get; set; }//课题期限止期
+        public virtual string FinishDate { get; set; }//结题日期"
         public virtual string AidSituation { get; set; }//经费聘用情况
         public virtual string Remarks { get; set; }//备注
-        public virtual DateTime Inputdate { get; set; }//入库时间
+        public virtual string Inputdate { get; set; }//入库时间
         public virtual int Clicknumber { get; set; }
-        public virtual DateTime RefreshDate { get; set; }//最后更新时间
+        public virtual string RefreshDate { get; set; }//最后更新时间
         public virtual string ResultType { get; set; }//成果类别
         public virtual string Member1 { get; set; } //成员1
         public virtual string Funds1 { get; set; }//成员1经费
