@@ -527,10 +527,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportTeacherInfo()
         {
             ImportDataTemplate<OldTeacherInfo>(
-                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息.json"),
+                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息1.txt"),
                      i => ImportSingleTeacher(i),
                      r => r.id,
-                     @"D:\法学院6个数据库\教师信息ID对照.json"
+                     @"D:\法学院6个数据库\教师信息1ID对照.txt"
                      );
         }
 

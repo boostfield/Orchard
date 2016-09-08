@@ -48,11 +48,11 @@ namespace Orchard.Xmu.Models
         public virtual string Funds9 { get; set; }
         public virtual string Member10 { get; set; }
         public virtual string Funds10 { get; set; }
-        public virtual IList<TeacherRecord> RecordCNTeachers { get; set; }
+        public virtual IList<CNTeacherPartRecord> RecordCNTeachers { get; set; }
 
         public ProjectRecord()
         {
-            RecordCNTeachers = new List<TeacherRecord>();
+            RecordCNTeachers = new List<CNTeacherPartRecord>();
 
         }
 

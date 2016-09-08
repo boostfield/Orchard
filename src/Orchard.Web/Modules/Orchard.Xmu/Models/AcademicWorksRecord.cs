@@ -57,11 +57,11 @@ namespace Orchard.Xmu.Models
         public virtual string ResultType { get; set; }  //成果类别
         public virtual string Picture { get; set; } //图片 
 
-        public virtual IList<TeacherRecord> RecordCNTeachers { get; set; }
+        public virtual IList<CNTeacherPartRecord> RecordCNTeachers { get; set; }
 
         public AcademicWorksRecord()
         {
-            RecordCNTeachers = new List<TeacherRecord>();
+            RecordCNTeachers = new List<CNTeacherPartRecord>();
 
         }
     }

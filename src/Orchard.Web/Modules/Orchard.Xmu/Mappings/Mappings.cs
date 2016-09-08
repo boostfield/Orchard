@@ -44,7 +44,7 @@ namespace Orchard.Xmu.Mappings
 
 
 
-            defaultModel.Override<TeacherRecord>(x =>
+            defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordProjects)
                 .Cascade.All().Inverse()
@@ -64,7 +64,7 @@ namespace Orchard.Xmu.Mappings
             });
 
             
-            defaultModel.Override<TeacherRecord>(x =>
+            defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAwards)
                 .Cascade.All().Inverse()
@@ -85,7 +85,7 @@ namespace Orchard.Xmu.Mappings
 
 
 
-            defaultModel.Override<TeacherRecord>(x =>
+            defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAcademicPapers)
                 .Cascade.All().Inverse()
@@ -107,7 +107,7 @@ namespace Orchard.Xmu.Mappings
 
 
 
-            defaultModel.Override<TeacherRecord>(x =>
+            defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAcademicWorks)
                 .Cascade.All().Inverse()

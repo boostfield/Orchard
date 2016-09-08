@@ -34,6 +34,36 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+        public ActionResult ImportAcademicPaper()
+        {
+            _dataImporter.ImportAcademicPaper();
+            return View("Index");
+
+        }
+
+
+        public ActionResult ImportAcademicWork()
+        {
+            _dataImporter.ImportAcademicWork();
+            return View("Index");
+
+        }
+
+        public ActionResult ImportAwards()
+        {
+            _dataImporter.ImportAwards();
+            return View("Index");
+
+        }
+
+
+        public ActionResult ImportProjects()
+        {
+            _dataImporter.ImportProjects();
+            return View("Index");
+
+        }
+
         public ActionResult All()
         {
             _dataImporter.ImportCope();

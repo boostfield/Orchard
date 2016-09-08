@@ -19,14 +19,14 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public string aidfunds { get; set; }//资助经费
         public string group { get; set; }//课题组成员
         public string aidhost { get; set; }//主持人经费
-        public DateTime startdate  { get; set; }//课题期限起期
-        public DateTime enddate { get; set; }//课题期限止期
-        public DateTime finishdate { get; set; }//结题日期"
+        public DateTime? startdate  { get; set; }//课题期限起期
+        public DateTime? enddate { get; set; }//课题期限止期
+        public DateTime? finishdate { get; set; }//结题日期"
         public string aidsituation { get; set; }//经费聘用情况
         public string remarks { get; set; }//备注
-        public DateTime inputdate { get; set; }//入库时间
+        public DateTime? inputdate { get; set; }//入库时间
         public int clicknumber { get; set; }
-        public DateTime refreshdate { get; set; }//最后更新时间
+        public DateTime? refreshdate { get; set; }//最后更新时间
         public string resulttype { get; set; }//成果类别
         public string member1 { get; set; } //成员1
         public string textnumber1 { get; set; }//成员1经费

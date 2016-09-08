@@ -24,7 +24,7 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public string month { get; set; }   //出生月
         public string day { get; set; } //出生日
         //todo
-        public DateTime birthday { get; set; }    //出生日期
+        public DateTime? birthday { get; set; }    //出生日期
         public string avatar { get; set; }  //照片路径
         public string view { get; set; }    //学术观点
         public string concept { get; set; } //研究理念

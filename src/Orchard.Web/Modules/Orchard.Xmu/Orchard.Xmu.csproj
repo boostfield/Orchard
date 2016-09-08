@@ -286,6 +286,7 @@
     <Compile Include="Drivers\CNCollegeShowPartDriver.cs" />
     <Compile Include="Drivers\CNCopPartDriver.cs" />
     <Compile Include="Drivers\CNNotifyPartDriver.cs" />
+    <Compile Include="Drivers\CNTeacherPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
     <Compile Include="Drivers\ENCoursePartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
@@ -294,6 +295,7 @@
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Extension\Extensions.cs" />
+    <Compile Include="Hanlders\CNTeacherPartHandler.cs" />
     <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
     <Compile Include="Mappings\Mappings.cs" />
@@ -323,7 +325,7 @@
     <Compile Include="Models\NinetyCelebrationDonationPart.cs" />
     <Compile Include="Models\ProjectPart.cs" />
     <Compile Include="Models\ProjectRecord.cs" />
-    <Compile Include="Models\TeacherRecord.cs" />
+    <Compile Include="Models\CNTeacherPartRecord.cs" />
     <Compile Include="Models\TeacherCourseRelationRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />

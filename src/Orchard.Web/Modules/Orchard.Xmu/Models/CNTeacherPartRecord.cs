@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Orchard.Xmu.Models
 {
-    public class TeacherRecord: ContentPartRecord
+    public class CNTeacherPartRecord: ContentPartRecord
     {
         public virtual string Number { get; set; }//编号
         public virtual string Name { get; set; }    //姓名
@@ -41,7 +41,7 @@ namespace Orchard.Xmu.Models
         public virtual IList<AwardsRecord> RecordAwards { get; set; }
 
 
-        public TeacherRecord()
+        public CNTeacherPartRecord()
         {
             RecordAcademicPapers = new List<AcademicPaperRecord>();
             RecordAcademicWorks= new List<AcademicWorksRecord>();
