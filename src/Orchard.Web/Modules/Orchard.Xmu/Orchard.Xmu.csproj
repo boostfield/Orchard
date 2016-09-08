@@ -283,6 +283,7 @@
     <Compile Include="Controllers\XmContentAdminController.cs" />
     <Compile Include="Drivers\AcademicPaperPartDriver.cs" />
     <Compile Include="Drivers\AcademicWorkPartDriver.cs" />
+    <Compile Include="Drivers\AwardPartDriver.cs" />
     <Compile Include="Drivers\BannerPartDriver.cs" />
     <Compile Include="Drivers\CelMatesPicPartDriver.cs" />
     <Compile Include="Drivers\CNCollegeShowPartDriver.cs" />
@@ -300,6 +301,7 @@
     <Compile Include="Extension\Extensions.cs" />
     <Compile Include="Hanlders\AcademicPaperPartHandler.cs" />
     <Compile Include="Hanlders\AcademicWorkPartHandler.cs" />
+    <Compile Include="Hanlders\AwardPartHandler.cs" />
     <Compile Include="Hanlders\CNTeacherPartHandler.cs" />
     <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />

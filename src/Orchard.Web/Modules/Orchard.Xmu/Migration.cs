@@ -874,45 +874,61 @@ namespace Orchard.Xmu
             return 20;
         }
 
-        /*
-     public int UpdateFrom16()
-     {
+
+        public int UpdateFrom20()
+        {
+
+
+            SchemaBuilder.CreateTable(typeof(AwardsRecord).Name, table =>
+             table.ContentPartRecord()
+             .Column<string>("Tid")
+             .Column<string>("WinnerName")
+             .Column<string>("AwardName")
+             .Column<string>("Year")
+             .Column<string>("BelongDepartment")
+             .Column<string>("AwardDepartment")
+             .Column<string>("AwardDate")
+             .Column<string>("AwardRank")
+             .Column<string>("AwardLevel")
+             .Column<string>("ResultProject")
+             .Column<string>("ResultForm")
+             .Column<string>("Author")
+             .Column<string>("Collaborator")
+             .Column<string>("Codes")
+             .Column<string>("Remarks", c => c.Unlimited())
+             .Column<string>("InputDate")
+             .Column<int>("Clicknumber")
+             .Column<string>("RefreshDate")
+             .Column<string>("ResultType")
+            );
 
 
 
+            ContentDefinitionManager.AlterPartDefinition(typeof(AwardsPart).Name,
+             cfg =>
+             cfg.WithField("image",
+             b => b.OfType("MediaLibraryPickerField")
+               .WithDisplayName("选择相关图片"))
+            );
 
 
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAward.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNAward.ContentTypeDisplayName)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(AwardsPart).Name)
+              .WithPart(typeof(BodyPart).Name)
+              .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+              .WithSetting("ListTitle", XmContentType.CNAward.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
 
 
-         SchemaBuilder.CreateTable(typeof(AwardsRecord).Name, table =>
-          table.ContentPartRecord()
-          .Column<string>("Tid")
-          .Column<string>("WinnerName")
-          .Column<string>("AwardName")
-          .Column<string>("Year")
-          .Column<string>("BelongDepartment")
-          .Column<string>("AwardDepartment")
-          .Column<DateTime>("AwardDate")
-          .Column<string>("AwardRank")
-          .Column<string>("AwardLevel")
-          .Column<string>("ResultProject")
-          .Column<string>("ResultForm")
-          .Column<string>("Author")
-          .Column<string>("Collaborator")
-          .Column<string>("Codes")
-          .Column<string>("Remarks", c => c.Unlimited())
-          .Column<DateTime>("InputDate")
-          .Column<int>("Clicknumber")
-          .Column<DateTime>("RefreshDate")
-          .Column<string>("ResultType")
-         );
-
-
-     
-
-             );
-         return 17;
-     }
-     */
+            return 21;
+        }
+ 
     }
 }
