@@ -664,11 +664,24 @@
   background-color: #2D44AA;
   font-weight: bolder;
 }
+.en-home .navbar-default .navbar-nav > li > a {
+  background-image: url(../Content/images/en/img_nav_title_select.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 45px 0px;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
 .en-home .navbar-default .navbar-nav > li > a:focus,
 .en-home .navbar-default .navbar-nav > li > a:hover {
   color: white;
   font-size: 0.8em;
   font-weight: bolder;
+  background-image: url(../Content/images/en/img_nav_title_select.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 45px 4px;
 }
 .en-home .navbar-default .navbar-nav > .open > a,
 .en-home .navbar-default .navbar-nav > .open > a:focus,
@@ -683,15 +696,18 @@
 .en-home .dropdown-menu > .active > a:focus,
 .en-home .dropdown-menu > .active > a:hover {
   color: white;
-  background-color: #2D44AA;
+  background-color: #20317B;
 }
 .en-home .dropdown-menu > li > a {
   color: white;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
 }
 .en-home .dropdown-menu > li > a:focus,
 .en-home .dropdown-menu > li > a:hover {
   color: white;
-  background-color: #2D44AA;
+  background-color: #20317B;
 }
 .en-home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
   color: white;
@@ -756,7 +772,7 @@
 }
 .en-home #carousel-en .carousel-inner .item {
   width: 100%;
-  height: 36.45833333vw;
+  height: 33.85416667vw;
   vertical-align: middle;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -770,6 +786,9 @@
   right: initial;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
   text-align: left;
   bottom: initial;
   max-width: 590px;
@@ -780,7 +799,6 @@
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
 }
 .en-home #carousel-en .carousel-caption a.btn-primary {
-  font-weight: bolder;
   background-color: #2D44AA;
   border-radius: 2px;
   padding: 0.9em;
@@ -802,13 +820,19 @@
 .en-home #carousel-en .carousel-control img {
   top: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
   display: inline-block;
   left: 50%;
 }
+.en-home .en-column-container {
+  padding-left: 2em;
+}
 .en-home .en-column {
-  margin-top: 140px;
+  margin-top: 2em;
   border-bottom: 2px solid #2D44AA;
   position: relative;
 }
@@ -969,14 +993,17 @@
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   left: 50%;
   transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
   bottom: 0.25em;
   position: absolute;
   color: white;
   text-align: center;
 }
 .en-home .expand-menu {
-  margin-top: 120px;
-  margin-bottom: 140px;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 .en-home .expand-menu span {
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
@@ -987,8 +1014,11 @@
   margin-bottom: 0.5em;
   display: inline-block;
 }
+.en-home .expand-menu p {
+  margin: 0;
+}
 .en-home .expand-menu p > a {
-  line-height: 2em;
+  line-height: 1em;
   font-size: 0.8em;
   font-weight: lighter;
   cursor: pointer;
@@ -999,18 +1029,21 @@
   color: black;
 }
 .en-home .en-footer .footer-first {
-  padding: 3em 0 3em 0;
+  padding: 1em 0 1em 0;
   background-image: url("../Content/images/en/img_bottom.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.en-home .en-footer .footer-first img {
+  width: 148.8px;
+  height: 188x;
 }
 .en-home .en-footer .footer-first h1 {
   font-size: 2em;
   color: white;
   margin-bottom: 0.7em;
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
-  font-weight: bolder;
 }
 .en-home .en-footer .footer-first p {
   font-size: 0.7em;
@@ -1021,16 +1054,21 @@
   font-size: 0.7em;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.en-home .en-footer .footer-first a:hover,
+.en-home .en-footer .footer-first a:focus {
+  color: white;
 }
 .en-home .en-footer .footer-first .contact-us {
-  margin-top: 1em;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
-.en-home .en-footer .footer-first .follow-us {
-  margin-top: 1em;
-}
 .en-home .en-footer .footer-links {
-  padding: 3em 0 3em 0;
+  padding: 1em 0 1em 0;
   background-color: #262F49;
 }
 .en-home .en-footer .footer-links h1 {
@@ -1045,9 +1083,16 @@
   margin: 0 0.5em 0 0.5em;
   text-decoration: none;
   cursor: pointer;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
 }
 .en-home .en-footer .footer-links .links a:not(:last-child)::after {
   content: "\00a0\00a0\00a0\00a0 | ";
+}
+.en-home .en-footer .footer-links .links a:hover,
+.en-home .en-footer .footer-links .links a:focus {
+  color: white;
 }
 .en-home .en-footer .copyright {
   background-color: #262F49;
@@ -1277,6 +1322,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   position: absolute;
   z-index: 5;
   display: inline-block;
@@ -1538,6 +1586,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 .anniversary .frame ul li:hover .text-content {
   opacity: 1;
@@ -1560,6 +1611,9 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
   width: auto;
   z-index: 5;
   cursor: pointer;
@@ -1571,6 +1625,9 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
   width: auto;
   z-index: 5;
   cursor: pointer;
@@ -1832,6 +1889,9 @@
   .en-home #carousel-en .carousel-caption a.btn-primary {
     font-size: 0.5em;
     background-size: 5px 9px;
+  }
+  .en-home .en-column-container {
+    padding-left: 15px;
   }
   .en-home .en-column {
     margin-top: 2em;
