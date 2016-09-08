@@ -236,16 +236,16 @@ namespace Orchard.Xmu.Models
 
 
 
-        public string View
+        public string Perspective
         {
             get
             {
-                return Retrieve(i => i.View);
+                return Retrieve(i => i.Perspective);
             }
 
             set
             {
-                Store(i => i.View, value);
+                Store(i => i.Perspective, value);
             }
         }
 

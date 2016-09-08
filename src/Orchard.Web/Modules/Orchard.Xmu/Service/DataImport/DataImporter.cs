@@ -303,7 +303,7 @@ namespace Orchard.Xmu.Service.DataImport
             () => ReadDataFromJsonFile<OldProject>(@"D:\法学院6个数据库\承担课题.json"),
                 i => ImportSingleProject(i),
                 r => r.id,
-                @"D:\法学院6个数据库\承担课题ID对照.json"
+                @"D:\法学院6个数据库\承担课题ID对照.txt"
             );
 
         }
@@ -369,7 +369,7 @@ namespace Orchard.Xmu.Service.DataImport
          () => ReadDataFromJsonFile<OldReward>(@"D:\法学院6个数据库\获奖成果.json"),
          i => ImportSingleAward(i),
          r => r.id,
-         @"D:\法学院6个数据库\获奖成果ID对照.json"
+         @"D:\法学院6个数据库\获奖成果ID对照.txt"
          );
         }
 
@@ -412,7 +412,7 @@ namespace Orchard.Xmu.Service.DataImport
                     () => ReadDataFromJsonFile<OldWorks>(@"D:\法学院6个数据库\著作.json"),
                     i => ImportSingleAcademicWork(i),
                     r => r.id,
-                    @"D:\法学院6个数据库\著作ID对照.json"
+                    @"D:\法学院6个数据库\著作ID对照.txt"
                     );
         }
 
@@ -481,7 +481,7 @@ namespace Orchard.Xmu.Service.DataImport
                      () => ReadDataFromJsonFile<OldPaper>(@"D:\法学院6个数据库\论文.json"),
                      i => ImportSingleAcademicPaper(i),
                      r => r.id,
-                     @"D:\法学院6个数据库\论文ID对照.json"
+                     @"D:\法学院6个数据库\论文ID对照.txt"
                      );
 
         }
@@ -527,10 +527,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportTeacherInfo()
         {
             ImportDataTemplate<OldTeacherInfo>(
-                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息1.txt"),
+                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息.json"),
                      i => ImportSingleTeacher(i),
                      r => r.id,
-                     @"D:\法学院6个数据库\教师信息1ID对照.txt"
+                     @"D:\法学院6个数据库\教师信息ID对照.txt"
                      );
         }
 
@@ -555,7 +555,7 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Month = oldinfo.month;
             infopart.Birthday = oldinfo.birthday;
             infopart.Avatar = oldinfo.avatar;
-            infopart.View = oldinfo.view;
+            infopart.Perspective = oldinfo.view;
             infopart.Concept = oldinfo.concept;
             infopart.Publication = oldinfo.publication;
             infopart.Dissertation = oldinfo.dissertation;
