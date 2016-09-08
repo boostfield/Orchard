@@ -734,40 +734,70 @@ namespace Orchard.Xmu
             return 18;
         }
 
+
+        public int UpdateFrom18()
+        {
+
+            SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
+                      table =>
+                      table.ContentPartRecord()
+                      .Column<string>("Tid")
+                      .Column<string>("Title")
+                      .Column<string>("Author")
+                      .Column<string>("Year")
+                      .Column<string>("Department")
+                      .Column<string>("Keyword")
+                      .Column<string>("Summary", c => c.Unlimited())
+                      .Column<string>("Text", c => c.Unlimited())
+                      .Column<string>("ReleaseDate")
+                      .Column<string>("Publication")
+                      .Column<string>("Pid")
+                      .Column<string>("Ptime")
+                      .Column<string>("Plevel")
+                      .Column<string>("Writertype")
+                      .Column<int>("TextNumber")
+                      .Column<string>("Remarks", c => c.Unlimited())
+                      .Column<string>("InputDate")
+                      .Column<int>("ClickNumber")
+                      .Column<string>("RefreshDate")
+                      .Column<bool>("IsShow")
+                      .Column<string>("Achievement", c => c.Unlimited())
+                      .Column<string>("ImportantJournal", c => c.Unlimited())
+                      .Column<string>("RePrint")
+                      .Column<string>("ResearchResult", c => c.Unlimited())
+
+                      );
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(AcademicPaperPart).Name,
+           cfg =>
+           cfg.WithField("image",
+           b => b.OfType("MediaLibraryPickerField")
+               .WithDisplayName("选择相关图片"))
+          );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAcademicPaper.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNAcademicPaper.ContentTypeDisplayName)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(AcademicPaperPart).Name)
+              .WithPart(typeof(BodyPart).Name)
+              .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+              .WithSetting("ListTitle", XmContentType.CNAcademicPaper.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
+
+
+            return 19;
+        }
+
         /*
      public int UpdateFrom16()
      {
 
-
-         SchemaBuilder.CreateTable(typeof(AcademicPaperRecord).Name,
-                   table =>
-                   table.ContentPartRecord()
-                   .Column<string>("Tid")
-                   .Column<string>("Title")
-                   .Column<string>("Author")
-                   .Column<string>("Year")
-                   .Column<string>("Department")
-                   .Column<string>("Keyword")
-                   .Column<string>("Summary", c => c.Unlimited())
-                   .Column<string>("Text", c => c.Unlimited())
-                   .Column<DateTime>("ReleaseDate")
-                   .Column<string>("Publication")
-                   .Column<string>("Pid")
-                   .Column<string>("Ptime")
-                   .Column<string>("Plevel")
-                   .Column<string>("Writertype")
-                   .Column<int>("TextNumber")
-                   .Column<string>("Remarks", c => c.Unlimited())
-                   .Column<DateTime>("InputDate")
-                   .Column<int>("ClickNumber")
-                   .Column<DateTime>("RefreshDate")
-                   .Column<bool>("IsShow")
-                   .Column<string>("Achievement", c => c.Unlimited())
-                   .Column<string>("ImportantJournal", c => c.Unlimited())
-                   .Column<string>("RePrint")
-                   .Column<string>("ResearchResult", c => c.Unlimited())
-
-                   );
 
 
 

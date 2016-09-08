@@ -104,7 +104,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime ReleaseDate
+        public string ReleaseDate
         {
             get
             {
@@ -200,7 +200,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime InputDate
+        public string InputDate
         {
             get
             {
@@ -224,7 +224,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public DateTime RefreshDate
+        public string RefreshDate
         {
             get
             {

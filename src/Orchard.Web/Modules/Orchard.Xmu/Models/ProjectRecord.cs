@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement.Records;
+using Orchard.Data.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Orchard.Xmu.Models
         public virtual string EndDate { get; set; }//课题期限止期
         public virtual string FinishDate { get; set; }//结题日期"
         public virtual string AidSituation { get; set; }//经费聘用情况
+        [StringLengthMax]
         public virtual string Remarks { get; set; }//备注
         public virtual string Inputdate { get; set; }//入库时间
         public virtual int Clicknumber { get; set; }
