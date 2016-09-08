@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement.Records;
+using Orchard.Data.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,10 +47,14 @@ namespace Orchard.Xmu.Models
         public virtual int IsResult { get; set; }//是否项目成果
         public virtual string SourceName { get; set; }  //项目来源名称
         public virtual string ProjectName { get; set; } //项目
+        [StringLengthMax]
         public virtual string Introduce { get; set; }   //内容简介
+        [StringLengthMax]
         public virtual string Remarks { get; set; } //备注
         public virtual string Keyword { get; set; } //关键词
+        [StringLengthMax]
         public virtual string Summary { get; set; } //摘要
+        [StringLengthMax]
         public virtual string Text { get; set; }    //正文
         public virtual DateTime InputDate { get; set; }   //入库时间 
         public virtual int ClickNumber { get; set; }    //点击数

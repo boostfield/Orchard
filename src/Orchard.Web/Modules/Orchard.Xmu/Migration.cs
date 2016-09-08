@@ -794,63 +794,92 @@ namespace Orchard.Xmu
             return 19;
         }
 
+
+        public int UpdateFrom19()
+        {
+
+
+            SchemaBuilder.CreateTable(typeof(AcademicWorksRecord).Name,
+                table =>
+                table.ContentPartRecord()
+                .Column<string>("Tid")
+                .Column<string>("Title")
+                .Column<string>("Author")
+                .Column<string>("Year")
+                .Column<string>("Department")
+                .Column<string>("Publishunit")
+                .Column<string>("Booknumber")
+                .Column<string>("Publishdate")
+                .Column<string>("Booktype")
+                .Column<string>("WriterType")
+                .Column<int>("AllTextBumber")
+                .Column<int>("FinishNumber")
+                .Column<string>("Author1")
+                .Column<int>("TextNumber1")
+                .Column<string>("Author2")
+                .Column<int>("TextNumber2")
+                .Column<string>("Author3")
+                .Column<int>("TextNumber3")
+                .Column<string>("Author4")
+                .Column<int>("TextNumber4")
+                .Column<string>("Author5")
+                .Column<int>("TextNumber5")
+                .Column<string>("Author6")
+                .Column<int>("TextNumber6")
+                .Column<string>("Author7")
+                .Column<int>("TextNumber7")
+                .Column<string>("Author8")
+                .Column<int>("TextNumber8")
+                .Column<string>("Author9")
+                .Column<int>("TextNumber9")
+                .Column<string>("Author10")
+                .Column<int>("TextNumber10")
+                .Column<int>("IsResult")
+                .Column<string>("SourceName")
+                .Column<string>("ProjectName")
+                .Column<string>("Introduce", c => c.Unlimited())
+                .Column<string>("Remarks", c => c.Unlimited())
+                .Column<string>("Keyword")
+                .Column<string>("Summary", c => c.Unlimited())
+                .Column<string>("Text", c => c.Unlimited())
+                .Column<string>("InputDate")
+                .Column<int>("ClickNumber")
+                .Column<string>("RefreshDate")
+                .Column<string>("ResultType")
+                .Column<string>("Picture")
+
+                );
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(AcademicWorksPart).Name,
+             cfg =>
+             cfg.WithField("image",
+             b => b.OfType("MediaLibraryPickerField")
+               .WithDisplayName("选择相关图片"))
+            );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAcademicWork.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CNAcademicWork.ContentTypeDisplayName)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(AcademicWorksPart).Name)
+              .WithPart(typeof(BodyPart).Name)
+              .WithPart(typeof(UserViewPart).Name, builder => builder.WithSetting("UserViewTypePartSettings.AllowAnonymousViews", "True"))
+              .WithSetting("ListTitle", XmContentType.CNAcademicWork.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
+
+            return 20;
+        }
+
         /*
      public int UpdateFrom16()
      {
 
 
 
-
-         SchemaBuilder.CreateTable(typeof(AcademicWorksRecord).Name,
-             table =>
-             table.ContentPartRecord()
-             .Column<string>("Tid")
-             .Column<string>("Title")
-             .Column<string>("Author")
-             .Column<string>("Year")
-             .Column<string>("Department")
-             .Column<string>("Publishunit")
-             .Column<string>("Booknumber")
-             .Column<DateTime>("Publishdate")
-             .Column<string>("Booktype")
-             .Column<string>("WriterType")
-             .Column<int>("AllTextBumber")
-             .Column<int>("FinishNumber")
-             .Column<string>("Author1")
-             .Column<int>("TextNumber1")
-             .Column<string>("Author2")
-             .Column<int>("TextNumber2")
-             .Column<string>("Author3")
-             .Column<int>("TextNumber3")
-             .Column<string>("Author4")
-             .Column<int>("TextNumber4")
-             .Column<string>("Author5")
-             .Column<int>("TextNumber5")
-             .Column<string>("Author6")
-             .Column<int>("TextNumber6")
-             .Column<string>("Author7")
-             .Column<int>("TextNumber7")
-             .Column<string>("Author8")
-             .Column<int>("TextNumber8")
-             .Column<string>("Author9")
-             .Column<int>("TextNumber9")
-             .Column<string>("Author10")
-             .Column<int>("TextNumber10")
-             .Column<int>("IsResult")
-             .Column<string>("SourceName")
-             .Column<string>("ProjectName")
-             .Column<string>("Introduce", c => c.Unlimited())
-             .Column<string>("Remarks", c => c.Unlimited())
-             .Column<string>("Keyword")
-             .Column<string>("Summary", c => c.Unlimited())
-             .Column<string>("Text", c => c.Unlimited())
-             .Column<DateTime>("InputDate")
-             .Column<int>("ClickNumber")
-             .Column<DateTime>("RefreshDate")
-             .Column<string>("ResultType")
-             .Column<string>("Picture")
-
-             );
 
 
 
