@@ -49,6 +49,7 @@
         first: 'First',
         last: Math.ceil((@total) / 10),
     }).on('page', function (event, num) {
-        window.location = (location.protocol + '//' + location.host + location.pathname +  "?page=" + num + "&pageSize=10");
+ 
+        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
     });
 </script>

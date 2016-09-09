@@ -1,4 +1,5 @@
 ﻿@primary-color: #2D44AA;
+@primary-dark-color: #20317B;
 @primary-nav-color: white;
 @top-bar-color: black;
 @carousel-caption-color: rgba(0, 0, 0, 0.6);
@@ -750,11 +751,22 @@ body {
         background-color: @primary-color;
         font-weight: bolder;
     }
-
+    .navbar-default .navbar-nav > li > a {
+        background-image: url(../Content/images/en/img_nav_title_select.png);
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: 45px 0px;
+        .transition-all;
+    }
     .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
         color: white;
         font-size: 0.8em;
         font-weight: bolder;
+        background-image: url(../Content/images/en/img_nav_title_select.png);
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: 45px 4px;
+       
     }
     .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
         background-color: transparent;
@@ -765,15 +777,17 @@ body {
     }
     .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
         color: white;
-        background-color: @primary-color;
+        background-color: @primary-dark-color;
     }
     .dropdown-menu>li>a {
         color: white;
+        .transition-all;
     }
     .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
         color: white;
-        background-color: @primary-color;
+        background-color: @primary-dark-color;
     }
+    
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
         color: white;
     }
@@ -846,7 +860,7 @@ body {
         width: 100%;
            .carousel-inner .item {
             width: 100%;
-            height: 70000/1920vw;
+            height: 65000/1920vw;
             vertical-align: middle;
 	        -webkit-background-size: cover;
 	        -moz-background-size: cover;
@@ -863,6 +877,9 @@ body {
            right: initial;
            top: 50%;
            transform: translateY(-50%);
+           -webkit-transform: translateY(-50%);
+	       -moz-transform: translateY(-50%);
+	       -o-transform: translateY(-50%);
            text-align: left;
            bottom: initial;
            max-width: 590px;
@@ -874,7 +891,7 @@ body {
                
            }
            a.btn-primary {
-               font-weight: bolder;
+               
                background-color: @primary-color;
                border-radius: 2px;
                padding: 0.9em;
@@ -898,15 +915,20 @@ body {
         .carousel-control img {
             top: 50%;
             transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+	       -moz-transform: translate(-50%, -50%);
+	       -o-transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
             display: inline-block;
             left: 50%;
         }
     }
-    
+    .en-column-container {
+        padding-left: 2em;
+    }
     .en-column {
-        margin-top: 140px;
+        margin-top: 2em;
         border-bottom: 2px solid @primary-color;
         position: relative;
         .title {
@@ -1056,7 +1078,7 @@ body {
         }
     }
     .en-sections {
-        margin-top: 120px;
+        margin-top: 2em;
     }
     .entry {
         padding: 3px;
@@ -1071,6 +1093,9 @@ body {
                 
                  left: 50%;
                  transform: translate(-50%, 0);
+                 -webkit-transform: translate(-50%, 0);
+                -moz-transform: translate(-50%, 0);
+                -o-transform: translate(-50%, 0);
                  bottom: 0.25em;
                  position: absolute;
                  color: white;
@@ -1079,8 +1104,8 @@ body {
         }
     }
     .expand-menu {
-        margin-top: 120px;
-        margin-bottom: 140px;
+        margin-top: 2em;
+        margin-bottom: 2em;
         span {
             font-family: @en-font;
             font-size: 2em;
@@ -1091,8 +1116,11 @@ body {
             margin-bottom: 0.5em;
             display: inline-block;
         }
+        p {
+            margin: 0;
+        }
         p>a {
-            line-height: 2em;
+            line-height: 1em;
             font-size: 0.8em;
             font-weight: lighter;
             cursor: pointer;
@@ -1106,18 +1134,21 @@ body {
         
         color: black;
         .footer-first {
-            padding: 3em 0 3em 0;
+            padding: 1em 0 1em 0;
             background-image: url("../Content/images/en/img_bottom.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            
+            img {
+                width: 148.8px;
+                height: 188x;
+            }
             h1 {
                 font-size: 2em;
                 color: white;
                 margin-bottom: 0.7em;
                 font-family: @en-font;
-                font-weight: bolder;
+                
             }
             p {
                 font-size: 0.7em;
@@ -1128,19 +1159,25 @@ body {
                 font-size: 0.7em;
                 font-weight: 100;
                 color: @text-third-color;
+                text-decoration: none;
+                cursor: pointer;
+                .transition-all;
+            }
+            a:hover, a:focus {
+                color: white;
             }
             .contact-us {
-                margin-top: 1em;
+                
                 border-right: 1px solid rgba(255,255,255,0.2);
                 
             }
             .follow-us {
-                margin-top: 1em;
+                
             }
         
         }
         .footer-links {
-            padding: 3em 0 3em 0;
+            padding: 1em 0 1em 0;
             background-color: #262F49;
             h1 {
                 font-family: @en-font;
@@ -1155,9 +1192,13 @@ body {
                 margin: 0 0.5em 0 0.5em;
                 text-decoration: none;
                 cursor: pointer;
+                .transition-all;
             }
             .links a:not(:last-child)::after {
                 content: "\00a0\00a0\00a0\00a0 | ";
+            }
+            .links a:hover, .links a:focus {
+                color: white;
             }
         }
         .copyright {
@@ -1394,6 +1435,9 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
             position: absolute;
             z-index: 5;
             display: inline-block;
@@ -1649,6 +1693,9 @@ body {
                   top: 50%;
                   left: 50%;
                   transform: translate(-50%, -50%);
+                  -webkit-transform: translate(-50%, -50%);
+                  -moz-transform: translate(-50%, -50%);
+                  -o-transform: translate(-50%, -50%);
               }
             }
 
@@ -1679,6 +1726,9 @@ body {
                 right: 0;
                 top: 50%;
                 transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
                 width: auto;
                 z-index: 5;
                 cursor: pointer;
@@ -1690,6 +1740,9 @@ body {
                 left: 0;
                 top: 50%;
                transform: translateY(-50%);
+               -webkit-transform: translateY(-50%);
+               -moz-transform: translateY(-50%);
+               -o-transform: translateY(-50%);
                width: auto;
                z-index: 5;
                cursor: pointer;
@@ -1971,6 +2024,9 @@ only screen and (max-width: 480px) {
                     background-size: 5px 9px;
                 }
             }
+        }
+        .en-column-container {
+            padding-left: 15px;
         }
         .en-column {
             margin-top: 2em;
