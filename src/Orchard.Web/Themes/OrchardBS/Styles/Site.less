@@ -1261,18 +1261,20 @@ body {
         
         color: black;
         .footer-first {
-            padding: 3em 0 3em 0;
+            padding: 1em 0 1em 0;
             background-image: url("../Content/images/en/img_bottom.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            
+            img {
+                width: 148.8px;
+                height: 188px;
+            }
             h1 {
                 font-size: 2em;
                 color: white;
                 margin-bottom: 0.7em;
                 font-family: @en-font;
-                font-weight: bolder;
             }
             p {
                 font-size: 0.7em;
@@ -1283,19 +1285,25 @@ body {
                 font-size: 0.7em;
                 font-weight: 100;
                 color: @text-third-color;
+                text-decoration: none;
+                cursor: pointer;
+                .transition-all;
+            }
+            a:hover, a:focus {
+                color: white;
             }
             .contact-us {
-                margin-top: 1em;
+                
                 border-right: 1px solid rgba(255,255,255,0.2);
                 
             }
             .follow-us {
-                margin-top: 1em;
+                
             }
         
         }
         .footer-links {
-            padding: 3em 0 3em 0;
+            padding: 1em 0 1em 0;
             background-color: #262F49;
             h1 {
                 font-family: @en-font;
@@ -1310,9 +1318,13 @@ body {
                 margin: 0 0.5em 0 0.5em;
                 text-decoration: none;
                 cursor: pointer;
+                .transition-all;
             }
             .links a:not(:last-child)::after {
                 content: "\00a0\00a0\00a0\00a0 | ";
+            }
+            .links a:hover, .links a:focus {
+                color: white;
             }
         }
         .copyright {
