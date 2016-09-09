@@ -240,11 +240,16 @@
     <Content Include="Views\CNNotifyAdmin\List.cshtml" />
     <Content Include="Views\CNCopAdmin\List.cshtml" />
     <Content Include="Views\CNCollegeShowAdmin\List.cshtml" />
-    <Content Include="Views\CNAcademicPaper\List.cshtml" />
+    <Content Include="Views\CNAcademicPaperAdmin\List.cshtml" />
     <Content Include="Views\CNAcademicWorkAdmin\List.cshtml" />
     <Content Include="Views\CNAwardAdmin\List.cshtml" />
     <Content Include="Views\CNProjectAdmin\List.cshtml" />
     <Content Include="Views\CNTeacherAdmin\List.cshtml" />
+    <Content Include="Views\Content-CNTeacher.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-CNAcademicPaper.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-CNAcademicWork.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-CNAward.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-CNProject.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
