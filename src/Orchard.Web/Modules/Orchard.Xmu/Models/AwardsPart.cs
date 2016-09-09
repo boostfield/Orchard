@@ -2,6 +2,7 @@
 using Orchard.ContentManagement.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("获奖者姓名")]
         public string WinnerName
         {
             get
@@ -33,6 +35,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("获奖成果名称")]
         public string AwardName
         {
             get
@@ -45,6 +48,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("年度")]
         public string Year
         {
             get
@@ -57,6 +61,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("系别")]
         public string BelongDepartment
         {
             get
@@ -69,6 +74,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("颁奖部门")]
         public string AwardDepartment
         {
             get
@@ -81,6 +87,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("获奖时间")]
         public string AwardDate
         {
             get
@@ -93,6 +100,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("获奖等级")]
         public string AwardRank
         {
             get
@@ -105,6 +113,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("获奖级别")]
         public string AwardLevel
         {
             get
@@ -117,6 +126,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("成果项目")]
         public string ResultProject
         {
             get
@@ -129,6 +139,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("成果形式")]
         public string ResultForm
         {
             get
@@ -141,6 +152,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("第几作者")]
         public string Author
         {
             get
@@ -153,6 +165,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("合作者")]
         public string Collaborator
         {
             get
@@ -165,6 +178,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("代码")]
         public string Codes
         {
             get
@@ -177,6 +191,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("备注")]
         public string Remarks
         {
             get
@@ -189,6 +204,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("入库时间")]
         public string InputDate
         {
             get
@@ -201,6 +217,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("点击数")]
         public int Clicknumber
         {
             get
@@ -213,6 +230,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("最后更新时间")]
         public string RefreshDate
         {
             get
@@ -225,6 +243,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("成果类别")]
         public string ResultType
         {
             get
