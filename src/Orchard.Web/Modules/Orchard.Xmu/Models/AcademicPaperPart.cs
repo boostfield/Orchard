@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 
 namespace Orchard.Xmu.Models
 {
@@ -21,6 +22,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("标题")]
         public string Title
         {
             get
@@ -33,6 +35,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("作者")]
         public string Author
         {
             get
@@ -45,6 +48,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("年度")]
         public string Year
         {
             get
@@ -57,6 +61,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("系别")]
         public string Department
         {
             get
@@ -69,6 +74,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("关键字")]
         public string Keyword
         {
             get
@@ -81,6 +87,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("摘要")]
         public string Summary
         {
             get
@@ -93,6 +100,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("系别")]
         public string Text
         {
             get
@@ -105,6 +113,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("发表时间")]
         public string ReleaseDate
         {
             get
@@ -117,6 +126,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("刊物名称")]
         public string Publication
         {
             get
@@ -129,6 +139,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("刊号")]
         public string Pid
         {
             get
@@ -141,6 +152,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("刊物期别")]
         public string Ptime
         {
             get
@@ -153,6 +165,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("刊物级别")]
         public string Plevel
         {
             get
@@ -165,6 +178,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("合作者顺序")]
         public string Writertype
         {
             get
@@ -177,6 +191,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("字数")]
         public int TextNumber
         {
             get
@@ -189,6 +204,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("备注")]
         public string Remarks
         {
             get
@@ -201,8 +217,8 @@ namespace Orchard.Xmu.Models
             }
         }
 
-      
-
+ 
+        [DisplayName("点击数")]
         public int ClickNumber
         {
             get
@@ -215,7 +231,8 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+ 
+        [DisplayName("是否显示")]
         public bool IsShow
         {
             get
@@ -228,6 +245,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("成果类别")]
         public string Achievement
         {
             get
@@ -240,6 +258,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("重要期刊")]
         public string ImportantJournal
         {
             get
@@ -252,6 +271,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("被转载")]
         public string RePrint
         {
             get
@@ -264,6 +284,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("研究成果")]
         public string ResearchResult
         {
             get

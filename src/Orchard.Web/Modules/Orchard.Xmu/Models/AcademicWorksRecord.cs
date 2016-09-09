@@ -22,8 +22,8 @@ namespace Orchard.Xmu.Models
         public virtual DateTime Publishdate { get; set; } //出版时间 
         public virtual string Booktype { get; set; }    //著作类别
         public virtual string WriterType { get; set; }   //合作者顺序
-        public virtual int AllTextBumber { get; set; }//
-        public virtual int FinishNumber { get; set; }   //要人完成字数
+        public virtual int AllTextBumber { get; set; }//全部字数
+        public virtual int FinishNumber { get; set; }   //本人完成字数
         public virtual string Author1 { get; set; } //作者1
         public virtual string TextNumber1 { get; set; } //参著字数1
         public virtual string Author2 { get; set; } //参著作者2

@@ -2,6 +2,7 @@
 using Orchard.ContentManagement.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("标题")]
         public string Title
         {
             get
@@ -33,6 +35,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("作者")]
         public string Author
         {
             get
@@ -45,6 +48,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("年度")]
         public string Year
         {
             get
@@ -57,6 +61,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("系别")]
         public string Department
         {
             get
@@ -69,6 +74,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("出版单位")]
         public string Publishunit
         {
             get
@@ -81,6 +87,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("书号")]
         public string Booknumber
         {
             get
@@ -93,6 +100,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("出版时间")]
         public DateTime Publishdate
         {
             get
@@ -105,6 +113,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("著作类别")]
         public string Booktype
         {
             get
@@ -117,6 +126,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("合作者顺序")]
         public string WriterType
         {
             get
@@ -129,6 +139,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("全部字数")]
         public int AllTextBumber
         {
             get
@@ -141,6 +152,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("本人完成字数")]
         public int FinishNumber
         {
             get
@@ -153,6 +165,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者1")]
         public string Author1
         {
             get
@@ -165,6 +178,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数1")]
         public string TextNumber1
         {
             get
@@ -177,6 +191,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者2")]
         public string Author2
         {
             get
@@ -189,6 +204,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数2")]
         public string TextNumber2
         {
             get
@@ -201,6 +217,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者3")]
         public string Author3
         {
             get
@@ -213,6 +230,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数3")]
         public string TextNumber3
         {
             get
@@ -225,6 +243,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者4")]
         public string Author4
         {
             get
@@ -237,6 +256,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数4")]
         public string TextNumber4
         {
             get
@@ -249,6 +269,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者5")]
         public string Author5
         {
             get
@@ -260,6 +281,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Author5, value);
             }
         }
+        [DisplayName("参著字数5")]
         public string TextNumber5
         {
             get
@@ -272,6 +294,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者6")]
         public string Author6
         {
             get
@@ -284,6 +307,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数6")]
         public string TextNumber6
         {
             get
@@ -296,6 +320,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者7")]
         public string Author7
         {
             get
@@ -308,6 +333,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数7")]
         public string TextNumber7
         {
             get
@@ -320,6 +346,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者8")]
         public string Author8
         {
             get
@@ -332,6 +359,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数8")]
         public string TextNumber8
         {
             get
@@ -344,6 +372,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者9")]
         public string Author9
         {
             get
@@ -356,6 +385,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数9")]
         public string TextNumber9
         {
             get
@@ -368,6 +398,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著作者10")]
         public string Author10
         {
             get
@@ -380,6 +411,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数10")]
         public string TextNumber10
         {
             get
@@ -392,6 +424,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("是否项目成果")]
         public int IsResult
         {
             get
@@ -404,6 +437,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("项目来源名称")]
         public string SourceName
         {
             get
@@ -416,6 +450,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("项目")]
         public string ProjectName
         {
             get
@@ -428,6 +463,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("内容简介")]
         public string Introduce
         {
             get
@@ -440,6 +476,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("备注")]
         public string Remarks
         {
             get
@@ -452,6 +489,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("关键字")]
         public string Keyword
         {
             get
@@ -464,6 +502,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("摘要")]
         public string Summary
         {
             get
@@ -476,6 +515,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("正文")]
         public string Text
         {
             get
@@ -488,8 +528,9 @@ namespace Orchard.Xmu.Models
             }
         }
 
-    
+ 
 
+        [DisplayName("点击数")]
         public int ClickNumber
         {
             get
@@ -504,6 +545,7 @@ namespace Orchard.Xmu.Models
 
  
 
+        [DisplayName("成果类别")]
         public string ResultType
         {
             get
@@ -516,6 +558,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("图片")]
         public string Picture
         {
             get
