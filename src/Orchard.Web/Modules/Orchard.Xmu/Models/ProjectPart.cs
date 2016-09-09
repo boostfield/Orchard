@@ -201,17 +201,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public string Inputdate
-        {
-            get
-            {
-                return Retrieve(i => i.Inputdate);
-            }
-            set
-            {
-                Store(i => i.Inputdate, value);
-            }
-        }
+
 
         public int Clicknumber
         {
@@ -225,17 +215,6 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public string RefreshDate
-        {
-            get
-            {
-                return Retrieve(i => i.RefreshDate);
-            }
-            set
-            {
-                Store(i => i.RefreshDate, value);
-            }
-        }
 
         public string ResultType
         {

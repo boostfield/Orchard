@@ -201,17 +201,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public string InputDate
-        {
-            get
-            {
-                return Retrieve(i => i.InputDate);
-            }
-            set
-            {
-                Store(i => i.InputDate, value);
-            }
-        }
+      
 
         public int ClickNumber
         {
@@ -225,17 +215,6 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        public string RefreshDate
-        {
-            get
-            {
-                return Retrieve(i => i.RefreshDate);
-            }
-            set
-            {
-                Store(i => i.RefreshDate, value);
-            }
-        }
 
         public bool IsShow
         {
