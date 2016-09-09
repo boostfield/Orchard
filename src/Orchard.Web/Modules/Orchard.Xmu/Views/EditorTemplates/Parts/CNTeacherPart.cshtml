@@ -4,6 +4,90 @@
     Script.Require("Course").AtHead();
 }
 
+<fieldset>
+    @Html.LabelFor(m => m.Number)
+    @Html.TextBoxFor(m => m.Number)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Rank)
+    @Html.TextBoxFor(m => m.Rank)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Education)
+    @Html.TextBoxFor(m => m.Education)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Job)
+    @Html.TextBoxFor(m => m.Job)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Resfield)
+    @Html.TextBoxFor(m => m.Resfield)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Tecoffice)
+    @Html.TextBoxFor(m => m.Tecoffice)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Office)
+    @Html.TextBoxFor(m => m.Office)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Telephone)
+    @Html.TextBoxFor(m => m.Telephone)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Introduce)
+    @Html.TextAreaFor(m => m.Introduce)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Department)
+    @Html.TextBoxFor(m => m.Department)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Birthday)
+    @Html.TextBoxFor(m => m.Birthday,
+           new { @type = "date", @Value = Model.Birthday != null ? Model.Birthday.Value.ToString("yyyy-MM-dd") : "" })
+</fieldset>
 
-
-<h1>CNTeacher Part Detail</h1>
+<fieldset>
+    @Html.LabelFor(m => m.Perspective)
+    @Html.TextAreaFor(m => m.Perspective)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Concept)
+    @Html.TextAreaFor(m => m.Concept)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Publication)
+    @Html.TextAreaFor(m => m.Publication)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Dissertation)
+    @Html.TextAreaFor(m => m.Dissertation)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Course)
+    @Html.TextAreaFor(m => m.Course)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Ptjob)
+    @Html.TextBoxFor(m => m.Ptjob)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Project)
+    @Html.TextAreaFor(m => m.Project)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Contact)
+    @Html.TextAreaFor(m => m.Contact)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.IsShow)
+    @Html.RadioButtonFor(m => m.IsShow, "true")是
+    @Html.RadioButtonFor(m => m.IsShow, "false")否
+</fieldset>

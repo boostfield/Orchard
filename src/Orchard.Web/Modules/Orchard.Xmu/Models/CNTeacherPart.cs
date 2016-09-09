@@ -3,6 +3,7 @@ using Orchard.ContentManagement.Utilities;
 using Orchard.Xmu.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace Orchard.Xmu.Models
 {
     public class CNTeacherPart: ContentPart<CNTeacherPartRecord>
     {
+        [DisplayName("编号")]
         public string Number
         {
             get
@@ -23,6 +25,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("姓名")]
         public string Name
         {
             get
@@ -36,7 +39,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("职称")]
         public string Rank
         {
             get
@@ -50,7 +53,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("学历")]
         public string Education
         {
             get
@@ -64,7 +67,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("职务")]
         public string Job
         {
             get
@@ -78,7 +81,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("研究方向")]
         public string Resfield
         {
             get
@@ -92,7 +95,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("所属科室")]
         public string Tecoffice
         {
             get
@@ -106,7 +109,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("办公室")]
         public string Office
         {
             get
@@ -120,7 +123,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("办公电话")]
         public string Telephone
         {
             get
@@ -134,7 +137,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("简介")]
         public string Introduce
         {
             get
@@ -148,7 +151,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("系别")]
         public string Department
         {
             get
@@ -163,7 +166,7 @@ namespace Orchard.Xmu.Models
         }
 
 
-
+        [DisplayName("出生年")]
         public string Year
         {
             get
@@ -177,8 +180,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
-
+        [DisplayName("出生月")]
         public string Month
         {
             get
@@ -194,7 +196,7 @@ namespace Orchard.Xmu.Models
 
 
 
-
+        [DisplayName("出生日")]
         public string Day
         {
             get
@@ -208,7 +210,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("出生日期")]
         public DateTime? Birthday
         {
             get
@@ -222,6 +224,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("照片路径")]
         public string Avatar
         {
             get
@@ -236,7 +239,7 @@ namespace Orchard.Xmu.Models
         }
 
 
-
+        [DisplayName("学术观点")]
         public string Perspective
         {
             get
@@ -250,6 +253,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("研究理念")]
         public string Concept
         {
             get
@@ -263,6 +267,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("主要著作")]
         public string Publication
         {
             get
@@ -275,6 +280,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Publication, value);
             }
         }
+        [DisplayName("论文")]
         public string Dissertation
         {
             get
@@ -288,6 +294,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("所受课程")]
         public string Course
         {
             get
@@ -301,7 +308,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-
+        [DisplayName("社会兼职")]
         public string Ptjob
         {
             get
@@ -315,6 +322,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("承担项目")]
         public string Project
         {
             get
@@ -327,6 +335,8 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Project, value);
             }
         }
+
+        [DisplayName("联系方式")]
         public string Contact
         {
             get
@@ -340,6 +350,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("是否显示")]
         public bool IsShow
         {
             get
