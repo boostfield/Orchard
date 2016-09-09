@@ -179,16 +179,17 @@
 </section>
 
 
-<footer id="anniversary-footer" class="anniversary-footer">
-    <div class="container-fluid">
-        @if (Model.Footer != null)
-        {
-            <div class="row">
-                @Zone(Model.Footer)
-            </div>
-        }
-    </div>
-</footer>
+
 </div>
     </div>
+    <footer id="anniversary-footer" class="anniversary-footer">
+        <div class="container-fluid">
+            @if (Model.Footer != null)
+            {
+                <div class="row">
+                    @Zone(Model.Footer)
+                </div>
+            }
+        </div>
+    </footer>
 @tag.EndElement

@@ -14,6 +14,7 @@ using Orchard.UI.Navigation;
 using Orchard.Settings;
 using System.Globalization;
 using Orchard.Core.Navigation.ViewModels;
+using Orchard.Taxonomies.Models;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -69,19 +70,35 @@ namespace Orchard.Xmu.Controllers
             ViewBag.topNews = _frontEndService.TopContentsOfType("CollegeNews")
                   .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();
             ViewBag.news = _contentManager.Query(VersionOptions.Latest, "CollegeNews")
-               .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+               .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                .Slice(0, 8)
                .Select(p => p.As<XmContentPart>()).ToList();
 
             ViewBag.lectures = _contentManager.Query(VersionOptions.Latest, XmContentType.LectureInfo.ContentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+            .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
             .Slice(0, 3)
             .Select(p => p.As<LectureInfoPart>()).ToList();
 
             ViewBag.notice = _contentManager.Query(VersionOptions.Latest, XmContentType.CNNotify.ContentTypeName)
-            .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
+            .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
             .Slice(0,8)
             .Select(p => p.As<CNNotifyPart>()).ToList();
+
+           // var notice1 = ViewBag.notice[0];
+            //var text = (notice1.Fields[0].Terms[0] as TermPart).Name;
+
+            ViewBag.topCoop = _frontEndService.TopContentsOfType("CNCop")
+                  .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();
+
+            ViewBag.coop = _contentManager.Query(VersionOptions.Latest, XmContentType.CNCop.ContentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
+            .Slice(0, 8)
+            .Select(p => p.As<CNCopPart>()).ToList();
+
+            ViewBag.shows = _contentManager.Query(VersionOptions.Latest, XmContentType.CNCollegeShow.ContentTypeName)
+            .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
+            .Slice(0, 4)
+            .Select(p => p.As<CNCollegeShowPart>()).ToList();
 
             return View();
 

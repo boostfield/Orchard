@@ -1,5 +1,6 @@
 ﻿@using Orchard.Xmu;
 @using Orchard.Xmu.Models;
+@using Orchard.Taxonomies.Models;
 @{
     ViewBag.Title = "Index";
     var topBanners = ViewBag.banners;
@@ -7,6 +8,9 @@
     var news = Enumerable.Cast<XmContentPart>((System.Collections.IEnumerable)ViewBag.news);
     var lectures = ViewBag.lectures;
     var notice = ViewBag.notice;
+    var topCoop = ViewBag.topCoop;
+    var coop = ViewBag.coop;
+    var shows = ViewBag.shows;
 }
 
 
@@ -125,7 +129,7 @@
                         <ul class="news list-group">
                             @foreach (var newsItem in news)
                             {
-                                //var typename = newsItem.ContentItem.TypeDefinition.DisplayName;
+                                
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeNews"})" >@newsItem.Title</a></div>
@@ -180,62 +184,16 @@
                 </div>
                 <hr />
                 <ul class="news list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href=""><span class="topic">[院务]</span>关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
+                    @foreach (var noticeItem in notice)
+                    {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
+                                <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                            </div>
 
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于20辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href=""><span class="topic">[院务]</span>关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于2016下半年在职法律硕士提交论文和论文答辩啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-9 name"><a href="">关于2016啊哒哒哒</a></div>
-                            <div class="col-sm-3 time">2016-08-25</div>
-                        </div>
-
-                    </li>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -356,7 +314,7 @@
             <div class="column-larger">
                 <div class="row header">
                     <span class="title">合作交流</span>
-                    <span class="more">更多></span>
+                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CNCop"})">更多></a></span>
                 </div>
                 <hr />
                 <div class="row">
@@ -364,100 +322,64 @@
                         <div id="carousel-cooperation" class="carousel slide carousel-medium" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators carousel-indicators-numbers">
-                                <li data-target="#carousel-cooperation" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-cooperation" data-slide-to="1"></li>
-                                <li data-target="#carousel-cooperation" data-slide-to="2"></li>
+                                @for (var i = 0; i < topCoop.Count; i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-target="#carousel-cooperation" data-slide-to="0" class="active"></li>
+                                    }
+                                    else
+                                    {
+                                        <li data-target="#carousel-cooperation" data-slide-to="@i"></li>
+                                    }
+                                }
+                               
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                                @for (var i = 0; i < topCoop.Count; i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <div class="item active" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
 
-                                    <div class="carousel-caption">
+                                            <div class="carousel-caption">
 
 
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                                <p class="">@topCoop[i].Title</p>
 
-                                    </div>
-                                </div>
-                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="item" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
 
-                                    <div class="carousel-caption">
+                                            <div class="carousel-caption">
 
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                                <p class="">@topCoop[i].Title</p>
 
-                                    </div>
-                                </div>
-                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                                    <div class="carousel-caption">
-
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7 news-container-right">
                         <ul class="news list-group">
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
+                            @foreach (var coopItem in coop)
+                            {
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})"><span class="topic">[社会实践]</span>@coopItem.Title</a></div>
+                                        <div class="col-sm-3 time">@coopItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    </div>
 
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="">[社会实践]知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="">[社会实践]门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href=""><span class="topic">[社会实践]</span>啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="">知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="">嘿嘿</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="">[社会实践]知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-                                    <div class="col-sm-3 time">2016-08-25</div>
-                                </div>
-
-                            </li>
-
+                                </li>
+                            }
+                            
                         </ul>
                     </div>
                 </div>
@@ -467,44 +389,53 @@
             <div class="column-smaller">
                 <div class="row header">
                     <span class="title">学院风采</span>
-                    <span class="more">更多></span>
+                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CNCollegeShow"})">更多></a></span>
                 </div>
                 <hr />
                 <div id="carousel-shows" class="carousel slide carousel-shows" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators carousel-indicators-numbers">
-                        <li data-target="#carousel-shows" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-shows" data-slide-to="1"></li>
-                        <li data-target="#carousel-shows" data-slide-to="2"></li>
+                        @for (var i = 0; i < shows.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                <li data-target="#carousel-shows" data-slide-to="0" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#carousel-shows" data-slide-to="@i"></li>
+                            }
+                        }
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                        @for(var i = 0; i < shows.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="item active" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@shows[i].Id, contentTypeName  = "CNCollegeShow"})';">
 
-                            <div class="carousel-caption">
+                                    <div class="carousel-caption">
 
-                                <p class="title">厦大法律人</p>
-                                <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                        <p class="title">@shows[i].Title</p>
+                                        <p class="">@shows[i].SubTitle</p>
 
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@shows[i].Id, contentTypeName  = "CNCollegeShow"})';">
 
-                            <div class="carousel-caption">
-                                <p class="title">厦大法律人</p>
-                                <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                    <div class="carousel-caption">
+                                        <p class="title">@shows[i].Title</p>
+                                        <p class="">@shows[i].SubTitle</p>
 
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                            <div class="carousel-caption">
-                                <p class="title">厦大法律人</p>
-                                <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
                 </div>
             </div>
