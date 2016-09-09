@@ -411,6 +411,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("参著字数10")]
         public string TextNumber10
         {
             get
