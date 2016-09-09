@@ -250,6 +250,11 @@
     <Content Include="Views\Content-CNAcademicWork.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-CNAward.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-CNProject.SummaryAdmin.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\AcademicPaperPart.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\AcademicWorkPart.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\AwardPart.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\CNTeacherPart.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\ProjectPart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

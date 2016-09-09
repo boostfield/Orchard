@@ -1,6 +1,12 @@
 ﻿<Placement>
   <Place Parts_ENTeacherPart_Edit="Content:1"/>
   <Place Parts_ENCoursePart_Edit="Content:1"/>
+ 
+  <Place Parts_AcademicPaperPart_Edit="Content:1"/>
+  <Place Parts_CNTeacherPart_Edit="Content:1"/>
+  <Place Parts_AcademicWorkPart_Edit="Content:1"/>
+  <Place Parts_AwardPart_Edit="Content:1"/>
+  <Place Parts_ProjectPart_Edit="Content:1"/>
 
 </Placement>
 
