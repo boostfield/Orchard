@@ -144,7 +144,26 @@ namespace Orchard.Xmu.Controllers
             ViewBag.pageSize = pager.PageSize;
             ViewBag.items = data.Item2;
             ViewBag.ContentTypeName = contentTypeName;
-
+            if(contentTypeName.Equals(XmContentType.CNAcademicPaper.ContentTypeName))
+            {
+                ViewBag.TypeDisplayName = XmContentType.CNAcademicPaper.ContentTypeDisplayName;
+            }
+            else if(contentTypeName.Equals(XmContentType.CNAcademicWork.ContentTypeName))
+            {
+                ViewBag.TypeDisplayName = XmContentType.CNAcademicWork.ContentTypeDisplayName;
+            }
+            else if (contentTypeName.Equals(XmContentType.CNAward.ContentTypeName))
+            {
+                ViewBag.TypeDisplayName = XmContentType.CNAward.ContentTypeDisplayName;
+            }
+            else if (contentTypeName.Equals(XmContentType.CNProject.ContentTypeName))
+            {
+                ViewBag.TypeDisplayName = XmContentType.CNProject.ContentTypeDisplayName;
+            }
+            else
+            {
+                ViewBag.TypeDisplayName = "全部";
+            }
             return View();
         }
 
@@ -394,6 +413,45 @@ namespace Orchard.Xmu.Controllers
             ViewBag.ListTitle = listTitle;
         }
 
+        public ActionResult ScienceItem(string ContentTypeName, int Id)
+        {
+            var item = _contentManager.Get(Id);
+            ViewBag.contentTypeName = ContentTypeName;
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
 
+            if (ContentTypeName.Equals(XmContentType.CNAcademicPaper.ContentTypeName))
+            {
+                var part = item.Get<AcademicPaperPart>();
+                ViewBag.item = part;
+                return View();
+            }
+            else if (ContentTypeName.Equals(XmContentType.CNAcademicWork.ContentTypeName))
+            {
+                var part = item.Get<AcademicWorksPart>();
+                ViewBag.item = part;
+                return View();
+
+            }
+            else if (ContentTypeName.Equals(XmContentType.CNAward.ContentTypeName))
+            {
+                var part = item.Get<AwardsPart>();
+                ViewBag.item = part;
+                return View();
+
+            }
+            else if (ContentTypeName.Equals(XmContentType.CNProject.ContentTypeName))
+            {
+                var part = item.Get<ProjectPart>();
+                ViewBag.item = part;
+                return View();
+
+            }
+
+            return View(item);
+        }
     }
 }

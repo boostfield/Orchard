@@ -570,6 +570,9 @@ body #layout-wrapper {
   max-width: 100% !important;
   height: auto !important;
 }
+.home .detail-container .container table tr > td:first-child {
+  width: 160px;
+}
 .home-footer.footer {
   color: white;
 }

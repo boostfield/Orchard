@@ -7,6 +7,7 @@ namespace Orchard.Xmu.ViewModels
 {
     public class ScientificResearchVM
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string ContentTypeName { get; set; }
         public string TypeDisplayName { get; set; }

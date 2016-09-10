@@ -1,4 +1,6 @@
 ﻿@using Orchard.Xmu.ViewModels;
+@using Orchard.Xmu.Models;
+@using Orchard.Xmu;
     @{
 
         var total = ViewBag.total;
@@ -6,60 +8,64 @@
         var page = ViewBag.page;
         var pagesize = ViewBag.pageSize;
         var contentTypeName = ViewBag.ContentTypeName;
-
+        var typeDisplayName = ViewBag.TypeDisplayName;
     }
-@*
-    <div class="container-fluid list-header">
-        <div class="container">
-            <h1>@ViewBag.ListTitle</h1>
-        </div>
+   <div class="container cn-list">
+    <h1>科研成果</h1>
+       <div class="dropdown">
+           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+               @typeDisplayName
+               <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = "all" })" >全部</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = XmContentType.CNAcademicPaper.ContentTypeName })">@XmContentType.CNAcademicPaper.ContentTypeDisplayName</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = XmContentType.CNAcademicWork.ContentTypeName })">@XmContentType.CNAcademicWork.ContentTypeDisplayName</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = XmContentType.CNAward.ContentTypeName })">@XmContentType.CNAward.ContentTypeDisplayName</a></li>
+               <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = XmContentType.CNProject.ContentTypeName })">@XmContentType.CNProject.ContentTypeDisplayName</a></li>
+           </ul>
+       </div>
+    <ul class="list-group">
+        @foreach (var item in items)
+                   {
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="@Url.Action("ScienceItem","XmContent",new { Id=@item.Id, contentTypeName  = item.ContentTypeName})">
+                        <div class="col-sm-9 title-name">@item.Title</div>
+                        
+                    </a>
+                </div>
+
+            </li>
+        }
+    </ul>
+
+    <div class="row">
+        <div id="pagination"></div>
     </div>
-    <div class="container en-list">
-
-        <ul class="list-group">
-            @foreach (var item in items)
-            {
-                string bodyHtml = item.Text;
-                var body = new HtmlString(Html.Excerpt(bodyHtml, 350).ToString().Replace(Environment.NewLine, Environment.NewLine));
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
-                            <div class="p title">@item.Title</div>
-                            <div class="p content">@body</div>
-                            <div class="p time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                        </a>
-                    </div>
-
-                </li>
-            }
-        </ul>
-
-        <div class="row">
-            <div id="pagination"></div>
-        </div>
-    </div>
+</div>
     <script>
-        $('#pagination').bootpag({
-            total: Math.ceil((@total) / 10) ,
-            page:  @page,
-            maxVisible: 10,
-            leaps: false,
-            next: 'Next',
-            prev: 'Prev',
-            firstLastUse: true,
-            first: 'First',
-            last: Math.ceil((@total) / 10),
-        }).on('page', function (event, num) {
+     $('#pagination').bootpag({
+                   total: Math.ceil((@total) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: '下一页',
+        prev: '上一页',
+        firstLastUse: true,
+        first: '首页',
+        last: Math.ceil((@total) / 10),
+    }).on('page', function (event, num) {
+                   window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
+               });
+    </script>
 
-            window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
-        });
-    </script>*@
-<h1> Scientific Research Paging</h1>
-
+@*
+    
 @foreach(var item in items)
 {
     <h1>@item.ContentTypeName</h1>
     <h2>@item.TypeDisplayName</h2>
     <h3>@item.Title</h3>
     <br />
-}
+}*@

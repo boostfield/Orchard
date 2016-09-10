@@ -1,0 +1,326 @@
+﻿@using Orchard.Xmu;
+@using Orchard.Xmu.Models;
+@{ 
+    var part = ViewBag.item;
+    var type = ViewBag.contentTypeName;
+}
+@if (type.Equals(XmContentType.CNAcademicPaper.ContentTypeName))
+{
+    var item = part as AcademicPaperPart;
+    <article>
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@item.Title</h1>
+                <span class="author">作者: @item.Author | </span>
+                <span class="time"> 发表时间: @item.ReleaseDate.Split(' ')[0]</span>
+                
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                <table class="table">
+                    
+                    <tr>
+                        <td>论文题目</td>
+                        <td>@item.Title</td>
+                    </tr>
+                    <tr>
+                        <td>作者姓名</td>
+                        <td>@item.Author</td>
+                    </tr>
+                    <tr>
+                        <td>系别</td>
+                        <td>@item.Department</td>
+                    </tr>
+                    <tr>
+                        <td>年度</td>
+                        <td>@item.Year</td>
+                    </tr>
+                    <tr>
+                        <td>刊物名称</td>
+                        <td>@item.Publication</td>
+                    </tr>
+                    <tr>
+                        <td>刊号</td>
+                        <td>@item.Pid</td>
+                    </tr>
+                    <tr>
+                        <td>刊物期别</td>
+                        <td>@item.Ptime</td>
+                    </tr>
+                    <tr>
+                        <td>出版日期</td>
+                        <td>@item.ReleaseDate.Split(' ')[0]</td>
+                    </tr>
+                    <tr>
+                        <td>刊物级别</td>
+                        <td>@item.Plevel</td>
+                    </tr>
+                    <tr>
+                        <td>重要期刊</td>
+                        <td>@item.ImportantJournal</td>
+                    </tr>
+                    <tr>
+                        <td>合作者顺序</td>
+                        <td>@item.Writertype</td>
+                    </tr>
+                    <tr>
+                        <td>字数</td>
+                        <td>@item.TextNumber</td>
+                    </tr>
+                    <tr>
+                        <td>被转载</td>
+                        <td>@item.RePrint</td>
+                    </tr>
+                    <tr>
+                        <td>何项研究成果</td>
+                        <td>@item.ResearchResult</td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td>@item.Remarks</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </article>
+}
+else if (type.Equals(XmContentType.CNAcademicWork.ContentTypeName))
+{
+    var item = part as AcademicWorksPart;
+    <article>
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@item.Title</h1>
+                <span class="author">作者: @item.Author | </span>
+                <span class="time"> 发表时间: @item.Publishdate.ToLocalTime().ToString("yyyy-MM-dd")</span>
+
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                <table class="table">
+
+                    <tr>
+                        <td>著作名称</td>
+                        <td>@item.Title</td>
+                    </tr>
+                    <tr>
+                        <td>作者姓名</td>
+                        <td>@item.Author</td>
+                    </tr>
+                    <tr>
+                        <td>全书字数</td>
+                        <td>@item.AllTextBumber</td>
+                    </tr>
+                    <tr>
+                        <td>出版单位</td>
+                        <td>@item.Publishunit</td>
+                    </tr>
+                    <tr>
+                        <td>出版时间</td>
+                        <td>@item.Publishdate.ToLocalTime().ToString("yyyy-MM-dd")</td>
+                    </tr>
+                    <tr>
+                        <td>书号</td>
+                        <td>@item.Booknumber</td>
+                    </tr>
+                    <tr>
+                        <td>著作类别</td>
+                        <td>@item.Booktype</td>
+                    </tr>
+                    <tr>
+                        <td>合作者顺序</td>
+                        <td>@item.WriterType</td>
+                    </tr>
+                    <tr>
+                        <td>本人完成字数</td>
+                        <td>@item.FinishNumber</td>
+                    </tr>
+                    <tr>
+                        <td>是否项目成果</td>
+                        <td>@item.IsResult</td>
+                    </tr>
+                    <tr>
+                        <td>项目来源名称</td>
+                        <td>@item.SourceName</td>
+                    </tr>
+                    <tr>
+                        <td>项目名称</td>
+                        <td>@item.ProjectName</td>
+                    </tr>
+                    <tr>
+                        <td>内容简介</td>
+                        <td>@item.Introduce</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>备注</td>
+                        <td>@item.Remarks</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </article>
+}
+else if (type.Equals(XmContentType.CNAward.ContentTypeName))
+{
+    var item = part as AwardsPart;
+    <article>
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@item.AwardName</h1>
+                <span class="author">获奖人: @item.WinnerName | </span>
+                <span class="time"> 获奖时间: @item.AwardDate.Split(' ')[0]</span>
+
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                <table class="table">
+
+                    <tr>
+                        <td>获奖成果名称</td>
+                        <td>@item.AwardName</td>
+                    </tr>
+                    <tr>
+                        <td>获奖者姓名</td>
+                        <td>@item.WinnerName</td>
+                    </tr>
+                    <tr>
+                        <td>系别</td>
+                        <td>@item.BelongDepartment</td>
+                    </tr>
+                    <tr>
+                        <td>年度</td>
+                        <td>@item.Year</td>
+                    </tr>
+                    <tr>
+                        <td>颁奖部门</td>
+                        <td>@item.AwardDepartment</td>
+                    </tr>
+                    <tr>
+                        <td>获奖时间</td>
+                        <td>@item.AwardDate.Split(' ')[0]</td>
+                    </tr>
+                    <tr>
+                        <td>获奖等级</td>
+                        <td>@item.AwardRank</td>
+                    </tr>
+                    <tr>
+                        <td>获奖级别</td>
+                        <td>@item.AwardLevel</td>
+                    </tr>
+                    <tr>
+                        <td>成果项目</td>
+                        <td>@item.ResultProject</td>
+                    </tr>
+                    <tr>
+                        <td>成果形式</td>
+                        <td>@item.ResultForm</td>
+                    </tr>
+                    <tr>
+                        <td>第几作者</td>
+                        <td>@item.Author</td>
+                    </tr>
+                    <tr>
+                        <td>合作者</td>
+                        <td>@item.Collaborator</td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td>@item.Remarks</td>
+                    </tr>
+
+
+                </table>
+            </div>
+
+        </div>
+    </article>
+}
+else if (type.Equals(XmContentType.CNProject.ContentTypeName))
+{
+    var item = part as ProjectPart;
+    <article>
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@item.ProjectTitle</h1>
+                <span class="author">主持人: @item.Host</span>
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                <table class="table">
+
+                    <tr>
+                        <td>课题名称</td>
+                        <td>@item.ProjectTitle</td>
+                    </tr>
+                    <tr>
+                        <td>主持人</td>
+                        <td>@item.Host</td>
+                    </tr>
+                    <tr>
+                        <td>系别</td>
+                        <td>@item.Department</td>
+                    </tr>
+                    <tr>
+                        <td>立项年度</td>
+                        <td>@item.Year</td>
+                    </tr>
+                    <tr>
+                        <td>课题来源</td>
+                        <td>@item.Source</td>
+                    </tr>
+                    <tr>
+                        <td>课题级别</td>
+                        <td>@item.Level</td>
+                    </tr>
+                    <tr>
+                        <td>课题编号</td>
+                        <td>@item.SerialNumber</td>
+                    </tr>
+                    <tr>
+                        <td>资助经费</td>
+                        <td>@item.Aidfunds</td>
+                    </tr>
+                    <tr>
+                        <td>课题组成员</td>
+                        <td>@item.Members</td>
+                    </tr>
+                    <tr>
+                        <td>主持人经费</td>
+                        <td>@item.Aidhost</td>
+                    </tr>
+                    <tr>
+                        <td>课题期限起期</td>
+                        <td>@item.StartDate</td>
+                    </tr>
+                    <tr>
+                        <td>课题期限止期</td>
+                        <td>@item.EndDate</td>
+                    </tr>
+                    <tr>
+                        <td>结题日期</td>
+                        <td>@item.FinishDate</td>
+                    </tr>
+                    <tr>
+                        <td>备注</td>
+                        <td>@item.Remarks</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </article>
+}
