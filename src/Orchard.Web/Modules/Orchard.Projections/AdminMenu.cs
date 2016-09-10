@@ -8,6 +8,7 @@ namespace Orchard.Projections {
         public string MenuName { get { return "admin"; } }
 
         public void GetNavigation(NavigationBuilder builder) {
+            /*
             builder.AddImageSet("projector").Add(T("Queries"), "3",
                 menu => menu
                     .Add(T("Queries"), "1.0",
@@ -15,6 +16,7 @@ namespace Orchard.Projections {
                     .Add(T("Bindings"), "2.0", 
                         bi => bi.Action("Index", "Binding", new { area = "Orchard.Projections" }).Permission(StandardPermissions.SiteOwner).LocalNav())
             );
+            */
         }
     }
 }
