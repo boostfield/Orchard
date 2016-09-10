@@ -1,0 +1,65 @@
+﻿@using Orchard.Xmu.ViewModels;
+    @{
+
+        var total = ViewBag.total;
+        var items = Enumerable.Cast<ScientificResearchVM>((System.Collections.IEnumerable)ViewBag.items);
+        var page = ViewBag.page;
+        var pagesize = ViewBag.pageSize;
+        var contentTypeName = ViewBag.ContentTypeName;
+
+    }
+@*
+    <div class="container-fluid list-header">
+        <div class="container">
+            <h1>@ViewBag.ListTitle</h1>
+        </div>
+    </div>
+    <div class="container en-list">
+
+        <ul class="list-group">
+            @foreach (var item in items)
+            {
+                string bodyHtml = item.Text;
+                var body = new HtmlString(Html.Excerpt(bodyHtml, 350).ToString().Replace(Environment.NewLine, Environment.NewLine));
+                <li class="list-group-item">
+                    <div class="row">
+                        <a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
+                            <div class="p title">@item.Title</div>
+                            <div class="p content">@body</div>
+                            <div class="p time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                        </a>
+                    </div>
+
+                </li>
+            }
+        </ul>
+
+        <div class="row">
+            <div id="pagination"></div>
+        </div>
+    </div>
+    <script>
+        $('#pagination').bootpag({
+            total: Math.ceil((@total) / 10) ,
+            page:  @page,
+            maxVisible: 10,
+            leaps: false,
+            next: 'Next',
+            prev: 'Prev',
+            firstLastUse: true,
+            first: 'First',
+            last: Math.ceil((@total) / 10),
+        }).on('page', function (event, num) {
+
+            window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
+        });
+    </script>*@
+<h1> Scientific Research Paging</h1>
+
+@foreach(var item in items)
+{
+    <h1>@item.ContentTypeName</h1>
+    <h2>@item.TypeDisplayName</h2>
+    <h3>@item.Title</h3>
+    <br />
+}

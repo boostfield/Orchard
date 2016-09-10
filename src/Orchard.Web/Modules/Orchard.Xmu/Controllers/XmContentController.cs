@@ -26,12 +26,14 @@ namespace Orchard.Xmu.Controllers
         private readonly ISiteService _siteService;
         private readonly IContentDefinitionManager _contentDefinitionManager;
         private readonly IItemViewedEventHandler _itemViewedEventHandler;
+        private readonly IScientificResearchService _scientificResearchService;
 
         public XmContentController(IOrchardServices service,
              IFrontEndService frontEndService,
              IContentManager contentManager,
              IContentDefinitionManager contentDefinitionManager,
              IItemViewedEventHandler itemViewedEventHandler,
+             IScientificResearchService scientificResearchService,
             ISiteService siteService)
         {
 
@@ -41,6 +43,7 @@ namespace Orchard.Xmu.Controllers
             _itemViewedEventHandler = itemViewedEventHandler;
             _siteService = siteService;
             _contentDefinitionManager = contentDefinitionManager;
+            _scientificResearchService = scientificResearchService;
         }
 
 
@@ -118,6 +121,39 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+        public ActionResult ScientificResearchPaging(string contentTypeName, PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+           
+            if (contentTypeName.ToLower().Equals("all"))
+            {
+               var data =  _scientificResearchService.PagingForAllTypeOfScientificResearch(pager);
+                ViewBag.total = data.Item1;
+                ViewBag.page = pager.Page;
+                ViewBag.pageSize = pager.PageSize;
+                ViewBag.items = data.Item2;
+                ViewBag.ContentTypeName = contentTypeName;
+
+            }
+            else
+            {
+                GetPagingResult(contentTypeName, pagerParameters);
+
+            }
+            return View();
+        }
+
+
+
+       
 
         public ActionResult Paging(string contentTypeName, PagerParameters pagerParameters)
         {
@@ -245,7 +281,7 @@ namespace Orchard.Xmu.Controllers
             return View();
 
         }
-    
+
 
 
         private void GetPagingResult(string contentTypeName, PagerParameters pagerParameters)
@@ -270,7 +306,7 @@ namespace Orchard.Xmu.Controllers
                 items = q.Slice(pager.GetStartIndex(), pager.PageSize)
                 .Select(p => LectureVM.FromXmContentPart(p.As<LectureInfoPart>())).ToList();
             }
-            
+
             else
             {
                 items = q.Slice(pager.GetStartIndex(), pager.PageSize)
@@ -279,10 +315,10 @@ namespace Orchard.Xmu.Controllers
             }
             var listTitle = string.Empty;
             var contentType = _contentDefinitionManager.GetTypeDefinition(contentTypeName);
-            if(contentType!=null)
+            if (contentType != null)
             {
-                contentType.Settings.TryGetValue("ListTitle", out listTitle); 
-                if(string.IsNullOrEmpty(listTitle))
+                contentType.Settings.TryGetValue("ListTitle", out listTitle);
+                if (string.IsNullOrEmpty(listTitle))
                 {
                     listTitle = contentType.DisplayName;
                 }
