@@ -296,11 +296,16 @@ namespace Orchard.Xmu.Controllers
 
             if (type != 0)
             {
+                
                 var items = _taxonomyService.GetContentItemsQuery(term, "taxotype")
                     .OrderByDescending<CommonPartRecord>(i => i.CreatedUtc)
                     .Slice(pager.GetStartIndex(), pager.PageSize)
                     .Select(p => p.As<CNNotifyPart>());
-                var total = _taxonomyService.GetContentItemsCount(term, "taxotype");
+               /*
+                var items = _taxonomyService.GetContentItems(term,pager.GetStartIndex(),pager.PageSize)
+                    .Select(p => p.As<CNNotifyPart>());
+                    */
+                var total = _taxonomyService.GetContentItemsCount(term);
                 var listTitle = XmContentType.CNNotify.ListTitle;
                 ViewBag.total = total;
                 ViewBag.page = pager.Page;
