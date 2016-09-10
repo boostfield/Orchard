@@ -565,6 +565,7 @@ body #layout-wrapper {
   background-color: white;
   padding-top: 2em;
   padding-bottom: 2em;
+  font-size: 0.7em;
 }
 .home .detail-container .container img {
   max-width: 100% !important;
@@ -1654,6 +1655,7 @@ body #layout-wrapper {
   padding-bottom: 2em;
   padding-left: 140px;
   padding-right: 140px;
+  font-size: 0.7em;
 }
 .anniversary .detail-container .container img {
   max-width: 100% !important;
