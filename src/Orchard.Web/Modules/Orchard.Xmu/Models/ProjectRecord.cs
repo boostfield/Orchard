@@ -26,9 +26,9 @@ namespace Orchard.Xmu.Models
         public virtual string AidSituation { get; set; }//经费聘用情况
         [StringLengthMax]
         public virtual string Remarks { get; set; }//备注
-        public virtual string Inputdate { get; set; }//入库时间
+        //public virtual DateTime Inputdate { get; set; }//入库时间
         public virtual int Clicknumber { get; set; }
-        public virtual string RefreshDate { get; set; }//最后更新时间
+        //public virtual DateTime RefreshDate { get; set; }//最后更新时间
         public virtual string ResultType { get; set; }//成果类别
         public virtual string Member1 { get; set; } //成员1
         public virtual string Funds1 { get; set; }//成员1经费

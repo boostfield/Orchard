@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using NGM.ContentViewCounter.Models;
 using Orchard.ContentManagement;
+using Orchard.Core.Common.Models;
 using Orchard.Data;
 using Orchard.Security;
 using Orchard.Services;
@@ -14,6 +15,7 @@ using Orchard.Xmu.Models;
 using Orchard.Xmu.Service.DataImport.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -328,9 +330,7 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.FinishDate = oldproject.finishdate;
             infopart.AidSituation = oldproject.aidsituation;
             infopart.Remarks = oldproject.remarks;
-            infopart.Inputdate = oldproject.inputdate;
             infopart.Clicknumber = oldproject.clicknumber;
-            infopart.RefreshDate = oldproject.refreshdate;
             infopart.ResultType = oldproject.resulttype;
             infopart.Member1 = oldproject.member1;
             infopart.Member2 = oldproject.member2;
@@ -354,6 +354,7 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Funds10 = oldproject.textnumber10;
 
 
+            info.As<CommonPart>().CreatedUtc = DateTime.ParseExact(oldproject.inputdate, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
 
             _contentManager.Create(info, VersionOptions.Published);
@@ -393,11 +394,11 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Collaborator = oldreward.collaborator;
             infopart.Codes = oldreward.codes;
             infopart.Remarks = oldreward.remarks;
-            infopart.InputDate = oldreward.inputdate;
             infopart.Clicknumber = oldreward.clicknumber;
-            infopart.RefreshDate = oldreward.refreshdate;
             infopart.ResultType = oldreward.resulttype;
 
+
+            info.As<CommonPart>().CreatedUtc = DateTime.ParseExact(oldreward.inputdate, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNAward.ContentTypeDisplayName, info.Id));
@@ -461,11 +462,11 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Keyword = oldwork.keyword;
             infopart.Summary = oldwork.summary;
             infopart.Text = oldwork.text;
-            infopart.InputDate = oldwork.inputdate;
             infopart.ClickNumber = oldwork.clicknumber;
-            infopart.RefreshDate = oldwork.refreshdate;
             infopart.ResultType = oldwork.resulttype;
             infopart.Picture = oldwork.picture;
+
+            info.As<CommonPart>().CreatedUtc = DateTime.ParseExact(oldwork.inputdate, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
 
             _contentManager.Create(info, VersionOptions.Published);
@@ -507,15 +508,14 @@ namespace Orchard.Xmu.Service.DataImport
             infopart.Writertype = oldpaper.writetype;
             infopart.TextNumber = oldpaper.textnumber;
             infopart.Remarks = oldpaper.remarks;
-            infopart.InputDate = oldpaper.inputdate;
             infopart.ClickNumber = oldpaper.clicknumber;
-            infopart.RefreshDate = oldpaper.refreshdate;
             infopart.IsShow = oldpaper.isshow;
             infopart.Achievement = oldpaper.achievement;
             infopart.ImportantJournal = oldpaper.imptjournal;
             infopart.RePrint = oldpaper.reprint;
             infopart.ResearchResult = oldpaper.researchresult;
 
+            info.As<CommonPart>().CreatedUtc = DateTime.ParseExact(oldpaper.inputdate, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
             _contentManager.Create(info, VersionOptions.Published);
             System.Diagnostics.Debug.WriteLine(string.Format(" {0} newId: {1}", XmContentType.CNAcademicPaper.ContentTypeDisplayName, info.Id));

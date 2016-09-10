@@ -50,10 +50,10 @@ namespace Orchard.Xmu.Service.DataImport.Model
         public string summary { get; set; } //摘要
         public string text { get; set; }    //正文
         //todo
-        public DateTime inputdate { get; set; }   //入库时间 
+        public string inputdate { get; set; }   //入库时间 
         public int clicknumber { get; set; }    //点击数
         //todo
-        public DateTime refreshdate { get; set; } //最后更新时间 
+        public string refreshdate { get; set; } //最后更新时间 
         public string resulttype { get; set; }  //成果类别
         public string picture { get; set; } //图片 
 

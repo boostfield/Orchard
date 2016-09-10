@@ -204,18 +204,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        [DisplayName("入库时间")]
-        public string InputDate
-        {
-            get
-            {
-                return Retrieve(i => i.InputDate);
-            }
-            set
-            {
-                Store(i => i.InputDate, value);
-            }
-        }
+ 
 
         [DisplayName("点击数")]
         public int Clicknumber
@@ -230,18 +219,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        [DisplayName("最后更新时间")]
-        public string RefreshDate
-        {
-            get
-            {
-                return Retrieve(i => i.RefreshDate);
-            }
-            set
-            {
-                Store(i => i.RefreshDate, value);
-            }
-        }
+ 
 
         [DisplayName("成果类别")]
         public string ResultType

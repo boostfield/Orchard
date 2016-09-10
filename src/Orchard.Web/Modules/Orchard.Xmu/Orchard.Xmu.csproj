@@ -256,6 +256,8 @@
     <Content Include="Views\EditorTemplates\Parts\CNTeacherPart.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\ProjectPart.cshtml" />
     <Content Include="Views\XmContent\NoticePaging.cshtml" />
+    <Content Include="Views\XmContent\ScientificResearchPaging.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -370,13 +372,16 @@
     <Compile Include="Service\InfoService.cs" />
     <Compile Include="Service\IAdminPagingService.cs" />
     <Compile Include="Service\AdminPagingService.cs" />
+    <Compile Include="Service\IScientificResearchService.cs" />
     <Compile Include="Service\IXmMenuService.cs" />
+    <Compile Include="Service\ScientificResearchService.cs" />
     <Compile Include="Service\XmMenuService.cs" />
     <Compile Include="ViewModels\ApiListResponse.cs" />
     <Compile Include="ViewModels\DonationVM.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\LectureVM.cs" />
     <Compile Include="ViewModels\TermName.cs" />
+    <Compile Include="ViewModels\ScientificResearchVM.cs" />
     <Compile Include="ViewModels\XmContentVM.cs" />
     <Compile Include="XmContentType.cs" />
     <Compile Include="XmTaxonomyNames.cs" />

@@ -51,7 +51,7 @@ namespace Orchard.Xmu.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            
+
             ViewBag.hello = _service.WorkContext.CurrentSite.SiteName;
             ViewBag.items = _frontEndService.LatestContentOfType("CollegeAffairsNotify")
                 .Select(p => p.As<XmContentPart>()).ToList();
@@ -81,10 +81,10 @@ namespace Orchard.Xmu.Controllers
 
             ViewBag.notice = _contentManager.Query(VersionOptions.Latest, XmContentType.CNNotify.ContentTypeName)
             .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
-            .Slice(0,8)
+            .Slice(0, 8)
             .Select(p => p.As<CNNotifyPart>()).ToList();
 
-           // var notice1 = ViewBag.notice[0];
+            // var notice1 = ViewBag.notice[0];
             //var text = (notice1.Fields[0].Terms[0] as TermPart).Name;
 
             ViewBag.topCoop = _frontEndService.TopContentsOfType("CNCop")
@@ -99,6 +99,16 @@ namespace Orchard.Xmu.Controllers
             .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
             .Slice(0, 4)
             .Select(p => p.As<CNCollegeShowPart>()).ToList();
+
+
+            ViewBag.sciences = _contentManager.Query(VersionOptions.Latest,
+                new string[] { XmContentType.CNAcademicPaper.ContentTypeName,
+                                XmContentType.CNAcademicWork.ContentTypeName,
+                                XmContentType.CNAward.ContentTypeName,
+                                XmContentType.CNProject.ContentTypeName})
+               .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
+               .Slice(0,10)
+               .ToList();
 
             return View();
 

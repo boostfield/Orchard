@@ -26,9 +26,9 @@ namespace Orchard.Xmu.Models
         public virtual string Codes { get; set; }   //代码 
         [StringLengthMax]
         public virtual string Remarks { get; set; } //备注
-        public virtual string InputDate { get; set; }//入库时间
+        //public virtual DateTime InputDate { get; set; }//入库时间
         public virtual int Clicknumber { get; set; }
-        public virtual string RefreshDate { get; set; }//最后更新时间
+        //public virtual DateTime RefreshDate { get; set; }//最后更新时间
         public virtual string ResultType { get; set; }  //成果类别
 
         public virtual IList<CNTeacherPartRecord> RecordCNTeachers { get; set; }

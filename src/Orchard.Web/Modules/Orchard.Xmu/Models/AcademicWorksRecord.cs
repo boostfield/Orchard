@@ -56,9 +56,9 @@ namespace Orchard.Xmu.Models
         public virtual string Summary { get; set; } //摘要
         [StringLengthMax]
         public virtual string Text { get; set; }    //正文
-        public virtual DateTime InputDate { get; set; }   //入库时间 
+        //public virtual DateTime InputDate { get; set; }   //入库时间 
         public virtual int ClickNumber { get; set; }    //点击数
-        public virtual DateTime RefreshDate { get; set; } //最后更新时间 
+        //public virtual DateTime RefreshDate { get; set; } //最后更新时间 
         public virtual string ResultType { get; set; }  //成果类别
         public virtual string Picture { get; set; } //图片 
 
