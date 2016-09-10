@@ -132,28 +132,21 @@ namespace Orchard.Xmu.Controllers
                 };
             }
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-           
-            if (contentTypeName.ToLower().Equals("all"))
-            {
-               var data =  _scientificResearchService.PagingForAllTypeOfScientificResearch(pager);
-                ViewBag.total = data.Item1;
-                ViewBag.page = pager.Page;
-                ViewBag.pageSize = pager.PageSize;
-                ViewBag.items = data.Item2;
-                ViewBag.ContentTypeName = contentTypeName;
 
-            }
-            else
-            {
-                GetPagingResult(contentTypeName, pagerParameters);
 
-            }
+            var data = _scientificResearchService.PagingForAllTypeOfScientificResearch(contentTypeName, pager);
+            ViewBag.total = data.Item1;
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.items = data.Item2;
+            ViewBag.ContentTypeName = contentTypeName;
+
             return View();
         }
 
 
 
-       
+
 
         public ActionResult Paging(string contentTypeName, PagerParameters pagerParameters)
         {

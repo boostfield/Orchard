@@ -23,10 +23,11 @@ namespace Orchard.Xmu.Service
         {
             _contentManager = contentManager;
         }
-        
-        public Tuple<int,IEnumerable<ScientificResearchVM>> PagingForAllTypeOfScientificResearch(Pager pager)
+
+        public Tuple<int, IEnumerable<ScientificResearchVM>> PagingForAllTypeOfScientificResearch(string contentTypeName, Pager pager)
         {
-            var q = _contentManager.Query(VersionOptions.Latest, allTypes)
+
+            var q = _contentManager.Query(VersionOptions.Latest, contentTypeName.ToLower().Equals("all") ? allTypes : new string[] { contentTypeName})
               .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc);
             var total = q.Count();
             var items = q.Slice(pager.GetStartIndex(), pager.PageSize)

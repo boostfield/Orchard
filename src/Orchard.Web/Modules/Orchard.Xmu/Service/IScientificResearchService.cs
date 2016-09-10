@@ -12,7 +12,7 @@ namespace Orchard.Xmu.Service
 {
     public interface IScientificResearchService : IDependency
     {
-        Tuple<int, IEnumerable<ScientificResearchVM>> PagingForAllTypeOfScientificResearch(Pager pager);
+        Tuple<int, IEnumerable<ScientificResearchVM>> PagingForAllTypeOfScientificResearch(string contentTypeName,Pager pager);
 
     }
 }
