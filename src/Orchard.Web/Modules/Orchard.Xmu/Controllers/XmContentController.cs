@@ -4,6 +4,7 @@ using Orchard.ContentManagement.Aspects;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Settings;
+using Orchard.Taxonomies.Services;
 using Orchard.Themes;
 using Orchard.UI.Navigation;
 using Orchard.Xmu.Models;
@@ -21,6 +22,7 @@ namespace Orchard.Xmu.Controllers
     public class XmContentController : Controller
     {
         private readonly IOrchardServices _service;
+        private readonly ITaxonomyService _taxonomyService;
         private readonly IFrontEndService _frontEndService;
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
@@ -29,6 +31,7 @@ namespace Orchard.Xmu.Controllers
 
         public XmContentController(IOrchardServices service,
              IFrontEndService frontEndService,
+             ITaxonomyService taxonomyService,
              IContentManager contentManager,
              IContentDefinitionManager contentDefinitionManager,
              IItemViewedEventHandler itemViewedEventHandler,
@@ -36,6 +39,7 @@ namespace Orchard.Xmu.Controllers
         {
 
             _service = service;
+            _taxonomyService = taxonomyService;
             _frontEndService = frontEndService;
             _contentManager = contentManager;
             _itemViewedEventHandler = itemViewedEventHandler;
@@ -245,7 +249,69 @@ namespace Orchard.Xmu.Controllers
             return View();
 
         }
-    
+
+        public ActionResult NoticePaging(PagerParameters pagerParameters, int type)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10,
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var taxonomy = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
+            var term = _taxonomyService.GetTerm(type);
+
+            if (type != 0)
+            {
+                var items = _taxonomyService.GetContentItemsQuery(term, "taxotype")
+                    .OrderByDescending<CommonPartRecord>(i => i.CreatedUtc)
+                    .Slice(pager.GetStartIndex(), pager.PageSize)
+                    .Select(p => p.As<CNNotifyPart>());
+                var total = _taxonomyService.GetContentItemsCount(term, "taxotype");
+                var listTitle = XmContentType.CNNotify.ListTitle;
+                ViewBag.total = total;
+                ViewBag.page = pager.Page;
+                ViewBag.items = items;
+                ViewBag.pageSize = pager.PageSize;
+                ViewBag.ContentTypeName = XmContentType.CNNotify.ContentTypeName;
+                ViewBag.ListTitle = listTitle;
+            } else
+            {
+                var q = _contentManager.Query(VersionOptions.Latest, XmContentType.CNNotify.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(i => i.CreatedUtc);
+                var total = q.Count();
+                var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                    .Select(p => p.As<CNNotifyPart>()); ;
+
+                var listTitle = XmContentType.CNNotify.ListTitle;
+
+                ViewBag.total = total;
+                ViewBag.page = pager.Page;
+                ViewBag.items = items;
+                ViewBag.pageSize = pager.PageSize;
+                ViewBag.ContentTypeName = XmContentType.CNNotify.ContentTypeName;
+                ViewBag.ListTitle = listTitle;
+
+            }
+
+            ViewBag.terms = _taxonomyService.GetTerms(taxonomy.Id)
+                .Select(i => new TermName
+                {
+                    Id = i.Id,
+                    Name = i.Name
+                }).ToList();
+            ViewBag.type = type;
+            ViewBag.typeName = type != 0 ? term.Name : "全部";
+
+
+
+
+            return View();
+
+        }
 
 
         private void GetPagingResult(string contentTypeName, PagerParameters pagerParameters)

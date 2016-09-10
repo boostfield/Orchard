@@ -255,6 +255,7 @@
     <Content Include="Views\EditorTemplates\Parts\AwardPart.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\CNTeacherPart.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\ProjectPart.cshtml" />
+    <Content Include="Views\XmContent\NoticePaging.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -375,6 +376,7 @@
     <Compile Include="ViewModels\DonationVM.cs" />
     <Compile Include="ViewModels\ItemListViewModel.cs" />
     <Compile Include="ViewModels\LectureVM.cs" />
+    <Compile Include="ViewModels\TermName.cs" />
     <Compile Include="ViewModels\XmContentVM.cs" />
     <Compile Include="XmContentType.cs" />
     <Compile Include="XmTaxonomyNames.cs" />
@@ -410,7 +412,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50214</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

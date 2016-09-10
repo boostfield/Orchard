@@ -180,19 +180,33 @@
             <div class="column-medium">
                 <div class="row header">
                     <span class="title">通知公告</span>
-                    <span class="more">更多></span>
+                    <span class="more"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type=0})">更多></a></span>
                 </div>
                 <hr />
                 <ul class="news list-group">
                     @foreach (var noticeItem in notice)
                     {
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
-                                <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                            </div>
+                        if (noticeItem.Fields.Count > 0 && noticeItem.Fields[0].Terms.Count > 0)
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
+                                    <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                </div>
 
-                        </li>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-9 name"><a href="">@noticeItem.Title</a></div>
+                                    <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                </div>
+
+                            </li>
+                        }
+
                     }
                 </ul>
             </div>
@@ -201,7 +215,7 @@
             <div class="column-medium">
                 <div class="row header">
                     <span class="title">科研成果</span>
-                    <span class="more">更多></span>
+                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "AcademicWorks"})">更多></a></span>
                 </div>
                 <hr />
                 <div class="row">
