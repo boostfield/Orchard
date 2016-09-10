@@ -46,6 +46,7 @@ namespace Orchard.Xmu.Service
             var title = string.Empty;
             var contentType = contentItem.ContentType;
             var displayName = contentItem.TypeDefinition.DisplayName;
+            var id = contentItem.Id;
 
             foreach (var type in allTypes)
             {
@@ -80,6 +81,7 @@ namespace Orchard.Xmu.Service
 
             return new ScientificResearchVM
             {
+                Id = id,
                 Title = title,
                 ContentTypeName = contentType,
                 TypeDisplayName = displayName

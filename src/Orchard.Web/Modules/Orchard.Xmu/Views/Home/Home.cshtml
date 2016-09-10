@@ -1,6 +1,7 @@
 ﻿@using Orchard.Xmu;
 @using Orchard.Xmu.Models;
 @using Orchard.Taxonomies.Models;
+@using Orchard.Xmu.ViewModels;
 @{
     ViewBag.Title = "Index";
     var topBanners = ViewBag.banners;
@@ -11,6 +12,7 @@
     var topCoop = ViewBag.topCoop;
     var coop = ViewBag.coop;
     var shows = ViewBag.shows;
+    var sciences = Enumerable.Cast<ScientificResearchVM>((System.Collections.IEnumerable)ViewBag.sciences);
 }
 
 
@@ -190,7 +192,7 @@
                         {
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 name"><a href=""><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
+                                    <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})"><span class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</span>@noticeItem.Title</a></div>
                                     <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
@@ -200,7 +202,7 @@
                         {
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 name"><a href="">@noticeItem.Title</a></div>
+                                    <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
                                     <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
@@ -215,7 +217,7 @@
             <div class="column-medium">
                 <div class="row header">
                     <span class="title">科研成果</span>
-                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "AcademicWorks"})">更多></a></span>
+                    <span class="more"><a href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "all"})">更多></a></span>
                 </div>
                 <hr />
                 <div class="row">
@@ -260,63 +262,17 @@
                     </div>
                     <div class="col-md-7 news-container-right">
                         <ul class="news list-group">
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
+                            @foreach (var science in sciences)
+                            {
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="name"><a href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})"><span class="topic">@String.Format("[{0}]", science.TypeDisplayName)</span>@science.Title</a></div>
 
-                                </div>
+                                    </div>
 
-                            </li>
-
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="name"><a href=""><span class="topic">[社会实践]</span>知乎者也队赴厦门中院啊多久啊dna觉得，吗</a></div>
-
-                                </div>
-
-                            </li>
+                                </li>
+                            }
+                            
                         </ul>
                     </div>
                 </div>

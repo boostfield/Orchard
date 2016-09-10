@@ -26,8 +26,10 @@ namespace Orchard.Xmu.Controllers
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
         private readonly IXmMenuService _xmMenuService;
+        private readonly IScientificResearchService _scientificService;
 
         public HomeController(IOrchardServices service,
+            IScientificResearchService scientificService,
              IFrontEndService frontEndService,
              IContentManager contentManager,
             ISiteService siteService,
@@ -37,6 +39,7 @@ namespace Orchard.Xmu.Controllers
             )
         {
             _service = service;
+            _scientificService = scientificService;
             _frontEndService = frontEndService;
             _contentManager = contentManager;
             _siteService = siteService;
@@ -100,11 +103,17 @@ namespace Orchard.Xmu.Controllers
             .Slice(0, 4)
             .Select(p => p.As<CNCollegeShowPart>()).ToList();
 
+            var pagerParameters = new PagerParameters
+            {
+                Page = 1,
+                PageSize = 8
+            };
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            ViewBag.sciences = _scientificService.PagingForAllTypeOfScientificResearch("all", pager).Item2;
 
-            ViewBag.sciences = _frontEndService.TopOfScientificResearchType();
+            ViewBag.topsciences = _frontEndService.TopOfScientificResearchType();
 
-
-
+ 
             return View();
 
             
