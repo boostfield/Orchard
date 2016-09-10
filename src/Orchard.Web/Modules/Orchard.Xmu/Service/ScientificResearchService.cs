@@ -14,7 +14,7 @@ namespace Orchard.Xmu.Service
     {
         private IContentManager _contentManager;
 
-        private string[] allTypes = new string[] { XmContentType.CNAcademicPaper.ContentTypeName,
+        private static string[] allTypes = new string[] { XmContentType.CNAcademicPaper.ContentTypeName,
                                                 XmContentType.CNAcademicWork.ContentTypeName,
                                                 XmContentType.CNAward.ContentTypeName,
                                                 XmContentType.CNProject.ContentTypeName};
@@ -40,7 +40,7 @@ namespace Orchard.Xmu.Service
 
 
 
-        private ScientificResearchVM FromContentItem(ContentItem contentItem)
+        public static ScientificResearchVM FromContentItem(ContentItem contentItem)
         {
            
             var title = string.Empty;

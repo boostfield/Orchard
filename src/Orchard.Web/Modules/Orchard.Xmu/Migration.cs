@@ -929,6 +929,33 @@ namespace Orchard.Xmu
 
             return 21;
         }
+
+
+        public int UpdateFrom21()
+        {
+            ContentDefinitionManager.AlterPartDefinition(typeof(ScientificResearchCommonPart).Name,
+              cfg =>
+              cfg.WithField("istop",
+                       b => b.OfType("BooleanField")
+                           .WithDisplayName("置顶")
+                           .WithSetting("BooleanFieldSettings.DefaultValue", "False")
+                           )
+             );
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNProject.ContentTypeName,
+                cfg => cfg.WithPart(typeof(ScientificResearchCommonPart).Name));
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAcademicPaper.ContentTypeName,
+                cfg => cfg.WithPart(typeof(ScientificResearchCommonPart).Name));
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAcademicWork.ContentTypeName,
+                cfg => cfg.WithPart(typeof(ScientificResearchCommonPart).Name));
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CNAward.ContentTypeName,
+                cfg => cfg.WithPart(typeof(ScientificResearchCommonPart).Name));
+
+            return 22;
+        }
  
     }
 }

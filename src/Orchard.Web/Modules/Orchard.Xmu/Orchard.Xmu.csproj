@@ -350,6 +350,7 @@
     <Compile Include="Models\ProjectPart.cs" />
     <Compile Include="Models\ProjectRecord.cs" />
     <Compile Include="Models\CNTeacherPartRecord.cs" />
+    <Compile Include="Models\ScientificResearchCommonPart.cs" />
     <Compile Include="Models\TeacherCourseRelationRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />

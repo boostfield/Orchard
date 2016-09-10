@@ -3,6 +3,7 @@ using Orchard.ContentManagement.Records;
 using Orchard.Core.Common.Models;
 using Orchard.Projections.Models;
 using Orchard.Xmu.Models;
+using Orchard.Xmu.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,21 @@ namespace Orchard.Xmu.Service
               
         }
 
+        public IList<ScientificResearchVM> TopOfScientificResearchType()
+        {
+            var q = _contentManager.HqlQuery()
+                .ForType(new string[] { XmContentType.CNProject.ContentTypeName, XmContentType.CNAcademicPaper.ContentTypeName,
+                                        XmContentType.CNAcademicWork.ContentTypeName,XmContentType.CNAward.ContentTypeName})
+                .ForVersion(VersionOptions.Latest)
+                 .Where(
+                 x => x.ContentPartRecord<FieldIndexPartRecord>().Property("IntegerFieldIndexRecords", "ScientificResearchCommonPartistop"),
+                 z => z.And(y => y.Eq("PropertyName", "ScientificResearchCommonPart.istop."), t => t.Gt("Value", (long)0))
+                )
+                .Slice(0, 5)
+                .Select(i => ScientificResearchService.FromContentItem(i))
+                .ToList();
+            return q;
+        }
 
         public IList<ContentItem> TopContentsOfType(string contentTypeName)
         {

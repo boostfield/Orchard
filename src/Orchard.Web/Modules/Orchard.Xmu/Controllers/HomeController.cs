@@ -101,14 +101,9 @@ namespace Orchard.Xmu.Controllers
             .Select(p => p.As<CNCollegeShowPart>()).ToList();
 
 
-            ViewBag.sciences = _contentManager.Query(VersionOptions.Latest,
-                new string[] { XmContentType.CNAcademicPaper.ContentTypeName,
-                                XmContentType.CNAcademicWork.ContentTypeName,
-                                XmContentType.CNAward.ContentTypeName,
-                                XmContentType.CNProject.ContentTypeName})
-               .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
-               .Slice(0,10)
-               .ToList();
+            ViewBag.sciences = _frontEndService.TopOfScientificResearchType();
+
+
 
             return View();
 
