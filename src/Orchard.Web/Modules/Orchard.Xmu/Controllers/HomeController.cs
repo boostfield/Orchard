@@ -103,7 +103,15 @@ namespace Orchard.Xmu.Controllers
             .Slice(0, 4)
             .Select(p => p.As<CNCollegeShowPart>()).ToList();
 
+            var pagerParameters = new PagerParameters
+            {
+                Page = 1,
+                PageSize = 8
+            };
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            ViewBag.sciences = _scientificService.PagingForAllTypeOfScientificResearch("all", pager).Item2;
 
+            /*
             ViewBag.sciences = _contentManager.Query(VersionOptions.Latest,
                 new string[] { XmContentType.CNAcademicPaper.ContentTypeName,
                                 XmContentType.CNAcademicWork.ContentTypeName,
@@ -112,6 +120,7 @@ namespace Orchard.Xmu.Controllers
                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                .Slice(0,10)
                .ToList();
+               */
             return View();
 
             
