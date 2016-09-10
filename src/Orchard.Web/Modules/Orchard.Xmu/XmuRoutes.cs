@@ -669,14 +669,17 @@ namespace Orchard.Xmu
 
                   new RouteDescriptor
                 {
+                  Priority = 30,
 
             Route = new Route(
+             "NoticePaging/{type}",
              new RouteValueDictionary {
 
                  { "area", "Orchard.Xmu"},
 
                  { "controller", "XmContent"},
 
+                 { "action", "NoticePaging"}
 
                                        },
 
