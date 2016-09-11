@@ -261,8 +261,8 @@
     <Content Include="Views\EditorTemplates\Parts\ProjectPart.cshtml" />
     <Content Include="Views\XmContent\NoticePaging.cshtml" />
     <Content Include="Views\XmContent\ScientificResearchPaging.cshtml" />
-
     <Content Include="Views\XmContent\ScienceItem.cshtml" />
+    <Content Include="Views\XmContent\ShowPaging.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

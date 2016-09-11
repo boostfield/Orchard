@@ -732,6 +732,28 @@ namespace Orchard.Xmu
                                           {"area", "Orchard.Xmu"}
                                        },
              new MvcRouteHandler())
+                },
+                  new RouteDescriptor
+                {
+                  Priority = 22,
+
+            Route = new Route(
+             "ShowPaging",
+             new RouteValueDictionary {
+
+                 { "area", "Orchard.Xmu"},
+
+                 { "controller", "XmContent"},
+
+                 { "action", "ShowPaging"}
+
+                                       },
+
+             new RouteValueDictionary(),
+             new RouteValueDictionary {
+                                          {"area", "Orchard.Xmu"}
+                                       },
+             new MvcRouteHandler())
                 }
             };
 

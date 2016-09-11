@@ -371,7 +371,7 @@
             <div class="column-smaller">
                 <div class="row header">
                     <span class="title">学院风采</span>
-                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CNCollegeShow"})">更多></a></span>
+                    <span class="more"><a href="@Url.Action("ShowPaging","XmContent",new { page = 1,pageSize=10})">更多></a></span>
                 </div>
                 <hr />
                 <div id="carousel-shows" class="carousel slide carousel-shows" data-ride="carousel">
@@ -396,7 +396,7 @@
                         {
                             if (i == 0)
                             {
-                                <div class="item active" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@shows[i].Id, contentTypeName  = "CNCollegeShow"})';">
+                                <div class="item active" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
 
                                     <div class="carousel-caption">
 
@@ -408,7 +408,7 @@
                             }
                             else
                             {
-                                <div class="item" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@shows[i].Id, contentTypeName  = "CNCollegeShow"})';">
+                                <div class="item" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
 
                                     <div class="carousel-caption">
                                         <p class="title">@shows[i].Title</p>
