@@ -256,6 +256,10 @@ body #layout-wrapper {
   background-repeat: no-repeat;
   background-size: 13px 13px;
 }
+.home .column .list-group .list-group-item .name a.title {
+  background-image: none;
+  padding-left: 0;
+}
 .home .column .list-group .list-group-item .name .topic {
   color: #2D44AA;
 }
