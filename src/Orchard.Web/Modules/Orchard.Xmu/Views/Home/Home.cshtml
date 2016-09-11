@@ -355,7 +355,7 @@
                             {
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})"><span class="topic">[社会实践]</span>@coopItem.Title</a></div>
+                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})">@coopItem.Title</a></div>
                                         <div class="col-sm-3 time">@coopItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                     </div>
 
