@@ -400,6 +400,21 @@ namespace Orchard.Xmu.Models
             set { _projects.Value = value; }
         }
 
-
+        public IList<string> ProjectIds
+        {
+            get; set;
+        }
+        public IList<string> AwardIds
+        {
+            get; set;
+        }
+        public IList<string> WorkIds
+        {
+            get; set;
+        }
+        public IList<string> PaperIds
+        {
+            get; set;
+        }
     }
 }

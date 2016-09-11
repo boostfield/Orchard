@@ -10,6 +10,16 @@ namespace Orchard.Xmu.Models
 {
     public class AcademicWorksPart:ContentPart<AcademicWorksRecord>
     {
+        public string ImageAddress
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = content.AcademicWorksPart.image.FirstMediaUrl;
+                return v;
+            }
+        }
+
         public string Tid
         {
             get

@@ -47,19 +47,21 @@ namespace Orchard.Xmu.Service
             var contentType = contentItem.ContentType;
             var displayName = contentItem.TypeDefinition.DisplayName;
             var id = contentItem.Id;
-
+            var imageAddress = string.Empty;
             foreach (var type in allTypes)
             {
                 if (contentItem.ContentType.Equals(XmContentType.CNAcademicPaper.ContentTypeName))
                 {
                     var part = contentItem.Get<AcademicPaperPart>();
                     title = part.Title;
+                    imageAddress = part.ImageAddress;
                     break;
                 }
                 else if (contentItem.ContentType.Equals(XmContentType.CNAcademicWork.ContentTypeName))
                 {
                     var part = contentItem.Get<AcademicWorksPart>();
                     title = part.Title;
+                    imageAddress = part.ImageAddress;
                     break;
 
                 }
@@ -67,6 +69,7 @@ namespace Orchard.Xmu.Service
                 {
                     var part = contentItem.Get<AwardsPart>();
                     title = part.AwardName;
+                    imageAddress = part.ImageAddress;
                     break;
 
                 }
@@ -74,6 +77,7 @@ namespace Orchard.Xmu.Service
                 {
                     var part = contentItem.Get<ProjectPart>();
                     title = part.ProjectTitle;
+                    imageAddress = part.ImageAddress;
                     break;
 
                 }
@@ -84,7 +88,8 @@ namespace Orchard.Xmu.Service
                 Id = id,
                 Title = title,
                 ContentTypeName = contentType,
-                TypeDisplayName = displayName
+                TypeDisplayName = displayName,
+                ImageAddress = imageAddress
             };
         }
     }

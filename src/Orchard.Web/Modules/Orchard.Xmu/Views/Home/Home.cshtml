@@ -13,6 +13,7 @@
     var coop = ViewBag.coop;
     var shows = ViewBag.shows;
     var sciences = Enumerable.Cast<ScientificResearchVM>((System.Collections.IEnumerable)ViewBag.sciences);
+    var topSciences = Enumerable.Cast<ScientificResearchVM>((System.Collections.IEnumerable)ViewBag.topsciences).ToList();
 }
 
 
@@ -224,39 +225,50 @@
                     <div class="col-md-5 news-container-left">
                         <div id="carousel-notice" class="carousel slide carousel-medium" data-ride="carousel">
                             <!-- Indicators -->
+                            
                             <ol class="carousel-indicators carousel-indicators-numbers">
-                                <li data-target="#carousel-notice" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-notice" data-slide-to="1"></li>
-                                <li data-target="#carousel-notice" data-slide-to="2"></li>
+                                @for(var i = 0; i < topSciences.Count(); i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li data-target="#carousel-notice" data-slide-to="0" class="active"></li>
+                                    }
+                                    else
+                                    {
+                                        <li data-target="#carousel-notice" data-slide-to="@i"></li>
+                                    }
+                                }
+                               
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
-                                <div class="item active" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                                @for (var i = 0; i < topSciences.Count(); i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <div class="item active" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName})';">
 
-                                    <div class="carousel-caption">
+                                            <div class="carousel-caption">
 
 
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                                <p class="">@topSciences[i].Title</p>
 
-                                    </div>
-                                </div>
-                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="item" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName })';">
 
-                                    <div class="carousel-caption">
+                                            <div class="carousel-caption">
 
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
+                                                <p class="">@topSciences[i].Title</p>
 
-                                    </div>
-                                </div>
-                                <div class="item" style="background-image: url(@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/top-bg.png")));">
-
-                                    <div class="carousel-caption">
-
-                                        <p class="">关于2017年春季学期“SAF交流生项目”宣讲会通知</p>
-
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>

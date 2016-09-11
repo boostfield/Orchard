@@ -9,6 +9,15 @@ namespace Orchard.Xmu.Models
 {
     public class ProjectPart:ContentPart<ProjectRecord>
     {
+        public string ImageAddress
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var v = content.ProjectPart.image.FirstMediaUrl;
+                return v;
+            }
+        }
         public string Tid
         {
             get

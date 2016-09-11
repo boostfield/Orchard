@@ -91,3 +91,32 @@
     @Html.RadioButtonFor(m => m.IsShow, "true")是
     @Html.RadioButtonFor(m => m.IsShow, "false")否
 </fieldset>
+
+@Html.Label("论文")
+<select class="teacher-paper" style="width: 400px;" multiple="multiple" name="CNTeacherPart.PaperIds">
+    @foreach (var paper in Model.Papers)
+    {
+        @Html.SelectOption(paper.Id, true, paper.Title);
+    }
+</select>
+@Html.Label("著作")
+<select class="teacher-work" style="width: 400px;" multiple="multiple" name="CNTeacherPart.WorkIds">
+    @foreach (var work in Model.Works)
+    {
+        @Html.SelectOption(work.Id, true, work.Title);
+    }
+</select>
+@Html.Label("获奖成果")
+<select class="teacher-award" style="width: 400px;" multiple="multiple" name="CNTeacherPart.AwardIds">
+    @foreach (var award in Model.Awards)
+    {
+        @Html.SelectOption(award.Id, true, award.AwardName);
+    }
+</select>
+@Html.Label("承担课题")
+<select class="teacher-project" style="width: 400px;" multiple="multiple" name="CNTeacherPart.ProjectIds">
+    @foreach (var project in Model.Projects)
+    {
+        @Html.SelectOption(project.Id, true, project.ProjectTitle);
+    }
+</select>
