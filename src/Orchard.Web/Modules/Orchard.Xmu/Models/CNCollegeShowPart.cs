@@ -54,7 +54,11 @@ namespace Orchard.Xmu.Models
             set { this.As<ICommonPart>().PublishedUtc = value; }
         }
 
-
+        public DateTime? CreatedUtc
+        {
+            get { return this.As<ICommonPart>().CreatedUtc; }
+            set { this.As<ICommonPart>().CreatedUtc = value; }
+        }
 
         public string Author
         {

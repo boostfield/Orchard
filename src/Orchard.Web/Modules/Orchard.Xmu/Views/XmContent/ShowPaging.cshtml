@@ -1,0 +1,46 @@
+﻿@{
+
+    var total = ViewBag.total;
+    var items = ViewBag.items;
+    var page = ViewBag.page;
+    var pagesize = ViewBag.pageSize;
+    var contentTypeName = ViewBag.ContentTypeName;
+
+}
+
+<div class="container cn-list">
+    <h1>@ViewBag.ListTitle</h1>
+    <ul class="list-group">
+        @foreach (var item in items)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="item.LinkAddress">
+                        <div class="col-sm-9 title-name">@item.Title</div>
+                        <div class="col-sm-3 title-time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                    </a>
+                </div>
+
+            </li>
+        }
+    </ul>
+
+    <div class="row">
+        <div id="pagination"></div>
+    </div>
+</div>
+<script>
+    $('#pagination').bootpag({
+        total: Math.ceil((@total) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: '下一页',
+        prev: '上一页',
+        firstLastUse: true,
+        first: '首页',
+        last: Math.ceil((@total) / 10),
+    }).on('page', function (event, num) {
+        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
+    });
+</script>

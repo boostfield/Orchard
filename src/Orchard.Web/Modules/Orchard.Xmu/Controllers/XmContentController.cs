@@ -299,6 +299,36 @@ namespace Orchard.Xmu.Controllers
         }
 
 
+        public ActionResult ShowPaging(PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.CNCollegeShow.ContentTypeName)
+             .OrderByDescending<CommonPartRecord>(i => i.PublishedUtc);
+            var total = q.Count();
+            var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
+                .Select(p => p.As<CNCollegeShowPart>()); ;
+
+            var listTitle = XmContentType.CNCollegeShow.ListTitle;
+
+            ViewBag.total = total;
+            ViewBag.page = pager.Page;
+            ViewBag.items = items;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.ContentTypeName = XmContentType.CNCollegeShow.ContentTypeName;
+            ViewBag.ListTitle = listTitle;
+
+            return View();
+
+        }
+
         public ActionResult NoticePaging(PagerParameters pagerParameters, int type)
         {
             if (pagerParameters == null)
