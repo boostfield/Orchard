@@ -20,11 +20,6 @@ namespace Orchard.Xmu.Controllers
 
 
 
-        public ActionResult BuildCNNotifyCategory()
-        {
-            _dataImporter.BuildCNNotifyCategory();
-            return View("Index");
-        }
 
 
         public ActionResult ImportCNTeacher()
@@ -74,6 +69,14 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+
+        public ActionResult BuildCNNotifyCategory()
+        {
+            _dataImporter.BuildCNNotifyCategory();
+            return View("Index");
+        }
+
+
         public ActionResult All()
         {
             _dataImporter.ImportCope();
@@ -87,6 +90,12 @@ namespace Orchard.Xmu.Controllers
             _dataImporter.ImportLectureInfo();
             _dataImporter.ImportAcademicNews();
             _dataImporter.ImportXmContent();
+            _dataImporter.ImportAcademicPaper();
+            _dataImporter.ImportAcademicWork();
+            _dataImporter.ImportAwards();
+            _dataImporter.ImportProjects();
+
+            _dataImporter.ImportTeacherInfo();
             return View("Index");
 
 

@@ -35,6 +35,8 @@ namespace Orchard.Xmu.Service.DataImport
 
         private readonly int MAX = 300;
 
+        private static readonly string PATH = @"D:\法学院6个数据库";
+
         public DataImporter(
             
             ITaxonomyService taxonomyService,
@@ -65,10 +67,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportCollegeNews()
         {
             ImportDataTemplate<OldNews>(
-           () => ReadDataFromJsonFile<OldNews>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻.txt"),
+           () => ReadDataFromJsonFile<OldNews>(Path.Combine(PATH, "学院新闻.txt")),
            i => ImportSingleCollegeNews(i),
            r => r.ID,
-           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学院新闻ID对照.txt"
+           Path.Combine(PATH, "学院新闻ID对照.txt")
            );
         }
 
@@ -131,7 +133,7 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportUndergraduateAffairs()
         {
             ImportDataTemplate<OldContent>(
-           () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务.txt"),
+           () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "本科生教务.txt")),
            i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "本科生教务")(i, (oldcontent, part) => {
                var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
                var terms = _taxonomyService.GetTerms(taxo.Id);
@@ -145,7 +147,7 @@ namespace Orchard.Xmu.Service.DataImport
 
            }),
            r => r.ID,
-           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\本科生教务ID对照.txt"
+          Path.Combine(PATH, "本科生教务ID对照.txt")
            );
         }
 
@@ -156,7 +158,7 @@ namespace Orchard.Xmu.Service.DataImport
         {
 
             ImportDataTemplate<OldContent>(
-            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知.txt"),
+            () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "院务通知.txt")),
             i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "院务通知")(i, (oldcontent, part) => {
                 var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
                 var terms = _taxonomyService.GetTerms(taxo.Id);
@@ -170,7 +172,7 @@ namespace Orchard.Xmu.Service.DataImport
 
             }),
             r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\院务通知ID对照.txt"
+            Path.Combine(PATH, "院务通知ID对照.txt")
             );
         }
 
@@ -178,7 +180,7 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportGraduateAffairs()
         {
             ImportDataTemplate<OldContent>(
-          () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务.txt"),
+          () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "研究生教务.txt")),
           i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "研究生教务")(i, (oldcontent, part) => {
               var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
               var terms = _taxonomyService.GetTerms(taxo.Id);
@@ -192,14 +194,14 @@ namespace Orchard.Xmu.Service.DataImport
 
           }),
           r => r.ID,
-          @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\研究生教务ID对照.txt"
+          Path.Combine(PATH, "研究生教务ID对照.txt")
           );
         }
 
         public void ImportStudentInfo()
         {
             ImportDataTemplate<OldContent>(
-         () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯.txt"),
+         () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "学生资讯.txt")),
          i => GenerateImportSingleOldContent<CNNotifyPart, OldContent>("CNNotify", "学生资讯")(i, (oldcontent, part) => {
              var taxo = _taxonomyService.GetTaxonomyByName(XmTaxonomyNames.CNNotify);
              var terms = _taxonomyService.GetTerms(taxo.Id);
@@ -213,27 +215,27 @@ namespace Orchard.Xmu.Service.DataImport
 
          }),
          r => r.ID,
-         @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学生资讯ID对照.txt"
+         Path.Combine(PATH, "学生资讯ID对照.txt")
          );
         }
 
         public void ImportPartyCollegeAffairs()
         {
             ImportDataTemplate<OldContent>(
-        () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开.txt"),
+        () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "党务教务公开.txt")),
         i => GenerateImportSingleOldContent<XmContentPart, OldContent>("PublicPartyCollegeAffairs", "党务教务公开")(i,null),
         r => r.ID,
-        @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\党务教务公开ID对照.txt"
+       Path.Combine(PATH, "党务教务公开ID对照.txt") 
         );
         }
 
         public void ImportRecruitInfo()
         {
             ImportDataTemplate<OldContent>(
-            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息.txt"),
+            () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "招录信息.txt") ),
             i => GenerateImportSingleOldContent<XmContentPart, OldContent>("RecruitInfo", "招录信息")(i,null),
             r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\招录信息ID对照.txt"
+            Path.Combine(PATH, "招录信息ID对照.txt") 
             );
         }
 
@@ -241,14 +243,14 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportLectureInfo ()
         {
             ImportDataTemplate<OldLecture>(
-           () => ReadDataFromJsonFile<OldLecture>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息.txt"),
+           () => ReadDataFromJsonFile<OldLecture>(Path.Combine(PATH, "讲座信息.txt")),
            i => GenerateImportSingleOldContent<LectureInfoPart, OldLecture>("LectureInfo", "讲座信息")(i, (oldcontent, part)=> {
                part.Lecturer = oldcontent.Lecturer;
                part.LectureAddress = oldcontent.Address;
                part.StartTime = oldcontent.StartTime;
            }),
            r => r.ID,
-           @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\讲座信息ID对照.txt"
+           Path.Combine(PATH, "讲座信息ID对照.txt")
            );
 
         }
@@ -260,10 +262,10 @@ namespace Orchard.Xmu.Service.DataImport
         {
 
             ImportDataTemplate<OldContent>(
-            () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态.txt"),
+            () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "学术动态.txt")),
             i => GenerateImportSingleOldContent<XmContentPart, OldContent>("AcademicNews", "学术动态")(i, null),
             r => r.ID,
-            @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\学术动态ID对照.txt"
+            Path.Combine(PATH, "学术动态ID对照.txt")
             );
 
         }
@@ -272,11 +274,11 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportCope()
         {
             ImportDataTemplate<OldContent>(
-                      () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\Contents.txt")
+                      () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "Contents.txt"))
                       .Where(i=>i.Cate==78 || i.Cate == 79 || i.Cate == 80).ToList(),
                       i => ImportSingleCop(i),
                       r => r.ID,
-                      @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\合作交流ID对照.txt"
+                      Path.Combine(PATH, "合作交流ID对照.txt")
                       );
         }
 
@@ -302,10 +304,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportProjects()
         {
             ImportDataTemplate<OldProject>(
-            () => ReadDataFromJsonFile<OldProject>(@"D:\法学院6个数据库\承担课题.json"),
+            () => ReadDataFromJsonFile<OldProject>(Path.Combine(PATH, "承担课题.json")),
                 i => ImportSingleProject(i),
                 r => r.id,
-                @"D:\法学院6个数据库\承担课题ID对照.txt"
+                Path.Combine(PATH, "承担课题ID对照.txt")
             );
 
         }
@@ -367,10 +369,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportAwards()
         {
             ImportDataTemplate<OldReward>(
-         () => ReadDataFromJsonFile<OldReward>(@"D:\法学院6个数据库\获奖成果.json"),
+         () => ReadDataFromJsonFile<OldReward>(Path.Combine(PATH, "获奖成果.json") ),
          i => ImportSingleAward(i),
          r => r.id,
-         @"D:\法学院6个数据库\获奖成果ID对照.txt"
+         Path.Combine(PATH, "获奖成果ID对照.txt")
          );
         }
 
@@ -410,10 +412,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportAcademicWork()
         {
             ImportDataTemplate<OldWorks>(
-                    () => ReadDataFromJsonFile<OldWorks>(@"D:\法学院6个数据库\著作.json"),
+                    () => ReadDataFromJsonFile<OldWorks>(Path.Combine(PATH, "著作.json")),
                     i => ImportSingleAcademicWork(i),
                     r => r.id,
-                    @"D:\法学院6个数据库\著作ID对照.txt"
+                    Path.Combine(PATH, "著作ID对照.txt")
                     );
         }
 
@@ -479,10 +481,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportAcademicPaper()
         {
             ImportDataTemplate<OldPaper>(
-                     () => ReadDataFromJsonFile<OldPaper>(@"D:\法学院6个数据库\论文.json"),
+                     () => ReadDataFromJsonFile<OldPaper>(Path.Combine(PATH, "论文.json")),
                      i => ImportSingleAcademicPaper(i),
                      r => r.id,
-                     @"D:\法学院6个数据库\论文ID对照.txt"
+                     Path.Combine(PATH, "论文ID对照.txt")
                      );
 
         }
@@ -527,10 +529,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportTeacherInfo()
         {
             ImportDataTemplate<OldTeacherInfo>(
-                     () => ReadDataFromJsonFile<OldTeacherInfo>(@"D:\法学院6个数据库\教师信息.json"),
+                     () => ReadDataFromJsonFile<OldTeacherInfo>(Path.Combine(PATH, "教师信息.json")),
                      i => ImportSingleTeacher(i),
                      r => r.id,
-                     @"D:\法学院6个数据库\教师信息ID对照.txt"
+                     Path.Combine(PATH, "教师信息ID对照.txt") 
                      );
         }
 
@@ -579,10 +581,10 @@ namespace Orchard.Xmu.Service.DataImport
         public void ImportXmContent()
         {
             ImportDataTemplate<OldContent>(
-                       () => ReadDataFromJsonFile<OldContent>(@"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\Contents.txt"),
+                       () => ReadDataFromJsonFile<OldContent>(Path.Combine(PATH, "Contents.txt")),
                        i => ImportSingleContent(i),
                        r => r.ID,
-                       @"C:\Users\qingpengchen\Documents\GitHub\HiFiDBDataTool\HifiData\ContentsID对照.txt"
+                       Path.Combine(PATH, "ContentsID对照.txt")
                        );
         }
 
