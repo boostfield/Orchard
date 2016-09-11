@@ -154,15 +154,21 @@ namespace Orchard.Xmu
             var staticPermissions = new[]
             {
                 ManageLectureInfo,
-                ManageCNNotify,
                 ManageCNBanner,
                 ManageENBanner,
                 ManageENSection,
                 ManageCelBanner,
                 ManageCelMatesPic,
+                ManageCNNotify,
                 ManageENTeacher,
                 ManageENCourse,
-                ManageCNCop
+                ManageCNCop,
+                ManageCNCollegeShow,
+                ManageCNTeacher,
+                ManageCNAcademicPaper,
+                ManageCNAcademicWork,
+                ManageCNAward,
+                ManageCNProject,
 
 
             };
@@ -170,8 +176,13 @@ namespace Orchard.Xmu
 
             var contentPermissions = XmContentType.CNCMSMappings
                 .Select(p => p.Permission).ToList();
-            contentPermissions.AddRange(staticPermissions);
 
+            var enPermissions = XmContentType.ENCMSMappings.Select(p => p.Permission).ToList();
+            var aniPermissions = XmContentType.NinetyMappings.Select(p => p.Permission).ToList();
+
+            contentPermissions.AddRange(staticPermissions);
+            contentPermissions.AddRange(enPermissions);
+            contentPermissions.AddRange(aniPermissions);
 
             return contentPermissions;
         }
