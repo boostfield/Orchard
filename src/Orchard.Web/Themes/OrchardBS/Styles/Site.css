@@ -2,11 +2,18 @@
   font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
   font-size: 20px;
   color: #333333;
+  min-height: 100%;
 }
 body #layout-wrapper {
-  display: flex;
   flex-flow: column;
   min-height: 100vh;
+  height: 100%;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: column;
+  -webkit-flex-flow: column;
+  flex-direction: column;
 }
 #content {
   background-color: #fafafa;
@@ -86,7 +93,7 @@ body #layout-wrapper {
 }
 .home {
   background-color: #fafafa;
-  flex: 1;
+  flex: 1 0 auto;
 }
 .home #content {
   background-color: #FAFAFA;

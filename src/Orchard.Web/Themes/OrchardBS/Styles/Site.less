@@ -16,15 +16,26 @@
     -moz-transition: all 0.25s;
     transition: all 0.25s;
 }
+html {
+   
+}
 body {
     font-family: "PingFang SC", "Helvetica Neue", 'Microsoft YaHei', sans-serif, "Microsoft JhengHei";
     font-size: 20px;
     color: @text-color;
+    min-height:100%;
     #layout-wrapper {
-        display: flex;
+        
         flex-flow: column;
         min-height: 100vh;
-    }
+        height:100%;
+        display: flex;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        -ms-flex-flow: column;
+        -webkit-flex-flow: column;
+       flex-direction: column;
+   }
 }
 //内容区域设置最小高度，避免内容过少导致footer上移
 #content {
@@ -117,7 +128,8 @@ body {
 //中文网站
 .home  {
     background-color: #fafafa;
-    flex: 1;
+    flex: 1 0 auto;
+   
     #content {
         background-color: #FAFAFA;
     }
