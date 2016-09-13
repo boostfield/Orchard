@@ -11,15 +11,22 @@
 </div>
 <div class="container-fluid detail-container">
     <div class="container content">
-        @htmlString
-
-        <span class="time">
-            Courses:
-            @foreach (var course in courses)
+        <div class="col-md-3">
+            <img class="avatar" src="@Model.AvatarAddress"/>
+        </div>
+        <div class="col-md-9">
+            @htmlString
+            <span class="time">
+                Courses:
+                @foreach (var course in courses)
             {
-                <a href="@Url.Action("ENCourseItem","XmContent",new { Id=@course.Id})">@String.Format(" {0}  ", @course.CourseName)</a>
-            }
-        </span>
+                    <a href="@Url.Action("ENCourseItem","XmContent",new { Id=@course.Id})">@String.Format(" {0}  ", @course.CourseName)</a>
+                }
+            </span>
+        </div>
+       
+
+        
     </div>
 
 </div>

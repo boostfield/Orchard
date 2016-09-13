@@ -1169,6 +1169,10 @@ body #layout-wrapper {
   font-size: 0.8em;
   text-align: center;
 }
+.en-home .avatar {
+  width: 150px;
+  height: 200px;
+}
 .en-footer {
   padding: 0;
   color: black;
