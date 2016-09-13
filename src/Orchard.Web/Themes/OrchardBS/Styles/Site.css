@@ -1151,8 +1151,8 @@ body #layout-wrapper {
   line-height: 2em;
 }
 .en-home .thumbnail.teacher-list-item {
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 250px;
+  max-height: 250px;
   margin: 0;
   float: left;
   box-shadow: none;
@@ -1160,9 +1160,13 @@ body #layout-wrapper {
 }
 .en-home .thumbnail.teacher-list-item img {
   width: 150px;
-  height: 150px;
+  height: 200px;
+}
+.en-home .thumbnail.teacher-list-item .caption {
+  padding: 1em 0 1em 0;
 }
 .en-home .thumbnail.teacher-list-item p {
+  font-size: 0.8em;
   text-align: center;
 }
 .en-footer {
