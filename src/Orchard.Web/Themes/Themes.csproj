@@ -234,6 +234,7 @@
     <Content Include="OrchardBS\Views\Content-url-en-page.cshtml" />
     <Content Include="OrchardBS\Views\Content-url-anniversary-page.cshtml" />
     <Content Include="OrchardBS\Views\Content-url-page.cshtml" />
+    <Content Include="OrchardBS\Views\Parts\MenuWidget-AfterContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TheAdmin\Styles\images\icons.png" />

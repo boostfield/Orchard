@@ -1,0 +1,22 @@
+﻿<div class="container">
+    <div class="expand-menu">
+        <div class="row">
+            
+            @for (var j = 0; j < Model.Menu.Items.Count; j++)
+            {
+                if (j % 3 == 0)
+                {
+                    <div class="clearfix"></div>
+                }
+                <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-12">
+                    <span>@Model.Menu.Items[j].Text</span>
+                    @for (var i = 0; i < Model.Menu.Items[j].Items.Count; i++)
+                    {
+                        <p><a href="@Model.Menu.Items[j].Items[i].Href">@Model.Menu.Items[j].Items[i].Text</a></p>
+                    }
+                </div>
+            }
+         </div>
+    </div>
+</div>
+   

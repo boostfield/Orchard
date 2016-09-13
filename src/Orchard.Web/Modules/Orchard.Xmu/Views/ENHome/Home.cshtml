@@ -138,28 +138,4 @@
 
     </div>
 </div>
-<div class="container">
 
-    <div class="expand-menu">
-        <div class="row">
-            @for (var j = 0; j < menus.Count; j++)
-            {
-                if (j % 3 == 0)
-                {
-                    <div class="clearfix"></div>
-                }
-
-                <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-12">
-                    <span>@menus[j].List[0].Text</span>
-                    @for (var i = 1; i < menus[j].List.Count; i++)
-                    {
-                        <p><a href="@menus[j].List[i].Url">@menus[j].List[i].Text</a></p>
-                    }
-
-
-                </div>
-            }
-
-        </div>
-    </div>
-</div>
