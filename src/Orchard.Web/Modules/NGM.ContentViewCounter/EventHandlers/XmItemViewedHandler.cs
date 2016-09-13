@@ -24,14 +24,15 @@ namespace NGM.ContentViewCounter.EventHandlers
 
         public void ContentItemViewed(ContentItem item)
         {
+            
             System.Diagnostics.Debug.WriteLine("ContentItemViewed:" + item.ContentType);
             var part = item.As<UserViewPart>();
             if(part!=null)
             {
-                var settings = part.Settings.GetModel<UserViewTypePartSettings>();
-                RecordView(part, settings);
 
+                part.ViewCount = part.ViewCount + 1;
             }
+            
         }
 
 

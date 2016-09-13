@@ -96,7 +96,7 @@ namespace Orchard.Xmu.Controllers
 
             }
 
-            //_itemViewedEventHandler.ContentItemViewed(item);
+            _itemViewedEventHandler.ContentItemViewed(item);
 
         }
 

@@ -26,8 +26,8 @@ namespace Orchard.Xmu.Models
 
         public int ViewCount
         {
-            get { return this.As<UserViewPart>().TotalViews; }
-            set { this.As<UserViewPart>().TotalViews = value; }
+            get { return this.As<UserViewPart>().ViewCount; }
+            set { this.As<UserViewPart>().ViewCount = value; }
         }
 
 

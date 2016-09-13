@@ -5,6 +5,7 @@ using NGM.ContentViewCounter.Models;
 using NGM.ContentViewCounter.Settings;
 using Orchard;
 using Orchard.ContentManagement.Handlers;
+using Orchard.Data;
 
 namespace NGM.ContentViewCounter.Handlers {
     public class UserViewPartHandler : ContentHandler {
@@ -12,24 +13,29 @@ namespace NGM.ContentViewCounter.Handlers {
         private readonly IOrchardServices _orchardServices;
 
         public UserViewPartHandler(
+            IRepository<UserViewPartRecord> repo,
             IVotingService votingService,
             IOrchardServices orchardServices) {
             _votingService = votingService;
             _orchardServices = orchardServices;
 
-          
 
+
+            Filters.Add(StorageFilter.For(repo));
+
+            /*
             OnLoading<UserViewPart>((context, part)=>
             {
                 part.TotalViewField.Loader(
                   () =>
                   {
-                      var resultRecord = _votingService.GetResult(part.ContentItem.Id, "sum", Constants.Dimension);
-                      return resultRecord == null ? 0 : (int)resultRecord.Value;
+                      return 0;
+                      //var resultRecord = _votingService.GetResult(part.ContentItem.Id, "sum", Constants.Dimension);
+                      //return resultRecord == null ? 0 : (int)resultRecord.Value;
                   });
             });
 
-            
+            */
 
         }
 
