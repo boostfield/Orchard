@@ -5,18 +5,18 @@
 @{
     var contentItem =(ContentItem) Model.ContentItem;
     var Title = contentItem.As<TitlePart>().Title;
-    var PublishedUtc = contentItem.As<CommonPart>().PublishedUtc.Value;
+    var CreatedUtc = contentItem.As<CommonPart>().CreatedUtc.Value;
     var text = contentItem.As<BodyPart>().Text;
     var htmlString = new HtmlString(text);
-    var ViewCount = contentItem.As<UserViewPart>().TotalViews;
+    //var ViewCount = contentItem.As<UserViewPart>().TotalViews;
 
     }
 
     <div class="container-fluid detail-header">
         <div class="container">
             <h1 class="title">@Title</h1>
-            <span class="time">Published: @PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd")</span>
-            <span class="count">Views: @ViewCount </span>
+            <span class="time">Published: @CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</span>
+            <span class="count">Views: 1 </span>
         </div>
     </div>
     <div class="container-fluid detail-container">

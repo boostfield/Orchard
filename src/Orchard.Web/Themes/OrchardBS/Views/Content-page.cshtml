@@ -1,0 +1,75 @@
+﻿@using Orchard.Core.Title.Models;
+@using Orchard.ContentManagement;
+@using Orchard.Core.Common.Models;
+@using NGM.ContentViewCounter.Models;
+@{
+    var contentItem = (ContentItem)Model.ContentItem;
+    var Title = contentItem.As<TitlePart>().Title;
+    var CreatedUtc = contentItem.As<CommonPart>().CreatedUtc.Value;
+    var Author = contentItem.As<CommonPart>().Author;
+    var text = contentItem.As<BodyPart>().Text;
+    var htmlString = new HtmlString(text);
+    //var ViewCount = contentItem.As<UserViewPart>().TotalViews;
+
+}
+<article>
+    @{
+        string requestUrl = Request.Path.ToUpperInvariant();
+
+    }
+    @if (requestUrl.Contains("EN/"))
+    {
+        <div class="container-fluid detail-header">
+            <div class="container">
+                <h1 class="title">@Title</h1>
+                <span class="time">Published: @CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</span>
+                <span class="count">Views: 1 </span>
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container content">
+                @htmlString
+            </div>
+
+        </div>
+    }
+    else if (requestUrl.Contains("90/"))
+    {
+        <div class="top-nav-bg"></div>
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@Title</h1>
+                <span class="author">发布人: @Author | </span>
+                <span class="time"> 发布时间: @CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
+                <span class="count"> 阅读数: 1</span>
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                @htmlString
+            </div>
+
+        </div>
+    }
+    else
+    {
+
+        <div class="container-fluid detail-header">
+            <div class="container text-center">
+                <h1 class="title">@Title</h1>
+                <span class="author">发布人: @Author | </span>
+                <span class="time"> 发布时间: @CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
+                <span class="count"> 阅读数: 1</span>
+                <hr />
+            </div>
+        </div>
+        <div class="container-fluid detail-container">
+            <div class="container">
+                @htmlString
+            </div>
+
+        </div>
+
+    }
+</article>
