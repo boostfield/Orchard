@@ -667,7 +667,7 @@ body #layout-wrapper {
 }
 .en-home {
   background-color: #fafafa;
-  flex: 1;
+  flex: 1 0 auto;
 }
 .en-home .navbar.navbar-default {
   background-color: #2D44AA;
@@ -1257,7 +1257,7 @@ body #layout-wrapper {
   color: rgba(255, 255, 255, 0.7);
 }
 .anniversary {
-  flex: 1;
+  flex: 1 0 auto;
   background-color: #FAFAFA;
 }
 .anniversary .navbar {
@@ -1896,6 +1896,9 @@ body #layout-wrapper {
   .home .news-container-right {
     padding: 1em 0 0 0;
   }
+  .en-home {
+    flex: 1 0 auto;
+  }
   .en-home .navbar-default .navbar-nav > .active > a {
     border: none;
   }
@@ -1987,6 +1990,9 @@ body #layout-wrapper {
   .en-home .en-footer .footer-first img {
     width: 98px;
     height: 117.5px;
+  }
+  .anniversary {
+    flex: 1 0 auto;
   }
   .anniversary .top-bg {
     height: 250px;
