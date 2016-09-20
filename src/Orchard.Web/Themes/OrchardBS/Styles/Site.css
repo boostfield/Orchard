@@ -213,6 +213,12 @@ body #layout-wrapper {
   background-color: #2D44AA;
   color: white;
 }
+.home .bg-container {
+  background-image: url(../Content/images/cn/cn-bg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .home .column hr {
   margin-top: 16px;
   border-top: 2px solid #2D44AA;

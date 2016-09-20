@@ -65,100 +65,102 @@
         }
     </div>
 </div>
+<div class="container-fluid bg-container">
 
-<div class="container column">
-    <div class="row">
-        <div class="col-md-7">
-            <div class="column-larger">
-                <div class="row header">
-                    <span class="title">学院新闻</span>
-                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CollegeNews"})">更多></a></span>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-5 news-container-left">
-                        <div id="carousel-news" class="carousel slide carousel-medium" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators carousel-indicators-numbers">
-                                @for (var i = 0; i < topNews.Count; i++)
+
+    <div class="container column">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="column-larger">
+                    <div class="row header">
+                        <span class="title">学院新闻</span>
+                        <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CollegeNews"})">更多></a></span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-5 news-container-left">
+                            <div id="carousel-news" class="carousel slide carousel-medium" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators carousel-indicators-numbers">
+                                    @for (var i = 0; i < topNews.Count; i++)
                                 {
                                     if (i == 0)
                                     {
-                                        <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
                                     }
                                     else
                                     {
-                                        <li data-target="#carousel-news" data-slide-to="@i"></li>
+                                            <li data-target="#carousel-news" data-slide-to="@i"></li>
                                     }
                                 }
-                                
-                            </ol>
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                @for (var i = 0; i < topNews.Count; i++)
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    @for (var i = 0; i < topNews.Count; i++)
                                 {
                                     if (i == 0)
                                     {
-                                        <div class="item active" style="background-image: url('@topNews[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topNews[i].Id, contentTypeName  = "CollegeNews"})';">
+                                            <div class="item active" style="background-image: url('@topNews[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topNews[i].Id, contentTypeName  = "CollegeNews"})';">
 
-                                            <div class="carousel-caption">
+                                                <div class="carousel-caption">
 
 
-                                                <p class="">@topNews[i].Title</p>
+                                                    <p class="">@topNews[i].Title</p>
 
+                                                </div>
                                             </div>
-                                        </div>
                                     }
                                     else
                                     {
-                                        <div class="item" style="background-image: url('@topNews[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topNews[i].Id, contentTypeName  = "CollegeNews"})';">
+                                            <div class="item" style="background-image: url('@topNews[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topNews[i].Id, contentTypeName  = "CollegeNews"})';">
 
-                                            <div class="carousel-caption">
+                                                <div class="carousel-caption">
 
-                                                <p class="">@topNews[i].Title</p>
+                                                    <p class="">@topNews[i].Title</p>
 
+                                                </div>
                                             </div>
-                                        </div>
                                     }
                                 }
-                               
-                                
-                                
+
+
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-7 news-container-right">
-                        <ul class="news list-group">
-                            @foreach (var newsItem in news)
+                        <div class="col-md-7 news-container-right">
+                            <ul class="news list-group">
+                                @foreach (var newsItem in news)
                             {
-                                
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeNews"})" >@newsItem.Title</a></div>
-                                        <div class="col-sm-3 time">@newsItem.CreatedUtc.Value.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                                    </div>
 
-                                </li>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeNews"})">@newsItem.Title</a></div>
+                                            <div class="col-sm-3 time">@newsItem.CreatedUtc.Value.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                        </div>
+
+                                    </li>
                             }
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-5">
-            <div class="column-smaller">
-                <div class="row header">
-                    <span class="title">讲座会议</span>
-                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "LectureInfo"})">更多></a></span>
-                </div>
-                <hr />
-                <div class="row">
-                    <ul class="meeting list-group">
-                        @foreach (var lecture in lectures)
+            <div class="col-md-5">
+                <div class="column-smaller">
+                    <div class="row header">
+                        <span class="title">讲座会议</span>
+                        <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "LectureInfo"})">更多></a></span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <ul class="meeting list-group">
+                            @foreach (var lecture in lectures)
                         {
-                            <li class="list-group-item">
-                               
+                                <li class="list-group-item">
+
                                     <div class="row">
                                         <div class="title"><a href="@Url.Action("Item","XmContent",new { Id=@lecture.Id, contentTypeName  = "LectureInfo"})">@lecture.Title</a></div>
 
@@ -168,278 +170,279 @@
                                         <span class="location">@lecture.LectureAddress</span>
                                         <span class="time">@lecture.StartTime.ToLocalTime().ToString("yyyy/MM/dd hh:mm")</span>
                                     </div>
-                               
-                            </li>
+
+                                </li>
                         }
-                        
-                        
-                    </ul>
+
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="column-medium">
-                <div class="row header">
-                    <span class="title">通知公告</span>
-                    <span class="more"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type=0})">更多></a></span>
-                </div>
-                <hr />
-                <ul class="news list-group">
-                    @foreach (var noticeItem in notice)
+        <div class="row">
+            <div class="col-md-6">
+                <div class="column-medium">
+                    <div class="row header">
+                        <span class="title">通知公告</span>
+                        <span class="more"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type=0})">更多></a></span>
+                    </div>
+                    <hr />
+                    <ul class="news list-group">
+                        @foreach (var noticeItem in notice)
                     {
                         if (noticeItem.Fields.Count > 0 && noticeItem.Fields[0].Terms.Count > 0)
                         {
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type= noticeItem.Fields[0].Terms[0].Id })" class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</a><a class="title" href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
-                                    <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                                </div>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-9 name"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type= noticeItem.Fields[0].Terms[0].Id })" class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</a><a class="title" href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
+                                        <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    </div>
 
-                            </li>
+                                </li>
                         }
                         else
                         {
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
-                                    <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                                </div>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
+                                        <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    </div>
 
-                            </li>
+                                </li>
                         }
 
                     }
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="column-medium">
-                <div class="row header">
-                    <span class="title">科研成果</span>
-                    <span class="more"><a href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "all"})">更多></a></span>
+                    </ul>
                 </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-5 news-container-left">
-                        <div id="carousel-notice" class="carousel slide carousel-medium" data-ride="carousel">
-                            <!-- Indicators -->
-                            
-                            <ol class="carousel-indicators carousel-indicators-numbers">
-                                @for(var i = 0; i < topSciences.Count(); i++)
+            </div>
+            <div class="col-md-6">
+                <div class="column-medium">
+                    <div class="row header">
+                        <span class="title">科研成果</span>
+                        <span class="more"><a href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "all"})">更多></a></span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-5 news-container-left">
+                            <div id="carousel-notice" class="carousel slide carousel-medium" data-ride="carousel">
+                                <!-- Indicators -->
+
+                                <ol class="carousel-indicators carousel-indicators-numbers">
+                                    @for(var i = 0; i < topSciences.Count(); i++)
                                 {
                                     if (i == 0)
                                     {
-                                        <li data-target="#carousel-notice" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-notice" data-slide-to="0" class="active"></li>
                                     }
                                     else
                                     {
-                                        <li data-target="#carousel-notice" data-slide-to="@i"></li>
+                                            <li data-target="#carousel-notice" data-slide-to="@i"></li>
                                     }
                                 }
-                               
-                            </ol>
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                @for (var i = 0; i < topSciences.Count(); i++)
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    @for (var i = 0; i < topSciences.Count(); i++)
                                 {
                                     if (i == 0)
                                     {
-                                        <div class="item active" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName})';">
+                                            <div class="item active" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName})';">
 
-                                            <div class="carousel-caption">
+                                                <div class="carousel-caption">
 
 
-                                                <p class="">@topSciences[i].Title</p>
+                                                    <p class="">@topSciences[i].Title</p>
 
+                                                </div>
                                             </div>
-                                        </div>
                                     }
                                     else
                                     {
-                                        <div class="item" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName })';">
+                                            <div class="item" style="background-image: url('@topSciences[i].ImageAddress');" onclick="window.location.href = '@Url.Action("ScienceItem","XmContent",new { Id=@topSciences[i].Id, contentTypeName  = topSciences[i].ContentTypeName })';">
 
-                                            <div class="carousel-caption">
+                                                <div class="carousel-caption">
 
-                                                <p class="">@topSciences[i].Title</p>
+                                                    <p class="">@topSciences[i].Title</p>
 
+                                                </div>
                                             </div>
-                                        </div>
                                     }
                                 }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-7 news-container-right">
-                        <ul class="news list-group">
-                            @foreach (var science in sciences)
+                        <div class="col-md-7 news-container-right">
+                            <ul class="news list-group">
+                                @foreach (var science in sciences)
                             {
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="name"><a class="topic" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = science.ContentTypeName })">@String.Format("[{0}]", science.TypeDisplayName)</a><a class="title" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@science.Title</a></div>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="name"><a class="topic" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = science.ContentTypeName })">@String.Format("[{0}]", science.TypeDisplayName)</a><a class="title" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@science.Title</a></div>
 
-                                    </div>
+                                        </div>
 
-                                </li>
+                                    </li>
                             }
-                            
-                        </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="column-larger">
+                    <div class="row header">
+                        <span class="title">合作交流</span>
+                        <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CNCop"})">更多></a></span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-5 news-container-left">
+                            <div id="carousel-cooperation" class="carousel slide carousel-medium" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators carousel-indicators-numbers">
+                                    @for (var i = 0; i < topCoop.Count; i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                            <li data-target="#carousel-cooperation" data-slide-to="0" class="active"></li>
+                                    }
+                                    else
+                                    {
+                                            <li data-target="#carousel-cooperation" data-slide-to="@i"></li>
+                                    }
+                                }
+
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    @for (var i = 0; i < topCoop.Count; i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                            <div class="item active" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
+
+                                                <div class="carousel-caption">
+
+
+                                                    <p class="">@topCoop[i].Title</p>
+
+                                                </div>
+                                            </div>
+                                    }
+                                    else
+                                    {
+                                            <div class="item" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
+
+                                                <div class="carousel-caption">
+
+                                                    <p class="">@topCoop[i].Title</p>
+
+                                                </div>
+                                            </div>
+                                    }
+                                }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 news-container-right">
+                            <ul class="news list-group">
+                                @foreach (var coopItem in coop)
+                            {
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})">@coopItem.Title</a></div>
+                                            <div class="col-sm-3 time">@coopItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                        </div>
+
+                                    </li>
+                            }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="column-smaller">
+                    <div class="row header">
+                        <span class="title">学院风采</span>
+                        <span class="more"><a href="@Url.Action("ShowPaging","XmContent",new { page = 1,pageSize=10})">更多></a></span>
+                    </div>
+                    <hr />
+                    <div id="carousel-shows" class="carousel slide carousel-shows" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators carousel-indicators-numbers">
+                            @for (var i = 0; i < shows.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                    <li data-target="#carousel-shows" data-slide-to="0" class="active"></li>
+                            }
+                            else
+                            {
+                                    <li data-target="#carousel-shows" data-slide-to="@i"></li>
+                            }
+                        }
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            @for(var i = 0; i < shows.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                    <div class="item active" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
+
+                                        <div class="carousel-caption">
+
+                                            <p class="title">@shows[i].Title</p>
+                                            <p class="">@shows[i].SubTitle</p>
+
+                                        </div>
+                                    </div>
+                            }
+                            else
+                            {
+                                    <div class="item" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
+
+                                        <div class="carousel-caption">
+                                            <p class="title">@shows[i].Title</p>
+                                            <p class="">@shows[i].SubTitle</p>
+
+                                        </div>
+                                    </div>
+                            }
+                        }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-7">
-            <div class="column-larger">
-                <div class="row header">
-                    <span class="title">合作交流</span>
-                    <span class="more"><a href="@Url.Action("Paging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CNCop"})">更多></a></span>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-5 news-container-left">
-                        <div id="carousel-cooperation" class="carousel slide carousel-medium" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators carousel-indicators-numbers">
-                                @for (var i = 0; i < topCoop.Count; i++)
-                                {
-                                    if (i == 0)
-                                    {
-                                        <li data-target="#carousel-cooperation" data-slide-to="0" class="active"></li>
-                                    }
-                                    else
-                                    {
-                                        <li data-target="#carousel-cooperation" data-slide-to="@i"></li>
-                                    }
-                                }
-                               
-                            </ol>
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                @for (var i = 0; i < topCoop.Count; i++)
-                                {
-                                    if (i == 0)
-                                    {
-                                        <div class="item active" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
+    <div class="container cn-blocks">
 
-                                            <div class="carousel-caption">
-
-
-                                                <p class="">@topCoop[i].Title</p>
-
-                                            </div>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="item" style="background-image: url('@topCoop[i].ImageAddress');" onclick="window.location.href = '@Url.Action("Item","XmContent",new { Id=@topCoop[i].Id, contentTypeName  = "CNCop"})';">
-
-                                            <div class="carousel-caption">
-
-                                                <p class="">@topCoop[i].Title</p>
-
-                                            </div>
-                                        </div>
-                                    }
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7 news-container-right">
-                        <ul class="news list-group">
-                            @foreach (var coopItem in coop)
-                            {
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})">@coopItem.Title</a></div>
-                                        <div class="col-sm-3 time">@coopItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
-                                    </div>
-
-                                </li>
-                            }
-                            
-                        </ul>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="~/ScientificResearchPaging/CNProject?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_research_institute.jpg"))" /></a>
             </div>
-        </div>
-        <div class="col-md-5">
-            <div class="column-smaller">
-                <div class="row header">
-                    <span class="title">学院风采</span>
-                    <span class="more"><a href="@Url.Action("ShowPaging","XmContent",new { page = 1,pageSize=10})">更多></a></span>
-                </div>
-                <hr />
-                <div id="carousel-shows" class="carousel slide carousel-shows" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators carousel-indicators-numbers">
-                        @for (var i = 0; i < shows.Count; i++)
-                        {
-                            if (i == 0)
-                            {
-                                <li data-target="#carousel-shows" data-slide-to="0" class="active"></li>
-                            }
-                            else
-                            {
-                                <li data-target="#carousel-shows" data-slide-to="@i"></li>
-                            }
-                        }
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        @for(var i = 0; i < shows.Count; i++)
-                        {
-                            if (i == 0)
-                            {
-                                <div class="item active" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
-
-                                    <div class="carousel-caption">
-
-                                        <p class="title">@shows[i].Title</p>
-                                        <p class="">@shows[i].SubTitle</p>
-
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="item" style="background-image: url('@shows[i].ImageAddress');" onclick="window.location.href = '@shows[i].LinkAddress';">
-
-                                    <div class="carousel-caption">
-                                        <p class="title">@shows[i].Title</p>
-                                        <p class="">@shows[i].SubTitle</p>
-
-                                    </div>
-                                </div>
-                            }
-                        }
-                    </div>
-                </div>
+            <div class="col-md-3">
+                <a href="~/Paging/SocialPractice?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_social_services.jpg"))" /></a>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="container cn-blocks">
-
-    <div class="row">
-        <div class="col-md-3">
-            <a href="~/ScientificResearchPaging/CNProject?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_research_institute.jpg"))" /></a>
-        </div>
-        <div class="col-md-3">
-            <a href="~/Paging/SocialPractice?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_social_services.jpg"))" /></a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="~/Paging/RecruitInfo?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_recruiting_information.jpg"))" /></a>
-        </div>
-        <div class="col-md-3">
-            <a href="~/Paging/PublicPartyCollegeAffairs?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_public_affairs.jpg"))" /></a>
+            <div class="col-md-3">
+                <a href="~/Paging/RecruitInfo?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_recruiting_information.jpg"))" /></a>
+            </div>
+            <div class="col-md-3">
+                <a href="~/Paging/PublicPartyCollegeAffairs?page=1&pageSize=10"><img class="img-responsive" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/cn/img_public_affairs.jpg"))" /></a>
+            </div>
         </div>
     </div>
 </div>

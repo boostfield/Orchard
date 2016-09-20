@@ -471,6 +471,14 @@ namespace Orchard.Xmu.Controllers
             ViewBag.ListTitle = listTitle;
         }
 
+        public ActionResult DonationItem(int Id)
+        {
+            var item = _contentManager.Get(Id);
+            var part = item.Get<NinetyCelebrationDonationPart>();
+            ViewBag.item = part;
+            return View();
+        }
+
         public ActionResult ScienceItem(string ContentTypeName, int Id)
         {
             var item = _contentManager.Get(Id);
