@@ -1461,7 +1461,7 @@ body #layout-wrapper {
   text-align: left;
   width: 60%;
   font-size: 0.8em;
-  line-height: 1.3em;
+  line-height: 26px;
   white-space: nowrap;
 }
 .anniversary .donation .fund {
@@ -1469,7 +1469,7 @@ body #layout-wrapper {
   text-align: right;
   width: 35%;
   font-size: 0.8em;
-  line-height: 1.3em;
+  line-height: 26px;
   white-space: nowrap;
 }
 .anniversary .donation a.more {
@@ -2048,9 +2048,6 @@ body #layout-wrapper {
   }
   .anniversary .donation hr {
     margin-bottom: 1em;
-  }
-  .anniversary .donation .name {
-    width: 70%;
   }
   .anniversary .navbar .navbar-brand {
     height: 50px;
