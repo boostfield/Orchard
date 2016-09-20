@@ -80,7 +80,7 @@
                                 @foreach (var donation in ViewBag.largeDonation)
                                 {
                                     <li>
-                                        <div class="name">@donation.Donator</div>
+                                        <div class="name">@donation.Title</div>
                                         <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
 
                                     </li>
@@ -96,7 +96,7 @@
                                 @foreach (var donation in ViewBag.smallDonation)
                                 {
                                     <li>
-                                        <div class="name">@donation.Donator</div>
+                                        <div class="name">@donation.Title</div>
                                         <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
 
                                     </li>

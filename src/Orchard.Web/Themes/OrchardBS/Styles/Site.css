@@ -576,7 +576,9 @@ body #layout-wrapper {
   background-color: white;
   padding-top: 2em;
   padding-bottom: 2em;
-  font-size: 0.7em;
+  padding-left: 140px;
+  padding-right: 140px;
+  font-size: 0.9em;
 }
 .home .detail-container .container img {
   max-width: 100% !important;
