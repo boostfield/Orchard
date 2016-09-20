@@ -181,7 +181,7 @@ namespace Orchard.Xmu.Controllers
 
         }
 
-        public ActionResult DonationPaging(PagerParameters pagerParameters)
+        public ActionResult DonationPaging(string donationType, PagerParameters pagerParameters)
         {
             if (pagerParameters == null)
             {
@@ -191,23 +191,46 @@ namespace Orchard.Xmu.Controllers
                     PageSize = 10
                 };
             }
-            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
-            var q = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
-                .List<NinetyCelebrationDonationPart>().OrderByDescending(i => i.DonationAmount);
-            var total = q.Count();
-            var items = q.Skip(pager.GetStartIndex()).Take(pager.PageSize);
-            var listTitle = XmContentType.NinetyDonation.ListTitle;
+            if (donationType.Equals("large"))
+            {
+                Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+                var q = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
+                    .List<NinetyCelebrationDonationPart>().OrderByDescending(i => i.DonationAmount).Where(d => Convert.ToDouble(d.DonationAmount) >= 10000).OrderByDescending(i => i.DonationTime);
+                var total = q.Count();
+                var items = q.Skip(pager.GetStartIndex()).Take(pager.PageSize);
+                var listTitle = XmContentType.NinetyDonation.ListTitle;
 
 
 
-            ViewBag.total = total;
-            ViewBag.page = pager.Page;
-            ViewBag.pageSize = pager.PageSize;
-            ViewBag.items = items;
-            ViewBag.ContentTypeName = XmContentType.NinetyDonation.ContentTypeName;
-            ViewBag.ListTitle = listTitle;
+                ViewBag.total = total;
+                ViewBag.page = pager.Page;
+                ViewBag.pageSize = pager.PageSize;
+                ViewBag.items = items;
+                ViewBag.ContentTypeName = XmContentType.NinetyDonation.ContentTypeName;
+                ViewBag.ListTitle = listTitle;
+                ViewBag.donationType = "large";
+                return View();
+            } else
+            {
+                Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+                var q = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
+                    .List<NinetyCelebrationDonationPart>().OrderByDescending(i => i.DonationAmount).Where(d => Convert.ToDouble(d.DonationAmount) < 10000).OrderByDescending(i => i.DonationTime);
+                var total = q.Count();
+                var items = q.Skip(pager.GetStartIndex()).Take(pager.PageSize);
+                var listTitle = XmContentType.NinetyDonation.ListTitle;
 
-            return View();
+
+
+                ViewBag.total = total;
+                ViewBag.page = pager.Page;
+                ViewBag.pageSize = pager.PageSize;
+                ViewBag.items = items;
+                ViewBag.ContentTypeName = XmContentType.NinetyDonation.ContentTypeName;
+                ViewBag.ListTitle = listTitle;
+                ViewBag.donationType = "small";
+                return View();
+            }
+           
 
         }
 

@@ -49,7 +49,7 @@
             </a>
         </div>
         <div class="row" style="margin-top: 2em;">
-            <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="banner1">
                     <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_first.png"))"/>
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_1.png"))" />
@@ -69,31 +69,49 @@
                     <p class="more text-right"><a href="@Url.Action("ANPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CelAnnouncement"})">更多 ></a></p>
                  </div>
             </div>
-            <div class="col-md-5 col-sm-12 col-xs-12" style="float: right;">
+            <div class="col-md-6 col-sm-12 col-xs-12" style="float: right;">
                 <div class="donation">
                     <p class="title">-院庆捐赠-</p>
                     <hr />
                     <div class="row">
-                        <ul id="news-ticker">
-                            @foreach (var donation in ViewBag.donation)
-                            {
-                                <li>
-                                    <div class="name">@donation.Donator</div>
-                                    <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
-                                    <div class="time hidden-xs">@donation.DonationTime.ToLocalTime().ToString("yyyy/MM/dd")</div>
-                                </li>
-                            }
-                            
+                        <div class="col-md-6">
+                            <h3>大额捐赠</h3>
+                            <ul id="news-ticker">
+                                @foreach (var donation in ViewBag.largeDonation)
+                                {
+                                    <li>
+                                        <div class="name">@donation.Donator</div>
+                                        <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
 
-                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="row text-right">
+                                <a class="more" href="@Url.Action("DonationPaging","XmContent",new { page = 1,pageSize=10, donationType="large" })">更多 ></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 second-donation">
+                            <h3>其他捐赠</h3>
+                            <ul id="news-ticker2">
+                                @foreach (var donation in ViewBag.smallDonation)
+                                {
+                                    <li>
+                                        <div class="name">@donation.Donator</div>
+                                        <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
+
+                                    </li>
+                                }
+                            </ul>
+                            <div class="row text-right">
+                                <a class="more" href="@Url.Action("DonationPaging","XmContent",new { page = 1,pageSize=10, donationType="small" })">更多 ></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row text-right">
-                        <a class="more" href="@Url.Action("DonationPaging","XmContent",new { page = 1,pageSize=10 })">更多 ></a>
-                    </div>
+                    
                 </div>
                 
             </div>
-            <div class="col-md-7 col-sm-12 col-xs-12" >
+            <div class="col-md-6 col-sm-12 col-xs-12" >
                 <div class="banner2">
                     <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_second.png"))" />
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_2.png"))" />
@@ -197,7 +215,16 @@
 $(function(){
     $('#news-ticker').newsTicker({
         row_height: 22,
-        max_rows: 17,
+        max_rows: 14,
+        speed: 500,
+        direction: 'up',
+        duration: 2000,
+        autostart: 1,
+        pauseOnHover: 1
+    });
+    $('#news-ticker2').newsTicker({
+        row_height: 22,
+        max_rows: 14,
         speed: 500,
         direction: 'up',
         duration: 2000,

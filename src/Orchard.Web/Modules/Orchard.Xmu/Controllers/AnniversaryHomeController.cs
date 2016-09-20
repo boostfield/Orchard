@@ -41,11 +41,14 @@ namespace Orchard.Xmu.Controllers
                 .Slice(0, 4)
                 .Select(p => p.As<XmContentPart>())
                 .ToList();
-            ViewBag.donation = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
+            var donation = _contentManager.Query(VersionOptions.Latest, XmContentType.NinetyDonation.ContentTypeName)
                 .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc)
                 .List()
                 .Select(p => p.As<NinetyCelebrationDonationPart>())
                 .OrderByDescending(i => i.DonationTime).ToList();
+            ViewBag.largeDonation = donation.Where(d => Convert.ToDouble(d.DonationAmount) >= 10000).OrderByDescending(i => i.DonationTime);
+            ViewBag.smallDonation = donation.Where(d => Convert.ToDouble(d.DonationAmount) < 10000).OrderByDescending(i => i.DonationTime);
+
             ViewBag.articles = _contentManager.Query(VersionOptions.Latest, "CelMatesArticle")
                 .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                 .Slice(0, 3)
