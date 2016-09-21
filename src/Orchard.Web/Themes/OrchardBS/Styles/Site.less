@@ -1450,12 +1450,13 @@ body {
     }
     
     #carousel-anniversary {
-        
+        max-width: 100%;
         width: 119000/1920vw;
         margin:-45000/1920vw auto 0 auto;
         .carousel-inner .item {
             text-align: center;
             width: 119000/1920vw;
+            max-width: 100%;
             height: 45000/1920vw;
             margin:0 auto;
             vertical-align: middle;
@@ -2205,6 +2206,9 @@ only screen and (max-width: 480px) {
             
             
         }
+        .navbar-header{
+            background-color: @anniversary-primary-color;
+        }
         .navbar {
             background-image: none;
             .container {
@@ -2217,9 +2221,11 @@ only screen and (max-width: 480px) {
         }
         #carousel-anniversary {
             margin-top: -100px;
+            width: 100%;
             .carousel-inner .item {
-                height: 250px;
-                min-height: 250px;
+                 width: 100%;
+                height: 45000/1190vw;
+                
             }
         }
         
