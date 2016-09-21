@@ -1272,9 +1272,6 @@ body #layout-wrapper {
   background-color: transparent;
   border: none;
   margin-bottom: 0;
-  background-image: url(../Content/images/anniversary/nav-logo.png);
-  background-position: 4% center;
-  background-repeat: no-repeat;
 }
 .anniversary .navbar .navbar-brand {
   height: 140px;
@@ -1282,12 +1279,26 @@ body #layout-wrapper {
 .anniversary .navbar .navbar-brand img {
   line-height: 140px;
 }
+.anniversary .navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+.anniversary .navbar .navbar-collapse {
+  text-align: center;
+}
 .anniversary .navbar-default .navbar-nav > li a {
-  color: white;
+  color: black;
   font-size: 0.9em;
   height: 140px;
   line-height: 140px;
   padding-top: 0;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.anniversary .navbar-default .navbar-nav > li a:hover {
+  color: #D0021B;
 }
 .anniversary .navbar-default .navbar-nav > .active > a,
 .anniversary .navbar-default .navbar-nav > .active > a:focus,
@@ -1300,8 +1311,8 @@ body #layout-wrapper {
   min-height: 640px;
 }
 .anniversary .top-bg {
-  height: 633px;
-  background-image: url('../Content/images/anniversary/nav-home-bg.png');
+  height: 50vw;
+  background-image: url('../Content/images/anniversary/bg_home_top.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1314,12 +1325,14 @@ body #layout-wrapper {
   background-position: center;
 }
 .anniversary #carousel-anniversary {
-  margin-top: -240px;
+  width: 61.97916667vw;
+  margin: -23.4375vw auto 0 auto;
 }
 .anniversary #carousel-anniversary .carousel-inner .item {
-  width: 100%;
+  text-align: center;
+  width: 61.97916667vw;
   height: 23.4375vw;
-  min-height: 450px;
+  margin: 0 auto;
   vertical-align: middle;
   -webkit-background-size: cover;
   -moz-background-size: cover;

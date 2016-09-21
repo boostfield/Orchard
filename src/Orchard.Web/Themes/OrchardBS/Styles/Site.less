@@ -1396,9 +1396,7 @@ body {
         background-color: transparent;
         border: none;
         margin-bottom: 0;
-        background-image: url(../Content/images/anniversary/nav-logo.png);
-        background-position: 4% center;
-        background-repeat: no-repeat;
+        
     }
     .navbar .navbar-brand {
         height: 140px;
@@ -1406,17 +1404,28 @@ body {
     .navbar .navbar-brand img {
         line-height: 140px;
     }
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+    }
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
     .navbar-default .navbar-nav > li a{
-        color: white;
+        color: black;
         font-size: 0.9em;
         height: 140px;
         line-height: 140px;
         padding-top: 0;
+        .transition-all;
     }
-    
+    .navbar-default .navbar-nav > li a:hover {
+         color: @anniversary-primary-color;
+    }
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
         background-color: transparent;
-
+        
     }
     
     .content {
@@ -1425,8 +1434,9 @@ body {
         min-height: 640px;
     }
     .top-bg {
-        height: 633px;
-        background-image: url('../Content/images/anniversary/nav-home-bg.png');
+       
+        height: 96000/1920vw;
+        background-image: url('../Content/images/anniversary/bg_home_top.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -1440,12 +1450,14 @@ body {
     }
     
     #carousel-anniversary {
-        margin-top: -240px;
         
+        width: 119000/1920vw;
+        margin:-45000/1920vw auto 0 auto;
         .carousel-inner .item {
-            width: 100%;
+            text-align: center;
+            width: 119000/1920vw;
             height: 45000/1920vw;
-            min-height: 450px;
+            margin:0 auto;
             vertical-align: middle;
 	        -webkit-background-size: cover;
 	        -moz-background-size: cover;
