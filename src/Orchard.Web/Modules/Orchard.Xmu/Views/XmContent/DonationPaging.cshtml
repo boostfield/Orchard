@@ -20,7 +20,7 @@
         {
             <li class="list-group-item">
                 <div class="row">
-                    <a>
+                    <a href="@Url.Action("DonationItem","XmContent",new { Id=@item.Id})">
                         <div class="col-sm-3 title-name">@item.Title</div>
                         <div class="col-sm-3 title-fund">@String.Format("{0}元", item.DonationAmount)</div>
                         <div class="col-sm-6 title-time">@item.DonationTime.ToLocalTime().ToString("yyyy-MM-dd")</div>

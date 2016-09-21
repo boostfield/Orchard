@@ -1,0 +1,24 @@
+﻿@{
+    var htmlString = new HtmlString(ViewBag.Item.Text);
+
+}
+<div class="top-nav-bg">
+
+</div>
+<article>
+    <div class="container-fluid detail-header">
+        <div class="container text-center">
+            <h1 class="title">@ViewBag.Item.Title</h1>
+            <span class="author">捐赠金额: @String.Format("{0}元", @ViewBag.Item.DonationAmount)  | </span>
+            <span class="time"> 捐赠时间: @ViewBag.Item.DonationTime.ToLocalTime().ToString("yyyy-MM-dd")</span>
+            
+            <hr />
+        </div>
+    </div>
+    <div class="container-fluid detail-container">
+        <div class="container">
+            @htmlString
+        </div>
+
+    </div>
+</article>

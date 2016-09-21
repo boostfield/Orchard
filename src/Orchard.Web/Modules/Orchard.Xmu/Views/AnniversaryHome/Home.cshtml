@@ -79,7 +79,7 @@
                             <ul id="news-ticker">
                                 @foreach (var donation in ViewBag.largeDonation)
                                 {
-                                    <li>
+                                    <li onclick="location.href = '@Url.Action("DonationItem","XmContent",new { Id=@donation.Id})'">
                                         <div class="name">@donation.Title</div>
                                         <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
 
@@ -95,7 +95,7 @@
                             <ul id="news-ticker2">
                                 @foreach (var donation in ViewBag.smallDonation)
                                 {
-                                    <li>
+                                    <li onclick="location.href = '@Url.Action("DonationItem","XmContent",new { Id=@donation.Id})'">
                                         <div class="name">@donation.Title</div>
                                         <div class="fund">@String.Format("{0}元", @donation.DonationAmount)</div>
 

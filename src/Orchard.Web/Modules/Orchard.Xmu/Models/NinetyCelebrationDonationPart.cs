@@ -1,6 +1,7 @@
 ﻿using NGM.ContentViewCounter.Models;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Aspects;
+using Orchard.Core.Common.Models;
 using Orchard.Core.Title.Models;
 using Orchard.Security;
 using System;
@@ -82,6 +83,12 @@ namespace Orchard.Xmu.Models
                 dynamic content = (dynamic)this.ContentItem;
                 content.NinetyCelebrationDonationPart.donationTime.DateTime = value;
             }
+        }
+
+        public string Text
+        {
+            get { return this.As<BodyPart>().Text; }
+            set { this.As<BodyPart>().Text = value; }
         }
     }
 }
