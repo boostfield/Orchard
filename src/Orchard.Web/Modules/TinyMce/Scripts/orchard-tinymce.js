@@ -17,9 +17,10 @@ tinyMCE.init({
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking table contextmenu directionality",
         "emoticons template paste textcolor colorpicker textpattern",
+        "textcolor",
         "fullscreen autoresize" + mediaPlugins
     ],
-    toolbar: "undo redo cut copy paste | bold italic | bullist numlist outdent indent formatselect | alignleft aligncenter alignright alignjustify ltr rtl | " + mediaPlugins + " link unlink charmap | code fullscreen",
+    toolbar: "undo redo cut copy paste | bold italic | bullist numlist outdent indent formatselect | alignleft aligncenter alignright alignjustify ltr rtl | forecolor backcolor | sizeselect | bold italic | fontselect |  fontsizeselect | " + mediaPlugins + " link unlink charmap | code fullscreen",
     convert_urls: false,
     valid_elements: "*[*]",
     // Shouldn't be needed due to the valid_elements setting, but TinyMCE would strip script.src without it.
