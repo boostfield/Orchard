@@ -56,6 +56,13 @@
     var tag = Tag(Model, "div"); // using Tag so the layout div gets the classes, id and other attributes added to the Model
 }
 @tag.StartElement
+<script>
+    function baiduSearch() {
+        var wd = document.getElementById("input-keyword").value;
+        var link = "http://www.baidu.com/s?si=law.xmu.edu.cn&cl=3&ct=2097152&tn=baidulocal&word=" + wd;
+        window.open(link);
+    }
+</script>
 <div class="en-home ">
     <div class="navbar-wrapper">
         <div class="navbar navbar-default center" role="navigation">
@@ -79,9 +86,9 @@
                     <div class="navbar-collapse collapse pull-right">
                         <form class="navbar-form " role="search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control" placeholder="Search" id="input-keyword">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"></button>
+                                    <button class="btn btn-default" type="button" onclick="javascript:baiduSearch()"></button>
                                 </span>
                             </div>
                         </form>

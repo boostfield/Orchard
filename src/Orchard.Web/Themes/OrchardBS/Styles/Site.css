@@ -112,9 +112,6 @@ body #layout-wrapper {
   color: white;
   font-size: 0.8em;
 }
-.home .top-bg .input-group {
-  display: none;
-}
 .home .top-bg .input-group input {
   border-top-left-radius: 17px;
   border-bottom-left-radius: 17px;
@@ -793,7 +790,7 @@ body #layout-wrapper {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .en-home .navbar-form {
-  display: none;
+  width: 250PX;
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -1898,6 +1895,13 @@ body #layout-wrapper {
   }
   .home .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: white;
+  }
+  .home .container-fluid.top-bg {
+    background-color: #2D44AA;
+    background-image: none;
+    height: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .home .footer img {
     width: 182px;

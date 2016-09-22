@@ -58,24 +58,35 @@
 }
 @tag.StartElement
 
-
+<script>
+    function baiduSearch() {
+        var wd = document.getElementById("input-keyword").value;
+        var link = "http://www.baidu.com/s?si=law.xmu.edu.cn&cl=3&ct=2097152&tn=baidulocal&word=" + wd;
+        window.open(link);
+    }
+</script>
 <div class="home">
     
-        <div class="container-fluid top-bg hidden-xs">
+        <div class="container-fluid top-bg">
             
                 
-                <div class="col-md-12 col-lg-12 pull-right">
-                    
-                    <div class="input-group">
-                        
-                        <input type="text" class="form-control" placeholder="站内搜索">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
-                        </span>
-                    </div>
+                <div class="col-md-3 col-lg-3 pull-right">
+                    <form>
+                        <div class="input-group">
+                            
+                            <input type="text" class="form-control" placeholder="站内搜索" id="input-keyword">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default glyphicon glyphicon-search" type="button" onclick="javascript:baiduSearch()"></button>
+                            </span>
+                            
+                        </div>
+                    </form>
+                   
                 </div>
                 <div class="col-md-1 col-lg-1 pull-right text-right"><a href="~/en/home">English</a> </div>
-            
+                <div class="row">
+                    <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4252746557949673511' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+                </div>
         </div>
    
     <div class="navbar-wrapper">
