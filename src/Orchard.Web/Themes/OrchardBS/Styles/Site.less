@@ -476,25 +476,23 @@ body {
     .carousel-medium {
         width: 100%;
         .carousel-indicators {
-            background-color: rgba(0,0,0,0.5);
-            width: 58px;
             height: auto;
-            left: auto;
-            right: 10px;
+            left: 50%;
+            right: 50%;
             height: 15px;
             padding: 0 4px;
-            bottom: 30px;
+            bottom: 0.5em;
             border-radius: 7.5px;
             li {
                 width: 7px;
                 height: 7px;
                 margin: 0;
-                margin-bottom: 10px;
+                
             }
             li.active {
                 width: 7px;
                 height: 7px;
-                margin-bottom: 10px;
+               
             }
         }
         .carousel-inner .item {
@@ -511,22 +509,24 @@ body {
                 left: 0;
                 bottom: 0;
                 right: initial;
-                background-color: white;
-                padding: 4px 0 0 0 ;
+                background: rgba(45,69,168,0.70);
+                padding: 0.5em 1em;
                 width: 100%;
                 p {
-                    color: @primary-color;
+                    color:white;
                     font-size: 0.65em;
                     text-shadow: none;
                     text-align: left;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    padding-left: 1.5em;
-                    background-image: url(../Content/images/cn/ic_new_list_content.png);
-                    background-position: left center;
-                    background-repeat: no-repeat;
-                    background-size: 13px 13px;
+                    margin-bottom: 15px;
+                    text-decoration: underline;
+                    
+                }
+                p.title {
+                    font-size: 0.9em;
+                    text-decoration: none;
                 }
             }
         }

@@ -405,26 +405,22 @@ body #layout-wrapper {
   width: 100%;
 }
 .home .carousel-medium .carousel-indicators {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 58px;
   height: auto;
-  left: auto;
-  right: 10px;
+  left: 50%;
+  right: 50%;
   height: 15px;
   padding: 0 4px;
-  bottom: 30px;
+  bottom: 0.5em;
   border-radius: 7.5px;
 }
 .home .carousel-medium .carousel-indicators li {
   width: 7px;
   height: 7px;
   margin: 0;
-  margin-bottom: 10px;
 }
 .home .carousel-medium .carousel-indicators li.active {
   width: 7px;
   height: 7px;
-  margin-bottom: 10px;
 }
 .home .carousel-medium .carousel-inner .item {
   width: 100%;
@@ -441,23 +437,24 @@ body #layout-wrapper {
   left: 0;
   bottom: 0;
   right: initial;
-  background-color: white;
-  padding: 4px 0 0 0 ;
+  background: rgba(45, 69, 168, 0.7);
+  padding: 0.5em 1em;
   width: 100%;
 }
 .home .carousel-medium .carousel-inner .item .carousel-caption p {
-  color: #2D44AA;
+  color: white;
   font-size: 0.65em;
   text-shadow: none;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-left: 1.5em;
-  background-image: url(../Content/images/cn/ic_new_list_content.png);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 13px 13px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+.home .carousel-medium .carousel-inner .item .carousel-caption p.title {
+  font-size: 0.9em;
+  text-decoration: none;
 }
 .home .carousel-shows {
   width: 100%;
