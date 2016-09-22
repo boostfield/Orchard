@@ -119,7 +119,6 @@
     <Content Include="OrchardBS\Content\images\cn\bg_ch_buttom.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bg_ch_top.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bottom-text.png" />
-    <Content Include="OrchardBS\Content\images\cn\cn-bg-mask.png" />
     <Content Include="OrchardBS\Content\images\cn\cn-bg.jpg" />
     <Content Include="OrchardBS\Content\images\cn\footer-bg.png" />
     <Content Include="OrchardBS\Content\images\cn\ic_content_detail.png" />
