@@ -86,7 +86,10 @@ namespace Orchard.Core.Common.Handlers {
             // and use the current user as Owner
             if (part.Record.OwnerId == 0) {
                 part.Owner = _authenticationService.GetAuthenticatedUser();
+                part.Author = _authenticationService.GetAuthenticatedUser().UserName;
+
             }
+            part.Editor = _authenticationService.GetAuthenticatedUser().UserName;
         }
 
         protected void AssignCreatingDates(InitializingContentContext context, CommonPart part) {

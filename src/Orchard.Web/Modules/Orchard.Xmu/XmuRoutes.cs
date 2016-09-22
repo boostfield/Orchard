@@ -593,7 +593,7 @@ namespace Orchard.Xmu
 
             new RouteDescriptor
                 {
-                  Priority = 22,
+                  Priority = 23,
 
             Route = new Route(
              "90/DonationItem/{Id}",
