@@ -13,5 +13,7 @@ namespace Orchard.Xmu.ViewModels
         public string TypeDisplayName { get; set; }
 
         public string ImageAddress { get; set; }
+
+        public string AuthorName { get; set; }
     }
 }

@@ -280,7 +280,7 @@
                             {
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="name"><a class="topic" href="@Url.Action("ScientificResearchPaging","XmContent",new { page = 1, pageSize = 10, contentTypeName = science.ContentTypeName })">@String.Format("[{0}]", science.TypeDisplayName)</a><a class="title" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@science.Title</a></div>
+                                            <div class="name"><a class="topic" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@String.Format("[{0}]", @science.AuthorName)</a><a class="title" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@science.Title</a></div>
 
                                         </div>
 

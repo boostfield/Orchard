@@ -48,6 +48,7 @@ namespace Orchard.Xmu.Service
             var displayName = contentItem.TypeDefinition.DisplayName;
             var id = contentItem.Id;
             var imageAddress = string.Empty;
+            var authorName = string.Empty;
             foreach (var type in allTypes)
             {
                 if (contentItem.ContentType.Equals(XmContentType.CNAcademicPaper.ContentTypeName))
@@ -55,6 +56,7 @@ namespace Orchard.Xmu.Service
                     var part = contentItem.Get<AcademicPaperPart>();
                     title = part.Title;
                     imageAddress = part.ImageAddress;
+                    authorName = part.Author;
                     break;
                 }
                 else if (contentItem.ContentType.Equals(XmContentType.CNAcademicWork.ContentTypeName))
@@ -62,6 +64,7 @@ namespace Orchard.Xmu.Service
                     var part = contentItem.Get<AcademicWorksPart>();
                     title = part.Title;
                     imageAddress = part.ImageAddress;
+                    authorName = part.Author;
                     break;
 
                 }
@@ -70,6 +73,7 @@ namespace Orchard.Xmu.Service
                     var part = contentItem.Get<AwardsPart>();
                     title = part.AwardName;
                     imageAddress = part.ImageAddress;
+                    authorName = part.WinnerName;
                     break;
 
                 }
@@ -78,6 +82,7 @@ namespace Orchard.Xmu.Service
                     var part = contentItem.Get<ProjectPart>();
                     title = part.ProjectTitle;
                     imageAddress = part.ImageAddress;
+                    authorName = part.Host;
                     break;
 
                 }
@@ -89,7 +94,8 @@ namespace Orchard.Xmu.Service
                 Title = title,
                 ContentTypeName = contentType,
                 TypeDisplayName = displayName,
-                ImageAddress = imageAddress
+                ImageAddress = imageAddress,
+                AuthorName = authorName
             };
         }
     }
