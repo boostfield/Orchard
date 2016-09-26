@@ -593,6 +593,7 @@ body #layout-wrapper {
   padding-left: 140px;
   padding-right: 140px;
   font-size: 0.9em;
+  text-indent: 2em;
 }
 .home .detail-container .container img {
   max-width: 100% !important;
@@ -1719,6 +1720,7 @@ body #layout-wrapper {
   padding-left: 140px;
   padding-right: 140px;
   font-size: 0.9em;
+  text-indent: 2em;
 }
 .anniversary .detail-container .container img {
   max-width: 100% !important;
