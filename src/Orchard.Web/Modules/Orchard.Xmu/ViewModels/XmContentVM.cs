@@ -17,20 +17,21 @@ namespace Orchard.Xmu.ViewModels
         public string Editor { get; set; }
         public int ViewCount { get; set; }
 
-
+        public string ImageAddress { get; set; }
 
         public static XmContentVM FromXmContentPart(XmContentPart part)
         {
             return new XmContentVM
             {
-                Id=part.Id,
+                Id = part.Id,
                 Title = part.Title,
                 Text = part.Text,
                 PublishedUtc = part.PublishedUtc,
                 Author = part.Author,
                 Editor = part.Editor,
                 ViewCount = part.ViewCount,
-                CreatedUtc = part.CreatedUtc
+                CreatedUtc = part.CreatedUtc,
+                ImageAddress = part.ImageAddress
             };
         }
     }

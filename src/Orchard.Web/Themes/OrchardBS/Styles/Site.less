@@ -1174,6 +1174,7 @@ body {
              }
         }
     }
+
     .expand-menu {
         margin-top: 2em;
         margin-bottom: 2em;
@@ -1202,14 +1203,14 @@ body {
 
     .detail-header {
         background-color: #262F49;
-        padding: 2em;
+        padding: 0.5em 0 1em 0;
         color: white;
         .title {
             font-family: @en-font;
-            font-size: 2em;
+            font-size: 1.3em;
         }
         .time, .count {
-            font-size: 0.8em;
+            font-size: 0.7em;
             font-weight: lighter;
             
         }
@@ -1244,6 +1245,11 @@ body {
         }
     }
     .en-list {
+        .en-column {
+            p.title a {
+                font-size: 20px;
+            }
+        }
         .list-group {
             border-radius: 0;
             
@@ -1256,7 +1262,7 @@ body {
                 text-decoration: none;
             }
             .title {
-                font-size: 1.5em;
+                font-size: 1.3em;
                 font-family: @en-font;
                 color: @primary-color;
                 overflow: hidden;
@@ -1296,6 +1302,24 @@ body {
             }
         }
     }
+    #goToTop {
+			   position: fixed;
+			   bottom:10%;
+			   right: 2%;
+			   cursor: pointer;
+			   padding: 0.5em 0.8em;
+			   z-index: 999;
+               background: none repeat scroll 0 0 @primary-color;
+		   }
+			#goToTop a {
+				
+				color: #fdfeff;
+				font-size: 18px;
+				padding: 5px;
+				text-decoration: none;
+				display: block;
+
+			}
     .thumbnail.teacher-list-item {
         
         min-height: 250px;
@@ -1332,23 +1356,21 @@ body {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            img {
-                width: 148.8px;
-                height: 188px;
-            }
+            
             h1 {
                 font-size: 2em;
+                margin-top: 0;
                 color: white;
-                margin-bottom: 0.7em;
+                
                 font-family: @en-font;
             }
             p {
-                font-size: 0.7em;
+                font-size: 14px;
                 font-weight: 100;
                 color: @text-third-color;
             }
             a {
-                font-size: 0.7em;
+                font-size: 14px;
                 font-weight: 100;
                 color: @text-third-color;
                 text-decoration: none;
@@ -1360,7 +1382,7 @@ body {
             }
             .contact-us {
                 
-                border-right: 1px solid rgba(255,255,255,0.2);
+                
                 
             }
             .follow-us {
@@ -1369,7 +1391,7 @@ body {
         
         }
         .footer-links {
-            padding: 1em 0 1em 0;
+            padding: 0;
             background-color: #262F49;
             h1 {
                 font-family: @en-font;

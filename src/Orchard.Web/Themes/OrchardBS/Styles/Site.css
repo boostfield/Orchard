@@ -1084,16 +1084,16 @@ body #layout-wrapper {
 }
 .en-home .detail-header {
   background-color: #262F49;
-  padding: 2em;
+  padding: 0.5em 0 1em 0;
   color: white;
 }
 .en-home .detail-header .title {
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
-  font-size: 2em;
+  font-size: 1.3em;
 }
 .en-home .detail-header .time,
 .en-home .detail-header .count {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: lighter;
 }
 .en-home .detail-header .time a {
@@ -1124,6 +1124,9 @@ body #layout-wrapper {
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   font-size: 2em;
 }
+.en-home .en-list .en-column p.title a {
+  font-size: 20px;
+}
 .en-home .en-list .list-group {
   border-radius: 0;
 }
@@ -1136,7 +1139,7 @@ body #layout-wrapper {
   text-decoration: none;
 }
 .en-home .en-list .list-group-item .title {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   color: #2D44AA;
   overflow: hidden;
@@ -1176,6 +1179,22 @@ body #layout-wrapper {
   font-weight: lighter;
   line-height: 2em;
 }
+.en-home #goToTop {
+  position: fixed;
+  bottom: 10%;
+  right: 2%;
+  cursor: pointer;
+  padding: 0.5em 0.8em;
+  z-index: 999;
+  background: none repeat scroll 0 0 #2D44AA;
+}
+.en-home #goToTop a {
+  color: #fdfeff;
+  font-size: 18px;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
 .en-home .thumbnail.teacher-list-item {
   min-height: 250px;
   max-height: 250px;
@@ -1210,23 +1229,19 @@ body #layout-wrapper {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.en-footer .footer-first img {
-  width: 148.8px;
-  height: 188px;
-}
 .en-footer .footer-first h1 {
   font-size: 2em;
+  margin-top: 0;
   color: white;
-  margin-bottom: 0.7em;
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
 }
 .en-footer .footer-first p {
-  font-size: 0.7em;
+  font-size: 14px;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
 }
 .en-footer .footer-first a {
-  font-size: 0.7em;
+  font-size: 14px;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
@@ -1239,11 +1254,8 @@ body #layout-wrapper {
 .en-footer .footer-first a:focus {
   color: white;
 }
-.en-footer .footer-first .contact-us {
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
 .en-footer .footer-links {
-  padding: 1em 0 1em 0;
+  padding: 0;
   background-color: #262F49;
 }
 .en-footer .footer-links h1 {
