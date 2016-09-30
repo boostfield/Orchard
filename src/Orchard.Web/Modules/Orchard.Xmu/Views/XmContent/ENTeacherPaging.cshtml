@@ -43,7 +43,7 @@
 </div>
 <script>
     $('#pagination').bootpag({
-        total: Math.ceil((@total) / 30) ,
+        total: Math.ceil((@total) / @pagesize) ,
         page:  @page,
         maxVisible: 10,
         leaps: false,
@@ -51,8 +51,8 @@
         prev: 'Prev',
         firstLastUse: true,
         first: 'First',
-        last: Math.ceil((@total) / 30),
+        last: Math.ceil((@total) / @pagesize),
     }).on('page', function (event, num) {
-        window.location = (location.protocol + '//' + location.host + location.pathname  + "?page=" + num + "&pageSize=30");
+        window.location = (location.protocol + '//' + location.host + location.pathname  + "?page=" + num + "&pageSize=@pagesize");
     });
 </script>

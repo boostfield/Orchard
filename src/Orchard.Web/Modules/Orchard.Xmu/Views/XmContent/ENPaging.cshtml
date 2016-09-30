@@ -48,7 +48,7 @@
 <div id="goToTop"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_up.png"))" /><a href="#">TOP</a> </div>
 <script>
     $('#pagination').bootpag({
-        total: Math.ceil((@total) / 12) ,
+        total: Math.ceil((@total) / @pagesize) ,
         page:  @page,
         maxVisible: 10,
         leaps: false,
@@ -56,10 +56,10 @@
         prev: 'Prev',
         firstLastUse: true,
         first: 'First',
-        last: Math.ceil((@total) / 12),
+        last: Math.ceil((@total) / @pagesize),
     }).on('page', function (event, num) {
- 
-        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=12");
+
+        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=@pagesize");
     });
     $(document).ready(function () {
         $("#goToTop").hide()
