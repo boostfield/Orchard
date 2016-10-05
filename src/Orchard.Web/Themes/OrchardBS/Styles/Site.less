@@ -875,8 +875,9 @@ body {
             right: 0;
             left: auto;
     }
+
     .btn-group .btn{
-        line-height: 60px;
+        line-height: 40px;
         padding: 0 1em 0 1em;
         border-radius: 0;
         background-color: transparent;
@@ -886,8 +887,8 @@ body {
     }
     .input-group input, .input-group button {
         padding: 0 2em 0 2em;
-        height: 60px;
-        border-radius: 0;
+        height: 40px;
+        border-radius: 20px;
         background-color: rgba(0,0,0,0.2);
         color: white;
         border: none;
@@ -896,7 +897,7 @@ body {
     }
     .input-group input {
         font-size: 0.8em;
-        
+        background-color:rgba(255, 255, 255, 0.2);
     }
     .navbar-form .input-group>.form-control {
         
@@ -906,13 +907,17 @@ body {
         background-image: url("../Content/images/ic_nav_search.png");
         background-position: center;
         background-size: 20px 20px;
-        border-left: 1px solid rgba(255,255,255,0.2);
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color:rgba(255, 255, 255, 0.2);
     }
     .navbar-form {
         width: 250PX;
         padding: 0;
-        margin-top: 0;
+        margin-top: 10px;
         margin-bottom: 0;
+        margin-right: 2em;
     }
     .container-fluid>.navbar-collapse {
         margin-left: 0;
