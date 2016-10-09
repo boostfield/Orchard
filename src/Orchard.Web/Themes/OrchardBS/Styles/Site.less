@@ -144,7 +144,18 @@ body {
 .home  {
     background-color: #fafafa;
     flex: 1 0 auto;
-   
+    #floatBanner {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        left: 2%;
+        img {
+            width: 120px;
+        }
+    }
     #content {
         background-color: #FAFAFA;
     }
@@ -2055,6 +2066,9 @@ only screen and (max-width: 480px) {
     }
     //中文
     .home {
+        #floatBanner {
+            left: 0;
+        }
         .navbar-default {
             border: none;
             z-index: 999 !important;

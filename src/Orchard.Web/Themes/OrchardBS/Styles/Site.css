@@ -109,6 +109,18 @@ body #layout-wrapper {
   background-color: #fafafa;
   flex: 1 0 auto;
 }
+.home #floatBanner {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  left: 2%;
+}
+.home #floatBanner img {
+  width: 120px;
+}
 .home #content {
   background-color: #FAFAFA;
 }
@@ -1907,6 +1919,9 @@ body #layout-wrapper {
   .navbar-default .navbar-toggle:focus,
   .navbar-default .navbar-toggle:hover {
     background-color: transparent;
+  }
+  .home #floatBanner {
+    left: 0;
   }
   .home .navbar-default {
     border: none;
