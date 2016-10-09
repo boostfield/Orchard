@@ -15,38 +15,62 @@
     </div>
 </div>
 <div class="container en-list">
-    <div class="en-column">
-        <div class="row">
+    @if (contentTypeName.Equals("StudentBulletin") || contentTypeName.Equals("CollegeENNotice"))
+    {
+        <ul class="list-group">
             @foreach (var item in items)
             {
                 string bodyHtml = item.Text;
-                var body = new HtmlString(Html.Excerpt(bodyHtml, 200).ToString().Replace(Environment.NewLine, Environment.NewLine));
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="thumbnail">
-                        <div class="img-container" style="background-image: url('@item.ImageAddress'); background-size: cover;background-repeat: no-repeat;">
+                var body = new HtmlString(Html.Excerpt(bodyHtml, 350).ToString().Replace(Environment.NewLine, Environment.NewLine));
+                <li class="list-group-item">
+                    <div class="row">
+                        <a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">
+                            <div class="p title">@item.Title</div>
+                            <div class="p content">@body</div>
+                            <div class="p time">@item.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="en-column">
+            <div class="row">
+                @foreach (var item in items)
+                {
+                    string bodyHtml = item.Text;
+                    var body = new HtmlString(Html.Excerpt(bodyHtml, 200).ToString().Replace(Environment.NewLine, Environment.NewLine));
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail">
+                            <div class="img-container" style="background-image: url('@item.ImageAddress'); background-size: cover;background-repeat: no-repeat;">
 
-                        </div>
+                            </div>
 
-                        <div class="caption">
-                            <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">@item.Title</a></p>
-                            <p class="time">@item.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
-                            <p class="content">@body</p>
-                            <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">Continue Reading</a></p>
+                            <div class="caption">
+                                <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">@item.Title</a></p>
+                                <p class="time">@item.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
+                                <p class="content">@body</p>
+                                <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})">Continue Reading</a></p>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+
+            </div>
 
         </div>
+    }
 
-    </div>
     <div class="row">
         <div id="pagination"></div>
     </div>
 </div>
-<div id="goToTop"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_up.png"))" /><a href="#">TOP</a> </div>
-<script>
+
+                    <div id="goToTop"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_up.png"))" /><a href="#">TOP</a> </div>
+                    <script>
     $('#pagination').bootpag({
         total: Math.ceil((@total) / @pagesize) ,
         page:  @page,
@@ -77,4 +101,4 @@
             return false;
         });
     });
-</script>
+                    </script>
