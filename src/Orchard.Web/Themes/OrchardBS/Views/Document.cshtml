@@ -46,6 +46,13 @@
 <body class="text-justify">
     @Display(Model.Body)
     @Display(Model.Tail)
+    <script>
+        if (document.addEventListener) {
+            console.log("fine browser version");
+        } else {
+            alert("请使用IE9以上版本的浏览器获取更好的体验效果");
+        }
+    </script>
 </body>
 
 </html>
