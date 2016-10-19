@@ -33,6 +33,20 @@ namespace Orchard.Xmu.Models
                 Store(i => i.ENName, value);
             }
         }
+
+        [DisplayName("职称")]
+        public string Titles
+        {
+            get
+            {
+                return Retrieve(i => i.Titles);
+            }
+            set
+            {
+                Store(i => i.Titles, value);
+            }
+        }
+
         [DisplayName("教师编号")]
         public string SN
         {
