@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FluentNHibernate.Utils;
 
 namespace Orchard.Xmu.Controllers
 {
@@ -303,8 +304,9 @@ namespace Orchard.Xmu.Controllers
             }
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
             var q = _contentManager.Query(VersionOptions.Latest, XmContentType.ENTeacher.ContentTypeName)
-                .OrderByDescending<CommonPartRecord>(i => i.PublishedUtc);
-            var total = q.Count();
+                .OrderBy<ENTeacherPartRecord>(i => i.ENName.FirstOrDefault());
+
+                var total = q.Count();
             var items = q.Slice(pager.GetStartIndex(), pager.PageSize)
                 .Select(p => p.As<ENTeacherPart>()); ;
 
