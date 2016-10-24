@@ -9,7 +9,8 @@
     var Author = contentItem.As<CommonPart>().Author;
     var text = contentItem.As<BodyPart>().Text;
     var htmlString = new HtmlString(text);
-    //var ViewCount = contentItem.As<UserViewPart>().TotalViews;
+    var vc = contentItem.As<UserViewPart>().ViewCount;
+    contentItem.As<UserViewPart>().ViewCount = vc + 1;
 
 }
 <div class="top-nav-bg">
@@ -21,7 +22,7 @@
             <h1 class="title">@Title</h1>
             <span class="author">发布人: @Author | </span>
             <span class="time"> 发布时间: @PublishedUtc.ToLocalTime().ToString("yyyy-MM-dd") | </span>
-            <span class="count"> 阅读数: 1</span>
+            <span class="count"> 阅读数: @vc</span>
             <hr />
         </div>
     </div>
