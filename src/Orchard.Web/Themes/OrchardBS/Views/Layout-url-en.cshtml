@@ -206,7 +206,7 @@
     </section>
 
 
-    
+    <div id="goToTop"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_up.png"))" /><a href="#">TOP</a> </div>
 </div>
 
     <footer id="en-footer" class="en-footer">
@@ -220,5 +220,22 @@
         </div>
 
     </footer>
-
+<script>
+    $(document).ready(function () {
+        $("#goToTop").hide()
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 1) {
+                    $("#goToTop").fadeIn();
+                } else {
+                    $("#goToTop").fadeOut();
+                }
+            });
+        });
+        $("#goToTop").click(function () {
+            $('html,body').animate({ scrollTop: 0 }, 400);
+            return false;
+        });
+    });
+</script>
 @tag.EndElement

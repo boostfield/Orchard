@@ -43,7 +43,7 @@
                     string bodyHtml = item.Text;
                     var body = new HtmlString(Html.Excerpt(bodyHtml, 200).ToString().Replace(Environment.NewLine, Environment.NewLine));
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="thumbnail">
+                        <div class="thumbnail" style="cursor: pointer;" onclick="location.href='@Url.Action("ENItem","XmContent",new { Id=@item.Id, contentTypeName  = contentTypeName})'">
                             <div class="img-container" style="background-image: url('@item.ImageAddress'); background-size: cover;background-repeat: no-repeat;">
 
                             </div>
@@ -69,7 +69,7 @@
     </div>
 </div>
 
-                    <div id="goToTop"><img src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/ic_up.png"))" /><a href="#">TOP</a> </div>
+                   
                     <script>
     $('#pagination').bootpag({
         total: Math.ceil((@total) / @pagesize) ,
@@ -85,20 +85,5 @@
 
         window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=@pagesize");
     });
-    $(document).ready(function () {
-        $("#goToTop").hide()
-        $(function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 1) {
-                    $("#goToTop").fadeIn();
-                } else {
-                    $("#goToTop").fadeOut();
-                }
-            });
-        });
-        $("#goToTop").click(function () {
-            $('html,body').animate({ scrollTop: 0 }, 400);
-            return false;
-        });
-    });
+   
                     </script>
