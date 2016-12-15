@@ -26,7 +26,7 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+                <div class="item active" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>
@@ -38,7 +38,7 @@
             }
             else
             {
-                <div class="item" style="background-image: url('@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/en/img_banner_cover.png"))'), url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
+                <div class="item" style="background-image: url('@ViewBag.banners[i].ImageAddress');" onclick="window.location.href = '@ViewBag.banners[i].LinkAddress';">
 
                     <div class="carousel-caption">
                         <p>

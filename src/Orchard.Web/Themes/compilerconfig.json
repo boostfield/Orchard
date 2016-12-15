@@ -6,5 +6,9 @@
   {
     "outputFile": "TheAdmin/Styles/site-admin.css",
     "inputFile": "TheAdmin/Styles/site-admin.less"
+  },
+  {
+    "outputFile": "OrchardBS/Styles/ie8.css",
+    "inputFile": "OrchardBS/Styles/ie8.less"
   }
 ]
