@@ -51,3 +51,32 @@
 .en-footer a {
   color: white !important;
 }
+.anniversary .top-bg {
+  height: 960px;
+}
+.anniversary #carousel-anniversary {
+  margin: -450px 0 auto 0;
+  width: 1190px;
+}
+.anniversary #carousel-anniversary .carousel-inner .item {
+  overflow: hidden;
+  height: 650px;
+  width: 100%;
+}
+.anniversary #carousel-anniversary .carousel-control {
+  display: none;
+}
+.anniversary .donation {
+  overflow: hidden;
+}
+.anniversary .donation #news-ticker,
+.anniversary .donation #news-ticker2 {
+  height: 364px;
+  overflow: hidden;
+}
+.anniversary .frame ul li .text-content {
+  display: none;
+}
+.anniversary .frame ul li:hover .text-content {
+  display: none;
+}

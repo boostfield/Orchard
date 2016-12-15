@@ -197,7 +197,7 @@
                     @foreach (var photo in ViewBag.gallery)
                     {
                         <li>
-                            <img src="@photo.ImageAddress" />
+                            <img src="@photo.ImageAddress" title="@photo.Title"/>
                             <div class="text-content" ><a href="@photo.LinkAddress">@photo.Title</a></div>
                         </li>
                     }
