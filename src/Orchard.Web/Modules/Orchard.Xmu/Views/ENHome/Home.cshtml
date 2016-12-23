@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="caption">
-                                <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">@newsItem.Title</a></p>
+                                <p class="title" title="@newsItem.Title"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">@newsItem.Title</a></p>
                                 <p class="time">@newsItem.CreatedUtc.ToLocalTime().ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("en-US"))</p>
                                 <p class="content">@body</p>
                                 <p class="more"><a href="@Url.Action("ENItem","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeENNews"})">Continue Reading</a></p>
@@ -110,7 +110,7 @@
                                 <p class="date">@notice.PublishedUtc.ToLocalTime().ToString("dd", CultureInfo.CreateSpecificCulture("en-US"))</p>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
-                                <p class="title"><a href="@Url.Action("ENItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CollegeENNotice"})">@notice.Title</a></p>
+                                <p class="title" title="@notice.Title"><a href="@Url.Action("ENItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CollegeENNotice"})">@notice.Title</a></p>
                                 <p class="time">@notice.CreatedUtc.ToLocalTime().ToString("HH:mm")</p>
                             </div>
                         </div>

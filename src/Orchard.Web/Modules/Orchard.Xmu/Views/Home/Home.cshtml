@@ -136,7 +136,7 @@
                             {
 
                                     <li class="list-group-item">
-                                        <div class="row">
+                                        <div class="row" title="@newsItem.Title">
                                             <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@newsItem.Id, contentTypeName  = "CollegeNews"})">@newsItem.Title</a></div>
                                             <div class="col-sm-3 time">@newsItem.CreatedUtc.Value.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                         </div>
@@ -161,7 +161,7 @@
                         {
                                 <li class="list-group-item">
 
-                                    <div class="row">
+                                    <div class="row" title="@lecture.Title">
                                         <div class="title"><a href="@Url.Action("Item","XmContent",new { Id=@lecture.Id, contentTypeName  = "LectureInfo"})">@lecture.Title</a></div>
 
                                     </div>
@@ -194,7 +194,7 @@
                         if (noticeItem.Fields.Count > 0 && noticeItem.Fields[0].Terms.Count > 0)
                         {
                                 <li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row" title="@noticeItem.Title">
                                         <div class="col-sm-9 name"><a href="@Url.Action("NoticePaging","XmContent",new { page = 1,pageSize=10, type= noticeItem.Fields[0].Terms[0].Id })" class="topic">@String.Format("[{0}]", (noticeItem.Fields[0].Terms[0] as TermPart).Name)</a><a class="title" href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
                                         <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                     </div>
@@ -203,7 +203,7 @@
                         }
                         else
                         {
-                                <li class="list-group-item">
+                                <li class="list-group-item" title="@noticeItem.Title">
                                     <div class="row">
                                         <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id= @noticeItem.Id, contentTypeName  = "CNNotify"})">@noticeItem.Title</a></div>
                                         <div class="col-sm-3 time">@noticeItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
@@ -279,7 +279,7 @@
                                 @foreach (var science in sciences)
                             {
                                     <li class="list-group-item">
-                                        <div class="row">
+                                        <div class="row" title="@science.Title">
                                             <div class="name"><a class="topic" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@String.Format("[{0}]", @science.AuthorName)</a><a class="title" href="@Url.Action("ScienceItem","XmContent",new { Id=@science.Id, contentTypeName  =  science.ContentTypeName})">@science.Title</a></div>
 
                                         </div>
@@ -356,7 +356,7 @@
                                 @foreach (var coopItem in coop)
                             {
                                     <li class="list-group-item">
-                                        <div class="row">
+                                        <div class="row" title="@coopItem.Title">
                                             <div class="col-sm-9 name"><a href="@Url.Action("Item","XmContent",new { Id=@coopItem.Id, contentTypeName  = "CNCop"})">@coopItem.Title</a></div>
                                             <div class="col-sm-3 time">@coopItem.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                         </div>
