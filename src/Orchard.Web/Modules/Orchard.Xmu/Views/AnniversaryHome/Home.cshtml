@@ -197,18 +197,22 @@
                     @foreach (var photo in ViewBag.gallery)
                     {
                         <li>
-                            <img src="@photo.ImageAddress" title="@photo.Title"/>
-                            <div class="text-content" ><a href="@photo.LinkAddress">@photo.Title</a></div>
+                            
+                            <div class="text-content" style="font-size: 14px;" >@photo.Title</div>
+                            <img src="@photo.ImageAddress" class="old-image"/>
                         </li>
                     }
-
+                     
 
                 </ul>
             </div>
         
         
     </div>
-    
+    <div id="imagePreviewModal" class="modal" style="background-color: rgba(0, 0, 0, 0.8);">
+        <span class="close" style="color: red;font-size: 20px; opacity: 1;">×</span>
+        <img class="modal-content" id="imagePreview" style="max-width: 100%; height: auto;">
+    </div>
 </div>
 <script>
    
@@ -264,6 +268,16 @@ $(function(){
         forward: $wrap.find('.btn-forward'),
         backward: $wrap.find('.btn-backward'),
        
+    });
+    $(document).on('click', 'span.close', function () {
+        var modal = document.getElementById("imagePreviewModal");
+        modal.style.display = "none";
+    });
+    $(document).on('click', '.frame>ul>li', function () {
+        var modal = document.getElementById("imagePreviewModal");
+        var image = document.getElementById("imagePreview");
+        image.src = $(this).find("img").attr('src');
+        modal.style.display = "block";
     });
 });
 
