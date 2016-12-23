@@ -51,22 +51,23 @@
         <div class="row" style="margin-top: 2em;">
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="banner1">
-                    <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_first.png"))"/>
+                    <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_second.png"))" />
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_1.png"))" />
                     <ul class="list-group">
-                        
-                        @foreach (var notice in ViewBag.notice)
+                        @foreach (var news in ViewBag.news)
                         {
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CelAnnouncement"})">@notice.Title</a></div>
-                                    <div class="col-sm-3 title-time">@notice.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@news.Id, contentTypeName  = "CelNews"})">@news.Title</a></div>
+                                    <div class="col-sm-3 title-time">@news.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
                             </li>
                         }
+
+
                     </ul>
-                    <p class="more text-right"><a href="@Url.Action("ANPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CelAnnouncement"})">更多 ></a></p>
+                    <p class="more text-right"><a href="@Url.Action("ANPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CelNews"})">更多 ></a></p>
                  </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12" style="float: right;">
@@ -113,23 +114,22 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12" >
                 <div class="banner2">
-                    <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_second.png"))" />
+                    
+                    <img class="img-title" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_title_first.png"))" />
                     <img class="img-number pull-right" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/anniversary/img_number_2.png"))" />
                     <ul class="list-group">
-                        @foreach (var news in ViewBag.news)
+                        @foreach (var notice in ViewBag.notice)
                         {
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@news.Id, contentTypeName  = "CelNews"})">@news.Title</a></div>
-                                    <div class="col-sm-3 title-time">@news.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                                    <div class="col-sm-9 title-name"><a href="@Url.Action("ANItem","XmContent",new { Id=@notice.Id, contentTypeName  = "CelAnnouncement"})">@notice.Title</a></div>
+                                    <div class="col-sm-3 title-time">@notice.CreatedUtc.ToLocalTime().ToString("yyyy-MM-dd")</div>
                                 </div>
 
                             </li>
                         }
-                        
-                        
                     </ul>
-                    <p class="more text-right"><a href="@Url.Action("ANPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CelNews"})">更多 ></a></p>
+                    <p class="more text-right"><a href="@Url.Action("ANPaging","XmContent",new { page = 1,pageSize=10, contentTypeName  = "CelAnnouncement"})">更多 ></a></p>
                 </div>
             </div>
         </div>
