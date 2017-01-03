@@ -71,7 +71,7 @@ namespace Orchard.Xmu.Controllers
 
             //---------------------------------------
             ViewBag.topNews = _frontEndService.TopContentsOfType("CollegeNews")
-                  .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();
+                  .Select(p => p.As<XmContentPart>()).ToList();
             ViewBag.news = _contentManager.Query(VersionOptions.Latest, "CollegeNews")
                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)
                .Slice(0, 8)
@@ -91,7 +91,7 @@ namespace Orchard.Xmu.Controllers
             //var text = (notice1.Fields[0].Terms[0] as TermPart).Name;
 
             ViewBag.topCoop = _frontEndService.TopContentsOfType("CNCop")
-                  .Select(p => p.As<XmContentPart>()).OrderByDescending(i => i.CreatedUtc).ToList();
+                  .Select(p => p.As<XmContentPart>()).ToList();
 
             ViewBag.coop = _contentManager.Query(VersionOptions.Latest, XmContentType.CNCop.ContentTypeName)
             .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc)

@@ -43,7 +43,7 @@ namespace Orchard.Xmu.Service
                  .Where(
                  x => x.ContentPartRecord<FieldIndexPartRecord>().Property("IntegerFieldIndexRecords", "ScientificResearchCommonPartistop"),
                  z => z.And(y => y.Eq("PropertyName", "ScientificResearchCommonPart.istop."), t => t.Gt("Value", (long)0))
-                )
+                ).OrderBy(alias => alias.ContentPartRecord<CommonPartRecord>(), x => x.Desc("ModifiedUtc"))
                 .Slice(0, 5)
                 .Select(i => ScientificResearchService.FromContentItem(i))
                 .ToList();
@@ -59,7 +59,7 @@ namespace Orchard.Xmu.Service
                 .Where(
                 x => x.ContentPartRecord<FieldIndexPartRecord>().Property("IntegerFieldIndexRecords", "XmContentPartistop"),
                  z => z.And(y => y.Eq("PropertyName", "XmContentPart.istop."), t => t.Gt("Value", (long)0))
-                )
+                ).OrderBy(alias => alias.ContentPartRecord<CommonPartRecord>(), x => x.Desc("ModifiedUtc"))
                 .Slice(0,5)
                 .ToList();
                
