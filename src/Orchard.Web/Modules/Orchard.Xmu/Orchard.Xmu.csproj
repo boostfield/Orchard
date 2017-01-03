@@ -266,6 +266,7 @@
     <Content Include="Views\XmContent\DonationItem.cshtml" />
     <Content Include="Views\Content-LectureInfo.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-CNNotify.SummaryAdmin.cshtml" />
+    <Content Include="Views\Content-CelAnnouncement.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
