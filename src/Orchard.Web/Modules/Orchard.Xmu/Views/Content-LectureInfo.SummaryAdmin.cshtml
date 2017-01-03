@@ -1,0 +1,32 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.Core.Contents
+@using Orchard.Utility.Extensions;
+@using Orchard.Xmu.Models;
+@using Orchard.Core.Title.Models;
+@{
+    Script.Require("ShapesBase");
+    ContentItem contentItem = Model.ContentItem;
+    var lectureinfopart = contentItem.As<LectureInfoPart>();
+    var titlepart = contentItem.As<TitlePart>();
+    var returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString();
+}
+<div class="summary" itemscope="itemscope" itemid="@contentItem.Id" itemtype="http://orchardproject.net/data/ContentItem">
+
+
+    <h3>@Html.ItemAdminLink(titlepart.Title, contentItem)</h3> - <span class="contentType">@contentItem.TypeDefinition.DisplayName</span>
+    <br/>
+    <label>主讲人: @lectureinfopart.Lecturer</label>
+    <label>地点: @lectureinfopart.LectureAddress</label>
+    @if (lectureinfopart.StartTime != null)
+    {
+        <label>时间: @lectureinfopart.StartTime.ToLocalTime().ToString("yyyy-MM-dd")</label>
+    }
+    <div class="related">
+
+        @Html.ItemEditLink(T("编辑").Text, contentItem)@T(" | ")
+        @Html.Link(T("删除").Text, Url.ItemRemoveUrl(contentItem, new { returnUrl }), new { itemprop = "RemoveUrl UnsafeUrl" })
+
+    </div>
+
+
+</div>

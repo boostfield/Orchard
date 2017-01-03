@@ -264,6 +264,7 @@
     <Content Include="Views\XmContent\ScienceItem.cshtml" />
     <Content Include="Views\XmContent\ShowPaging.cshtml" />
     <Content Include="Views\XmContent\DonationItem.cshtml" />
+    <Content Include="Views\Content-LectureInfo.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
