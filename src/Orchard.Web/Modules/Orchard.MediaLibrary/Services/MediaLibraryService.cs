@@ -148,7 +148,9 @@ namespace Orchard.MediaLibrary.Services {
             }
 
             // compute a unique filename
-            var uniqueFilename = filename;
+            //var uniqueFilename = filename;
+            var now = DateTime.Now;
+            var uniqueFilename = string.Format("{0}{1:00}{2:00}{3:00}{4:00}{5:00}{6:000}", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, now.Millisecond) + Path.GetExtension(filename);
             var index = 1;
             while (_storageProvider.FileExists(_storageProvider.Combine(folderPath, uniqueFilename))) {
                 uniqueFilename = Path.GetFileNameWithoutExtension(filename) + "-" + index++ + Path.GetExtension(filename);
