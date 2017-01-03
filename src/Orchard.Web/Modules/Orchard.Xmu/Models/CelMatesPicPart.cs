@@ -32,7 +32,7 @@ namespace Orchard.Xmu.Models
             {
                 dynamic content = (dynamic)this.ContentItem;
                 var v = content.CelMatesPicPart.linkAddress.Value;
-                return v;
+                return v != null ? v : "";
             }
         }
 
@@ -42,7 +42,7 @@ namespace Orchard.Xmu.Models
             {
                 dynamic content = (dynamic)this.ContentItem;
                 var v = content.CelMatesPicPart.orderWeight.Value;
-                return v;
+                return v!=null ? v : 0;
             }
         }
 
