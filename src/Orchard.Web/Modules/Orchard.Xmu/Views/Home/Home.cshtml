@@ -40,7 +40,8 @@
         {
             if (i == 0)
             {
-                <div class="item active" style="background-image: url('@topBanners[i].ImageAddress');" onclick="window.location.href = '@topBanners[i].LinkAddress';">
+                var linkAddress = @topBanners[i].LinkAddress != null ? @topBanners[i].linkAddress : "/";
+                <div class="item active" style="background-image: url('@topBanners[i].ImageAddress');" onclick="window.location.href = '@linkAddress';">
 
                     <div class="carousel-caption">
                         <div class="container">
