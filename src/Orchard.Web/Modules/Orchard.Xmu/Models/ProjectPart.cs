@@ -2,6 +2,7 @@
 using Orchard.ContentManagement.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -29,7 +30,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Tid, value);
             }
         }
-
+        [DisplayName("课题名称")]
         public string ProjectTitle
         {
             get
@@ -41,7 +42,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.ProjectTitle, value);
             }
         }
-
+        [DisplayName("主持人")]
         public string Host
         {
             get
@@ -53,6 +54,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Host, value);
             }
         }
+        [DisplayName("年度")]
 
         public string Year
         {
@@ -65,6 +67,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Year, value);
             }
         }
+        [DisplayName("机构")]
 
         public string Department
         {
@@ -77,6 +80,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Department, value);
             }
         }
+        [DisplayName("课题来源")]
 
         public string Source
         {
@@ -89,6 +93,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Source, value);
             }
         }
+        [DisplayName("课题级别")]
 
         public string Level
         {
@@ -101,6 +106,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Level, value);
             }
         }
+        [DisplayName("课题编号")]
 
         public string SerialNumber
         {
@@ -113,6 +119,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.SerialNumber, value);
             }
         }
+        [DisplayName("资助经费")]
 
         public string Aidfunds
         {
@@ -125,6 +132,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Aidfunds, value);
             }
         }
+        [DisplayName("课题组成员")]
 
         public string Members
         {
@@ -137,6 +145,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Members, value);
             }
         }
+        [DisplayName("主持人经费")]
 
         public string Aidhost
         {
@@ -149,6 +158,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Aidhost, value);
             }
         }
+        [DisplayName("课题期限起期")]
 
         public string StartDate
         {
@@ -161,6 +171,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.StartDate, value);
             }
         }
+        [DisplayName("课题期限止期")]
 
         public string EndDate
         {
@@ -173,6 +184,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.EndDate, value);
             }
         }
+        [DisplayName("结题日期")]
 
         public string FinishDate
         {
@@ -185,6 +197,8 @@ namespace Orchard.Xmu.Models
                 Store(i => i.FinishDate, value);
             }
         }
+        [DisplayName("经费聘用情况")]
+
 
         public string AidSituation
         {
@@ -197,6 +211,8 @@ namespace Orchard.Xmu.Models
                 Store(i => i.AidSituation, value);
             }
         }
+        [DisplayName("备注")]
+
 
         public string Remarks
         {
@@ -224,6 +240,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
+        [DisplayName("成果类别")]
 
         public string ResultType
         {
@@ -236,6 +253,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.ResultType, value);
             }
         }
+        [DisplayName("成员1")]
 
         public string Member1
         {
@@ -248,6 +266,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member1, value);
             }
         }
+        [DisplayName("成员1经费")]
 
         public string Funds1
         {
@@ -260,6 +279,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds1, value);
             }
         }
+        [DisplayName("成员2")]
 
         public string Member2
         {
@@ -272,6 +292,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member2, value);
             }
         }
+        [DisplayName("成员2经费")]
 
         public string Funds2
         {
@@ -284,6 +305,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds2, value);
             }
         }
+        [DisplayName("成员3")]
 
         public string Member3
         {
@@ -296,6 +318,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member3, value);
             }
         }
+        [DisplayName("成员3经费")]
 
         public string Funds3
         {
@@ -308,6 +331,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds3, value);
             }
         }
+        [DisplayName("成员4")]
 
         public string Member4
         {
@@ -320,6 +344,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member4, value);
             }
         }
+        [DisplayName("成员4经费")]
 
         public string Funds4
         {
@@ -332,6 +357,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds4, value);
             }
         }
+        [DisplayName("成员5")]
 
         public string Member5
         {
@@ -344,6 +370,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member5, value);
             }
         }
+        [DisplayName("成员5经费")]
 
         public string Funds5
         {
@@ -356,6 +383,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds5, value);
             }
         }
+        [DisplayName("成员6")]
 
         public string Member6
         {
@@ -368,6 +396,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member6, value);
             }
         }
+        [DisplayName("成员6经费")]
 
         public string Funds6
         {
@@ -380,6 +409,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds6, value);
             }
         }
+        [DisplayName("成员7")]
 
         public string Member7
         {
@@ -392,6 +422,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member7, value);
             }
         }
+        [DisplayName("成员7经费")]
 
         public string Funds7
         {
@@ -404,6 +435,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds7, value);
             }
         }
+        [DisplayName("成员8")]
 
         public string Member8
         {
@@ -416,6 +448,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member8, value);
             }
         }
+        [DisplayName("成员8经费")]
 
         public string Funds8
         {
@@ -428,6 +461,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds8, value);
             }
         }
+        [DisplayName("成员9")]
 
         public string Member9
         {
@@ -440,6 +474,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member9, value);
             }
         }
+        [DisplayName("成员9经费")]
 
         public string Funds9
         {
@@ -452,6 +487,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Funds9, value);
             }
         }
+        [DisplayName("成员10")]
 
         public string Member10
         {
@@ -464,6 +500,7 @@ namespace Orchard.Xmu.Models
                 Store(i => i.Member10, value);
             }
         }
+        [DisplayName("成员10经费")]
 
         public string Funds10
         {

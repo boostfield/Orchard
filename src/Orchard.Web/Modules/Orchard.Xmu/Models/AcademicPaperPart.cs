@@ -72,7 +72,7 @@ namespace Orchard.Xmu.Models
             }
         }
 
-        [DisplayName("系别")]
+        [DisplayName("机构")]
         public string Department
         {
             get
