@@ -1,4 +1,5 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,14 @@ namespace Orchard.Xmu.Models
         {
             get { return Retrieve(i => i.Major); }
             set { Store(i => i.Major, value); }
+        }
+
+        private readonly LazyField<IList<CNTeacherPart>> _teachers = new LazyField<IList<CNTeacherPart>>();
+        public LazyField<IList<CNTeacherPart>> TeachersField { get { return _teachers; } }
+        public IList<CNTeacherPart> Teachers
+        {
+            get { return _teachers.Value ?? new List<CNTeacherPart>(); }
+            set { _teachers.Value = value; }
         }
     }
 }
