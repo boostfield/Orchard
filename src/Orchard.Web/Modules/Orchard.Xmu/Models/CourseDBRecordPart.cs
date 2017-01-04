@@ -9,6 +9,10 @@ namespace Orchard.Xmu.Models
 {
     public class CourseDBRecordPart: ContentPart<CourseDBRecord>
     {
+
+        public IList<string> RelatedTeachers { get; set; }
+
+
         [DisplayName("课题名称")]
 
         public string Name

@@ -20,13 +20,14 @@ namespace Orchard.Xmu.Drivers
 
         protected override DriverResult Editor(CNTeacherPart part, IUpdateModel updater, dynamic shapeHelper)
         {
+            /*
             var oldawards = part.Record.RecordAwards;
             var oldworks = part.Record.RecordAcademicWorks;
             var oldpapers = part.Record.RecordAcademicPapers;
             var oldproject = part.Record.RecordProjects;
-
+            */
             updater.TryUpdateModel(part, Prefix, null, null);
-
+            /*
             if (part.AwardIds == null)
             {
                 part.AwardIds = new List<string>();
@@ -112,7 +113,7 @@ namespace Orchard.Xmu.Drivers
                     part.Record.RecordProjects.Add(projectPart.Record);
                 }
             }
-
+            */
 
             return Editor(part, shapeHelper);
         }

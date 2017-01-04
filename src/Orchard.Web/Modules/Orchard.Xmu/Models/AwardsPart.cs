@@ -10,6 +10,8 @@ namespace Orchard.Xmu.Models
 {
     public class AwardsPart:ContentPart<AwardsRecord>
     {
+        public IList<string> RelatedTeachers { get; set; }
+
         public string ImageAddress
         {
             get

@@ -47,7 +47,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordProjects)
-                .Cascade.All()
+                .Cascade.All().Inverse()
                 .ParentKeyColumn("TeacherRecord_Id")
                 .ChildKeyColumn("ProjectRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherProjectRelationRecord");
@@ -57,7 +57,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<ProjectRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCNTeachers)
-                .Cascade.All().Inverse()
+                .Cascade.All()
                 .ChildKeyColumn("TeacherRecord_Id")
                 .ParentKeyColumn("ProjectRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherProjectRelationRecord");
@@ -67,7 +67,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAwards)
-                .Cascade.All()
+                .Cascade.All().Inverse()
                 .ParentKeyColumn("TeacherRecord_Id")
                 .ChildKeyColumn("AwardsRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAwardRelationRecord");
@@ -77,7 +77,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<AwardsRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCNTeachers)
-                .Cascade.All().Inverse()
+                .Cascade.All()
                 .ChildKeyColumn("TeacherRecord_Id")
                 .ParentKeyColumn("AwardsRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAwardRelationRecord");
@@ -88,7 +88,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAcademicPapers)
-                .Cascade.All()
+                .Cascade.All().Inverse()
                 .ParentKeyColumn("TeacherRecord_Id")
                 .ChildKeyColumn("AcademicPaperRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAcademicPaperRelationRecord");
@@ -98,7 +98,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<AcademicPaperRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCNTeachers)
-                .Cascade.All().Inverse()
+                .Cascade.All()
                 .ChildKeyColumn("TeacherRecord_Id")
                 .ParentKeyColumn("AcademicPaperRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAcademicPaperRelationRecord");
@@ -110,7 +110,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordAcademicWorks)
-                .Cascade.All()
+                .Cascade.All().Inverse()
                 .ParentKeyColumn("TeacherRecord_Id")
                 .ChildKeyColumn("AcademicWorksRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAcademicWorkRelationRecord");
@@ -120,7 +120,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<AcademicWorksRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCNTeachers)
-                .Cascade.All().Inverse()
+                .Cascade.All()
                 .ChildKeyColumn("TeacherRecord_Id")
                 .ParentKeyColumn("AcademicWorksRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAcademicWorkRelationRecord");
@@ -131,7 +131,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CNTeacherPartRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCourses)
-                .Cascade.All()
+                .Cascade.All().Inverse()
                 .ParentKeyColumn("TeacherRecord_Id")
                 .ChildKeyColumn("CourseDBRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherCourseRelationRecord");
@@ -139,7 +139,7 @@ namespace Orchard.Xmu.Mappings
             defaultModel.Override<CourseDBRecord>(x =>
             {
                 x.HasManyToMany(y => y.RecordCNTeachers)
-                .Cascade.All().Inverse()
+                .Cascade.All()
                 .ChildKeyColumn("TeacherRecord_Id")
                 .ParentKeyColumn("CourseDBRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherCourseRelationRecord");
