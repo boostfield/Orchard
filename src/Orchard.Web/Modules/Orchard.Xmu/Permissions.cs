@@ -113,6 +113,11 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.CNProject.ContentTypeName)
         };
 
+        public static readonly Permission ManagerCourseDB = new Permission
+        {
+            Description = XmContentType.CourseDB.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.CourseDB.ContentTypeName)
+        };
         public virtual Feature Feature { get; set; }
 
 
@@ -169,8 +174,7 @@ namespace Orchard.Xmu
                 ManageCNAcademicWork,
                 ManageCNAward,
                 ManageCNProject,
-
-
+                ManagerCourseDB,
             };
 
 

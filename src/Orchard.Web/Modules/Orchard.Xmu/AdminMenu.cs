@@ -121,6 +121,10 @@ namespace Orchard.Xmu
       .Add(T(XmContentType.CNProject.ContentTypeDisplayName), "2", item => item.Action("List", "CNProjectAdmin", new { area = "Orchard.Xmu" })
       .Permission(Permissions.ManageCNProject));
 
+       menu
+      .Add(T(XmContentType.CourseDB.ContentTypeDisplayName), "2", item => item.Action("List", "CourseDBAdmin", new { area = "Orchard.Xmu" })
+      .Permission(Permissions.ManagerCourseDB));
+
             foreach (var mapping in XmContentType.CNCMSMappings)
             {
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",

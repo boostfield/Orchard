@@ -970,5 +970,36 @@ namespace Orchard.Xmu
             return 24;
         }
  
+
+        public int UpdateFrom24()
+        {
+            SchemaBuilder.CreateTable(typeof(CourseDBRecord).Name,
+                t => t.ContentPartRecord()
+                .Column<string>("Name")
+                .Column<string>("Intro",c=>c.Unlimited())
+                .Column<string>("Instructor", c=>c.WithDefault(500))
+                .Column<string>("RecommandBooks", c => c.Unlimited())
+                .Column<string>("TeachPlan", c => c.Unlimited())
+                .Column<string>("ForGrade")
+                .Column<string>("Lan")
+                .Column<string>("Major")
+                );
+
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.CourseDB.ContentTypeName,
+
+              cfg => cfg
+              .DisplayedAs(XmContentType.CourseDB.ContentTypeDisplayName)
+              .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+              .WithPart(typeof(CourseDBRecordPart).Name)
+              .WithSetting("ListTitle", XmContentType.CourseDB.ListTitle)
+              .Creatable()
+              .Draftable()
+              .Securable()
+              );
+
+
+            return 25;
+        }
     }
 }

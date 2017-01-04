@@ -141,6 +141,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content-CNProject.SummaryAdmin.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\course.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -269,6 +270,8 @@
     <Content Include="Views\Content-CelAnnouncement.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-CollegeENNews.SummaryAdmin.cshtml" />
     <Content Include="Views\Content-CollegeENNotice.SummaryAdmin.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\CourseDBPart.cshtml" />
+    <Content Include="Views\CourseDBAdmin\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -293,6 +296,7 @@
     <Compile Include="Controllers\CNTeacherAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
     <Compile Include="Controllers\AnniversaryHomeController.cs" />
+    <Compile Include="Controllers\CourseDBAdminController.cs" />
     <Compile Include="Controllers\ENBannerAdminController.cs" />
     <Compile Include="Controllers\ENCourseAdminController.cs" />
     <Compile Include="Controllers\ENSectionAdminController.cs" />
@@ -315,6 +319,7 @@
     <Compile Include="Drivers\CNNotifyPartDriver.cs" />
     <Compile Include="Drivers\CNTeacherPartDriver.cs" />
     <Compile Include="Drivers\College90CelebrationPartDriver.cs" />
+    <Compile Include="Drivers\CourseDBPartDriver.cs" />
     <Compile Include="Drivers\ENCoursePartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
     <Compile Include="Drivers\ENTeacherPartDriver.cs" />
@@ -327,6 +332,7 @@
     <Compile Include="Hanlders\AcademicWorkPartHandler.cs" />
     <Compile Include="Hanlders\AwardPartHandler.cs" />
     <Compile Include="Hanlders\CNTeacherPartHandler.cs" />
+    <Compile Include="Hanlders\CourseDBPartHandler.cs" />
     <Compile Include="Hanlders\ENCoursesPartHandler.cs" />
     <Compile Include="Hanlders\ENTeacherPartHandler.cs" />
     <Compile Include="Hanlders\ProjectPartHandler.cs" />
@@ -348,6 +354,8 @@
     <Compile Include="Models\CNTeacherAwardRelationRecord.cs" />
     <Compile Include="Models\CNTeacherPart.cs" />
     <Compile Include="Models\CNTeacherProjectRelationRecord.cs" />
+    <Compile Include="Models\CourseDBRecord.cs" />
+    <Compile Include="Models\CourseDBRecordPart.cs" />
     <Compile Include="Models\ENCoursePart.cs" />
     <Compile Include="Models\ENCoursePartRecord.cs" />
     <Compile Include="Models\ENSectionPart.cs" />

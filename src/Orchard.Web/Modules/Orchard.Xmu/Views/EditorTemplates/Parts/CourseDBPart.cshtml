@@ -1,0 +1,40 @@
+﻿@model Orchard.Xmu.Models.CourseDBRecordPart
+@{ 
+    Style.Require("Select2");
+    Script.Require("Course").AtHead();
+}
+
+<fieldset>
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Intro)
+    @Html.TextAreaFor(m => m.Intro)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Instructor)
+    @Html.TextBoxFor(m => m.Instructor)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.RecommandBooks)
+    @Html.TextBoxFor(m => m.RecommandBooks)
+<fieldset>
+    @Html.LabelFor(m => m.TeachPlan)
+    @Html.TextAreaFor(m => m.TeachPlan)
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.Lan)
+    中文 @Html.RadioButtonFor(m => m.Lan, "CN", new { @checked = "checked" })
+    英文 @Html.RadioButtonFor(m => m.Lan, "EN")
+</fieldset>
+<fieldset>
+    @Html.LabelFor(m => m.ForGrade)
+    @Html.TextBoxFor(m => m.ForGrade)
+</fieldset>
+ 
+<fieldset>
+    @Html.LabelFor(m => m.Major)
+    @Html.TextBoxFor(m => m.Major)
+</fieldset>
+ 

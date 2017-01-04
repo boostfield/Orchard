@@ -141,6 +141,16 @@ namespace Orchard.Xmu
             ListTitle = "承担课题列表"
         };
 
+
+        public static XmContentDefinition CourseDB = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "课程库",
+            PermissionDesc = "管理课程库",
+            ContentTypeName = "CourseDB",
+            ContentTypePartName = "CourseDBPart",
+            ListTitle = "课程列表"
+        };
+
         //------------- Content Mapping..
 
 
