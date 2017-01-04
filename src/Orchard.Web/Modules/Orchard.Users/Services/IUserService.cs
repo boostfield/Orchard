@@ -6,6 +6,10 @@ using System.Collections.Generic;
 namespace Orchard.Users.Services {
     public interface IUserService : IDependency {
         bool VerifyUserUnicity(string userName, string email);
+
+        bool VerifyUserUnicity(string userName);
+
+
         bool VerifyUserUnicity(int id, string userName, string email);
 
         void SendChallengeEmail(IUser user, Func<string, string> createUrl);

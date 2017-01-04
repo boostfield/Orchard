@@ -10,6 +10,7 @@ using Orchard.Tags.Services;
 using Orchard.Taxonomies.Models;
 using Orchard.Taxonomies.Services;
 using Orchard.Users.Models;
+using Orchard.Users.Services;
 using Orchard.Xmu;
 using Orchard.Xmu.Models;
 using Orchard.Xmu.Service.DataImport.Model;
@@ -32,6 +33,8 @@ namespace Orchard.Xmu.Service.DataImport
         private readonly IOrchardServices _orchardService;
         private readonly ITagService _tagService;
         private readonly IClock _clock;
+        private readonly IUserService _userService;
+        private readonly IMembershipService _memberService;
 
         private readonly int MAX = 300;
 
@@ -46,7 +49,9 @@ namespace Orchard.Xmu.Service.DataImport
             IVotingService votingService,
             IOrchardServices orchardService,
             ITagService tagService,
-            IClock clock
+            IClock clock,
+            IUserService userService,
+            IMembershipService memberService
 
             )
         {
@@ -58,8 +63,49 @@ namespace Orchard.Xmu.Service.DataImport
             _tagService = tagService;
             _orchardService = orchardService;
             _clock = clock;
+            _userService = userService;
+            _memberService = memberService;
         }
 
+
+        public void CreateUserFromCNTeacher()
+        {
+            var teachers = _contentManager.Query(VersionOptions.Latest, XmContentType.CNTeacher.ContentTypeName)
+                .List<CNTeacherPart>();
+            var abort = false;
+            var exceptions = new List<string>
+            {
+                "董晓晴",
+                "翁炎英"
+            };
+            foreach(var t in teachers)
+            {
+                if (!_userService.VerifyUserUnicity(t.Name))
+                {
+                    if(exceptions.Contains(t.Name))
+                    {
+                        continue;
+                    }
+                    System.Diagnostics.Debug.WriteLine(string.Format(" {0}  can not be created", t.Name));
+                    abort = true;
+                }
+              
+            }
+            if (abort)
+            {
+                return;
+            }
+            foreach(var t in teachers)
+            {
+                var newUser = _memberService.CreateUser(new CreateUserParams(
+                                                  t.Name,
+                                                  "law123456789",
+                                                  string.Format("{0}@xmu.edu.cn","replace_default"),
+                                                  null, null, true));
+                t.Record.UserPartRecord = (newUser as UserPart).Record;
+            }
+
+        }
 
         /// <summary>
         /// 学院新闻

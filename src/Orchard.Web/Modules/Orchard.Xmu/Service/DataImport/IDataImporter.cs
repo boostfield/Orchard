@@ -33,5 +33,8 @@ namespace Orchard.Xmu.Service.DataImport
         void ImportAwards();
         void ImportProjects();
         void ImportTeacherInfo();
+
+
+        void CreateUserFromCNTeacher();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Orchard.ContentManagement.Records;
 using Orchard.Data.Conventions;
+using Orchard.Users.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,7 @@ namespace Orchard.Xmu.Models
         public virtual IList<ProjectRecord> RecordProjects { get; set; }
         public virtual IList<AwardsRecord> RecordAwards { get; set; }
 
+        public virtual UserPartRecord UserPartRecord { get; set; }
 
         public CNTeacherPartRecord()
         {

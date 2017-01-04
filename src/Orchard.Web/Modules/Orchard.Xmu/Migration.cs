@@ -962,6 +962,13 @@ namespace Orchard.Xmu
             SchemaBuilder.AlterTable(typeof(ENTeacherPartRecord).Name, Table => Table.AddColumn<string>("Titles"));
             return 23;
         }
+
+
+        public int UpdateFrom23()
+        {
+            SchemaBuilder.AlterTable(typeof(CNTeacherPartRecord).Name, t => t.AddColumn<int>("UserPartRecord_id"));
+            return 24;
+        }
  
     }
 }

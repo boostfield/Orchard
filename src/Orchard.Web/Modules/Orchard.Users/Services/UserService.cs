@@ -72,6 +72,23 @@ namespace Orchard.Users.Services {
             return true;
         }
 
+
+        public bool VerifyUserUnicity(string userName)
+        {
+            string normalizedUserName = userName.ToLowerInvariant();
+
+            if (_contentManager.Query<UserPart, UserPartRecord>()
+                                   .Where(user =>
+                                          user.NormalizedUserName == normalizedUserName 
+                                       )
+                                   .List().Any())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public bool VerifyUserUnicity(int id, string userName, string email) {
             string normalizedUserName = userName.ToLowerInvariant();
 

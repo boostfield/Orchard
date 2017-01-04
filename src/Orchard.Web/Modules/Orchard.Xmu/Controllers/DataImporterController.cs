@@ -19,7 +19,12 @@ namespace Orchard.Xmu.Controllers
         }
 
 
+        public ActionResult CreateTeacher()
+        {
+            _dataImporter.CreateUserFromCNTeacher();
+            return View("Index");
 
+        }
 
 
         public ActionResult ImportCNTeacher()
