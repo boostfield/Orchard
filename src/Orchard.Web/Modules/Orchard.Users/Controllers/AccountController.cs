@@ -63,11 +63,12 @@ namespace Orchard.Users.Controllers {
 
             //TODO: (erikpo) Add a setting for whether or not to log access denieds since these can fill up a database pretty fast from bots on a high traffic site
             //Suggestion: Could instead use the new AccessDenined IUserEventHandler method and let modules decide if they want to log this event?
-            Logger.Information("Access denied to user #{0} '{1}' on {2}", currentUser.Id, currentUser.UserName, returnUrl);
+            //Logger.Information("Access denied to user #{0} '{1}' on {2}", currentUser.Id, currentUser.UserName, returnUrl);
 
-            _userEventHandler.AccessDenied(currentUser);
+            //_userEventHandler.AccessDenied(currentUser);
 
-            return View();
+            //return View();
+            return Redirect("/personalcenter");
         }
 
         [AlwaysAccessible]

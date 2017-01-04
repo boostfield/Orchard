@@ -51,6 +51,16 @@ namespace Orchard.Xmu.Hanlders
                      .ToList()
                      );
 
+
+
+                part.CoursesField.Loader(
+                    ()=>part.Record.RecordCourses == null ? null :
+                    contentManager.GetMany<CourseDBRecordPart>
+                    (part.Record.RecordCourses.Select(i=>i.ContentItemRecord.Id), VersionOptions.Latest, QueryHints.Empty)
+                    .ToList()
+                    );
+
+
             });
 
 

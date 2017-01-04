@@ -122,8 +122,27 @@ namespace Orchard.Xmu.Mappings
                 x.HasManyToMany(y => y.RecordCNTeachers)
                 .Cascade.All().Inverse()
                 .ChildKeyColumn("TeacherRecord_Id")
-                .ParentKeyColumn("AcademicWorksRecord_Id_Id")
+                .ParentKeyColumn("AcademicWorksRecord_Id")
                 .Table("Orchard_Xmu_CNTeacherAcademicWorkRelationRecord");
+            });
+
+
+
+            defaultModel.Override<CNTeacherPartRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCourses)
+                .Cascade.All()
+                .ParentKeyColumn("TeacherRecord_Id")
+                .ChildKeyColumn("CourseDBRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherCourseRelationRecord");
+            });
+            defaultModel.Override<CourseDBRecord>(x =>
+            {
+                x.HasManyToMany(y => y.RecordCNTeachers)
+                .Cascade.All().Inverse()
+                .ChildKeyColumn("TeacherRecord_Id")
+                .ParentKeyColumn("CourseDBRecord_Id")
+                .Table("Orchard_Xmu_CNTeacherCourseRelationRecord");
             });
 
         }

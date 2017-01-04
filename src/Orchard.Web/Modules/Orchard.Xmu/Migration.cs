@@ -1001,5 +1001,17 @@ namespace Orchard.Xmu
 
             return 25;
         }
+
+
+        public int UpdateFrom25()
+        {
+            SchemaBuilder.CreateTable(typeof(CNTeacherCourseRelationRecord).Name,
+                    table => table
+                    .Column<int>("Id", c => c.PrimaryKey().Identity())
+                    .Column<int>("TeacherRecord_Id")
+                    .Column<int>("CourseDBRecord_Id")
+                        );
+            return 26;
+        }
     }
 }

@@ -272,6 +272,7 @@
     <Content Include="Views\Content-CollegeENNotice.SummaryAdmin.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\CourseDBPart.cshtml" />
     <Content Include="Views\CourseDBAdmin\List.cshtml" />
+    <Content Include="Views\PersonalCenter\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -303,6 +304,7 @@
     <Compile Include="Controllers\ENTeacherAdminController.cs" />
     <Compile Include="Controllers\NinetyCelBannerAdminController.cs" />
     <Compile Include="Controllers\NinetyCelebrationDonationAdminController.cs" />
+    <Compile Include="Controllers\PersonalCenterController.cs" />
     <Compile Include="Controllers\XmContentController.cs" />
     <Compile Include="Controllers\ENHomeController.cs" />
     <Compile Include="Controllers\DataImporterController.cs" />
@@ -352,6 +354,7 @@
     <Compile Include="Models\CNTeacherAcademicPaperRelationRecord.cs" />
     <Compile Include="Models\CNTeacherAcademicWorkRelationRecord.cs" />
     <Compile Include="Models\CNTeacherAwardRelationRecord.cs" />
+    <Compile Include="Models\CNTeacherCourseRelationRecord.cs" />
     <Compile Include="Models\CNTeacherPart.cs" />
     <Compile Include="Models\CNTeacherProjectRelationRecord.cs" />
     <Compile Include="Models\CourseDBRecord.cs" />

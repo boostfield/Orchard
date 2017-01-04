@@ -400,6 +400,16 @@ namespace Orchard.Xmu.Models
             set { _projects.Value = value; }
         }
 
+
+        private readonly LazyField<IList<CourseDBRecordPart>> _courses = new LazyField<IList<CourseDBRecordPart>>();
+        public LazyField<IList<CourseDBRecordPart>> CoursesField { get { return _courses; } }
+        public IList<CourseDBRecordPart> Courses
+        {
+            get { return _courses.Value ?? new List<CourseDBRecordPart>(); }
+            set { _courses.Value = value; }
+        }
+
+
         public IList<string> ProjectIds
         {
             get; set;

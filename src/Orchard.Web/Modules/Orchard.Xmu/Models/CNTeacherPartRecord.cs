@@ -51,6 +51,7 @@ namespace Orchard.Xmu.Models
         public virtual IList<AcademicWorksRecord> RecordAcademicWorks { get; set; }
         public virtual IList<ProjectRecord> RecordProjects { get; set; }
         public virtual IList<AwardsRecord> RecordAwards { get; set; }
+        public virtual IList<CourseDBRecord> RecordCourses { get; set; }
 
         public virtual UserPartRecord UserPartRecord { get; set; }
 
@@ -60,6 +61,7 @@ namespace Orchard.Xmu.Models
             RecordAcademicWorks= new List<AcademicWorksRecord>();
             RecordProjects = new List<ProjectRecord>();
             RecordAwards = new List<AwardsRecord>();
+            RecordCourses = new List<CourseDBRecord>();
 
         }
     }

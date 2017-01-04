@@ -23,5 +23,13 @@ namespace Orchard.Xmu.Models
 
         public virtual string Lan { get; set; }  //中英文
         public virtual string Major { get; set; } //专业
+
+        public virtual IList<CNTeacherPartRecord> RecordCNTeachers { get; set; }
+
+
+        public CourseDBRecord()
+        {
+            RecordCNTeachers = new List<CNTeacherPartRecord>();
+        }
     }
 }

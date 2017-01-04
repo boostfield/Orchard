@@ -13,7 +13,24 @@ namespace Orchard.Xmu
         public IEnumerable<RouteDescriptor> GetRoutes()
         {
             return new[]
-            {
+            { new RouteDescriptor
+                {
+                  Priority = 50,
+
+            Route = new Route(
+             "personalcenter",
+             new RouteValueDictionary {
+                                        {"area", "Orchard.Xmu"},
+                                        {"controller", "PersonalCenter"},
+                                        {"action", "Index"}
+                                       },
+             new RouteValueDictionary(),
+             new RouteValueDictionary {
+                                          {"area", "Orchard.Xmu"}
+                                       },
+             new MvcRouteHandler())
+                }
+                ,
                 new RouteDescriptor
                 {
                   Priority = 100,
