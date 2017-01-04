@@ -8,6 +8,10 @@
     @Html.LabelFor(m => m.Title)
     @Html.TextAreaFor(m => m.Title)
 </fieldset>
+@Html.Label("相关老师")
+<select class="related-teachers" style="width: 400px;" multiple="multiple" name="AcademicWorksPart.RelatedTeachers">
+    
+</select>
 <fieldset>
     @Html.LabelFor(m => m.Author)
     @Html.TextBoxFor(m => m.Author)

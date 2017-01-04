@@ -33,7 +33,7 @@
                 cache: true
             },
             escapeMarkup: function (markup) { return markup; },
-            minimumInputLength: 2,
+            minimumInputLength: 1,
             minimumResultsForSearch: Infinity,
             templateResult: formatRepo,
             templateSelection: formatRepoSelection,
@@ -43,6 +43,96 @@
             allowClear: true,
             debug: true,
             closeOnSelect: true,
+
+        });
+        $(".related-teachers").select2({
+
+            placeholder: "相关老师",
+            ajax: {
+                url: "/api/manager/SearchCNTeacher",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        keyword: params.term,
+                        page: params.page,
+                        pageSize: 20
+                    };
+                },
+                processResults: function (data, params) {
+                    params.page = params.page || 1;
+                    var finalData = $.map(data.DataList, function (item) {
+                        if (item.Name.toUpperCase().indexOf(params.term.toUpperCase()) != -1) {
+                            item.id = item.Id;
+                            item.text = item.Name + ' ' + item.Number;
+                            return item;
+                        }
+                    });
+                    return {
+                        results: finalData,
+                        pagination: {
+                            more: (params.page * 20) < data.TotalCount
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function (markup) { return markup; },
+            minimumInputLength: 1,
+            minimumResultsForSearch: Infinity,
+            templateResult: formatRepo,
+            templateSelection: formatRepoSelection,
+            tags: false,
+            matcher: oldMatcher(matchStart),
+            multiple: true,
+            allowClear: true,
+            debug: true,
+            closeOnSelect: false,
+
+        });
+        $(".related-courses").select2({
+
+            placeholder: "相关课程",
+            ajax: {
+                url: "/api/manager/SearchCourses",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        keyword: params.term,
+                        page: params.page,
+                        pageSize: 20
+                    };
+                },
+                processResults: function (data, params) {
+                    params.page = params.page || 1;
+                    var finalData = $.map(data.DataList, function (item) {
+                        if (item.Name.toUpperCase().indexOf(params.term.toUpperCase()) != -1) {
+                            item.id = item.Id;
+                            item.text = item.Name;
+                            return item;
+                        }
+                    });
+                    return {
+                        results: finalData,
+                        pagination: {
+                            more: (params.page * 20) < data.TotalCount
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function (markup) { return markup; },
+            minimumInputLength: 1,
+            minimumResultsForSearch: Infinity,
+            templateResult: formatRepo,
+            templateSelection: formatRepoSelection,
+            tags: false,
+            matcher: oldMatcher(matchStart),
+            multiple: true,
+            allowClear: true,
+            debug: true,
+            closeOnSelect: false,
 
         });
         $(".teacher-paper").select2({
