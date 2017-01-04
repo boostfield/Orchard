@@ -15,6 +15,7 @@
     @Html.TextAreaFor(m => m.AwardName)
 </fieldset>
 @Html.Label("相关老师")
+<select class="related-teachers" style="width: 400px;" multiple="multiple" name="AwardsPart.RelatedTeachers"></select>
 <fieldset>
     @Html.LabelFor(m => m.Year)
     @Html.TextBoxFor(m => m.Year)
