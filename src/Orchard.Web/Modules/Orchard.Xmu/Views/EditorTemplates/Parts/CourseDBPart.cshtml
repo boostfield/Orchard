@@ -8,6 +8,12 @@
     @Html.LabelFor(m => m.Name)
     @Html.TextBoxFor(m => m.Name)
 </fieldset>
+<select class="related-teachers" style="width: 400px;" multiple="multiple" name="CourseDBRecordPart.RelatedTeachers">
+    @foreach (var teacher in Model.Teachers)
+    {
+        @Html.SelectOption(teacher.Id, true, teacher.Name + ' ' + teacher.Number);
+    }
+</select>
 <fieldset>
     @Html.LabelFor(m => m.Intro)
     @Html.TextAreaFor(m => m.Intro)
@@ -19,6 +25,7 @@
 <fieldset>
     @Html.LabelFor(m => m.RecommandBooks)
     @Html.TextBoxFor(m => m.RecommandBooks)
+</fieldset>
 <fieldset>
     @Html.LabelFor(m => m.TeachPlan)
     @Html.TextAreaFor(m => m.TeachPlan)

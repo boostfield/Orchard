@@ -76,14 +76,14 @@ namespace Orchard.Xmu.Controllers
 
         public string Contact { get; set; } //联系方式
 
-        public IList<PaperVM> Papers { get; set; } = new List<PaperVM>();
+        public IList<PaperVM> Papers { get; set; }  
 
-        public IList<AwardVM> Awards { get; set; } = new List<AwardVM>();
-        public IList<AcademicWorkVM> Workds { get; set; } = new List<AcademicWorkVM>();
+        public IList<AwardVM> Awards { get; set; }  
+        public IList<AcademicWorkVM> Workds { get; set; }  
 
-        public IList<ProjectVM> Projects { get; set; } = new List<ProjectVM>();
+        public IList<ProjectVM> Projects { get; set; }  
 
-        public IList<CourseVM> Courses { get; set; } = new List<CourseVM>();
+        public IList<CourseVM> Courses { get; set; }  
         public static TeacherVM FromTeacherPart(CNTeacherPart part)
         {
             return new TeacherVM

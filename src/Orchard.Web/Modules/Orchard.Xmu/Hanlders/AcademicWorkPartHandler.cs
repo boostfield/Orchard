@@ -15,7 +15,7 @@ namespace Orchard.Xmu.Hanlders
             IContentManager contentManager)
         {
             Filters.Add(StorageFilter.For(repo));
-            OnLoaded<AcademicPaperPart>((context,part)=>
+            OnLoaded<AcademicWorksPart>((context,part)=>
             {
                 part.TeachersField.Loader(
                     () => part.Record.RecordCNTeachers == null ? null :

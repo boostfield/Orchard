@@ -9,7 +9,12 @@
     @Html.TextAreaFor(m => m.ProjectTitle)
 </fieldset>
 @Html.Label("相关老师")
-<select class="related-teachers" style="width: 400px;" multiple="multiple" name="ProjectPart.RelatedTeachers"></select>
+<select class="related-teachers" style="width: 400px;" multiple="multiple" name="ProjectPart.RelatedTeachers">
+    @foreach (var teacher in Model.Teachers)
+    {
+        @Html.SelectOption(teacher.Id, true, teacher.Name + ' ' + teacher.Number);
+    }
+</select>
 <fieldset>
     @Html.LabelFor(m => m.Host)
     @Html.TextBoxFor(m => m.Host)
