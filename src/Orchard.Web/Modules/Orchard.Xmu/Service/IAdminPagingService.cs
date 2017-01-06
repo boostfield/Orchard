@@ -15,5 +15,8 @@ namespace Orchard.Xmu.Service
             string typeName,
             string searchText
             );
+
+        ItemListViewModel ConstructLisCNTeachertViewModel(PagerParameters pagerParameters, string typeName, string searchText);
+
     }
 }

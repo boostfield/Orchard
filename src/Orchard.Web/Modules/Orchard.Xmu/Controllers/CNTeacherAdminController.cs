@@ -26,7 +26,7 @@ namespace Orchard.Xmu.Controllers
 
         public ActionResult List(PagerParameters pagerParameters, string searchText = "")
         {
-            var vm = _pagingService.ConstructListViewModel(pagerParameters,
+            var vm = _pagingService.ConstructLisCNTeachertViewModel(pagerParameters,
                 XmContentType.CNTeacher.ContentTypeName,
                 searchText);
 
