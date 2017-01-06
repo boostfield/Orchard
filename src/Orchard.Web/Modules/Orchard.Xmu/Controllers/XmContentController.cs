@@ -310,6 +310,20 @@ namespace Orchard.Xmu.Controllers
             return View(vm);
         }
 
+
+        public ActionResult CNTeacherItem(int Id)
+        {
+            var item = _contentManager.Get<CNTeacherPart>(Id, VersionOptions.Latest);
+            if (item == null)
+            {
+                ModelState.AddModelError("", string.Format("找不到Id为{0}的内容", Id));
+                return View();
+            }
+            var vm = TeacherVM.FromTeacherPart(item);
+            return View(vm);
+        }
+
+
         public ActionResult ENTeacherPaging(PagerParameters pagerParameters)
         {
             if (pagerParameters == null)
