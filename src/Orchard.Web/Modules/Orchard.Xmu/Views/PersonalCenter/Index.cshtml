@@ -1,4 +1,147 @@
-﻿@model  Orchard.Xmu.Controllers.TeacherVM
-<h1>
-    Personal Center! @Model.Name
-</h1>
+﻿@model Orchard.Xmu.Controllers.TeacherUserVM
+<div class="page-account container">
+    <div class="pull-right">
+        @Html.ActionLink("退出登录", "LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl }, new { rel = "nofollow", @class = "btn btn-danger" })
+    </div>
+    <div>
+        <button class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseAccount" aria-expanded="false" aria-controls="collapseAccount">
+            账户设置
+        </button>
+
+        <div class="collapse" id="collapseAccount">
+            <div class="well col-md-4">
+                <form>
+                    <div class="form-group">
+                        <label for="account-username">用户名</label>
+                        <input type="text" class="form-control" id="account-username" placeholder="用户名" value="@Model.User.UserName">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="changeUserName();">修改用户名</button>
+                </form>
+                <form>
+                    <div class="form-group">
+                        <label>原密码</label>
+                        <input type="password" class="form-control" id="account-oldpassword">
+                        <label>新密码</label>
+                        <input type="password" class="form-control" id="account-newpassword">
+                        <label>确认新密码</label>
+                        <input type="password" class="form-control" id="account-repeatpassword">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="changePassword();">修改密码</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="base-info">
+@using (Html.BeginForm("Update", "PersonalCenter", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>个人头像</label>
+                <div class="clearfix"></div>
+                @if (String.IsNullOrEmpty(Model.Teacher.Avatar))
+                {
+                    <img id="showimg" width="170" height="220" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))"/>
+                }
+                else
+                {
+                    <img id="showimg" width="170" height="220" src="@Model.Teacher.Avatar" />
+                }
+                <input id="account-avatar" name="file" type="file" /> 
+                <label>教育经历</label>
+                <textarea rows="6" class="form-control" id="account-education" name="Education">@Model.Teacher.Education</textarea>
+                <label>工作经历</label>
+                <textarea rows="6" class="form-control" id="account-introduce" name="Introduce">@Model.Teacher.Introduce</textarea>
+                <label>研究方向</label>
+                <textarea rows="6" class="form-control" id="account-resfield" name="Resfield">@Model.Teacher.Resfield</textarea>
+                <label>社会兼职</label>
+                <textarea rows="6" class="form-control" id="account-resfield" name="Ptjob">@Model.Teacher.Ptjob</textarea>
+                <button type="submit">确认修改</button>
+            </div>
+}
+    </div>    
+</div>
+
+<script>
+    $(function () {
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#showimg').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#account-avatar").change(function () {
+            readURL(this);
+            document.getElementById('filename').value = filename;
+        });
+    })
+    function viewmypic(mypic, imgfile) {
+        if (imgfile.value) {
+            mypic.src = imgfile.value;
+            
+        }
+    }
+    function changeUserName() {
+        var newUserName = document.getElementById("account-username").value;
+        if (newUserName != null && newUserName.length > 1) {
+            $.ajax({
+                url: '/api/manager/ChangeUsername',
+                data: { "username": newUserName },
+                type: 'get',
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                success: function (data) {
+                    if (data) {
+                        alert("修改用户名成功");
+                    } else {
+                        alert("修改用户名失败，已存在该用户名");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    alert("修改用户名失败");
+                }
+            });
+        } else {
+            alert("用户名格式不正确");
+        }
+    }
+    function changePassword() {
+        var oldPassword = document.getElementById("account-oldpassword").value;
+        var newPassword = document.getElementById("account-newpassword").value;
+        var confirmPassword = document.getElementById("account-repeatpassword").value;
+        if (newPassword != null && newPassword.length >= 7) {
+            if (newPassword == confirmPassword) {
+                $.ajax({
+                    url: '/api/manager/ChangePassword',
+                    data: { "currentPassword": oldPassword, 'newPassword': newPassword },
+                    type: 'get',
+                    dataType: 'json',
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function (data) {
+                        if (data) {
+                            alert("修改密码成功");
+                        } else {
+                            alert("修改密码失败");
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("修改密码失败");
+                    }
+                });
+            } else {
+                alert("两次密码输入不一致");
+            }
+            
+        } else {
+            alert("密码长度必须大于7位");
+        }
+    }
+</script>
+

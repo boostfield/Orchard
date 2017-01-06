@@ -6,7 +6,7 @@
         IUser GetUser(string username);
         IUser ValidateUser(string userNameOrEmail, string password);
         void SetPassword(IUser user, string password);
-
+        void SetUsername(IUser user, string username);
         bool PasswordIsExpired(IUser user, int days);
     }
 }

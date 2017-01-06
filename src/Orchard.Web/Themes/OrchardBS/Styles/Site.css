@@ -729,6 +729,29 @@ body #layout-wrapper {
   line-height: 26px;
   opacity: 0.8;
 }
+.home .page-account {
+  padding-top: 2em;
+}
+.home .page-account h1 {
+  font-size: 24px;
+}
+.home .page-account label {
+  font-size: 16px;
+  font-weight: 200;
+}
+.home .page-account button.btn-primary {
+  border-radius: 0;
+  background: #2D44AA;
+}
+.home .page-account .btn.btn-danger {
+  border-radius: 0;
+}
+.home .page-account .base-info {
+  margin-top: 2em;
+}
+.home .page-account .base-info textarea {
+  color: #333;
+}
 .home-footer.footer {
   color: white;
 }

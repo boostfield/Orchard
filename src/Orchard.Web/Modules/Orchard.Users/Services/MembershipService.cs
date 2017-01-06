@@ -158,7 +158,12 @@ namespace Orchard.Users.Services {
         public bool PasswordIsExpired(IUser user, int days){
             return user.As<UserPart>().LastPasswordChangeUtc.Value.AddDays(days) < _clock.UtcNow;
         }
-
+        public void SetUsername(IUser user, string username)
+        {
+            var userPart = user.As<UserPart>();
+            userPart.UserName = username;
+            userPart.NormalizedUserName= username.ToLowerInvariant();
+        }
         public void SetPassword(IUser user, string password) {
             if (!user.Is<UserPart>())
                 throw new InvalidCastException();
@@ -294,5 +299,6 @@ namespace Orchard.Users.Services {
             return String.Equals(password, Encoding.UTF8.GetString(_encryptionService.Decode(Convert.FromBase64String(userPart.Password))), StringComparison.Ordinal);
         }
 
+   
     }
 }

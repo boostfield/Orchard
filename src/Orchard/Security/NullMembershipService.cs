@@ -30,5 +30,10 @@ namespace Orchard.Security {
         public bool PasswordIsExpired(IUser user, int weeks) {
             throw new NotImplementedException();
         }
+
+        public void SetUsername(IUser user, string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

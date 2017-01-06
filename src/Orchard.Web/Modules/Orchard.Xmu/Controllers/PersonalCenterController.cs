@@ -1,5 +1,6 @@
 ﻿using Orchard.ContentManagement;
 using Orchard.Data;
+using Orchard.MediaLibrary.Services;
 using Orchard.Themes;
 using Orchard.Users.Models;
 using Orchard.Xmu.Models;
@@ -18,11 +19,13 @@ namespace Orchard.Xmu.Controllers
     {
         private readonly IOrchardServices _orchardServices;
         private readonly IRepository<CNTeacherPartRecord> _teacherRepo;
+        private readonly IMediaLibraryService _mediaLibraryService;
 
-        public PersonalCenterController(IOrchardServices orchardServices, IRepository<CNTeacherPartRecord> repo)
+        public PersonalCenterController(IOrchardServices orchardServices, IRepository<CNTeacherPartRecord> repo, IMediaLibraryService mediaLibraryService)
         {
             _orchardServices = orchardServices;
             _teacherRepo = repo;
+            _mediaLibraryService = mediaLibraryService;
         }
         // GET: PersonalCenter
         public ActionResult Index()
@@ -35,12 +38,49 @@ namespace Orchard.Xmu.Controllers
             }
 
             var teacherPart = _orchardServices.ContentManager.Get<CNTeacherPart>(teacher.ContentItemRecord.Id, VersionOptions.Latest);
-            var vm = TeacherVM.FromTeacherPart(teacherPart);
-
-            return View(vm);
+ 
+            return View(new TeacherUserVM
+            {
+                Teacher = TeacherVM.FromTeacherPart(teacherPart),
+                User = UserVM.FromUserPart(user)
+            });
+        }
+        [HttpPost]
+        public ActionResult Update(HttpPostedFileBase file, TeacherVM vm)
+        {
+            var mediaPart = _mediaLibraryService.ImportMedia(file.InputStream, "local", Guid.NewGuid().ToString()+file.FileName,"");
+            _orchardServices.ContentManager.Create(mediaPart);
+            var user = _orchardServices.WorkContext.CurrentUser as UserPart;
+            var teacher = _teacherRepo.Fetch(i => i.UserPartRecord == user.Record).FirstOrDefault();
+            var teacherPart = _orchardServices.ContentManager.Get<CNTeacherPart>(teacher.ContentItemRecord.Id, VersionOptions.Latest);
+            teacherPart.Avatar = _mediaLibraryService.GetMediaPublicUrl(mediaPart.FolderPath, mediaPart.FileName);
+            teacherPart.Education = vm.Education;
+            teacherPart.Resfield = vm.Resfield;
+            teacherPart.Introduce = vm.Introduce;
+            teacherPart.Ptjob = vm.Ptjob;
+            return RedirectToAction("Index");
         }
     }
 
+    public class TeacherUserVM
+    {
+        public TeacherVM Teacher { get; set; }
+        public UserVM User { get; set; }
+    }
+    public class UserVM
+    {
+        public string UserName { get; set; }
+
+        public static UserVM FromUserPart(UserPart part)
+        {
+
+            return new UserVM
+            {
+                UserName = part.UserName
+            };
+
+        }
+    }
 
     public class ListTeachers
     {

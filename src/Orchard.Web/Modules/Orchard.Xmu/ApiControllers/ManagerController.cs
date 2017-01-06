@@ -1,6 +1,9 @@
 ﻿using Orchard.ContentManagement;
+using Orchard.Security;
 using Orchard.Settings;
 using Orchard.UI.Navigation;
+using Orchard.Users.Models;
+using Orchard.Users.Services;
 using Orchard.Xmu.Models;
 using Orchard.Xmu.ViewModels;
 using System;
@@ -17,14 +20,63 @@ namespace Orchard.Xmu.ApiControllers
         private readonly IContentManager _contentManager;
 
         private readonly ISiteService _siteService;
+        private readonly IUserService _userService;
+        private readonly IMembershipService _memberShipService;
+        private readonly IOrchardServices _orchardServices;
+        private readonly IAuthenticationService _authService;
 
         public ManagerController(IContentManager contentManager,
-            ISiteService siteService
+            ISiteService siteService,
+            IUserService userService,
+            IMembershipService memberShipService,
+            IOrchardServices orchardService,
+            IAuthenticationService authService
             )
         {
             _contentManager = contentManager;
             _siteService = siteService;
+            _userService = userService;
+            _memberShipService = memberShipService;
+            _orchardServices = orchardService;
+            _authService = authService;
+
         }
+
+        [Authorize]
+        [HttpGet]
+        [ActionName("ChangePassword")]
+        public IHttpActionResult ChangePassword([FromUri]string currentPassword,[FromUri] string newPassword)
+        {
+            var user = _orchardServices.WorkContext.CurrentUser.As<UserPart>();
+            var validated = _memberShipService.ValidateUser(user.UserName, currentPassword);
+
+            if (validated != null)
+            {
+                _memberShipService.SetPassword(validated, newPassword);
+                return Json(true);
+            }
+            else
+            {
+                return Json(false);
+            }
+        }
+        
+        [Authorize]
+        [HttpGet]
+        [ActionName("ChangeUsername")]
+        public IHttpActionResult ChangeUsername([FromUri] string username )
+        {
+            var r = _userService.VerifyUserUnicity(username);
+            if(!r)
+            {
+                return Json(false);
+            }
+            var user = _orchardServices.WorkContext.CurrentUser;
+            _memberShipService.SetUsername(user, username);
+            _authService.SignIn(user, true);
+            return Json(true);
+        }
+
 
         [HttpGet]
         [ActionName("SearchTeacher")]
