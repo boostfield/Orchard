@@ -273,6 +273,7 @@
     <Content Include="Views\EditorTemplates\Parts\CourseDBPart.cshtml" />
     <Content Include="Views\CourseDBAdmin\List.cshtml" />
     <Content Include="Views\PersonalCenter\Index.cshtml" />
+    <Content Include="Views\XmContent\CNTeachers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

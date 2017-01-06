@@ -29,7 +29,7 @@ namespace Orchard.Xmu.Controllers
         {
             var user = _orchardServices.WorkContext.CurrentUser as UserPart;
             var teacher = _teacherRepo.Fetch(i => i.UserPartRecord == user.Record).FirstOrDefault();
-            if(teacher==null)
+            if (teacher == null)
             {
                 return Redirect("\\");
             }
@@ -40,6 +40,38 @@ namespace Orchard.Xmu.Controllers
             return View(vm);
         }
     }
+
+
+    public class ListTeachers
+    {
+        public IEnumerable<BasicTeacherVM> Professors { get; set; }
+        public IEnumerable<BasicTeacherVM> Vice_Processors { get; set; }
+        public IEnumerable<BasicTeacherVM> Introductors { get; set; }
+
+    }
+
+    public class BasicTeacherVM {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Number { get; set; }
+        public string Avatar { get; set; }
+        public string Rank { get; set; }
+        public static BasicTeacherVM FromTeacherPart(CNTeacherPart part)
+        {
+            return new BasicTeacherVM
+            {
+                Id = part.Id,
+                Name = part.Name,
+                Number = part.Number,
+                Avatar = part.Avatar,
+                Rank = part.Rank
+            };
+        }
+
+
+    }
+
 
     public class TeacherVM
     {
@@ -84,6 +116,7 @@ namespace Orchard.Xmu.Controllers
         public IList<ProjectVM> Projects { get; set; }  
 
         public IList<CourseVM> Courses { get; set; }  
+
         public static TeacherVM FromTeacherPart(CNTeacherPart part)
         {
             return new TeacherVM

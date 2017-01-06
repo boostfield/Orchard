@@ -292,6 +292,24 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+        public ActionResult CNTeachers()
+        {
+            var all = _contentManager.Query<CNTeacherPart>(VersionOptions.Latest, XmContentType.CNTeacher.ContentTypeName)
+                .Join<CNTeacherPartRecord>().Where(i => i.Rank != null).List();
+            var professors = all.Where(i => i.Rank.Contains("教授"));
+            var vice_professor = all.Where(i => i.Rank.Contains("副教授"));
+            var introductors = all.Where(i => i.Rank.Contains("讲师"));
+
+
+            var vm = new ListTeachers
+            {
+                Professors = professors.Select(i => BasicTeacherVM.FromTeacherPart(i)),
+                Vice_Processors = vice_professor.Select(i => BasicTeacherVM.FromTeacherPart(i)),
+                Introductors = introductors.Select(i => BasicTeacherVM.FromTeacherPart(i))
+            };
+            return View(vm);
+        }
+
         public ActionResult ENTeacherPaging(PagerParameters pagerParameters)
         {
             if (pagerParameters == null)

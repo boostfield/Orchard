@@ -659,6 +659,30 @@ namespace Orchard.Xmu
                   Priority = 22,
 
             Route = new Route(
+             "cnteachers",
+             new RouteValueDictionary {
+
+                 { "area", "Orchard.Xmu"},
+
+                 { "controller", "XmContent"},
+
+                 { "action", "CNTeachers"}
+
+                                       },
+
+             new RouteValueDictionary(),
+             new RouteValueDictionary {
+                                          {"area", "Orchard.Xmu"}
+                                       },
+             new MvcRouteHandler())
+                },
+
+
+                  new RouteDescriptor
+                {
+                  Priority = 22,
+
+            Route = new Route(
              "en/TeacherPaging",
              new RouteValueDictionary {
 
