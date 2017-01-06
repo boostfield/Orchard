@@ -1,8 +1,100 @@
 ﻿@model Orchard.Xmu.Controllers.ListTeachers
 
-@{ 
+@{
     var a = Model.Professors.Count();
     var b = Model.Vice_Processors.Count();
     var c = Model.Introductors.Count();
     var x = 1 + 2;
 }
+
+<div class="page-cn-teacher container">
+    <div class="panel panel-default">
+        <div class="panel-heading">教授</div>
+        <div class="panel-body">
+            <div class="row">
+                @foreach (var professor in Model.Professors)
+                {
+                    if (String.IsNullOrEmpty(professor.Avatar))
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img height="220" title="@professor.Name" width="170" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img title="@professor.Name" height="220" width="170" src="@professor.Avatar" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">副教授</div>
+        <div class="panel-body">
+            <div class="row">
+                @foreach (var professor in Model.Vice_Processors)
+                {
+                    if (String.IsNullOrEmpty(professor.Avatar))
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img height="220" title="@professor.Name" width="170" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img title="@professor.Name" height="220" width="170" src="@professor.Avatar" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">讲师</div>
+        <div class="panel-body">
+            <div class="row">
+                @foreach (var professor in Model.Introductors)
+                {
+                    if (String.IsNullOrEmpty(professor.Avatar))
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img height="220" title="@professor.Name" width="170" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="cn-teacher-thumbnail col-md-2 col-sm-3 col-xs-6">
+                            <a href="~/cnteacher/@professor.Id">
+                                <img title="@professor.Name" height="220" width="170" src="@professor.Avatar" />
+                                <p class="name">@professor.Name</p>
+                            </a>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

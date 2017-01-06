@@ -433,7 +433,7 @@ body {
     }
 
     //后台登录页面
-        .logreg {
+    .logreg {
             label {
                 font-size: 0.7em;
             }
@@ -691,7 +691,7 @@ body {
                 color: @text-second-color;
             }
         }
-        .detail-container {
+    .detail-container {
             background-color: #FAFAFA;
             .container {
                 background-color: white;
@@ -715,6 +715,43 @@ body {
                 }
             }
         }
+    //中文教师列表
+    .page-cn-teacher {
+        padding-top: 2em;
+        padding-bottom: 1em;
+        
+        .panel {
+            border-radius: 0;
+        }
+        .panel-body {
+            padding-top: 30px;
+            padding-left: 0;
+            padding-right: 0;
+            .col-md-2 {
+                padding: 0 !important;
+            }
+        }
+        .panel-heading {
+            border-radius: 0;
+            background-color: @primary-color;
+            color: white;
+            font-size: 24px;
+            color: white;
+            letter-spacing: 0;
+        }
+        .cn-teacher-thumbnail {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 60px;
+            cursor: pointer;
+            .name {
+                margin-top: 10px;
+                font-size: 18px;
+                color: #333;
+                letter-spacing: 0;
+            }
+        }
+    }
         
 }
 //中文footer
