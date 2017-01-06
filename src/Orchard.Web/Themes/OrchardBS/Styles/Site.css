@@ -655,7 +655,8 @@ body #layout-wrapper {
   background-image: url('../Content/images/bg_teachers_detail.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  padding-bottom: 80px;
 }
 .home .page-cn-teacher-detail .nav-tabs > li,
 .home .page-cn-teacher-detail .nav-pills > li {
@@ -701,6 +702,9 @@ body #layout-wrapper {
   color: #333;
   font-weight: 200;
   line-height: 29px;
+}
+.home .page-cn-teacher-detail .tab-pane {
+  height: 870px;
 }
 .home .page-cn-teacher-detail .info {
   display: inline-block;
