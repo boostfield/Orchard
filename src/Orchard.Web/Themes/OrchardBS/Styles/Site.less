@@ -722,6 +722,8 @@ body {
         
         .panel {
             border-radius: 0;
+            background: #FFFFFF;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
         }
         .panel-body {
             padding-top: 30px;
@@ -752,7 +754,82 @@ body {
             }
         }
     }
-        
+    //中文教师详情页
+    .page-cn-teacher-detail {
+        background-image: url('../Content/images/bg_teachers_detail.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        .nav-tabs > li, .nav-pills > li {
+            float:none;
+            display:inline-block;
+            *display:inline; /* ie7 fix */
+             zoom:1; /* hasLayout ie7 trigger */
+        }
+
+        .nav-tabs, .nav-pills {
+            text-align:center;
+            background: white;
+        }
+        .nav-tabs li a {
+            color: #333;
+            border: none;
+            margin-left: 100px;
+            margin-right: 100px;
+            font-size: 18px;
+        }
+        .nav-tabs li.active a {
+            color: @primary-color;
+            background-image: url(../Content/images/di_teachers_detail_tab_p.png);
+            background-position: center 99%;
+            background-size: 72px 4px;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid rgb(221, 221, 221);
+        }
+        .tab-content {
+            padding: 1em 2em;
+            background: white;
+            text-align: left;
+            h1 {
+                font-size: 20px;
+                color: #333;
+                margin-top: 30px;
+            }
+            p {
+                font-size: 18px;
+                color: #333;
+                font-weight: 200;
+                line-height: 29px;
+            }
+        }
+        .info {
+            display: inline-block;
+            margin: 2em 0;
+            img {
+                margin-right: 40px;
+            }
+            .base {
+                color: white;
+                display: inline-block;
+                .name {
+                    
+                    font-size: 24px;
+                }
+                .rank {
+                    font-size: 16px;
+                    line-height: 26px;
+                    
+                }
+                .telephone {
+                    
+                    font-size: 14px;
+                    line-height: 26px;
+                    opacity: 0.8;
+                }
+                
+            }
+        }
+    }    
 }
 //中文footer
     .home-footer.footer {

@@ -116,6 +116,7 @@
     <Content Include="OrchardBS\Content\images\anniversary\img_title_third.png" />
     <Content Include="OrchardBS\Content\images\anniversary\nav-bg.png" />
     <Content Include="OrchardBS\Content\images\anniversary\qr_code.jpg" />
+    <Content Include="OrchardBS\Content\images\bg_teachers_detail.png" />
     <Content Include="OrchardBS\Content\images\cn\bg_ch_buttom.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bg_ch_top.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bottom-text.png" />
@@ -131,6 +132,7 @@
     <Content Include="OrchardBS\Content\images\cn\img_nav_line.png" />
     <Content Include="OrchardBS\Content\images\cn\float_banner.jpg" />
     <Content Include="OrchardBS\Content\images\default-teacher.jpg" />
+    <Content Include="OrchardBS\Content\images\di_teachers_detail_tab_p.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_left_n.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_next_right_n.png" />
     <Content Include="OrchardBS\Content\images\en\ic_banner_read_more.png" />

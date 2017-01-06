@@ -139,6 +139,8 @@ namespace Orchard.Xmu.Controllers
                 Concept = part.Concept,
                 Ptjob = part.Ptjob,
                 Contact = part.Contact,
+                Office = part.Office,
+                Telephone = part.Telephone,
                 Papers = part.Papers.Select(i => PaperVM.FromPaperPart(i)).ToList(),
                 Awards = part.Awards.Select(i=>AwardVM.FromAwardPart(i)).ToList(),
                 Workds = part.Works.Select(i=>AcademicWorkVM.FromWorkPart(i)).ToList(),

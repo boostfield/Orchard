@@ -1,6 +1,88 @@
 ﻿@model Orchard.Xmu.Controllers.TeacherVM
+@using Orchard.Xmu;
 @{
     var name = Model.Name;
     var id = Model.Id;
 }
+<div class="page-cn-teacher-detail">
+    <div class="container text-center">
+        <div class="info center-block text-left">
+            @if (String.IsNullOrEmpty(Model.Avatar))
+            {
+                <img width="180" height="230" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))" />
+            }
+            else
+            {
+                <img width="180" height="230" src="@Model.Avatar" />
+            }
+            <div class="base">
+                <p class="name">@Model.Name</p>
+                <p class="rank">@Model.Rank</p>
+                <p class="telephone">
+                    办公室电话: @Model.Telephone
+                    <br />
+                    办公室: @Model.Office
+                </p>
 
+            </div>
+        </div>
+        <div style=" background white;">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">个人小传</a></li>
+                <li role="presentation"><a href="#research" aria-controls="research" role="tab" data-toggle="tab">研究成果</a></li>
+                <li role="presentation"><a href="#project" aria-controls="project" role="tab" data-toggle="tab">研究项目</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <h1>教育经历:</h1>
+                    <p>
+                        @Model.Education
+                    </p>
+                    <h1>工作经历:</h1>
+                    <p>
+
+                        @Html.Raw(Html.Encode(Model.Introduce).Replace("\n", "<br />"))
+                    </p>
+                    <h1>研究方向:</h1>
+                    <p>
+                        @Model.Resfield
+                    </p>
+                    <h1>教授课程:</h1>
+                    <p>
+                        @foreach (var course in Model.Courses)
+                        {
+                            <span>@String.Format("{0} ", course.Title)</span>
+                        }
+                    </p>
+                    <h1>社会学术兼职:</h1>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="research">
+                    <h1>论文:</h1>
+                    @foreach (var paper in Model.Papers)
+                    {
+                        <p><a href="@Url.Action("ScienceItem","XmContent",new { Id=@paper.Id, contentTypeName  = XmContentType.CNAcademicPaper.ContentTypeName})">@paper.Title</a></p>
+                    }
+                    <h1>著作:</h1>
+                    @foreach (var work in Model.Workds)
+                    {
+                        <p><a href="@Url.Action("ScienceItem","XmContent",new { Id=@work.Id, contentTypeName  = XmContentType.CNAcademicWork.ContentTypeName})">@work.Title</a></p>
+                    }
+                    <h1>获奖:</h1>
+                    @foreach (var award in Model.Awards)
+                    {
+                        <p><a href="@Url.Action("ScienceItem","XmContent",new { Id=@award.Id, contentTypeName  = XmContentType.CNAward.ContentTypeName})">@award.Title</a></p>
+                    }
+                </div>
+                <div role="tabpanel" class="tab-pane" id="project">
+                    <h1>课题:</h1>
+                    @foreach (var project in Model.Projects)
+                    {
+                        <p><a href="@Url.Action("ScienceItem","XmContent",new { Id=@project.Id, contentTypeName  = XmContentType.CNProject.ContentTypeName})">@project.Title</a></p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
