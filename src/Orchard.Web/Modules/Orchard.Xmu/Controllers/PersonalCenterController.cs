@@ -1,6 +1,7 @@
 ﻿using Orchard.ContentManagement;
 using Orchard.Data;
 using Orchard.MediaLibrary.Services;
+using Orchard.Security;
 using Orchard.Themes;
 using Orchard.Users.Models;
 using Orchard.Xmu.Models;
@@ -20,12 +21,16 @@ namespace Orchard.Xmu.Controllers
         private readonly IOrchardServices _orchardServices;
         private readonly IRepository<CNTeacherPartRecord> _teacherRepo;
         private readonly IMediaLibraryService _mediaLibraryService;
+        private readonly IAuthorizer _authorizer;
 
-        public PersonalCenterController(IOrchardServices orchardServices, IRepository<CNTeacherPartRecord> repo, IMediaLibraryService mediaLibraryService)
+        public PersonalCenterController(IOrchardServices orchardServices, IRepository<CNTeacherPartRecord> repo, IMediaLibraryService mediaLibraryService,
+            IAuthorizer authorizer
+            )
         {
             _orchardServices = orchardServices;
             _teacherRepo = repo;
             _mediaLibraryService = mediaLibraryService;
+            _authorizer = authorizer;
         }
         // GET: PersonalCenter
         public ActionResult Index()
@@ -38,11 +43,12 @@ namespace Orchard.Xmu.Controllers
             }
 
             var teacherPart = _orchardServices.ContentManager.Get<CNTeacherPart>(teacher.ContentItemRecord.Id, VersionOptions.Latest);
- 
+            var can = _authorizer.Authorize(StandardPermissions.AccessAdminPanel);
             return View(new TeacherUserVM
             {
                 Teacher = TeacherVM.FromTeacherPart(teacherPart),
-                User = UserVM.FromUserPart(user)
+                User = UserVM.FromUserPart(user),
+                CanAccessAdminPanel = can
             });
         }
         [HttpPost]
@@ -66,6 +72,8 @@ namespace Orchard.Xmu.Controllers
     {
         public TeacherVM Teacher { get; set; }
         public UserVM User { get; set; }
+
+        public Boolean CanAccessAdminPanel { get; set; }
     }
     public class UserVM
     {

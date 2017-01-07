@@ -739,7 +739,7 @@ body #layout-wrapper {
   font-size: 16px;
   font-weight: 200;
 }
-.home .page-account button.btn-primary {
+.home .page-account .btn-primary {
   border-radius: 0;
   background: #2D44AA;
 }

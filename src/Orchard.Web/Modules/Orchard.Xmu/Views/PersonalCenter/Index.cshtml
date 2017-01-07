@@ -2,6 +2,10 @@
 <div class="page-account container">
     <div class="pull-right">
         @Html.ActionLink("退出登录", "LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl }, new { rel = "nofollow", @class = "btn btn-danger" })
+        @if (Model.CanAccessAdminPanel)
+        {
+            <a class="btn btn-primary" href="~/admin">后台管理</a>
+        }
     </div>
     <div>
         <button class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseAccount" aria-expanded="false" aria-controls="collapseAccount">
@@ -33,20 +37,20 @@
     </div>
     <div class="clearfix"></div>
     <div class="base-info">
-@using (Html.BeginForm("Update", "PersonalCenter", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{ @Html.AntiForgeryToken()
+        @using (Html.BeginForm("Update", "PersonalCenter", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        { @Html.AntiForgeryToken()
             <div class="form-group">
                 <label>个人头像</label>
                 <div class="clearfix"></div>
                 @if (String.IsNullOrEmpty(Model.Teacher.Avatar))
                 {
-                    <img id="showimg" width="170" height="220" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))"/>
+                    <img id="showimg" width="170" height="220" src="@Url.Content(Html.ThemePath(WorkContext.CurrentTheme, "/Content/images/default-teacher.jpg"))" />
                 }
                 else
                 {
                     <img id="showimg" width="170" height="220" src="@Model.Teacher.Avatar" />
                 }
-                <input id="account-avatar" name="file" type="file" /> 
+                <input id="account-avatar" name="file" type="file" />
                 <label>教育经历</label>
                 <textarea rows="6" class="form-control" id="account-education" name="Education">@Model.Teacher.Education</textarea>
                 <label>工作经历</label>
@@ -55,10 +59,10 @@
                 <textarea rows="6" class="form-control" id="account-resfield" name="Resfield">@Model.Teacher.Resfield</textarea>
                 <label>社会兼职</label>
                 <textarea rows="6" class="form-control" id="account-resfield" name="Ptjob">@Model.Teacher.Ptjob</textarea>
-                <button type="submit">确认修改</button>
+                <button type="submit" class="btn btn-primary" style="margin-top: 2em;">确认修改</button>
             </div>
-}
-    </div>    
+        }
+    </div>
 </div>
 
 <script>
@@ -84,7 +88,7 @@
     function viewmypic(mypic, imgfile) {
         if (imgfile.value) {
             mypic.src = imgfile.value;
-            
+
         }
     }
     function changeUserName() {
@@ -138,7 +142,7 @@
             } else {
                 alert("两次密码输入不一致");
             }
-            
+
         } else {
             alert("密码长度必须大于7位");
         }
