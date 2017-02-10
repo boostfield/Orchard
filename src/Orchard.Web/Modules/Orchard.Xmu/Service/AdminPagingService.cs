@@ -76,13 +76,14 @@ namespace Orchard.Xmu.Service
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
             var query = _contentManager.Query(VersionOptions.Latest, typeName)
+                .Join<CNTeacherPartRecord>()
                 .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
             if (!string.IsNullOrEmpty(searchText))
             {
                 query.Where<CNTeacherPartRecord>(i=>i.Name.Contains(searchText));
             }
 
-
+ 
             var list = Services.New.List();
 
             var totalItemCount = query.Count();
