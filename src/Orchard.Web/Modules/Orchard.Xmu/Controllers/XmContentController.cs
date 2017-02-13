@@ -296,7 +296,7 @@ namespace Orchard.Xmu.Controllers
         {
             var all = _contentManager.Query<CNTeacherPart>(VersionOptions.Latest, XmContentType.CNTeacher.ContentTypeName)
                 .Join<CNTeacherPartRecord>().Where(i => i.Rank != null).List();
-            var professors = all.Where(i => i.Rank.Contains("教授"));
+            var professors = all.Where(i => i.Rank.Contains("教授") && !i.Rank.Contains("副教授"));
             var vice_professor = all.Where(i => i.Rank.Contains("副教授"));
             var introductors = all.Where(i => i.Rank.Contains("讲师"));
 
