@@ -1,5 +1,6 @@
 ﻿using Orchard.ContentManagement;
 using Orchard.Data;
+using Orchard.MediaLibrary.Fields;
 using Orchard.MediaLibrary.Services;
 using Orchard.Security;
 using Orchard.Themes;
@@ -64,6 +65,8 @@ namespace Orchard.Xmu.Controllers
             teacherPart.Resfield = vm.Resfield;
             teacherPart.Introduce = vm.Introduce;
             teacherPart.Ptjob = vm.Ptjob;
+            var field = (MediaLibraryPickerField)teacherPart.Fields.First();
+            field.Ids = new int[] { mediaPart.Id};
             return RedirectToAction("Index");
         }
     }
@@ -107,7 +110,7 @@ namespace Orchard.Xmu.Controllers
         public string Rank { get; set; }
         public static BasicTeacherVM FromTeacherPart(CNTeacherPart part)
         {
-            return new BasicTeacherVM
+            var r =  new BasicTeacherVM
             {
                 Id = part.Id,
                 Name = part.Name,
@@ -115,6 +118,17 @@ namespace Orchard.Xmu.Controllers
                 Avatar = part.Avatar,
                 Rank = part.Rank
             };
+            if(string.IsNullOrEmpty(r.Avatar))
+            {
+                var f = part.Fields.FirstOrDefault();
+                if(f!=null)
+                {
+                    var imgf = (MediaLibraryPickerField)f;
+                    r.Avatar = imgf.FirstMediaUrl;
+                }
+            }
+
+            return r;
         }
 
 
@@ -167,7 +181,7 @@ namespace Orchard.Xmu.Controllers
 
         public static TeacherVM FromTeacherPart(CNTeacherPart part)
         {
-            return new TeacherVM
+            var r = new TeacherVM
             {
                 Id = part.Id,
                 Number = part.Number,
@@ -196,6 +210,16 @@ namespace Orchard.Xmu.Controllers
                 Courses =  part.Courses.Select(i=>CourseVM.FromCoursePart(i)).ToList()
 
             };
+            if (string.IsNullOrEmpty(r.Avatar))
+            {
+                var f = part.Fields.FirstOrDefault();
+                if (f != null)
+                {
+                    var imgf = (MediaLibraryPickerField)f;
+                    r.Avatar = imgf.FirstMediaUrl;
+                }
+            }
+            return r;
         }
 
     }
