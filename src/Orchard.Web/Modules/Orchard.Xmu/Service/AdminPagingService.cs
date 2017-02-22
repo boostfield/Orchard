@@ -75,7 +75,7 @@ namespace Orchard.Xmu.Service
         {
             Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
 
-            var query = _contentManager.Query(VersionOptions.Latest, typeName)
+            var query = _contentManager.Query<CNTeacherPart>(VersionOptions.Latest, typeName)
                 .Join<CNTeacherPartRecord>()
                 .OrderByDescending<CommonPartRecord>(cr => cr.PublishedUtc);
             if (!string.IsNullOrEmpty(searchText))
