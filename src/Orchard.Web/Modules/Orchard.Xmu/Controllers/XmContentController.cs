@@ -101,7 +101,13 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+        public ActionResult WenShu(PagerParameters pagerParameters)
+        {
+            GetPagingResult("LawGraduateUnitOrg", pagerParameters);
 
+
+            return View("Paging");
+        }
 
         public ActionResult ENPaging(string contentTypeName, PagerParameters pagerParameters)
         {
