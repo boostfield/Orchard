@@ -116,6 +116,7 @@
     <Content Include="OrchardBS\Content\images\anniversary\img_title_third.png" />
     <Content Include="OrchardBS\Content\images\anniversary\nav-bg.png" />
     <Content Include="OrchardBS\Content\images\anniversary\qr_code.jpg" />
+    <Content Include="OrchardBS\Content\images\bg_teachers_detail.jpg" />
     <Content Include="OrchardBS\Content\images\bg_teachers_detail.png" />
     <Content Include="OrchardBS\Content\images\cn\bg_ch_buttom.jpg" />
     <Content Include="OrchardBS\Content\images\cn\bg_ch_top.jpg" />

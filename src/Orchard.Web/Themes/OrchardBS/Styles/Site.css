@@ -299,7 +299,7 @@ body #layout-wrapper {
   color: #2D44AA;
 }
 .home .column .list-group .list-group-item .time {
-  font-size: 0.7em;
+  font-size: 13px;
   color: #999999;
   padding-left: 0;
   padding-right: 0;
@@ -313,18 +313,20 @@ body #layout-wrapper {
   margin-top: 1em;
   padding: 1em;
   background-color: white;
+  overflow: hidden;
 }
 .home .column-larger {
-  height: 440px;
   margin-top: 1em;
   padding: 1em;
   background-color: white;
+  overflow: hidden;
 }
 .home .column-smaller {
   height: 440px;
   margin-top: 1em;
   padding: 1em;
   background-color: white;
+  overflow: hidden;
 }
 .home .column-smaller .list-group .list-group-item {
   padding-top: 26px;
@@ -342,13 +344,13 @@ body #layout-wrapper {
   color: #333333;
 }
 .home .column-smaller .list-group .list-group-item .author {
-  font-size: 0.75em;
+  font-size: 13px;
   color: white;
   background-color: #2D44AA;
   padding: 4px;
 }
 .home .column-smaller .list-group .list-group-item .location {
-  font-size: 0.7em;
+  font-size: 13px;
   background-image: url(../Content/images/cn/ic_place.png);
   background-repeat: no-repeat;
   background-position: left center;
@@ -357,7 +359,7 @@ body #layout-wrapper {
   margin-left: 12px;
 }
 .home .column-smaller .list-group .list-group-item .time {
-  font-size: 0.7em;
+  font-size: 13px;
   background-image: url(../Content/images/cn/ic_time.png);
   background-repeat: no-repeat;
   background-position: left center;
