@@ -756,10 +756,9 @@ body {
     }
     //中文教师详情页
     .page-cn-teacher-detail {
-        background-image: url('../Content/images/bg_teachers_detail.png');
+        background-image: url('../Content/images/bg_teachers_detail.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: top;
         padding-bottom: 80px;
         .nav-tabs > li, .nav-pills > li {
             float:none;
@@ -1113,7 +1112,7 @@ body {
            max-width: 590px;
            
            p {
-               font-size: 2.3em;
+               font-size: 44px;
                text-shadow: none;
                font-family:@en-font;
                overflow: hidden;
@@ -1121,8 +1120,11 @@ body {
                display: -webkit-box;
                -webkit-box-orient: vertical;
                -webkit-line-clamp: 3; /* number of lines to show */
-               line-height: 60px;        /* fallback */
-               max-height: 180px;
+               line-height: 50px;        /* fallback */
+               max-height: 150px;
+               /* SVG fallback(Opera 11.10-, IE9) */
+                background: rgba(0, 0, 0, 0.5);
+                padding-left: 4px;
            }
            a.btn-primary {
                
@@ -1473,6 +1475,7 @@ body {
 			   padding: 0.5em 0.8em;
 			   z-index: 999;
                background: none repeat scroll 0 0 @primary-color;
+               opacity: 0.5;
 		   }
 			#goToTop a {
 				
@@ -2299,6 +2302,11 @@ only screen and (max-width: 480px) {
             .container {
                 padding-left: 2em;
                 padding-right: 2em;
+            }
+        }
+        .page-cn-teacher-detail .nav-tabs li {
+            a {
+                margin: 0;
             }
         }
     }

@@ -652,10 +652,9 @@ body #layout-wrapper {
   letter-spacing: 0;
 }
 .home .page-cn-teacher-detail {
-  background-image: url('../Content/images/bg_teachers_detail.png');
+  background-image: url('../Content/images/bg_teachers_detail.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
   padding-bottom: 80px;
 }
 .home .page-cn-teacher-detail .nav-tabs > li,
@@ -1000,7 +999,7 @@ body #layout-wrapper {
   max-width: 590px;
 }
 .en-home #carousel-en .carousel-caption p {
-  font-size: 2.3em;
+  font-size: 44px;
   text-shadow: none;
   font-family: "MinionPro-SemiboldDisp", Times New Roman;
   overflow: hidden;
@@ -1009,9 +1008,12 @@ body #layout-wrapper {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   /* number of lines to show */
-  line-height: 60px;
+  line-height: 50px;
   /* fallback */
-  max-height: 180px;
+  max-height: 150px;
+  /* SVG fallback(Opera 11.10-, IE9) */
+  background: rgba(0, 0, 0, 0.5);
+  padding-left: 4px;
 }
 .en-home #carousel-en .carousel-caption a.btn-primary {
   background-color: #2D44AA;
@@ -1344,6 +1346,7 @@ body #layout-wrapper {
   padding: 0.5em 0.8em;
   z-index: 999;
   background: none repeat scroll 0 0 #2D44AA;
+  opacity: 0.5;
 }
 .en-home #goToTop a {
   color: #fdfeff;
@@ -2142,6 +2145,9 @@ body #layout-wrapper {
   .home .detail-container .container {
     padding-left: 2em;
     padding-right: 2em;
+  }
+  .home .page-cn-teacher-detail .nav-tabs li a {
+    margin: 0;
   }
   .en-home {
     flex: 1 0 auto;
