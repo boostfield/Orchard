@@ -24,11 +24,11 @@
 
                     <div class="thumbnail teacher-list-item">
                         <a href="@Url.Action("ENTeacherItem","XmContent",new { Id=@item.Id})">
+                            
                             <img alt="@item.ENName" src="@item.AvatarAddress">
-                            <div class="caption">
-                                <p>@item.ENName</p>
-                                <p>@item.Titles</p>
-                            </div>
+                            
+                            <div class="name">@item.ENName</div>
+                            <div class="title">@item.Titles</div>
                         </a>
                     </div>
                 </div>
