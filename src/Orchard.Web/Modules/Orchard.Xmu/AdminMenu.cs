@@ -15,16 +15,15 @@ namespace Orchard.Xmu
 
         public void GetNavigation(NavigationBuilder builder)
         {
+            builder.AddImageSet("")
+                .Add(T("院庆CMS"), "1.2", BuildCelCmsMenu);
 
             builder.AddImageSet("")
-                .Add(T("中文CMS"), "1.0", BuildCNCmsMenu);
-
+                .Add(T("英文CMS"), "1.1", BuildENCmsMenu);
+            
             builder.AddImageSet("")
-                .Add(T("院庆CMS"), "1.0", BuildCelCmsMenu);
-
-
-            builder.AddImageSet("")
-                .Add(T("英文CMS"), "1.0", BuildENCmsMenu);
+               .Add(T("中文CMS"), "1.0", BuildCNCmsMenu);
+            
         }
 
   

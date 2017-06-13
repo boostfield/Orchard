@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -24,7 +25,7 @@ namespace Orchard.Xmu.Models
 
             }
         }
-
+        [DisplayName("讲座地点")]
         public string LectureAddress
         {
             get
