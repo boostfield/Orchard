@@ -24,6 +24,14 @@
         @Html.Link(T("删除").Text, Url.ItemRemoveUrl(contentItem, new { returnUrl }), new { itemprop = "RemoveUrl UnsafeUrl" })
 
     </div>
-
+    <div>
+    @{ 
+        var imageaddr = contentPart.ImageAddress;
+        if(imageaddr!=null)
+        {
+            <img src="@imageaddr"/>
+        }
+    }
+    </div>
 
 </div>
