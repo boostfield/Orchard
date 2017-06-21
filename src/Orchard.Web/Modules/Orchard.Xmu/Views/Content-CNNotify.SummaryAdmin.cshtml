@@ -25,5 +25,13 @@
 
     </div>
 
-
+    <div>
+        @{
+            var imageaddr = contentPart.ImageAddress;
+            if (imageaddr != null)
+            {
+                <img src="@imageaddr" />
+            }
+        }
+    </div>
 </div>
