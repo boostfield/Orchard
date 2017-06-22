@@ -279,6 +279,7 @@
     <Content Include="Views\PersonalCenter\Index.cshtml" />
     <Content Include="Views\XmContent\CNTeachers.cshtml" />
     <Content Include="Views\XmContent\CNTeacherItem.cshtml" />
+    <Content Include="Views\Content-CollegeNews.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
