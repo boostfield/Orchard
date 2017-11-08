@@ -55,18 +55,25 @@ namespace Orchard.Xmu.Controllers
         [HttpPost]
         public ActionResult Update(HttpPostedFileBase file, TeacherVM vm)
         {
-            var mediaPart = _mediaLibraryService.ImportMedia(file.InputStream, "local", Guid.NewGuid().ToString()+file.FileName,"");
-            _orchardServices.ContentManager.Create(mediaPart);
+
+
             var user = _orchardServices.WorkContext.CurrentUser as UserPart;
             var teacher = _teacherRepo.Fetch(i => i.UserPartRecord == user.Record).FirstOrDefault();
             var teacherPart = _orchardServices.ContentManager.Get<CNTeacherPart>(teacher.ContentItemRecord.Id, VersionOptions.Latest);
-            teacherPart.Avatar = _mediaLibraryService.GetMediaPublicUrl(mediaPart.FolderPath, mediaPart.FileName);
+            if (file != null && file.InputStream != null )
+            {
+                var mediaPart = _mediaLibraryService.ImportMedia(file.InputStream, "local", Guid.NewGuid().ToString() + file.FileName, "");
+                _orchardServices.ContentManager.Create(mediaPart);
+                teacherPart.Avatar = _mediaLibraryService.GetMediaPublicUrl(mediaPart.FolderPath, mediaPart.FileName);
+                var field = (MediaLibraryPickerField)teacherPart.Fields.First();
+                field.Ids = new int[] { mediaPart.Id };
+            }
             teacherPart.Education = vm.Education;
             teacherPart.Resfield = vm.Resfield;
             teacherPart.Introduce = vm.Introduce;
             teacherPart.Ptjob = vm.Ptjob;
-            var field = (MediaLibraryPickerField)teacherPart.Fields.First();
-            field.Ids = new int[] { mediaPart.Id};
+            teacherPart.Telephone = vm.Telephone;
+            teacherPart.Contact = vm.Contact;
             return RedirectToAction("Index");
         }
     }
@@ -101,7 +108,8 @@ namespace Orchard.Xmu.Controllers
 
     }
 
-    public class BasicTeacherVM {
+    public class BasicTeacherVM
+    {
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -110,7 +118,7 @@ namespace Orchard.Xmu.Controllers
         public string Rank { get; set; }
         public static BasicTeacherVM FromTeacherPart(CNTeacherPart part)
         {
-            var r =  new BasicTeacherVM
+            var r = new BasicTeacherVM
             {
                 Id = part.Id,
                 Name = part.Name,
@@ -118,10 +126,10 @@ namespace Orchard.Xmu.Controllers
                 Avatar = part.Avatar,
                 Rank = part.Rank
             };
-            if(string.IsNullOrEmpty(r.Avatar))
+            if (string.IsNullOrEmpty(r.Avatar))
             {
                 var f = part.Fields.FirstOrDefault();
-                if(f!=null)
+                if (f != null)
                 {
                     var imgf = (MediaLibraryPickerField)f;
                     r.Avatar = imgf.FirstMediaUrl;
@@ -170,14 +178,14 @@ namespace Orchard.Xmu.Controllers
 
         public string Contact { get; set; } //联系方式
 
-        public IList<PaperVM> Papers { get; set; }  
+        public IList<PaperVM> Papers { get; set; }
 
-        public IList<AwardVM> Awards { get; set; }  
-        public IList<AcademicWorkVM> Workds { get; set; }  
+        public IList<AwardVM> Awards { get; set; }
+        public IList<AcademicWorkVM> Workds { get; set; }
 
-        public IList<ProjectVM> Projects { get; set; }  
+        public IList<ProjectVM> Projects { get; set; }
 
-        public IList<CourseVM> Courses { get; set; }  
+        public IList<CourseVM> Courses { get; set; }
 
         public static TeacherVM FromTeacherPart(CNTeacherPart part)
         {
@@ -204,10 +212,10 @@ namespace Orchard.Xmu.Controllers
                 Office = part.Office,
                 Telephone = part.Telephone,
                 Papers = part.Papers.Select(i => PaperVM.FromPaperPart(i)).ToList(),
-                Awards = part.Awards.Select(i=>AwardVM.FromAwardPart(i)).ToList(),
-                Workds = part.Works.Select(i=>AcademicWorkVM.FromWorkPart(i)).ToList(),
-                Projects = part.Projects.Select(i=>ProjectVM.FromProjectPart(i)).ToList(),
-                Courses =  part.Courses.Select(i=>CourseVM.FromCoursePart(i)).ToList()
+                Awards = part.Awards.Select(i => AwardVM.FromAwardPart(i)).ToList(),
+                Workds = part.Works.Select(i => AcademicWorkVM.FromWorkPart(i)).ToList(),
+                Projects = part.Projects.Select(i => ProjectVM.FromProjectPart(i)).ToList(),
+                Courses = part.Courses.Select(i => CourseVM.FromCoursePart(i)).ToList()
 
             };
             if (string.IsNullOrEmpty(r.Avatar))
@@ -290,7 +298,7 @@ namespace Orchard.Xmu.Controllers
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public static CourseVM FromCoursePart (CourseDBRecordPart part)
+        public static CourseVM FromCoursePart(CourseDBRecordPart part)
         {
             return new CourseVM
             {

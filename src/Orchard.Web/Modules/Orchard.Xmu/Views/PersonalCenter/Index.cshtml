@@ -58,7 +58,11 @@
                 <label>研究方向</label>
                 <textarea rows="6" class="form-control" id="account-resfield" name="Resfield">@Model.Teacher.Resfield</textarea>
                 <label>社会兼职</label>
-                <textarea rows="6" class="form-control" id="account-resfield" name="Ptjob">@Model.Teacher.Ptjob</textarea>
+                <textarea rows="6" class="form-control" id="account-Ptjob" name="Ptjob">@Model.Teacher.Ptjob</textarea>
+                <label>办公电话</label>
+                <input  class="form-control" id="account-Telephone" name="Telephone" value="@Model.Teacher.Telephone" />
+                <label>联系方式</label>
+                <textarea rows="6" class="form-control" id="account-Contact" name="Contact">@Model.Teacher.Contact</textarea>
                 <button type="submit" class="btn btn-primary" style="margin-top: 2em;">确认修改</button>
             </div>
         }
