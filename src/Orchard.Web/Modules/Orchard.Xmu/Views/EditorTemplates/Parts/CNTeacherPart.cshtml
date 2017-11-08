@@ -92,5 +92,27 @@
     @Html.RadioButtonFor(m => m.IsShow, "false")否
 </fieldset>
 
+<fieldset>
+    @Html.LabelFor(m => m.isResetPassword)
+    @Html.RadioButtonFor(m => m.isResetPassword, "true", new { @class = "rbPassword"})是
+    @Html.RadioButtonFor(m => m.isResetPassword, "false", new { @class = "rbPassword" })否
+</fieldset>
+
+<fieldset id="fsNewPassword" style="display: none;">
+    @Html.LabelFor(m => m.newPassword)
+    @Html.TextBoxFor(m => m.newPassword)
+</fieldset>
+
 @Html.Label("相关课程")
 <select class="related-courses" style="width: 400px;" multiple="multiple" name="CNTeacherPart.RelatedCourses"></select>
+
+<script>
+    $(".rbPassword").change(function (value) {
+        console.log($(this).val())
+        if ($(this).val() == 'true') {
+            $("#fsNewPassword").show();
+        } else {
+            $("#fsNewPassword").hide();
+        }
+    });
+</script>

@@ -426,5 +426,16 @@ namespace Orchard.Xmu.Models
         {
             get; set;
         }
+
+        [DisplayName("是否重置密码")]
+        public bool isResetPassword
+        {
+            get; set;
+        }
+        [DisplayName("新密码")]
+        public string newPassword
+        {
+            get;set;
+        }
     }
 }

@@ -5,17 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Orchard.ContentManagement;
+using Orchard.Security;
 
 namespace Orchard.Xmu.Drivers
 {
     public class CNTeacherPartDriver : ContentPartDriver<CNTeacherPart>
     {
         private readonly IOrchardServices _orchardServices;
+        private readonly IMembershipService _memberShipService;
 
-        public CNTeacherPartDriver(IOrchardServices orchardServices)
+        public CNTeacherPartDriver(IOrchardServices orchardServices, IMembershipService memberShipService)
         {
             _orchardServices = orchardServices;
-
+            _memberShipService = memberShipService;
         }
 
         protected override DriverResult Editor(CNTeacherPart part, IUpdateModel updater, dynamic shapeHelper)
@@ -27,6 +29,20 @@ namespace Orchard.Xmu.Drivers
             var oldproject = part.Record.RecordProjects;
             */
             updater.TryUpdateModel(part, Prefix, null, null);
+
+            if(part.isResetPassword && !string.IsNullOrEmpty(part.newPassword))
+            {
+                var username = part.Record.UserPartRecord.UserName;
+                IUser user = _memberShipService.GetUser(username);
+                if(user!=null)
+                {
+                    _memberShipService.SetPassword(user, part.newPassword);
+                }
+                
+
+            }
+
+
             /*
             if (part.AwardIds == null)
             {
