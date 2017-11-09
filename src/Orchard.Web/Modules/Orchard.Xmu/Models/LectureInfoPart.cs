@@ -56,5 +56,31 @@ namespace Orchard.Xmu.Models
 
             }
         }
+
+        public string LectureType
+        {
+            get
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                var r =  content.LectureInfoPart.lectureType.Value;
+                if(string.IsNullOrEmpty(r))
+                {
+                    return "学术讲座";
+                } 
+                else
+                {
+                    return r;
+                }
+            }
+
+            set
+            {
+                dynamic content = (dynamic)this.ContentItem;
+                content.LectureInfoPart.lectureType.Value = value;
+
+            }
+
+        }
+
     }
 }

@@ -163,13 +163,15 @@
                                 <li class="list-group-item">
 
                                     <div class="row" title="@lecture.Title">
-                                        <div class="title"><a href="@Url.Action("Item","XmContent",new { Id=@lecture.Id, contentTypeName  = "LectureInfo"})">@lecture.Title</a></div>
+                                        <div class="title"><a class="lectureTitle" href="@Url.Action("Item","XmContent",new { Id=@lecture.Id, contentTypeName  = "LectureInfo"})">@lecture.Title</a></div>
 
                                     </div>
                                     <div class="row text-left">
+                                        
                                         <span class="author">@lecture.Lecturer</span>
                                         <span class="location">@lecture.LectureAddress</span>
                                         <span class="time">@lecture.StartTime.ToLocalTime().ToString("yyyy/MM/dd HH:mm")</span>
+                                        <a class="lectureType" href="@Url.Action("LecturePaging","XmContent", new { page = 1, pageSize = 10, lectureType = @lecture.LectureType })">[@lecture.LectureType]</a>
                                     </div>
 
                                 </li>

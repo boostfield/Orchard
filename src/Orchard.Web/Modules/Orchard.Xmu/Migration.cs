@@ -607,7 +607,7 @@ namespace Orchard.Xmu
 
             SchemaBuilder.CreateTable(typeof(CNTeacherPartRecord).Name, table =>
             table.ContentPartRecord()
-           
+
             .Column<string>("Number")
             .Column<string>("Name")
             .Column<string>("Rank")
@@ -631,7 +631,7 @@ namespace Orchard.Xmu
             .Column<string>("Course", c => c.Unlimited())
             .Column<string>("Ptjob", c => c.Unlimited())
             .Column<string>("Project", c => c.Unlimited())
-            .Column<string>("Contact",c=>c.WithLength(450))
+            .Column<string>("Contact", c => c.WithLength(450))
             .Column<bool>("IsShow")
             );
 
@@ -682,9 +682,9 @@ namespace Orchard.Xmu
           .Column<string>("FinishDate")
           .Column<string>("AidSituation")
           .Column<string>("Remarks", c => c.Unlimited())
-        //  .Column<DateTime>("Inputdate")
+          //  .Column<DateTime>("Inputdate")
           .Column<int>("Clicknumber")
-         // .Column<DateTime>("RefreshDate")
+          // .Column<DateTime>("RefreshDate")
           .Column<string>("ResultType")
           .Column<string>("Member1")
           .Column<string>("Funds1")
@@ -842,7 +842,7 @@ namespace Orchard.Xmu
                 .Column<string>("Keyword")
                 .Column<string>("Summary", c => c.Unlimited())
                 .Column<string>("Text", c => c.Unlimited())
-               // .Column<DateTime>("InputDate")
+                // .Column<DateTime>("InputDate")
                 .Column<int>("ClickNumber")
                 //.Column<DateTime>("RefreshDate")
                 .Column<string>("ResultType")
@@ -969,15 +969,15 @@ namespace Orchard.Xmu
             SchemaBuilder.AlterTable(typeof(CNTeacherPartRecord).Name, t => t.AddColumn<int>("UserPartRecord_id"));
             return 24;
         }
- 
+
 
         public int UpdateFrom24()
         {
             SchemaBuilder.CreateTable(typeof(CourseDBRecord).Name,
                 t => t.ContentPartRecord()
                 .Column<string>("Name")
-                .Column<string>("Intro",c=>c.Unlimited())
-                .Column<string>("Instructor", c=>c.WithDefault(500))
+                .Column<string>("Intro", c => c.Unlimited())
+                .Column<string>("Instructor", c => c.WithDefault(500))
                 .Column<string>("RecommandBooks", c => c.Unlimited())
                 .Column<string>("TeachPlan", c => c.Unlimited())
                 .Column<string>("ForGrade")
@@ -1012,6 +1012,33 @@ namespace Orchard.Xmu
                     .Column<int>("CourseDBRecord_Id")
                         );
             return 26;
+        }
+
+        public int UpdateFrom26()
+        {
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(ScientificResearchCommonPart).Name,
+              cfg =>
+              cfg.WithField("istop",
+                       b => b.OfType("BooleanField")
+                           .WithDisplayName("置顶")
+                           .WithSetting("BooleanFieldSettings.DefaultValue", "False")
+                           )
+             );
+
+
+            ContentDefinitionManager.AlterPartDefinition(typeof(LectureInfoPart).Name,
+             cfg =>
+             cfg.WithField("lectureType",
+             b => b.OfType("EnumerationField")
+               .WithDisplayName("讲座类型")
+               .WithSetting("EnumerationFieldSettings.Required","True")
+               .WithSetting("EnumerationFieldSettings.DefaultValue","学术讲座")
+               .WithSetting("EnumerationFieldSettings.Options", "学术讲座" + System.Environment.NewLine + "实务讲座" + System.Environment.NewLine + "学术沙龙")
+               ));
+
+            return 27;
         }
     }
 }

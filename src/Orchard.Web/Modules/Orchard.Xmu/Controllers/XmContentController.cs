@@ -132,6 +132,43 @@ namespace Orchard.Xmu.Controllers
 
         }
 
+
+        public ActionResult LecturePaging(string lectureType, PagerParameters pagerParameters)
+        {
+            if (pagerParameters == null)
+            {
+                pagerParameters = new PagerParameters
+                {
+                    Page = 1,
+                    PageSize = 10
+                };
+            }
+            Pager pager = new Pager(_siteService.GetSiteSettings(), pagerParameters);
+            var q = _contentManager.Query<LectureInfoPart>(VersionOptions.Latest, XmContentType.LectureInfo.ContentTypeName)
+                .OrderByDescending<CommonPartRecord>(cr => cr.CreatedUtc);
+            IEnumerable<LectureInfoPart> items = null;
+            if (lectureType != "全部")
+            {
+                items = q.List().Where(p => p.LectureType == lectureType);
+            }
+            else
+            {
+                items = q.List();
+            }
+
+            ViewBag.total = items.Count();
+            ViewBag.page = pager.Page;
+            ViewBag.pageSize = pager.PageSize;
+            ViewBag.items = items.Skip(pager.GetStartIndex()).Take(pager.PageSize);
+            ViewBag.ContentTypeName = XmContentType.LectureInfo.ContentTypeName;
+            ViewBag.ListTitle = XmContentType.LectureInfo.ListTitle; ;
+            ViewBag.LectureType = lectureType;
+            return View();
+
+
+        }
+
+
         public ActionResult ScientificResearchPaging(string contentTypeName, PagerParameters pagerParameters)
         {
             if (pagerParameters == null)

@@ -274,6 +274,15 @@ body #layout-wrapper {
   border-left: none;
   border-radius: 0;
 }
+.home .column .list-group .list-group-item .lectureTitle {
+  font-size: 0.9em;
+}
+.home .column .list-group .list-group-item .lectureType {
+  font-size: 0.7em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .home .column .list-group .list-group-item .name {
   font-size: 0.7em;
   padding-left: 0;

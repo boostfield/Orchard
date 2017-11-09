@@ -1,0 +1,61 @@
+﻿@using Orchard.Xmu.Models;
+@{
+
+    var total = ViewBag.total;
+    //var items = ViewBag.items;
+    var items = Enumerable.Cast<LectureInfoPart>((System.Collections.IEnumerable)ViewBag.items);
+    var page = ViewBag.page;
+    var pagesize = ViewBag.pageSize;
+    var contentTypeName = ViewBag.ContentTypeName;
+}
+
+<div class="top-nav-bg">
+
+</div>
+<div class="container cn-list">
+    <h1>@ViewBag.ListTitle</h1>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            @ViewBag.LectureType
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="1" href="@Url.Action("LecturePaging","XmContent", new { page = 1, pageSize = 10, lectureType= "学术讲座" }) ">学术讲座</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="2" href="@Url.Action("LecturePaging", "XmContent", new { page = 1, pageSize = 10, lectureType= "实务讲座" }) ">实务讲座</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="3" href="@Url.Action("LecturePaging", "XmContent", new { page = 1, pageSize = 10, lectureType="学术沙龙" }) ">学术沙龙</a></li>
+        </ul>
+    </div>
+    <ul class="list-group">
+        @foreach (var item in items)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <a href="@Url.Action("Item","XmContent",new { Id=@item.Id, contentTypeName  = "LectureInfo"})">
+                        <div class="col-sm-9 title-name">@item.Title</div>
+                        <div class="col-sm-3 title-time">@item.StartTime.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                    </a>
+                </div>
+
+            </li>
+        }
+    </ul>
+
+    <div class="row">
+        <div id="pagination"></div>
+    </div>
+</div>
+<script>
+    $('#pagination').bootpag({
+        total: Math.ceil((@total ) / 10) ,
+        page:  @page,
+        maxVisible: 10,
+        leaps: false,
+        next: '下一页',
+        prev: '上一页',
+        firstLastUse: true,
+        first: '首页',
+        last: Math.ceil((@total) / 10),
+    }).on('page', function (event, num) {
+        window.location = (location.protocol + '//' + location.host + location.pathname + "?page=" + num + "&pageSize=10");
+    });
+</script>
