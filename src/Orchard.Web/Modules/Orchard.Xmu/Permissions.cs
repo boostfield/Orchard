@@ -113,6 +113,13 @@ namespace Orchard.Xmu
             Name = string.Format("Manage{0}", XmContentType.CNProject.ContentTypeName)
         };
 
+        public static readonly Permission ManageStudent = new Permission
+        {
+            Description = XmContentType.Student.PermissionDesc,
+            Name = string.Format("Manage{0}", XmContentType.Student.ContentTypeName)
+        };
+
+
         public static readonly Permission ManagerCourseDB = new Permission
         {
             Description = XmContentType.CourseDB.PermissionDesc,

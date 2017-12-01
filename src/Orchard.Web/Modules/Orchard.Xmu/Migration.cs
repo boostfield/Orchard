@@ -1040,5 +1040,47 @@ namespace Orchard.Xmu
 
             return 27;
         }
+
+        public int UpdateFrom27()
+        {
+
+            SchemaBuilder.CreateTable(typeof(StudentRecord).Name, table =>
+            table.ContentPartRecord()
+
+            .Column<string>("StudentID")
+            .Column<string>("Name")
+            .Column<string>("IdentityID")
+            .Column<string>("Gender")
+            .Column<string>("Birthday")
+            .Column<string>("PlaceOfBirth", c => c.Unlimited())
+            .Column<string>("Address", c => c.Unlimited())
+            .Column<string>("PoliticalStatus", c => c.WithLength(450))
+            .Column<string>("TelNo")
+            .Column<string>("WechatNo" )
+            .Column<string>("QQNo")
+            .Column<string>("Email")
+            .Column<string>("Grade")
+            .Column<string>("YearOfAdmission")
+            .Column<string>("DormitoryAddress", c => c.Unlimited())
+            .Column<string>("AfterGraduation", c => c.Unlimited())
+            );
+            return 28;
+        }
+
+        public int UpdateFrom28()
+        {
+
+            ContentDefinitionManager.AlterTypeDefinition(XmContentType.Student.ContentTypeName,
+                    cfg => cfg
+            .DisplayedAs(XmContentType.Student.ContentTypeDisplayName)
+             .WithPart(typeof(CommonPart).Name, builder => builder.WithSetting("OwnerEditorSettings.ShowOwnerEditor", "false"))
+            .WithPart(typeof(StudentPart).Name)
+            .WithSetting("ListTitle", XmContentType.Student.ListTitle)
+            .Creatable()
+            .Draftable()
+            .Securable()
+            );
+            return 29;
+        }
     }
 }

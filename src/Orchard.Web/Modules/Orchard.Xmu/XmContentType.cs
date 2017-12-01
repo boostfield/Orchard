@@ -103,6 +103,14 @@ namespace Orchard.Xmu
             ListTitle = "Teachers List"
         };
 
+        public static XmContentDefinition Student = new XmContentDefinition
+        {
+            ContentTypeDisplayName = "学生信息",
+            PermissionDesc = "管理学生信息",
+            ContentTypeName = "Student",
+            ContentTypePartName = "StudentPart",
+            ListTitle = "STudent List"
+        };
 
         public static XmContentDefinition CNAcademicPaper = new XmContentDefinition
         {

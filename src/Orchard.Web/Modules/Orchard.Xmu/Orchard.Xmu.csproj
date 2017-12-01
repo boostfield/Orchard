@@ -281,6 +281,9 @@
     <Content Include="Views\XmContent\CNTeacherItem.cshtml" />
     <Content Include="Views\Content-CollegeNews.SummaryAdmin.cshtml" />
     <Content Include="Views\XmContent\LecturePaging.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\StudentPart.cshtml" />
+    <Content Include="Views\StudentAdmin\List.cshtml" />
+    <Content Include="Views\Content-Student.SummaryAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -301,6 +304,7 @@
     <Compile Include="Controllers\CNCollegeShowAdminController.cs" />
     <Compile Include="Controllers\CNCopAdminController.cs" />
     <Compile Include="Controllers\CNNotifyAdminController.cs" />
+    <Compile Include="Controllers\StudentAdminController.cs" />
     <Compile Include="Controllers\CNProjectAdminController.cs" />
     <Compile Include="Controllers\CNTeacherAdminController.cs" />
     <Compile Include="Controllers\College90CelebrationAdminController.cs" />
@@ -332,12 +336,14 @@
     <Compile Include="Drivers\CourseDBPartDriver.cs" />
     <Compile Include="Drivers\ENCoursePartDriver.cs" />
     <Compile Include="Drivers\ENSectionPartDriver.cs" />
+    <Compile Include="Drivers\StudentPartDriver.cs" />
     <Compile Include="Drivers\ENTeacherPartDriver.cs" />
     <Compile Include="Drivers\NinetyCelebrationDonationPartDriver.cs" />
     <Compile Include="Drivers\ProjectPartDriver.cs" />
     <Compile Include="Drivers\XmContentPartDriver.cs" />
     <Compile Include="Drivers\LectureInfoPartDriver.cs" />
     <Compile Include="Extension\Extensions.cs" />
+    <Compile Include="Hanlders\StudentPartHandler.cs" />
     <Compile Include="Hanlders\AcademicPaperPartHandler.cs" />
     <Compile Include="Hanlders\AcademicWorkPartHandler.cs" />
     <Compile Include="Hanlders\AwardPartHandler.cs" />
@@ -365,6 +371,7 @@
     <Compile Include="Models\CNTeacherCourseRelationRecord.cs" />
     <Compile Include="Models\CNTeacherPart.cs" />
     <Compile Include="Models\CNTeacherProjectRelationRecord.cs" />
+    <Compile Include="Models\StudentRecord.cs" />
     <Compile Include="Models\CourseDBRecord.cs" />
     <Compile Include="Models\CourseDBRecordPart.cs" />
     <Compile Include="Models\ENCoursePart.cs" />
@@ -378,6 +385,7 @@
     <Compile Include="Models\ProjectRecord.cs" />
     <Compile Include="Models\CNTeacherPartRecord.cs" />
     <Compile Include="Models\ScientificResearchCommonPart.cs" />
+    <Compile Include="Models\StudentPart.cs" />
     <Compile Include="Models\TeacherCourseRelationRecord.cs" />
     <Compile Include="Models\XmContentPart.cs" />
     <Compile Include="Models\College90CelebrationPart.cs" />

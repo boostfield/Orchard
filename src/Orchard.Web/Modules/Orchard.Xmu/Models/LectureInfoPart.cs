@@ -65,7 +65,7 @@ namespace Orchard.Xmu.Models
                 var r =  content.LectureInfoPart.lectureType.Value;
                 if(string.IsNullOrEmpty(r))
                 {
-                    return "学术讲座";
+                    return "南强学术讲座";
                 } 
                 else
                 {

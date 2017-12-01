@@ -80,13 +80,21 @@ body {
     -o-transition:      all 1000ms ease;
     -ms-transition:     all 1000ms ease;
     transition:         all 1000ms ease;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
+
 
 .dropdown:hover > ul.dropdown-menu {
     display: block;
     opacity: 1;
 }
-.dropdown-submenu:hover > ul.dropdown-menu {
+.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+}
+.dropdown-submenu:hover {
     display: block;
     opacity: 1;
 }
@@ -259,7 +267,7 @@ body {
         color: white;
     }
     .dropdown-menu > li>a:hover {
-        background-color: @primary-color;
+        background-color: @primary-dark-color;
         color: white;
     }
     .dropdown-menu li {
@@ -398,8 +406,8 @@ body {
         overflow: hidden;
         .list-group {
             .list-group-item {
-                padding-top: 26px;
-                padding-bottom: 26px;
+                padding-top: 20px;
+                padding-bottom: 20px;
                 .title {
                     font-size: 0.9em;
                     margin-bottom: 5px;

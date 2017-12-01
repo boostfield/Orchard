@@ -1,0 +1,23 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.Core.Contents
+@using Orchard.Utility.Extensions;
+@using Orchard.Xmu.Models;
+@{
+    Script.Require("ShapesBase");
+    ContentItem contentItem = Model.ContentItem;
+    var part = contentItem.As<StudentPart>();
+    var returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString();
+}
+<div class="summary" itemscope="itemscope" itemid="@contentItem.Id" itemtype="http://orchardproject.net/data/ContentItem">
+    
+    <h3>@Html.ItemAdminLink(part.Name, contentItem)</h3> - <span class="contentType">@contentItem.TypeDefinition.DisplayName</span>
+
+    <div class="related">
+
+        @Html.ItemEditLink(T("编辑").Text, contentItem)@T(" | ")
+        @Html.Link(T("删除").Text, Url.ItemRemoveUrl(contentItem, new { returnUrl }), new { itemprop = "RemoveUrl UnsafeUrl" })
+
+    </div>
+
+
+</div>
