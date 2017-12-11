@@ -130,6 +130,13 @@ namespace Orchard.Xmu
 
             foreach (var mapping in XmContentType.CNCMSMappings)
             {
+                String menuDisplayName = mapping.ContentTypeDisplayName;
+                if (menuDisplayName == "捐赠芳名" || menuDisplayName == "校友论坛" || menuDisplayName == "国辩协会" || menuDisplayName == "法学社" || menuDisplayName == "法硕联合会" || menuDisplayName == "学生组织"
+                    || menuDisplayName == "法律援助" || menuDisplayName == "志愿服务" || menuDisplayName == "社会实践" || menuDisplayName == "就业实习" || menuDisplayName == "学术动态"
+                    || menuDisplayName == "永远怀念" || menuDisplayName == "退休教师")
+                {
+                    continue;
+                }
                 menu.Add(T(mapping.ContentTypeDisplayName), "2",
                 item => item.Action("List", "XmContentAdmin", new { area = "Orchard.Xmu", contentTypeName = mapping.ContentTypeName })
                 .Permission(mapping.Permission));
